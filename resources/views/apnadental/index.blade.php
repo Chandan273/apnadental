@@ -19,11 +19,11 @@ ul#services-dropdown {
         <form class="search_wp">
             @csrf
             <div id="custom-search-input">
-                <div class="form-row d-flex">
-                    <div class="form-group col-md-6 position-relative">
+                <div class="form-row d-flex justify-content-center">
+                    <!-- <div class="form-group col-md-6 position-relative">
                         <i class="pe-7s-map-marker position-absolute" style="top: 35%; transform: translateY(-50%); left: 10px;"></i>
                         <input type="text" id="apna_location" class="form-control pl-5" style="padding-left: 40px;" placeholder="Find Location">
-                    </div>                    
+                    </div>                     -->
 
                     <input type="hidden" id="latitude" name="latLong" />
                     <input type="hidden" id="longitude" name="latLong" />
