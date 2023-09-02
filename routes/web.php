@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
@@ -27,6 +28,9 @@ Route::prefix('admin')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('post-login', [AuthController::class,'postLogin'])->name('login.post');
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
+    Route::view('/add-service', 'admin/add_service');
+    Route::view('/all-services', 'admin/all_services');
+    Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
     Route::view('/add-listing', 'admin/add_listing');
     Route::view('/add-doctor', 'admin/add_doctor');
     Route::view('/bookings', 'admin/bookings');
@@ -39,20 +43,20 @@ Route::prefix('admin')->group(function () {
     Route::view('/user-profile', 'admin/user_profile');
 });
 
-//Route::view('/', 'apnadental/index');
 Route::get('/', [SearchController::class, 'index']);
 Route::view('/404', 'apnadental/404');
 Route::view('/login', 'apnadental/login');
 Route::view('/register', 'apnadental/register');
 Route::view('/blog', 'apnadental/blog');
 Route::view('/about-us', 'apnadental/about');
-//Route::view('/doctors', 'apnadental/doctors');
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::view('/contact-us', 'apnadental/contact');
 Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
-
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
+<<<<<<< HEAD
+=======
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);
 
 
+>>>>>>> 4109e78976db6efdafee80e0eb328ff1cc19e552
