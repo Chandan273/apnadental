@@ -54,3 +54,5 @@ Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);
+
+
