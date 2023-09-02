@@ -12,6 +12,20 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Service">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseService" data-parent="#exampleAccordion">
+            <i class="fa fa-cog mr-1" aria-hidden="true"></i>
+            <span class="nav-link-text">Service</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseService">
+            <li>
+              <a href="{{ url('/admin/add-service') }}">Add Service</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/all-services') }}">All Services</a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Doctor">
           <a class="nav-link" href="{{ url('/admin/add-doctor') }}">
             <i class="fa fa-user-md" aria-hidden="true"></i>
