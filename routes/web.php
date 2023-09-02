@@ -54,3 +54,9 @@ Route::view('/contact-us', 'apnadental/contact');
 Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
+<<<<<<< HEAD
+=======
+//Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);
+
+
+>>>>>>> 4109e78976db6efdafee80e0eb328ff1cc19e552
