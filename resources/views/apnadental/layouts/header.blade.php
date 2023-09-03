@@ -1,4 +1,8 @@
 <style>
+  header .navigation-bg {
+    background-color: #74d1c6;
+  }
+
   ul.mega-menu {
     width: 70vw;
   }
@@ -27,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-light">
+  <div class="navigation-bg">
     <div class="container">
       <div class="row py-3">
         <nav class="col-12 col-lg-6">
@@ -100,7 +104,7 @@
               <i class="pe-7s-map-marker position-absolute top-50 start-2 ms-3 translate-middle"></i>
               <input type="text" id="apna_location" class="form-control ps-5" placeholder="Find Location">
               <input type="hidden" id="latitude" name="latLong" />
-                    <input type="hidden" id="longitude" name="latLong" />
+              <input type="hidden" id="longitude" name="latLong" />
             </div>
           </div>
         </div>
@@ -112,183 +116,183 @@
 
 <script>
   $(document).ready(function() {
-        function getLocation() {
-            var latitude = getCookie("latitude");
-            var longitude = getCookie("longitude");
+    function getLocation() {
+      var latitude = getCookie("latitude");
+      var longitude = getCookie("longitude");
 
-            console.log(latitude + ", " + longitude);
+      console.log(latitude + ", " + longitude);
 
-            if (latitude === null || longitude === null) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition, showError);
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            } else {
-                showPosition({
-                    coords: {
-                        latitude: parseFloat(latitude),
-                        longitude: parseFloat(longitude)
-                    }
+      if (latitude === null || longitude === null) {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          console.log("Geolocation is not supported by this browser.");
+        }
+      } else {
+        showPosition({
+          coords: {
+            latitude: parseFloat(latitude),
+            longitude: parseFloat(longitude)
+          }
+        });
+      }
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      console.log("Latitude: " + latitude + "\nLongitude: " + longitude);
+
+      // Store latitude and longitude in cookies
+      setCookie("latitude", latitude, 365);
+      setCookie("longitude", longitude, 365);
+
+      // Fetch and display location name using reverse geocoding
+      fetchLocationName(latitude, longitude);
+    }
+
+    function showError(error) {
+      var errorMessage = "";
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          errorMessage = "User denied the request for Geolocation.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          errorMessage = "Location information is unavailable.";
+          break;
+        case error.TIMEOUT:
+          errorMessage = "The request to get user location timed out.";
+          break;
+        case error.UNKNOWN_ERROR:
+          errorMessage = "An unknown error occurred.";
+          break;
+      }
+      console.log(errorMessage);
+    }
+
+    function fetchLocationName(latitude, longitude) {
+      var apiKey = "AIzaSyAsYL1hrGBbl8KI_DhiULQGaoMfSkQAjA4";
+      var apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.results.length > 0) {
+            var addressComponents = data.results[0].address_components;
+            var cityName = getCityNameFromAddress(addressComponents);
+            console.log("City Name:", cityName);
+
+            // Update input field with city name
+            document.getElementById("apna_location").value = cityName;
+
+
+            $.ajax({
+              url: '/projects/apnadental/search-location', // Change the URL to match your route
+              method: 'GET',
+              data: {
+                latitude: latitude,
+                longitude: longitude
+              },
+              success: function(response) {
+                var servicesUl = $("#services-dropdown");
+                servicesUl.empty(); // Clear existing list items
+
+                $.each(response.services, function(index, service) {
+                  var li = $("<li></li>").appendTo(servicesUl);
+                  var a = $("<a></a>")
+                    .addClass("dropdown-item")
+                    .attr("href", getServiceUrl(service.id, latitude, longitude, cityName, service.service_name))
+                    .attr("data-sid", service.id)
+                    .text(service.service_name)
+                    .appendTo(li);
                 });
-            }
-        }
 
-        function showPosition(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
+                servicesUl.addClass("show");
 
-            console.log("Latitude: " + latitude + "\nLongitude: " + longitude);
+              },
+              error: function() {
+                console.log('Error while sending the AJAX request');
+              }
+            });
 
-            // Store latitude and longitude in cookies
-            setCookie("latitude", latitude, 365);
-            setCookie("longitude", longitude, 365);
+            // Function to construct the dynamic URL
+            function getServiceUrl(serviceId, latitude, longitude, cityName, serviceName) {
+              var baseUrl = "/projects/apnadental/doctors";
+              var queryParams = {
+                results_type: "doctor",
+                service_id: serviceId,
+                latitude: parseFloat(latitude.toFixed(7)),
+                longitude: parseFloat(longitude.toFixed(7)),
+                service_name: serviceName,
+                location_type: "geo location",
+                city: cityName
+              };
 
-            // Fetch and display location name using reverse geocoding
-            fetchLocationName(latitude, longitude);
-        }
-
-        function showError(error) {
-            var errorMessage = "";
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    errorMessage = "User denied the request for Geolocation.";
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    errorMessage = "Location information is unavailable.";
-                    break;
-                case error.TIMEOUT:
-                    errorMessage = "The request to get user location timed out.";
-                    break;
-                case error.UNKNOWN_ERROR:
-                    errorMessage = "An unknown error occurred.";
-                    break;
-            }
-            console.log(errorMessage);
-        }
-
-        function fetchLocationName(latitude, longitude) {
-            var apiKey = "AIzaSyAsYL1hrGBbl8KI_DhiULQGaoMfSkQAjA4";
-            var apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
-
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.results.length > 0) {
-                        var addressComponents = data.results[0].address_components;
-                        var cityName = getCityNameFromAddress(addressComponents);
-                        console.log("City Name:", cityName);
-
-                        // Update input field with city name
-                        document.getElementById("apna_location").value = cityName;
-
-
-                        $.ajax({
-                            url: '/projects/apnadental/search-location', // Change the URL to match your route
-                            method: 'GET',
-                            data: {
-                                latitude: latitude,
-                                longitude: longitude
-                            },
-                            success: function(response) {
-                                var servicesUl = $("#services-dropdown");
-                                servicesUl.empty(); // Clear existing list items
-
-                                $.each(response.services, function(index, service) {
-                                    var li = $("<li></li>").appendTo(servicesUl);
-                                    var a = $("<a></a>")
-                                        .addClass("dropdown-item")
-                                        .attr("href", getServiceUrl(service.id, latitude, longitude, cityName, service.service_name))
-                                        .attr("data-sid", service.id)
-                                        .text(service.service_name)
-                                        .appendTo(li);
-                                });
-
-                                servicesUl.addClass("show");
-
-                            },
-                            error: function() {
-                                console.log('Error while sending the AJAX request');
-                            }
-                        });
-
-                        // Function to construct the dynamic URL
-                        function getServiceUrl(serviceId, latitude, longitude, cityName, serviceName) {
-                            var baseUrl = "/projects/apnadental/doctors";
-                            var queryParams = {
-                                results_type: "doctor",
-                                service_id: serviceId,
-                                latitude: parseFloat(latitude.toFixed(7)),
-                                longitude: parseFloat(longitude.toFixed(7)),
-                                service_name: serviceName,
-                                location_type: "geo location",
-                                city: cityName
-                            };
-
-                            return baseUrl + "?" + $.param(queryParams);
-                        }
-
-
-                    } else {
-                        console.log("Location name not available.");
-                    }
-                })
-                .catch(error => {
-                    console.log("Error fetching location name:", error);
-                });
-        }
-
-        function getCityNameFromAddress(addressComponents) {
-            let locality = null;
-            let city = null;
-
-            for (let i = 0; i < addressComponents.length; i++) {
-                const component = addressComponents[i];
-                if (component.types.includes("sublocality_level_1")) {
-                    locality = component.long_name;
-                } else if (component.types.includes("locality")) {
-                    city = component.long_name;
-                }
+              return baseUrl + "?" + $.param(queryParams);
             }
 
-            // Combine locality and city if available, otherwise return unknown
-            if (locality && city) {
-                return `${locality}, ${city}`;
-            } else if (locality) {
-                return locality;
-            } else if (city) {
-                return city;
-            } else {
-                return "Unknown City";
-            }
-        }
 
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + value + expires + "; path=/";
-        }
+          } else {
+            console.log("Location name not available.");
+          }
+        })
+        .catch(error => {
+          console.log("Error fetching location name:", error);
+        });
+    }
 
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i];
-                while (cookie.charAt(0) === ' ') {
-                    cookie = cookie.substring(1);
-                }
-                if (cookie.indexOf(nameEQ) === 0) {
-                    return cookie.substring(nameEQ.length, cookie.length);
-                }
-            }
-            return null;
-        }
+    function getCityNameFromAddress(addressComponents) {
+      let locality = null;
+      let city = null;
 
-        // Call the getLocation function on page load
-        window.onload = getLocation;
-    });
+      for (let i = 0; i < addressComponents.length; i++) {
+        const component = addressComponents[i];
+        if (component.types.includes("sublocality_level_1")) {
+          locality = component.long_name;
+        } else if (component.types.includes("locality")) {
+          city = component.long_name;
+        }
+      }
+
+      // Combine locality and city if available, otherwise return unknown
+      if (locality && city) {
+        return `${locality}, ${city}`;
+      } else if (locality) {
+        return locality;
+      } else if (city) {
+        return city;
+      } else {
+        return "Unknown City";
+      }
+    }
+
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(nameEQ) === 0) {
+          return cookie.substring(nameEQ.length, cookie.length);
+        }
+      }
+      return null;
+    }
+
+    // Call the getLocation function on page load
+    window.onload = getLocation;
+  });
 </script>

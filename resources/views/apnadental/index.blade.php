@@ -790,12 +790,14 @@
     <!-- Faq start -->
     <section class="faqs pb-5">
 
-        <div class="container-fluid">
+        <div class="container">
 
             <div class="row">
-                <div class="heading py-5 px-3 mb-4">
-                    <h2>FAQ</h2>
-                    <h3 class="fs-6 fw-normal">Can't find the answer you're looking for? We've shared some of our most frequently asked questions to help you out!</h3>
+                <div class="col-12">
+                    <div class="heading py-5 px-3 mb-4">
+                        <h2>FAQ</h2>
+                        <h3 class="fs-6 fw-normal">Can't find the answer you're looking for? We've shared some of our most frequently asked questions to help you out!</h3>
+                    </div>
                 </div>
                 <div class="col-12 col-sm-2">
                     <div class="nav tabs-wrapper flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
