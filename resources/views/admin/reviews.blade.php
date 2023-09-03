@@ -9,7 +9,7 @@
           <a href="{{ url('/dashboard') }}">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Reviews</li>
-      </ol>
+       </ol>
 		<div class="box_general">
 			<div class="header_box">
 				<h2 class="d-inline-block">Reviews List</h2>

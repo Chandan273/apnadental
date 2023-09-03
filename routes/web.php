@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
@@ -54,6 +55,5 @@ Route::view('/contact-us', 'apnadental/contact');
 Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);
-
-
