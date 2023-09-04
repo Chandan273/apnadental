@@ -26,6 +26,6 @@ class ServiceController extends Controller
 
         // You can also associate locations and doctors here if needed
 
-        return redirect('admin/add-service')->with('success', 'Service created successfully.');
+        return redirect()->back()->with('success', 'Service created successfully.');
     }
 }

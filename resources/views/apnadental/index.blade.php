@@ -86,34 +86,67 @@
         padding: 15px;
         padding-right: 50px;
     }
-
     .blogs-section .blog-wraper img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         filter: brightness(0.5);
     }
-
     .blogs-section .blog-wraper:hover img {
         transform: scale(1.03);
     }
+    .carousel-item img.d-block.w-100 {
+        height: 400px;
+    }
 </style>
 <main>
-    <div class="hero_map">
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://t3.ftcdn.net/jpg/05/15/16/12/360_F_515161254_2cp9OEcNqERA2KHp2jqaFfvF7Ze5oO4I.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://bbdu.ac.in/wp-content/uploads/2020/06/pharmacy-post-banner-background.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://t4.ftcdn.net/jpg/04/95/28/65/360_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <!-- /REVOLUTION SLIDER -->
+
+    {{-- <div class="hero_map">
         <div id="map_listing"></div>
         <form class="search_wp">
             @csrf
             <div id="custom-search-input">
                 <div class="form-row d-flex justify-content-center">
-                    <!-- <div class="form-group col-md-6 position-relative">
-                        <i class="pe-7s-map-marker position-absolute" style="top: 35%; transform: translateY(-50%); left: 10px;"></i>
-                        <input type="text" id="apna_location" class="form-control pl-5" style="padding-left: 40px;" placeholder="Find Location">
-                    </div>
-
-                    <input type="hidden" id="latitude" name="latLong" />
-                    <input type="hidden" id="longitude" name="latLong" /> -->
-
-                    {{-- <label for="doctors">Select Doctor:</label> --}}
                     <div class="form-group col-md-6">
                         <div class="custom-dropdown">
                             <div class="dropdown-menu" id="doctors-list">
@@ -121,9 +154,6 @@
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                             </div>
-                            {{-- <div class="dropdown-list">
-                                <div class="dropdown-header">Select Doctor</div>
-                            </div> --}}
                         </div>
 
                         <div class="dropdown service-filter-cls">
@@ -137,7 +167,6 @@
                                 @endforeach
                             </ul>
                         </div>
-                        {{-- <input type="submit" class="btn_search" value="Search"> --}}
                     </div>
                 </div>
 
@@ -157,14 +186,14 @@
                 </ul>
             </div>
         </form>
-    </div>
+    </div> --}}
     <!-- /hero_map -->
 
     <!-- Brand Logo section start -->
     <section class="brand py-5">
         <h2 class="text-uppercase text-center">Our Brand Partner</h2>
         <div class="container">
-            <div class="row gx-4 gy-3 gy-md-0">
+            <div class="row mt-5 gx-4 gy-3 gy-md-0">
                 <div class="col-6 col-sm-4 col-md-2">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
@@ -197,16 +226,16 @@
                         <div class="mx-auto w-75 text-center">
                             <h2 class="fs-5">Treatments</h2>
                             <h3 class="display-6 fw-bold lh-base">General to specialised treatments - all under Dezy's roof.</h3>
-
                         </div>
+
                         <div class="position-relative w-75 mx-auto text-center card bg-light border border-1 p-5 rounded-4 mt-5">
                             <h5 class="rounded-4 fs-6 position-absolute top-0 start-50 translate-middle py-2 px-3 fw-bold" style="background-color: rgb(245 237 235);">
                                 <img src="{{ asset('public/assets/img/starTick.svg') }}" width="22" height="22" alt="star tick" class="me-1">
                                 The Dezy guarantee
                             </h5>
                             <p class="card-text fs-6 lh-base">We guarantee a hassle-free, personalized and holistic experience powered by best-in-class AI technology under the supervision of specialized dentists.</p>
-
                         </div>
+
                     </div>
                 </div>
                 <div class="col-12 col-lg-7">
@@ -228,9 +257,8 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link rounded-pill px-4" id="pills-routine-dental-tab" data-bs-toggle="pill" data-bs-target="#pills-routine-dental" type="button" role="tab" aria-controls="pills-routine-dental" aria-selected="false">Routine dental checkup</button>
                             </li>
-
-
                         </ul>
+
                         <div class="tab-content px-2" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab" tabindex="0">
                                 <div class="row g-2">
@@ -313,9 +341,9 @@
                                             <h5 class="card-title">Scaling & Root Planing</h5>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
+
                             <div class="tab-pane fade" id="Correct-my-smile" role="tabpanel" aria-labelledby="Correct-my-smile-tab" tabindex="0">
                                 <div class="row g-2 flex-nowrap">
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
