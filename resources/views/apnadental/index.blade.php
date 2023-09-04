@@ -6,6 +6,9 @@
         --primary: #74d1c6;
         --secondary: #3f4079;
     }
+    .bg-cst-blue{
+        background-color:var(--secondary);
+    }
 
     ul#services-dropdown {
         margin: -20px 0 !important;
@@ -38,15 +41,18 @@
     }
 
     .faqs .heading {
-        background-color: #74d1c62e;
+        background-color: var(--secondary)
+    }
+    .faqs .heading h2,.faqs .heading h3{
+        color:#fff;
     }
 
     .faqs .nav.tabs-wrapper {
-        background-color: #74d1c62e;
+        background-color: var(--secondary)
     }
 
     .faqs .nav .nav-link {
-        color: var(--secondary);
+        color: #fff;
         font-weight: bold;
     }
 
@@ -98,6 +104,20 @@
     .carousel-item img.d-block.w-100 {
         height: 400px;
     }
+
+    .btn-cstm{
+        color: #fff;
+        background: #e74e84;
+        transition: all 0.4s;
+    }
+    .btn-cstm:hover{
+        color: #fff;
+        background: #74d1c6;
+    }
+    .search-doctor-section{
+        margin-top:-75px;
+        position: relative;
+    }
 </style>
 <main>
 
@@ -110,22 +130,22 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="https://t3.ftcdn.net/jpg/05/15/16/12/360_F_515161254_2cp9OEcNqERA2KHp2jqaFfvF7Ze5oO4I.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
+            <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
+              <h5 class="text-white">First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://bbdu.ac.in/wp-content/uploads/2020/06/pharmacy-post-banner-background.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
+            <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
+              <h5 class="text-white">Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://t4.ftcdn.net/jpg/04/95/28/65/360_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
+            <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
+              <h5 class="text-white">Third slide label</h5>
               <p>Some representative placeholder content for the third slide.</p>
             </div>
           </div>
@@ -140,6 +160,47 @@
         </button>
       </div>
     <!-- /REVOLUTION SLIDER -->
+
+<!-- search section  -->
+<section class="search-doctor-section">
+    <div class="container-fluid container-lg ">        
+        <form class="row g-0">
+            <div class="col-12 col-lg-8">
+                <div class="bg-white shadow p-3 h-100 rounded-start">
+                    <h2 class="fs-4">Start Your Search</h2>        
+                    <div class="row g-3 g-lg-2">
+                        <div class="col col-lg-6">
+                            <input type="text" name="keyword" class="form-control" placeholder="Search doctors, clinics, hospitals, etc." value="">
+                        </div>
+                        <div class="col col-lg-4">
+                            <select class="form-select" aria-label="location">
+                                <option selected>Select a location</option>
+                                <option value="1">Australia</option>
+                                <option value="2">Canada</option>
+                                <option value="3">England</option>
+                                <option value="4">India</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-2">
+                            <button class="btn btn-cstm w-100">search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 h-100 d-none d-lg-block">
+                <div class="rihgt p-4 bg-cst-blue text-center rounded-end">
+                    <h2 class="fs-6 text-white">Are You A Doctor?</h2>
+                    <h3 class="fs-4 fw-bold">Join Our Team</h3>
+                    <button class="btn btn-cstm">Join As Doctors</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+
 
     {{-- <div class="hero_map">
         <div id="map_listing"></div>
@@ -747,7 +808,7 @@
     <!-- Blog section start  -->
     <section class="py-5 blogs-section">
         <h2 class="text-uppercase text-center mb-2 mb-sm-5">latest blogs</h2>
-        <div class="container">
+        <div class="container-fluid container-lg">
             <div class="row g-1">
                 <div class="col-12 col-sm-6">
                     <a href="" class=" blog-wraper">
@@ -819,12 +880,11 @@
     <section class="faqs pb-5">
 
         <div class="container">
-
             <div class="row">
                 <div class="col-12">
                     <div class="heading py-5 px-3 mb-4">
                         <h2>FAQ</h2>
-                        <h3 class="fs-6 fw-normal">Can't find the answer you're looking for? We've shared some of our most frequently asked questions to help you out!</h3>
+                        <h3 class="fs-6 fw-light">Can't find the answer you're looking for? We've shared some of our most frequently asked questions to help you out!</h3>
                     </div>
                 </div>
                 <div class="col-12 col-sm-2">
