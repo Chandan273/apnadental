@@ -5,6 +5,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
@@ -42,6 +43,12 @@ Route::prefix('admin')->group(function () {
     Route::view('/reviews', 'admin/reviews');
     Route::view('/tables', 'admin/tables');
     Route::view('/user-profile', 'admin/user_profile');
+    Route::get('/add-brand', [BrandController::class, 'index']);
+    Route::get('/all-brands', [BrandController::class, 'allBrands'])->name('brands.all');
+    Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+    Route::post('/brands/store', [BrandController::class, 'store'])->name('brands.store');
+    Route::get('/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
+    Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brands.update');
 });
 
 Route::get('/', [SearchController::class, 'index']);
@@ -56,4 +63,5 @@ Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);
