@@ -65,9 +65,9 @@
 </footer> -->
 
 <footer class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-3">
+  <div class="container-fluid container-lg">
+    <div class="row gy-4 justify-content-between">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-12 col-xl-3">
         <a href="index.html" title="Findoctor" class="d-block mb-3">
           <img src="{{ asset('public/assets/apnadental/img/logo.png') }}" alt="logo" width="163" height="36" class="img-fluid">
         </a>
@@ -89,7 +89,7 @@
           </p>
         </div>
       </div>
-      <div class="col-12 col-md-2">
+      <div class="col-12 col-sm-auto col-lg-auto col-xl-2">
         <h3 class="fs-6 fw-bold">COMPANY</h3>
         <ul>
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>About us</a></li>
@@ -99,7 +99,7 @@
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>Contact Us</a></li>
         </ul>
       </div>
-      <div class="col-12 col-md-2">
+      <div class="col-12 col-sm-auto col-lg-auto col-xl-2">
         <h3 class="fs-6 fw-bold">MY ACCOUNT</h3>
         <ul>
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>My Order</a></li>
@@ -109,7 +109,7 @@
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>My Personal Info</a></li>
         </ul>
       </div>
-      <div class="col-12 col-md-2">
+      <div class="col-12 col-sm-auto col-lg-auto col-xl-2">
         <h3 class="fs-6 fw-bold">SUPPORT</h3>
         <ul>
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>New User Guide</a></li>
@@ -119,7 +119,7 @@
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>FAQs</a></li>
         </ul>
       </div>
-      <div class="col-12 col-md-3">
+      <div class="col-12 col-lg-4 col-xl-3">
         <h3 class="fs-6 fw-bold">NEWSLETTER</h3>
         <form action="#">
           <div class="input-group mt-3">
@@ -143,7 +143,7 @@
     <div class="row mb-2">
       <div class="col-12">
         <div class="d-flex align-items-center gap-3">
-          <h3 class="fs-6 mb-0">ACCEPTED PAYMENT METHODS:</h3>
+          <h3 class="fs-6 mb-0 text-nowrap">ACCEPTED PAYMENT METHODS:</h3>
           <ul class="nav gap-2">
             <li class="mb-0"><img src="{{ asset('public/assets/img/ups-pay.png') }}" alt="ups-pay" width="99" class="img-fluid"></li>
             <li class="mb-0"><img src="{{ asset('public/assets/img/qiwi-pay-2.png') }}" alt="qiwi-pay" width="99" height="45" class="img-fluid"></li>
@@ -164,7 +164,7 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="d-flex align-items-center gap-3">
-            <h3 class="fs-6 mb-0">HOT SEARCHED KEYWORDS:</h3>
+            <h3 class="fs-6 mb-0 text-nowrap align-self-baseline">HOT SEARCHED KEYWORDS:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Xeaomi Mi3</a></li>
               <li class="mb-0"><a href="">Digiflip Pro XT 712 Tablet</a></li>
@@ -185,7 +185,7 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="d-flex align-items-center gap-3">
-            <h3 class="fs-6 mb-0">TVS:</h3>
+            <h3 class="fs-6 mb-0 align-self-baseline">TVS:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Sany TV</a></li>
               <li class="mb-0"><a href="">Samsang TV</a></li>
@@ -210,7 +210,7 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="d-flex align-items-center gap-3">
-            <h3 class="fs-6 mb-0">MOBILES:</h3>
+            <h3 class="fs-6 mb-0 align-self-baseline">MOBILES:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Moto E</a></li>
               <li class="mb-0"><a href="">Samsung Mobile</a></li>
@@ -230,7 +230,7 @@
       <div class="row">
         <div class="col-12">
           <div class="d-flex align-items-center gap-3">
-            <h3 class="fs-6 mb-0">FOOTWEAR:</h3>
+            <h3 class="fs-6 mb-0 align-self-baseline">FOOTWEAR:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Shoes</a></li>
               <li class="mb-0"><a href="">Casual Shoes</a></li>

@@ -1,6 +1,14 @@
 <style>
   header .navigation-bg {
-    background-color: #74d1c6;
+    background-color: var(--secondary);
+  }
+
+  header .navigation-bg .main-menu > ul > li > a,ul#top_access li a{
+    color:#fff;
+  }
+
+  header .navigation-bg .main-menu > ul > li > a:hover,ul#top_access li a:hover{
+    color:#e74e84;
   }
 
   ul.mega-menu {
@@ -54,7 +62,10 @@
                       <div class="menu-item-card rounded-3 border border-1">
                         <a class="d-flex align-items-center gap-2" href="index.html">
                           <img class="rounded" src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="" width="70px" height="70px">
-                          <h5>Treatment</h5>
+                          <div class="text-wrap">
+                            <h5>Treatment</h5>
+                            <p class="mb-0">Smiles come easily with our transparent & removable aligners</p>
+                          </div>
                         </a>
                       </div>
                     </div>
@@ -62,7 +73,10 @@
                       <div class="menu-item-card rounded-3 border border-1">
                         <a class="d-flex align-items-center gap-2" href="index-8.html">
                           <img class="rounded" src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="" width="70px" height="70px">
-                          <h5>Specialties</h5>
+                          <div class="text-wrap">
+                            <h5>Specialties</h5>
+                            <p class="mb-0">Smiles come easily with our transparent & removable aligners</p>
+                          </div>
                         </a>
                       </div>
                     </div>
@@ -70,7 +84,10 @@
                       <div class="menu-item-card rounded-3 border border-1">
                         <a class="d-flex align-items-center gap-2" href="index-2.html">
                           <img class="rounded" src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="" width="70px" height="70px">
-                          <h5>Dental Clinics</h5>
+                          <div class="text-wrap">
+                            <h5>Dental Clinics</h5>
+                            <p class="mb-0">Smiles come easily with our transparent & removable aligners</p>
+                          </div>
                         </a>
                       </div>
                     </div>
