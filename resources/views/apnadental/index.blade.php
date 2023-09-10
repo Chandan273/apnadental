@@ -129,7 +129,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://t3.ftcdn.net/jpg/05/15/16/12/360_F_515161254_2cp9OEcNqERA2KHp2jqaFfvF7Ze5oO4I.jpg" class="d-block w-100" alt="...">
+            <img src="https://e7.pngegg.com/pngimages/103/232/png-clipart-digital-technology-blue-background-banner-beam-lines-blue-science-and-technology.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
               <h5 class="text-white">First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
