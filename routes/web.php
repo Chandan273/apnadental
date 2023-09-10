@@ -6,6 +6,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
@@ -49,6 +50,18 @@ Route::prefix('admin')->group(function () {
     Route::post('/brands/store', [BrandController::class, 'store'])->name('brands.store');
     Route::get('/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
     Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brands.update');
+    Route::get('/add-category',[BlogController::class, 'blogCategory']);
+    Route::post('/categories', [BlogController::class, 'storeCategory'])->name('category.store');
+    Route::get('/add-categories',[BlogController::class, 'viewCategories']);
+    Route::get('categories/{category}/edit', [BlogController::class, 'editCategory'])->name('category.edit');
+    Route::patch('categories/{category}', [BlogController::class, 'updateCategory'])->name('category.update');
+    Route::delete('categories/{category}', [BlogController::class, 'deleteCategory'])->name('category.destroy');
+    Route::get('/add-blog',[BlogController::class, 'Blog']);
+    Route::post('/blogs', [BlogController::class, 'storeBlog'])->name('blog.store');
+    Route::get('/all-blogs',[BlogController::class, 'allBlogs'])->name('blogs.all');
+    Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
+    Route::put('/blogs/{id}', [BlogController::class, 'update'])->name('blogs.update');
+    Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
 });
 
 Route::get('/', [SearchController::class, 'index']);
