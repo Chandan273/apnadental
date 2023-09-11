@@ -70,6 +70,7 @@ Route::view('/login', 'apnadental/login');
 Route::view('/register', 'apnadental/register');
 Route::view('/blog', 'apnadental/blog');
 Route::view('/about-us', 'apnadental/about');
+Route::view('/service', 'apnadental/service');
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::view('/contact-us', 'apnadental/contact');
 Route::get('/search-location', [SearchController::class, 'searchLocation']);
