@@ -53,10 +53,6 @@
               <li class="submenu">
                 <a href="#0" class="show-submenu">Find a Dentist<i class="icon-down-open-mini"></i></a>
                 <ul class="mega-menu border-start-0 p-3 rounded-3">
-                  <!-- <li><a href="index.html">Treatment</a></li>
-                <li><a href="index-8.html">Specialties</a></li>
-                <li><a href="index-2.html">Dental Clinics</a></li> -->
-
                   <div class="row g-1">
                     <div class="col-12 col-md-6 col-lg-4">
                       <div class="menu-item-card rounded-3 border border-1">
@@ -98,7 +94,9 @@
               <li class="submenu">
                 <a href="{{ url('/blog') }}" class="show-submenu">Blog</a>
               </li>
-
+              <li class="submenu">
+                <a href="{{ url('/service') }}" class="show-submenu">Service</a>
+              </li>
               <li class="submenu">
                 <a href="{{ url('/about-us') }}" class="show-submenu">About Us</a>
               </li>
