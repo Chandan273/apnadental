@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
@@ -56,12 +57,19 @@ Route::prefix('admin')->group(function () {
     Route::get('categories/{category}/edit', [BlogController::class, 'editCategory'])->name('category.edit');
     Route::patch('categories/{category}', [BlogController::class, 'updateCategory'])->name('category.update');
     Route::delete('categories/{category}', [BlogController::class, 'deleteCategory'])->name('category.destroy');
-    Route::get('/add-blog',[BlogController::class, 'Blog']);
+    Route::get('/add-blog',[BlogController::class, 'Blog'])->name('blog.create');
     Route::post('/blogs', [BlogController::class, 'storeBlog'])->name('blog.store');
     Route::get('/all-blogs',[BlogController::class, 'allBlogs'])->name('blogs.all');
     Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
     Route::put('/blogs/{id}', [BlogController::class, 'update'])->name('blogs.update');
     Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
+
+    Route::get('/add-slider',[SliderController::class, 'create'])->name('slider.create');
+    Route::post('/sliders', [SliderController::class, 'store'])->name('slider.store');
+    Route::get('/all-sliders',[SliderController::class, 'index'])->name('sliders.index');
+    Route::get('/sliders/{id}/edit', [SliderController::class, 'edit'])->name('sliders.edit');
+    Route::put('/sliders/{id}', [SliderController::class, 'update'])->name('sliders.update');
+    Route::delete('/sliders/{id}', [SliderController::class, 'destroy'])->name('sliders.destroy');
 });
 
 Route::get('/', [SearchController::class, 'index']);

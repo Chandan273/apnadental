@@ -60,6 +60,20 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slider">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSlider" data-parent="#exampleAccordion">
+            <i class="fa fa-gg" aria-hidden="true"></i>
+            <span class="nav-link-text">Slider</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseSlider">
+            <li>
+              <a href="{{ url('/admin/add-slider') }}">Add Slider</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/all-sliders') }}">All Sliders</a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Doctor">
           <a class="nav-link" href="{{ url('/admin/add-doctor') }}">
             <i class="fa fa-user-md" aria-hidden="true"></i>
