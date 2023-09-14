@@ -23,6 +23,10 @@
         display: table !important;
     }
 
+    .brand img{
+        max-width:196px
+    }
+
     .treatment .nav-pills .nav-link.active {
         background-color: var(--primary);
         color: #fff;
@@ -130,21 +134,21 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="https://e7.pngegg.com/pngimages/103/232/png-clipart-digital-technology-blue-background-banner-beam-lines-blue-science-and-technology.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
+            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
               <h5 class="text-white">First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://bbdu.ac.in/wp-content/uploads/2020/06/pharmacy-post-banner-background.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
+            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
               <h5 class="text-white">Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://t4.ftcdn.net/jpg/04/95/28/65/360_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block top-50 start-50 translate-middle">
+            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
               <h5 class="text-white">Third slide label</h5>
               <p>Some representative placeholder content for the third slide.</p>
             </div>
@@ -254,23 +258,23 @@
     <section class="brand py-5">
         <h2 class="text-uppercase text-center">Our Brand Partner</h2>
         <div class="container">
-            <div class="row mt-5 gx-4 gy-3 gy-md-0">
-                <div class="col-6 col-sm-4 col-md-2">
+            <div class="row mt-2 mt-md-5 gx-4 gy-4 gy-md-0">
+                <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2">
+                <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2">
+                <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2">
+                <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
-                <div class="col-6 col-sm-4 col-md-2">
+                <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
-                <div class="col-6 col-sm-4  col-md-2">
+                <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
                 </div>
             </div>
@@ -283,20 +287,20 @@
         <div class="container-fluid">
             <div class="row gx-0 align-items-center">
                 <div class="col-12 col-lg-5">
-                    <div class="py-5">
-                        <div class="mx-auto w-75 text-center">
+                    <div class="row justify-content-center py-5">
+                        <div class="col-12 col-sm-10 col-xl-10 col-xxl-8 text-center">
                             <h2 class="fs-5">Treatments</h2>
                             <h3 class="display-6 fw-bold lh-base">General to specialised treatments - all under Dezy's roof.</h3>
                         </div>
-
-                        <div class="position-relative w-75 mx-auto text-center card bg-light border border-1 p-5 rounded-4 mt-5">
-                            <h5 class="rounded-4 fs-6 position-absolute top-0 start-50 translate-middle py-2 px-3 fw-bold" style="background-color: rgb(245 237 235);">
-                                <img src="{{ asset('public/assets/img/starTick.svg') }}" width="22" height="22" alt="star tick" class="me-1">
-                                The Dezy guarantee
-                            </h5>
-                            <p class="card-text fs-6 lh-base">We guarantee a hassle-free, personalized and holistic experience powered by best-in-class AI technology under the supervision of specialized dentists.</p>
+                        <div class="col-12 col-sm-10 col-xxl-9">
+                            <div class="position-relative text-center card bg-light border border-1 p-5 rounded-4 mt-5">
+                                <h5 class="rounded-4 fs-6 position-absolute top-0 start-50 translate-middle py-2 px-3 fw-bold" style="background-color: rgb(245 237 235);">
+                                    <img src="{{ asset('public/assets/img/starTick.svg') }}" width="22" height="22" alt="star tick" class="me-1">
+                                    The Dezy guarantee
+                                </h5>
+                                <p class="card-text fs-6 lh-base">We guarantee a hassle-free, personalized and holistic experience powered by best-in-class AI technology under the supervision of specialized dentists.</p>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-12 col-lg-7">
@@ -880,15 +884,15 @@
     <section class="faqs pb-5">
 
         <div class="container">
-            <div class="row">
+            <div class="row gy-4">
                 <div class="col-12">
-                    <div class="heading py-5 px-3 mb-4">
+                    <div class="heading py-5 px-3">
                         <h2>FAQ</h2>
                         <h3 class="fs-6 fw-light">Can't find the answer you're looking for? We've shared some of our most frequently asked questions to help you out!</h3>
                     </div>
                 </div>
-                <div class="col-12 col-sm-2">
-                    <div class="nav tabs-wrapper flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3">
+                    <div class="nav tabs-wrapper flex-md-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link fs-6 active" id="v-pills-payment-tab" data-bs-toggle="pill" data-bs-target="#v-pills-payment" type="button" role="tab" aria-controls="v-pills-payment" aria-selected="true">Payment</a>
                         <a class="nav-link fs-6" id="v-pills-delivery-tab" data-bs-toggle="pill" data-bs-target="#v-pills-delivery" type="button" role="tab" aria-controls="v-pills-delivery" aria-selected="false">Delivery</a>
                         <a class="nav-link fs-6" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" type="button" role="tab" aria-controls="v-pills-orders" aria-selected="false">Orders</a>
@@ -896,7 +900,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-10">
+                <div class="col-12 col-sm-12 col-md-8 col-lg-9">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-payment" role="tabpanel" aria-labelledby="v-pills-payment-tab" tabindex="0">
                             <div class="accordion accordion-flush" id="accordionFlushExample">

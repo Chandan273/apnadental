@@ -85,7 +85,7 @@
         <div class="d-flex flex-nowrap gap-2 mb-2">
           <h3 class="fs-6 mw-88">Email :</h3>
           <p class="mb-0">
-            <a href="mailto:someone@example.com">someone@example.com</a>
+            <a href="mailto:info@findoctor.com">info@findoctor.com</a>
           </p>
         </div>
       </div>
@@ -142,7 +142,7 @@
     <hr class="my-3">
     <div class="row mb-2">
       <div class="col-12">
-        <div class="d-flex align-items-center gap-3">
+        <div class="d-flex align-items-center gap-3 flex-wrap flex-lg-nowrap">
           <h3 class="fs-6 mb-0 text-nowrap">ACCEPTED PAYMENT METHODS:</h3>
           <ul class="nav gap-2">
             <li class="mb-0"><img src="{{ asset('public/assets/img/ups-pay.png') }}" alt="ups-pay" width="99" class="img-fluid"></li>
@@ -161,9 +161,9 @@
     </div>
     <hr class="my-3">
     <div class="other-links">
-      <div class="row mb-2">
+      <div class="row mb-4 mb-lg-2">
         <div class="col-12">
-          <div class="d-flex align-items-center gap-3">
+          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap">
             <h3 class="fs-6 mb-0 text-nowrap align-self-baseline">HOT SEARCHED KEYWORDS:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Xeaomi Mi3</a></li>
@@ -182,9 +182,9 @@
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-4 mb-lg-2">
         <div class="col-12">
-          <div class="d-flex align-items-center gap-3">
+          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap">
             <h3 class="fs-6 mb-0 align-self-baseline">TVS:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Sany TV</a></li>
@@ -207,9 +207,9 @@
       </div>
 
 
-      <div class="row mb-2">
+      <div class="row mb-4 mb-lg-2">
         <div class="col-12">
-          <div class="d-flex align-items-center gap-3">
+          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap">
             <h3 class="fs-6 mb-0 align-self-baseline">MOBILES:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Moto E</a></li>
@@ -229,7 +229,7 @@
 
       <div class="row">
         <div class="col-12">
-          <div class="d-flex align-items-center gap-3">
+          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap">
             <h3 class="fs-6 mb-0 align-self-baseline">FOOTWEAR:</h3>
             <ul class="nav gap-2">
               <li class="mb-0"><a href="">Shoes</a></li>
