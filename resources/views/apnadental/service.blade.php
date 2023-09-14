@@ -24,7 +24,13 @@
     .nav-tabs .nav-link.txt-secondary.active{
         color: var(--primary);
     }
-
+    #breadcrumb {
+        background-color: #efefef;
+        color: #000;
+    }
+    #breadcrumb ul li a {
+        color: var(--pink);
+    }
 
 </style>
 <main>

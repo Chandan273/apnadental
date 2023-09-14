@@ -194,7 +194,7 @@
             <div class="col-4 h-100 d-none d-lg-block">
                 <div class="rihgt p-4 bg-cst-blue text-center rounded-end">
                     <h2 class="fs-6 text-white">Are You A Doctor?</h2>
-                    <h3 class="fs-4 fw-bold">Join Our Team</h3>
+                    <h3 class="fs-4 fw-bold text-white">Join Our Team</h3>
                     <button class="btn btn-cstm">Join As Doctors</button>
                 </div>
             </div>
@@ -286,9 +286,9 @@
     <section class="treatment bg-white">
         <div class="container-fluid">
             <div class="row gx-0 align-items-center">
-                <div class="col-12 col-lg-5">
+                <div class="col-12 col-lg-12">
                     <div class="row justify-content-center py-5">
-                        <div class="col-12 col-sm-10 col-xl-10 col-xxl-8 text-center">
+                        <div class="col-12 col-sm-12 col-md-9 col-xl-8 col-xxl-6 text-center">
                             <h2 class="fs-5">Treatments</h2>
                             <h3 class="display-6 fw-bold lh-base">General to specialised treatments - all under Dezy's roof.</h3>
                         </div>
@@ -303,7 +303,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-7">
+                <div class="col-12 col-lg-12">
                     <div class="py-5" style="background-color: rgb(247 242 255);">
 
                         <ul class="nav nav-pills mb-4 justify-content-center gap-2" id="pills-tab" role="tablist">
