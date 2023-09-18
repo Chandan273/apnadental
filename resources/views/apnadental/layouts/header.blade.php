@@ -28,7 +28,7 @@
 
 <header class="header_sticky pb-0 pt-3">
   <div class="container">
-    <div class="row align-items-center g-2 pb-2">
+    <div class="row align-items-center g-2 pb-3">
       <div class="col-12 col-sm-4">
         <div id="logo_home">
           <h1><a href="{{ url('/') }}" title="Findoctor">Laravel</a></h1>
