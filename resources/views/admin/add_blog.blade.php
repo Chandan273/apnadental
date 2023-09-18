@@ -55,8 +55,8 @@
                 </div>
 
                 <div class="form-group">
-					<label for="content">Blog Description</label>
-					<textarea class="form-control" name="content" id="content" rows="3">{{ old('content') }}</textarea>
+					<label for="description">Blog Description</label>
+					<textarea class="form-control" name="content" id="description" rows="5">{{ old('content') }}</textarea>
 					@if ($errors->has('content'))
 						<span class="text-danger">{{ $errors->first('content') }}</span>
 					@endif

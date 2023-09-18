@@ -34,7 +34,7 @@
 
 				<div class="form-group">
 					<label for="description">Service Description</label>
-					<textarea class="form-control" name="description" id="description" rows="3" value="{{ old('description') }}"></textarea>
+					<textarea class="form-control" name="description" id="description" rows="5" value="{{ old('description') }}"></textarea>
 					@if ($errors->has('description'))
 						<span class="text-danger">{{ $errors->first('description') }}</span>
 					@endif

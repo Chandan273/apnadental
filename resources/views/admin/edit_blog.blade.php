@@ -50,8 +50,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="content">Description</label>
-                    <textarea class="form-control" name="content" id="content" rows="3">{{ $blog->content }}</textarea>
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="content" id="description" rows="3">{{ $blog->content }}</textarea>
 					@if ($errors->has('content'))
 						<span class="text-danger">{{ $errors->first('content') }}</span>
 					@endif

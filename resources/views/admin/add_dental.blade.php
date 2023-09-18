@@ -3,16 +3,16 @@
 
 <div class="content-wrapper">
 	<div class="container-fluid">
-		<!-- Breadcrumbs-->
+		<!--Breadcrumbs-->
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
 				<a href="{{ url('/dashboard') }}">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Add Slider</li>
+			<li class="breadcrumb-item active">Add Dental</li>
 		</ol>
 
 		<div class="box_general p-3">
-			<h4 class="mb-3">Add Slider</h4>
+			<h4 class="mb-3">Add Dental</h4>
 
 			<div class="card-body">
 				@if (session('success'))
@@ -22,11 +22,11 @@
 				@endif
 			</div>
 
-            <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dental.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
-                    <label for="title">Heading</label>
+                    <label for="title">Dental Title</label>
                     <input type="text" class="form-control" id="title" name="title" required>
 					@if ($errors->has('title'))
 						<span class="text-danger">{{ $errors->first('title') }}</span>
@@ -34,10 +34,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="slider_image">Slider Image</label>
-                    <input type="file" class="form-control-file" id="slider_image" name="slider_image" accept="image/*" required>
-					@if ($errors->has('slider_image'))
-						<span class="text-danger">{{ $errors->first('slider_image') }}</span>
+                    <label for="dental_image">Dental Image</label>
+                    <input type="file" class="form-control-file" id="dental_image" name="dental_image" accept="image/*" required>
+					@if ($errors->has('dental_image'))
+						<span class="text-danger">{{ $errors->first('dental_image') }}</span>
 					@endif
                 </div>
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\DentalController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
@@ -70,6 +71,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/sliders/{id}/edit', [SliderController::class, 'edit'])->name('sliders.edit');
     Route::put('/sliders/{id}', [SliderController::class, 'update'])->name('sliders.update');
     Route::delete('/sliders/{id}', [SliderController::class, 'destroy'])->name('sliders.destroy');
+
+    Route::get('/add-dental-service',[DentalController::class, 'create'])->name('dental.create');
+    Route::post('/dentals', [DentalController::class, 'store'])->name('dental.store');
+    Route::get('/all-dental-services',[DentalController::class, 'index'])->name('dentals.index');
+    Route::get('/dentals/{id}/edit', [DentalController::class, 'edit'])->name('dentals.edit');
+    Route::put('/dentals/{id}', [DentalController::class, 'update'])->name('dentals.update');
+    Route::delete('/dentals/{id}', [DentalController::class, 'destroy'])->name('dentals.destroy');
+
 });
 
 Route::get('/', [SearchController::class, 'index']);

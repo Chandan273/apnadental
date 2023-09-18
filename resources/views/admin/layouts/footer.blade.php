@@ -43,3 +43,9 @@
   <script src="{{ asset('public/assets/js/admin.jsg') }}"></script>
   <!-- Custom scripts for this page-->
   <script src="{{ asset('public/assets/js/admin-charts.js') }}"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+  <script>
+    ClassicEditor.create(document.querySelector('#description')).catch(error => {
+		  console.error( error );
+	  });
+  </script>

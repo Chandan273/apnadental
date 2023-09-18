@@ -132,27 +132,16 @@
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
+            @foreach($sliders as $slider)
           <div class="carousel-item active">
-            <img src="https://e7.pngegg.com/pngimages/103/232/png-clipart-digital-technology-blue-background-banner-beam-lines-blue-science-and-technology.png" class="d-block w-100" alt="...">
+            <img src="{{ asset('public/'.$slider->slider_image) }}" class="d-block w-100" alt="{{ $slider->title }}">
             <div class="carousel-caption w-75 top-50 start-50 translate-middle">
-              <h5 class="text-white">First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5 class="text-white">{{ $slider->title }}</h5>
+              <div>{!! $slider->description !!}</div>
             </div>
           </div>
-          <div class="carousel-item">
-            <img src="https://bbdu.ac.in/wp-content/uploads/2020/06/pharmacy-post-banner-background.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
-              <h5 class="text-white">Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://t4.ftcdn.net/jpg/04/95/28/65/360_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
-              <h5 class="text-white">Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
+          @endforeach
+          
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -173,17 +162,20 @@
                 <div class="bg-white shadow p-3 h-100 rounded-start">
                     <h2 class="fs-4">Start Your Search</h2>        
                     <div class="row g-3 g-lg-2">
-                        <div class="col col-lg-6">
-                            <input type="text" name="keyword" class="form-control" placeholder="Search doctors, clinics, hospitals, etc." value="">
-                        </div>
                         <div class="col col-lg-4">
                             <select class="form-select" aria-label="location">
-                                <option selected>Select a location</option>
-                                <option value="1">Australia</option>
-                                <option value="2">Canada</option>
-                                <option value="3">England</option>
-                                <option value="4">India</option>
+                                <option selected="">Select a Treatment</option>
+                                <option value="1">Periodontics</option>
+                                <option value="2">Pedodontics</option>
+                                <option value="3">Prosthodontics</option>
+                                <option value="4">Orthodontics</option>
+                                <option value="5">Endodontics</option>
+                                <option value="6">Maxillofacial Surgery</option>
+                                <option value="7">Implantology</option>
                             </select>
+                        </div>
+                        <div class="col col-lg-6">
+                            <input type="text" name="keyword" class="form-control" placeholder="Search doctors, clinics, hospitals, etc." value="">
                         </div>
                         <div class="col-12 col-lg-2">
                             <button class="btn btn-cstm w-100">search</button>
@@ -201,9 +193,6 @@
         </form>
     </div>
 </section>
-
-
-
 
 
     {{-- <div class="hero_map">
@@ -253,40 +242,54 @@
         </form>
     </div> --}}
     <!-- /hero_map -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <!-- Brand Logo section start -->
     <section class="brand py-5">
         <h2 class="text-uppercase text-center">Our Brand Partner</h2>
         <div class="container">
-            <div class="row mt-2 mt-md-5 gx-4 gy-4 gy-md-0">
-                <div class="col-12 col-sm-4 col-md-2 text-center">
-                    <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
-                </div>
-                <div class="col-12 col-sm-4 col-md-2 text-center">
-                    <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
-                </div>
-                <div class="col-12 col-sm-4 col-md-2 text-center">
-                    <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
-                </div>
-                <div class="col-12 col-sm-4 col-md-2 text-center">
-                    <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
-                </div>
-                <div class="col-12 col-sm-4 col-md-2 text-center">
-                    <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
-                </div>
-                <div class="col-12 col-sm-4 col-md-2 text-center">
-                    <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
-                </div>
+            <div class="autoplay_brands row mt-2 mt-md-5 gx-4 gy-4 gy-md-0">
+                @foreach($brands as $brand)
+                    <div class="col-12 col-sm-4 col-md-2 text-center">
+                        <img src="{{ asset('public/'.$brand->brand_image) }}" alt="{{ $brand->brand_name }}" width="150px">
+                    </div>
+                @endforeach
             </div>
-
         </div>
     </section>
+
+    <script>
+        $('.autoplay_brands').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false,
+            centerMode: true,
+            focusOnSelect: true,
+            responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                slidesToShow: 1,
+                }
+            }
+            ]
+        });
+    </script>
 
     <!-- Treatment section start -->
     <section class="treatment bg-white">
         <div class="container-fluid">
             <div class="row gx-0 align-items-center">
-                <div class="col-12 col-lg-5">
+                <div class="col-12 col-lg-12">
                     <div class="row justify-content-center py-5">
                         <div class="col-12 col-sm-10 col-xl-10 col-xxl-8 text-center">
                             <h2 class="fs-5">Treatments</h2>
@@ -303,7 +306,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-7">
+                <div class="col-12 col-lg-12">
                     <div class="py-5" style="background-color: rgb(247 242 255);">
 
                         <ul class="nav nav-pills mb-4 justify-content-center gap-2" id="pills-tab" role="tablist">
