@@ -3,8 +3,9 @@
 
 <style>
     :root {
-        --primary: #74d1c6;
-        --secondary: #3f4079;
+    --primary: #74d1c6;
+    --secondary: #3f4079;
+    --pink: #e74e84;
     }
     .blogs-section .blog-wraper {
         height: 100%;
@@ -42,6 +43,13 @@
     }
     .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
         color: #e74e84;
+    }
+    #breadcrumb {
+        background-color: #efefef;
+        color: #000;
+    }
+    #breadcrumb ul li a {
+        color: var(--pink);
     }
 </style>
 

@@ -24,7 +24,13 @@
     .nav-tabs .nav-link.txt-secondary.active{
         color: var(--primary);
     }
-
+    #breadcrumb {
+        background-color: #efefef;
+        color: #000;
+    }
+    #breadcrumb ul li a {
+        color: var(--pink);
+    }
 
 </style>
 <main>
@@ -255,7 +261,7 @@
 
 <section class="content-section bg-white py-5">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-3">
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="image-wrraper">
                     <img src="{{ asset('public/assets/img/doctor-lady.jpg') }}" alt="doctor-lady.jpg" class="w-100">
