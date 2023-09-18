@@ -28,7 +28,7 @@
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBrand" data-parent="#exampleAccordion">
-            <i class="fa fa-gg" aria-hidden="true"></i>
+            <i class="fa fa-picture-o" aria-hidden="true"></i>
             <span class="nav-link-text">Brands</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseBrand">
@@ -71,6 +71,20 @@
             </li>
             <li>
               <a href="{{ url('/admin/all-sliders') }}">All Sliders</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slider">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseDentalSlider" data-parent="#exampleAccordion">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <span class="nav-link-text">Dental Service</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseDentalSlider">
+            <li>
+              <a href="{{ url('/admin/add-dental-service') }}">Add Dental Service</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/all-dental-services') }}">All Dental Services</a>
             </li>
           </ul>
         </li>

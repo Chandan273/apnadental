@@ -7,13 +7,17 @@ use Illuminate\Support\Facades\DB; // Add this import
 use App\Models\Service;
 use App\Models\Location;
 use App\Models\Doctor;
+use App\Models\Slider;
+use App\Models\Brand;
 
 class SearchController extends Controller
 {
     public function index()
     {
         $services = Service::all();
-        return view('apnadental.index', ['services' => $services]);
+        $sliders = Slider::all();
+        $brands = Brand::all();
+        return view('apnadental.index', compact('brands', 'services', 'sliders'));
     }
 
     public function searchDoctors(Request $request)
