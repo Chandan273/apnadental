@@ -5,6 +5,7 @@
     :root {
         --primary: #74d1c6;
         --secondary: #3f4079;
+        --pink: #e74e84;
     }
     .bg-cst-blue{
         background-color:var(--secondary);
@@ -36,12 +37,6 @@
         font-weight: bold;
         color: var(--secondary);
         border: 1px solid var(--primary);
-    }
-
-
-    .sympthoms .item-card {
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
     }
 
     .faqs .heading {
@@ -101,6 +96,7 @@
         height: 100%;
         object-fit: cover;
         filter: brightness(0.5);
+        transition: all 0.6s;
     }
     .blogs-section .blog-wraper:hover img {
         transform: scale(1.03);
@@ -122,6 +118,35 @@
         margin-top:-75px;
         position: relative;
     }
+
+    /* .sympthoms .item-card {
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    } */
+    
+    .sympthoms .image-wrraper{
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        border-radius: 50%;
+        border: 2px dotted;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        overflow:hidden;
+        transition: all 0.4s;
+    }
+
+    .sympthoms .card:hover .image-wrraper{
+        transform:scale(1.1);
+        border-style: inset;
+        border-color:var(--pink);
+    }
+    .sympthoms .image-wrraper img{
+        width: 100%;
+        height:100%;
+    }
 </style>
 <main>
 
@@ -134,21 +159,21 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="https://e7.pngegg.com/pngimages/103/232/png-clipart-digital-technology-blue-background-banner-beam-lines-blue-science-and-technology.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
+            <div class="carousel-caption d-none d-sm-block w-75 top-50 start-50 translate-middle">
               <h5 class="text-white">First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://bbdu.ac.in/wp-content/uploads/2020/06/pharmacy-post-banner-background.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
+            <div class="carousel-caption d-none d-sm-block w-75 top-50 start-50 translate-middle">
               <h5 class="text-white">Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://t4.ftcdn.net/jpg/04/95/28/65/360_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption w-75 top-50 start-50 translate-middle">
+            <div class="carousel-caption d-none d-sm-block w-75 top-50 start-50 translate-middle">
               <h5 class="text-white">Third slide label</h5>
               <p>Some representative placeholder content for the third slide.</p>
             </div>
@@ -255,9 +280,9 @@
     <!-- /hero_map -->
 
     <!-- Brand Logo section start -->
-    <section class="brand py-5">
-        <h2 class="text-uppercase text-center">Our Brand Partner</h2>
-        <div class="container">
+    <section class="brand py-5 bg-light">
+        <!-- <h2 class="text-uppercase text-center">Our Brand Partner</h2> -->
+        <!-- <div class="container">
             <div class="row mt-2 mt-md-5 gx-4 gy-4 gy-md-0">
                 <div class="col-12 col-sm-4 col-md-2 text-center">
                     <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
@@ -279,6 +304,36 @@
                 </div>
             </div>
 
+        </div> -->
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4">
+                    <h2 class="text-uppercase text-center text-md-start">Our Brand Partner</h2>
+                </div>
+                <div class="col-12 col-md-8">
+                <div class="row gx-4 gy-4 gy-md-0">
+                    <div class="col">
+                        <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
+                    </div>
+                    <div class="col">
+                        <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
+                    </div>
+                    <div class="col">
+                        <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
+                    </div>
+                    <div class="col">
+                        <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
+                    </div>
+                    <div class="col">
+                        <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
+                    </div>
+                    <div class="col">
+                        <img src="{{ asset('public/assets/img/ApnaDental.png') }}" alt="brand-logo" width="100%">
+                    </div>
+            </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -543,100 +598,124 @@
     <!-- SYMPTOMS & TREATMENTS Start-->
     <section class="sympthoms py-5">
         <div class="container-fluid">
-            <div class="row g-0">
+            <div class="row gy-3">
                 <h2 class="text-center mb-2 mb-sm-5">SYMPTOMS & TREATMENTS</h2>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/filling-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/filling-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Dental Fillings</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/root-canal-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/root-canal-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Root Canal Treatment</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/teeth-removal-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/teeth-removal-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Wisdom Teeth Removal</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/braces-aligners-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/braces-aligners-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Braces & Aligners</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/dental-implant-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/dental-implant-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Dental Implants</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/dentures-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/dentures-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Dentures</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/crowns-bridges-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/crowns-bridges-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Bridges & Crowns</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/childrens-dentistry-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/childrens-dentistry-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Kids Dentistry</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/smile-makeover-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/smile-makeover-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Smile Makeover</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/teeth-whitening-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/teeth-whitening-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Teeth Whitening</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/mouth-ulcers-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/mouth-ulcers-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">Mouth Ulcers</h3>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <a href="">
-                        <div class="item-card text-center py-3">
-                            <img src="{{ asset('public/assets/img/read-more-icon.png') }}" width="100px" height="100px" alt="filling">
+                        <div class="card p-3 text-center">
+                            <div class="image-wrraper">
+                            <img src="{{ asset('public/assets/img/read-more-icon.png') }}"  alt="filling">
+    </div>
                             <h3 class="fs-6 mt-3">View More</h3>
                         </div>
                     </a>
