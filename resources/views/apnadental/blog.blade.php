@@ -2,11 +2,11 @@
 @section("content")
 
 <style>
-    :root {
+    /* :root {
     --primary: #74d1c6;
     --secondary: #3f4079;
     --pink: #e74e84;
-    }
+    } */
     .blogs-section .blog-wraper {
         height: 100%;
         position: relative;

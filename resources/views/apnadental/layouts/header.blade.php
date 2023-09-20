@@ -1,4 +1,10 @@
 <style>
+  :root {
+    --primary: #74d1c6;
+    --secondary: #3f4079;
+    --pink: #e74e84;
+  }
+
   header .navigation-bg {
     background-color: var(--secondary);
   }
@@ -23,6 +29,12 @@
 
   ul.mega-menu .menu-item-card:hover {
     background-color: rgba(231, 78, 132, 0.1);
+  }
+  .login-dropdown .dropdown-menu{
+    width:300px;
+  }
+  ul#top_access li.login-dropdown .dropdown-menu a.forgot{
+    color:var(--pink);
   }
 </style>
 
@@ -112,7 +124,34 @@
         <div class="col-12 col-lg-6">
           <div class="d-flex gap-0 gap-lg-3 justify-content-end align-items-center">
             <ul id="top_access">
-              <li><a href="{{ url('/login') }}"><i class="pe-7s-user"></i></a></li>
+              <!-- <li><a href="{{ url('/login') }}"><i class="pe-7s-user"></i></a></li> -->
+
+              <li class="dropdown login-dropdown">
+                <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="pe-7s-user"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end bg-white border-0 rounded shadow p-3">
+                  <form class="row g-3">
+                      <div class="col-12">
+                        <h2 class="h4">Login</h2>
+                      </div>
+                      <div class="col-12">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                      </div>
+                      <div class="col-12">
+                        <input type="password" class="form-control" placeholder="Your password" name="password" id="password">
+                      </div>
+                      <div class="col-12">
+                        <a href="#0" class="forgot"><small>Forgot password?</small></a>
+                      </div>
+                      <div class="col-12">
+                        <input class="btn_1 w-100" type="submit" value="Login">
+                      </div>
+
+                  </form>
+                </div>
+              </li>
+              
               <li><a href="{{ url('/register') }}"><i class="pe-7s-add-user"></i></a></li>
             </ul>
             <div class="position-relative">

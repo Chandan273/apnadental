@@ -2,11 +2,11 @@
 @section("content")
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <style>
-    :root {
+    /* :root {
         --primary: #74d1c6;
         --secondary: #3f4079;
         --pink: #e74e84;
-    }
+    } */
     .bg-cst-blue{
         background-color:var(--secondary);
     }
@@ -179,45 +179,45 @@
       </div>
     <!-- /REVOLUTION SLIDER -->
 
-<!-- search section  -->
-<section class="search-doctor-section">
-    <div class="container-fluid container-lg ">        
-        <form class="row g-0">
-            <div class="col-12 col-lg-8">
-                <div class="bg-white shadow p-3 h-100 rounded-start">
-                    <h2 class="fs-4">Start Your Search</h2>        
-                    <div class="row g-3 g-lg-2">
-                        <div class="col col-lg-4">
-                            <select class="form-select" aria-label="location">
-                                <option selected="">Select a Treatment</option>
-                                <option value="1">Periodontics</option>
-                                <option value="2">Pedodontics</option>
-                                <option value="3">Prosthodontics</option>
-                                <option value="4">Orthodontics</option>
-                                <option value="5">Endodontics</option>
-                                <option value="6">Maxillofacial Surgery</option>
-                                <option value="7">Implantology</option>
-                            </select>
-                        </div>
-                        <div class="col col-lg-6">
-                            <input type="text" name="keyword" class="form-control" placeholder="Search doctors, clinics, hospitals, etc." value="">
-                        </div>
-                        <div class="col-12 col-lg-2">
-                            <button class="btn btn-cstm w-100">search</button>
+    <!-- search section  -->
+    <section class="search-doctor-section">
+        <div class="container-fluid container-lg ">        
+            <form class="row g-0">
+                <div class="col-12 col-lg-8">
+                    <div class="bg-white shadow p-3 h-100 rounded-start">
+                        <h2 class="fs-4">Start Your Search</h2>        
+                        <div class="row g-3 g-lg-2">
+                            <div class="col col-lg-4">
+                                <select class="form-select" aria-label="location">
+                                    <option selected="">Select a Treatment</option>
+                                    <option value="1">Periodontics</option>
+                                    <option value="2">Pedodontics</option>
+                                    <option value="3">Prosthodontics</option>
+                                    <option value="4">Orthodontics</option>
+                                    <option value="5">Endodontics</option>
+                                    <option value="6">Maxillofacial Surgery</option>
+                                    <option value="7">Implantology</option>
+                                </select>
+                            </div>
+                            <div class="col col-lg-6">
+                                <input type="text" name="keyword" class="form-control" placeholder="Search doctors, clinics, hospitals, etc." value="">
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <button class="btn btn-cstm w-100">search</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4 h-100 d-none d-lg-block">
-                <div class="rihgt p-4 bg-cst-blue text-center rounded-end">
-                    <h2 class="fs-6 text-white">Are You A Doctor?</h2>
-                    <h3 class="fs-4 fw-bold text-white">Join Our Team</h3>
-                    <button class="btn btn-cstm">Join As Doctors</button>
+                <div class="col-4 h-100 d-none d-lg-block">
+                    <div class="rihgt p-4 bg-cst-blue text-center rounded-end">
+                        <h2 class="fs-6 text-white">Are You A Doctor?</h2>
+                        <h3 class="fs-4 fw-bold text-white">Join Our Team</h3>
+                        <button class="btn btn-cstm">Join As Doctors</button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-</section>
+            </form>
+        </div>
+    </section>
 
 
     {{-- <div class="hero_map">

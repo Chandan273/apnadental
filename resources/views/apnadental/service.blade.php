@@ -1,11 +1,11 @@
 @extends('apnadental.master')
 @section("content")
 <style>
-    :root {
+    /* :root {
     --primary: #74d1c6;
     --secondary: #3f4079;
     --pink: #e74e84;
-    }
+    } */
     .txt-primary{
         color:var(--primary);
     }

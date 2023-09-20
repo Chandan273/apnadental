@@ -26,6 +26,7 @@
 
 	<!-- YOUR CUSTOM CSS -->
 	<link href="{{ asset('public/assets/apnadental/css/custom.css') }}" rel="stylesheet">
+	<link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
