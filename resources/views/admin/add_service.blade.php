@@ -14,7 +14,7 @@
 		<div class="box_general p-3">
 			<h4 class="mb-3">Add Service</h4>
 
-			<div class="card-body">
+			<div>
 				@if (session('success'))
 					<div class="alert alert-success" role="alert">
 						{{ session('success') }}
@@ -34,7 +34,7 @@
 
 				<div class="form-group">
 					<label for="description">Service Description</label>
-					<textarea class="form-control" name="description" id="description" rows="5" value="{{ old('description') }}"></textarea>
+					<textarea class="form-control" name="description" id="description" rows="10" value="{{ old('description') }}"></textarea>
 					@if ($errors->has('description'))
 						<span class="text-danger">{{ $errors->first('description') }}</span>
 					@endif

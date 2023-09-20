@@ -14,7 +14,7 @@
 		<div class="box_general p-3">
 			<h4 class="mb-3">Edit Slider</h4>
 
-			<div class="card-body">
+			<div>
 				@if (session('success'))
 					<div class="alert alert-success" role="alert">
 						{{ session('success') }}

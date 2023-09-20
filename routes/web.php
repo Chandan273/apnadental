@@ -94,5 +94,6 @@ Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::view('/doctor', 'apnadental/doctor');
 
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);

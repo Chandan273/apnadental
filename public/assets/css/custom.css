@@ -1,1 +1,51 @@
 /* YOUR CUSTOM CSS */
+:root {
+    --primary: #74d1c6;
+    --secondary: #3f4079;
+    --pink: #e74e84;
+}
+
+.nav-tabs .nav-link {
+    color: #767676;
+}
+
+.nav-tabs .category-title {
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: var(--pink);
+}
+
+.doctor-page #results {
+    color: #fff;
+    background: var(--pink);
+}
+
+.strip_list ul li a.btn{
+    color: #fff;
+    background: var(--secondary);
+    border: 2px solid var(--secondary);
+    cursor: pointer;
+    padding: 7px 20px;
+    display: inline-block;
+    outline: none;
+    font-size: 0.875rem;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+.strip_list ul li a.btn:hover{
+    color: var(--secondary);
+    background: transparent;
+}
+
+.doctor-page .strip_list ul li:first-child{
+    display: block;
+}
