@@ -590,11 +590,11 @@ ul#top_access li#user figure img {
   line-height: 1;
 }
 #logo_home h1 a {
-  width: 163px;
-  height: 36px;
+  width: 132px;
+  height: 80px;
   display: block;
-  background: url(../img/logo.png) no-repeat 0 0;
-  background-size: 163px 36px;
+  background: url(../img/logo.svg) no-repeat 0 0;
+  background-size: 132px 80px;
   text-indent: -9999px;
 }
 

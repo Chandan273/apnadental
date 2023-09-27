@@ -22,6 +22,10 @@
                                     <input type="email" class="form-control" placeholder="Your email address">
                                 </div>
                                 <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" placeholder="Your Phone number">
+                                </div>
+                                <div class="form-group">
                                     <label>Password</label>
                                     <input type="password" class="form-control" id="password1" name="password1" placeholder="Your password">
                                 </div>
