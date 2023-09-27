@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DentalController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CSVController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
@@ -78,6 +80,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/dentals/{id}/edit', [DentalController::class, 'edit'])->name('dentals.edit');
     Route::put('/dentals/{id}', [DentalController::class, 'update'])->name('dentals.update');
     Route::delete('/dentals/{id}', [DentalController::class, 'destroy'])->name('dentals.destroy');
+
+    Route::get('/import-csv', [CSVController::class, 'create'])->name('import.create');
+    Route::get('/all-imports', [CSVController::class, 'index'])->name('import.index');
+    Route::post('/import', [CSVController::class, 'store'])->name('import.store');
 
 });
 

@@ -88,6 +88,20 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="import">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseImport" data-parent="#exampleAccordion">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+            <span class="nav-link-text">Import</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseImport">
+            <li>
+              <a href="{{ url('/admin/import-csv') }}">Import CSV</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/all-imports') }}">View Records</a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Doctor">
           <a class="nav-link" href="{{ url('/admin/add-doctor') }}">
             <i class="fa fa-user-md" aria-hidden="true"></i>

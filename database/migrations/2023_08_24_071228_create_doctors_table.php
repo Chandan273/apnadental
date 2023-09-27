@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('sex');
             $table->string('email_1');
             $table->string('email_2')->nullable();
+            $table->string('email_3')->nullable();
             $table->decimal('rating', 4, 2);
             $table->string('phone');
             $table->string('specialization');
