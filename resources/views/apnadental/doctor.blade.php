@@ -1,10 +1,6 @@
 @extends('apnadental.master')
 @section("content")
 
-<style>
-
-
-</style>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <main class="doctor-page">
@@ -48,16 +44,34 @@
                     </select>
                 </li>
                 <li>
-                    <h6>Select a Treatment</h6>
-                    <select name="orderby" class="selectbox form-select" multiple  sb="48985461" style="display: none;">
-                        <option value="Periodontics">Periodontics</option>
-                        <option value="Pedodontics">Pedodontics</option>
-                        <option value="Prosthodontics">Prosthodontics</option>
-                        <option value="Orthodontics">Orthodontics</option>
-                        <option value="Endodontics">Endodontics</option>
-                        <option value="Maxillofacial_Surgery">Maxillofacial Surgery</option>
-                        <option value="Implantology">Implantology</option>
-                    </select>
+                    <h6>Sort by</h6>                   
+                    <div class="dropdown">
+                            <form>
+                                <button type="button" class="btn btn-primary dropdown-toggle rounded-0"
+                                    data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                    Select a Treatment
+                                </button>
+
+                                <ul class="dropdown-menu px-2 rounded-0">
+                                    <li class="list-item float-none">                                            
+                                        <label class="form-check-label" for="dropdownCheck1">
+                                            Periodontics
+                                            <input type="checkbox" class="form-check-input" id="dropdownCheck1">
+                                        </label>
+                                            
+                                    </li>
+
+                                    <li class="list-item float-none">                                            
+                                        <label class="form-check-label" for="dropdownCheck2">
+                                            Pedodontics
+                                            <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                                        </label>
+                                    </li>
+                                   
+                                </ul>
+                            </form>
+                        </div>
+
 
                 </li>
             </ul>
@@ -67,13 +81,15 @@
     <!-- post cartegory  -->
     <div class="container py-5">
         <div class="row g-4">
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-8 col-xl-9">
                 <div>
                     <!-- 1st. doctor  -->
                     <div class="strip_list wow fadeIn">
 						<a href="#0" class="wish_bt"></a>
 						<figure>
-							<a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" alt=""></a>
+							<a href="detail-page.html">
+                                <img src="http://via.placeholder.com/565x565.jpg" alt="" class="w-100">
+                            </a>
 						</figure>
 						<small>Pediatrician</small>
 						<h3>Dr. Cornfield</h3>
@@ -89,7 +105,7 @@
 					</div>
 
                     <!-- Book now Button click after auth  -->
-                    <div class="card p-3 mb-4">
+                    <div class="card px-3 py-4 mb-4">
                         <div class="row align-items-center g-4">
                             <div class="col-12 col-md-6">
                             <img class="mb-3" src="{{ asset('public/assets/img/apna_dental_logo.svg') }}"  alt="brand logo" width="100px">
@@ -104,15 +120,115 @@
                                     <div class="mb-3">
                                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="OTP">
                                     </div>                                    
-                                    <button type="submit" class="btn btn-primary w-100">Book a Slot Now</button>
-                                    <small class="mt-2">Life Insurance partner will get in touch with you soon.</small>
+                                    <button type="submit" class="btn_1 rounded-2 btn-primary w-100">Book a Slot Now</button>
+                                    <small class="mt-2 d-block">Life Insurance partner will get in touch with you soon.</small>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Launch static backdrop modal
+                    </button>
+  
+
+                    <div class="modal" id="staticBackdrop" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
                             </div>
                         </div>
                     </div>
 
 
-
+                    <div class="card p-3 mb-3">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                                    <h5>25 Sep 2023</h5>
+                                    <p class="mb-2 text-danger">No Slot Available</p>
+                            </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                                    <h5>30 Sep 2023</h5>
+                                    <p class="mb-2 text-success">4 Slot Available</p>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                                    <h5>16 October 2023</h5>
+                                    <p class="mb-2 text-success">6 Slot Available</p>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content py-3" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0"><form action="">
+                                <div class="d-flex gap-2">                                
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="one-pm" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="one-pm">01:00 PM</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="two-pm" autocomplete="off"
+                                            disabled>
+                                        <label class="btn btn-outline-secondary" for="two-pm">02::00 PM</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="three-pm"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="three-pm">03:00 PM</label><br>
+                                    </div>
+                                </div>
+                            </form></div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"><form action="">
+                                <div class="d-flex gap-2">
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="four-pm" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="four-pm">04:00 PM</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="five-pm" autocomplete="off"
+                                            disabled>
+                                        <label class="btn btn-outline-secondary" for="five-pm">05::00 PM</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="six-pm"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="six-pm">06:00 PM</label><br>
+                                    </div>
+                                </div>
+                            </form></div>
+                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0"><form action="">
+                                <div class="d-flex gap-2">
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="one-pm1" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="one-pm1">01:00 PM</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="two-pm2" autocomplete="off"
+                                            disabled>
+                                        <label class="btn btn-outline-secondary" for="two-pm2">02::00 PM</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="btn-check" name="time" id="three-pm3"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="three-pm3">03:00 PM</label><br>
+                                    </div>
+                                </div>
+                            </form></div>
+                        </div>
+                    </div>
 
 					
                     <!-- 2nd. doctor  -->
@@ -256,32 +372,75 @@
 
                
             </div>       
-            <aside class="col-12 col-lg-3">
-
+            <aside class="col-12 col-lg-4 col-xl-3">
                 <div class="widget">
-                    <div class="autoplay_doctors row mt-2 mt-md-5 gx-4 gy-4 gy-md-0">
-                        <div class="col-12 text-center">
-                            <div class="box_list home">
-                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="wish_bt" aria-label="Add to wishlist" data-bs-original-title="Add to wishlist"></a>
-                                <figure>
-                                    <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
-                                    <div class="preview"><span>Read more</span></div>
-                                </figure>
+                    <div class="slider-for">
+                        <div class="box_list mb-0 home">
+                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="wish_bt" aria-label="Add to wishlist" data-bs-original-title="Add to wishlist"></a>
+                            <figure>
+                                <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="w-100" alt=""></a>
+                                <div class="preview"><span>Read more</span></div>
+                            </figure>
 
-                                <div class="wrapper">
-                                    <small>Psicologist</small>
-                                    <h3>Dr. Watamaniuk</h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-                                    <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+                            <div class="wrapper">
+                                <small>Psicologist</small>
+                                <h3>Dr. Watamaniuk</h3>
+                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+                                <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
 
-                                    <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1" aria-label="Badge Level" data-bs-original-title="Badge Level"><img src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-                                </div>
-
-                                <ul>
-                                    <li><i class="icon-eye-7"></i> 854 Views</li>
-                                    <li><a href="detail-page.html">Book now</a></li>
-                                </ul>
+                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1" aria-label="Badge Level" data-bs-original-title="Badge Level">
+                                    <img class="d-inline" src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
                             </div>
+
+                            <ul>
+                                <li><i class="icon-eye-7"></i> 854 Views</li>
+                                <li><a href="detail-page.html">Book now</a></li>
+                            </ul>
+                        </div>
+                        <div class="box_list mb-0 home">
+                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="wish_bt" aria-label="Add to wishlist" data-bs-original-title="Add to wishlist"></a>
+                            <figure>
+                                <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="w-100" alt=""></a>
+                                <div class="preview"><span>Read more</span></div>
+                            </figure>
+
+                            <div class="wrapper">
+                                <small>Psicologist</small>
+                                <h3>Dr. Watamaniuk</h3>
+                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+                                <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+
+                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1" aria-label="Badge Level" data-bs-original-title="Badge Level">
+                                    <img class="d-inline" src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+                            </div>
+
+                            <ul>
+                                <li><i class="icon-eye-7"></i> 854 Views</li>
+                                <li><a href="detail-page.html">Book now</a></li>
+                            </ul>
+                        </div>
+                        <div class="box_list mb-0 home">
+                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="wish_bt" aria-label="Add to wishlist" data-bs-original-title="Add to wishlist"></a>
+                            <figure>
+                                <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="w-100" alt=""></a>
+                                <div class="preview"><span>Read more</span></div>
+                            </figure>
+
+                            <div class="wrapper">
+                                <small>Psicologist</small>
+                                <h3>Dr. Watamaniuk</h3>
+                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+                                <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+
+                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1" aria-label="Badge Level" data-bs-original-title="Badge Level">
+                                    <img class="d-inline" src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt="">
+                                </a>
+                            </div>
+
+                            <ul>
+                                <li><i class="icon-eye-7"></i> 854 Views</li>
+                                <li><a href="detail-page.html">Book now</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -339,14 +498,14 @@
 
 
 <script>
-    $('.autoplay_doctors').slick({
-        slidesToShow: 1,
-        // slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        centerMode: true,
-        focusOnSelect: false,
-    });
+    $(".slider-for").slick({
+  slidesToShow: 1,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  dots: false,
+  arrows: false
+
+});
 </script>
 @endsection("content")

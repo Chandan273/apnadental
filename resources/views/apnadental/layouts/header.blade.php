@@ -1,44 +1,4 @@
-<style>
-  :root {
-    --primary: #74d1c6;
-    --secondary: #3f4079;
-    --pink: #e74e84;
-  }
-
-  header .navigation-bg {
-    background-color: var(--secondary);
-  }
-
-  header .navigation-bg .main-menu > ul > li > a,ul#top_access li a{
-    color:#fff;
-  }
-
-  header .navigation-bg .main-menu > ul > li > a:hover,ul#top_access li a:hover{
-    color:#e74e84;
-  }
-
-  ul.mega-menu {
-    width: 70vw;
-  }
-
-  ul.mega-menu .menu-item-card {
-    transition: all 0.4s;
-    background-color: #ffffff;
-    border-color: rgba(231, 78, 132, 0.1);
-  }
-
-  ul.mega-menu .menu-item-card:hover {
-    background-color: rgba(231, 78, 132, 0.1);
-  }
-  .login-dropdown .dropdown-menu{
-    width:300px;
-  }
-  ul#top_access li.login-dropdown .dropdown-menu a.forgot{
-    color:var(--pink);
-  }
-</style>
-
-<header class="header_sticky pb-0 pt-3">
+<!-- <header class="header_sticky pb-0 pt-3">
   <div class="container">
     <div class="row align-items-center g-2 pb-3">
       <div class="col-12 col-sm-4">
@@ -102,7 +62,9 @@
                   </div>
                 </ul>
               </li>
-
+              <li class="submenu">
+                <a href="{{ url('/') }}" class="show-submenu">Speciality</a>
+              </li>
               <li class="submenu">
                 <a href="{{ url('/blog') }}" class="show-submenu">Blog</a>
               </li>
@@ -124,7 +86,6 @@
         <div class="col-12 col-lg-6">
           <div class="d-flex gap-0 gap-lg-3 justify-content-end align-items-center">
             <ul id="top_access">
-              <!-- <li><a href="{{ url('/login') }}"><i class="pe-7s-user"></i></a></li> -->
 
               <li class="dropdown login-dropdown">
                 <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -165,7 +126,197 @@
       </div>
     </div>
   </div>
-</header>
+</header> -->
+
+
+
+<header class="sticky-top bg-white">
+        <div class="container-fliud container-lg">
+            <div class="row align-items-center justify-content-between py-1 py-lg-3">
+                <div class="col-3 col-lg-2">
+                    <a class="d-block brand-logo" href="/">
+                        <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}" alt="apna-dental-logo">
+                    </a>
+                </div>
+                <div class="col-9">
+                    <div class="ads">
+                        <img class="w-100"
+                            src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg"
+                            alt="google-ads">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-cstm-bg">
+            <div class="container-fluid container-lg">
+              <ul class="nav d-flex align-items-center flex-nowrap d-lg-none ms-auto">
+                  <li class="nav-item dropdown login-dropdown">
+                      <a class="dropdown-toggle d-flex align-items-center" href="#" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="pe-7s-user h4 text-white mb-0"></i>
+                      </a>
+                      <div class="dropdown-menu bg-white border-0 rounded shadow p-3">
+                          <form class="row g-3">
+                              <div class="col-12">
+                                  <h2 class="h4">Login</h2>
+                              </div>
+                              <div class="col-12">
+                                  <input type="email" class="form-control" placeholder="Your email address">
+                              </div>
+                              <div class="col-12">
+                                  <div class="hideShowPassword-wrapper"
+                                      style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
+                                      <input type="password" class="form-control hideShowPassword-field"
+                                          placeholder="Your password" name="password" id="password"
+                                          style="margin: 0px; padding-right: 0px;">
+                                      <button type="button" role="button" aria-label="Show Password"
+                                          title="Show Password" tabindex="0"
+                                          class="my-toggle hideShowPassword-toggle-show" aria-pressed="false"
+                                          style="position: absolute; right: 0px; top: 50%; margin-top: -15px; display: none;">Show</button>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <a href="#0" class="forgot"><small>Forgot password?</small></a>
+                              </div>
+                              <div class="col-12">
+                                  <input class="btn_1 w-100" type="submit" value="Login">
+                              </div>
+
+                          </form>
+                      </div>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" aria-current="page"
+                              href="{{ url('/register') }}"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
+                  </li>
+
+                  <li class="nav-item">
+                    <div class="position-relative">
+                      <i class="pe-7s-map-marker position-absolute top-50 start-0 translate-middle-y ms-2"></i>
+                      <input type="text" id="apna_location" class="form-control ps-4" placeholder="Find Location">
+                      <input type="hidden" id="latitude" name="latLong" />
+                      <input type="hidden" id="longitude" name="latLong" />
+                    </div>
+                  </li>
+                  <li class="nav-item ms-3">
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                          aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon text-white"></span>
+                      </button>
+                  </li>
+              </ul>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/">Home</a>
+                      </li>
+                      
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              speciality
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li>
+                                  <hr class="dropdown-divider">
+                              </li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              Dr. By Treatment
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li>
+                                  <hr class="dropdown-divider">
+                              </li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Oral health</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ url('/blog') }}{{ url('/service') }}">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ url('/service') }}">Service</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ url('/contact-us') }}">Contact us</a>
+                      </li>
+
+                  </ul>
+
+
+
+                  <div class="d-none d-lg-block">
+                      <ul class="nav align-items-center">
+                          <li class="nav-item dropdown login-dropdown">
+                              <a class="dropdown-toggle d-flex align-items-center" href="#" role="button"
+                                  data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="pe-7s-user h4 text-white mb-0"></i>
+                              </a>
+                              <div class="dropdown-menu bg-white border-0 rounded shadow p-3">
+                                  <form class="row g-3">
+                                      <div class="col-12">
+                                          <h2 class="h4">Login</h2>
+                                      </div>
+                                      <div class="col-12">
+                                          <input type="email" class="form-control" placeholder="Your email address">
+                                      </div>
+                                      <div class="col-12">
+                                          <div class="hideShowPassword-wrapper"
+                                              style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
+                                              <input type="password" class="form-control hideShowPassword-field"
+                                                  placeholder="Your password" name="password" id="password"
+                                                  style="margin: 0px; padding-right: 0px;">
+                                              <button type="button" role="button" aria-label="Show Password"
+                                                  title="Show Password" tabindex="0"
+                                                  class="my-toggle hideShowPassword-toggle-show" aria-pressed="false"
+                                                  style="position: absolute; right: 0px; top: 50%; margin-top: -15px; display: none;">Show</button>
+                                          </div>
+                                      </div>
+                                      <div class="col-12">
+                                          <a href="#0" class="forgot"><small>Forgot password?</small></a>
+                                      </div>
+                                      <div class="col-12">
+                                          <input class="btn_1 w-100" type="submit" value="Login">
+                                      </div>
+
+                                  </form>
+                              </div>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link active" aria-current="page"
+                              href="{{ url('/register') }}"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
+
+                          </li>
+
+                          <li class="nav-item">
+                            <div class="position-relative">
+                              <i class="pe-7s-map-marker position-absolute top-50 start-0 translate-middle-y ms-2"></i>
+                              <input type="text" id="apna_location" class="form-control ps-4" placeholder="Find Location">
+                              <input type="hidden" id="latitude" name="latLong" />
+                              <input type="hidden" id="longitude" name="latLong" />
+                            </div>
+                          </li>
+                      </ul>
+
+                  </div>
+              </div>
+          </div>
+      </nav>
+  </header>
+
 <!-- /header -->
 
 <script>
