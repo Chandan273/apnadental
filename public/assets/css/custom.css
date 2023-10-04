@@ -124,3 +124,10 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+.patient-detail-modal form label.service-for{
+  border: 1px solid #ddd;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+}
