@@ -210,7 +210,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="/">Home</a>
+                          <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                       </li>
                       
                       <li class="nav-item dropdown">
@@ -245,10 +245,13 @@
                           <a class="nav-link" href="#">Oral health</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ url('/blog') }}{{ url('/service') }}">Blog</a>
+                          <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="{{ url('/service') }}">Service</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ url('/about-us') }}">About us</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="{{ url('/contact-us') }}">Contact us</a>
