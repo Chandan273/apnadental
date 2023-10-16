@@ -2,58 +2,32 @@
 @section("content")
 
 <style>
-    /* :root {
-    --primary: #74d1c6;
-    --secondary: #3f4079;
-    --pink: #e74e84;
-    } */
-    .blogs-section .blog-wraper {
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-        display: block;
-    }
 
-    .blogs-section .blog-wraper .blog-content-wrraper {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        bottom: 0%;
-        left: 50%;
-        transform: translate(-50%, -15%);
-        padding: 15px;
-        padding-right: 50px;
-    }
-    .blogs-section .blog-wraper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.5);
-        transition: all 0.5s;
-    }
-    .blogs-section .blog-wraper:hover img {
-        transform: scale(1.03);
-    }
-    .nav-tabs .nav-link{
-        color:#767676;
-    }
-    .nav-tabs .category-title{
-        background-color:var(--secondary);
-        color: #fff;
-    }
-    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-        color: #e74e84;
-    }
-    #breadcrumb {
-        background-color: #efefef;
-        color: #000;
-    }
-    #breadcrumb ul li a {
-        color: var(--pink);
-    }
 </style>
 
 <main>
+    <div class="bg-white action-filter py-3">
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-12 col-sm-4 action-buttons">
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary">About</button>
+                        <button class="btn btn-outline-primary">Health feed</button>
+                        <button class="btn btn-outline-primary">Find Doctor</button>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-8">
+                    <form class="d-flex flex-nowrap gap-2">
+                        <input type="text" class="form-control" id="search" placeholder="search">
+                        <button type="submit" class="btn btn-primary">Search</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="breadcrumb">
         <div class="container">
             <ul>
@@ -68,7 +42,8 @@
     <section class="py-5 blogs-section">
         <div class="text-center mb-2 mb-sm-5">
             <h1 class="text-uppercase ">our blogs</h1>
-            <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne mel.</p>
+            <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed
+                ad debet scaevola, ne mel.</p>
         </div>
         <div class="container-fluid container-lg">
             <div class="row g-1">
@@ -76,7 +51,8 @@
                     <a href="" class=" blog-wraper">
                         <img src="{{ asset('public/assets/img/blog-big.jpg') }}" alt="blog image">
                         <div class="blog-content-wrraper">
-                            <span class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Fashion</span>
+                            <span
+                                class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Fashion</span>
                             <h3 class="text-white">
                                 WordPress News Magazine Charts the Most Chic and Fashionable Women of New York City
                             </h3>
@@ -92,7 +68,8 @@
                             <a href="" class=" blog-wraper">
                                 <img src="{{ asset('public/assets/img/blog-medium.jpg') }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Gadgets</span>
+                                    <span
+                                        class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Gadgets</span>
                                     <h3 class="text-white fs-5">
                                         Game Changing Virtual Reality Console Hits the Market
                                     </h3>
@@ -115,7 +92,8 @@
                             <a href="" class=" blog-wraper">
                                 <img src="{{ asset('public/assets/img/blog-small2.jpg') }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>
+                                    <span
+                                        class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>
                                     <h3 class="text-white fs-6">
                                         Computer Filters Noise to Make You a Better Listener
                                     </h3>
@@ -133,15 +111,20 @@
         <div class="row g-3">
             <div class="col-12 col-lg-9">
                 <div class="first-category">
-                    <nav>                   
+                    <nav>
                         <div class="nav nav-tabs align-items-center" id="nav-tab" role="tablist">
                             <h3 class="category-title fs-6 mb-0 fw-normal me-5 py-2 px-3 text-uppercase">DON'T MISS</h3>
-                            <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All</button>
-                            <button class="nav-link" id="nav-travel-tab" data-bs-toggle="tab" data-bs-target="#nav-travel" type="button" role="tab" aria-controls="nav-travel" aria-selected="false">Travel</button>
+                            <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
+                                aria-selected="true">All</button>
+                            <button class="nav-link" id="nav-travel-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-travel" type="button" role="tab" aria-controls="nav-travel"
+                                aria-selected="false">Travel</button>
                         </div>
                     </nav>
                     <div class="tab-content mt-3" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab" tabindex="0">
+                        <div class="tab-pane fade show active" id="nav-all" role="tabpanel"
+                            aria-labelledby="nav-all-tab" tabindex="0">
                             <article class="blog fadeIn">
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-8">
@@ -155,11 +138,14 @@
                                                 <strong>Admin</strong>
                                                 <span>-</span>
                                                 <small>14 Aug. 2023</small>
-                                            
+
                                             </div>
-                                            
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful 1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim offendit salutandi, in eos quod omnes epicurei, ex veri qualisque scriptorem mei.</p>
+
+                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
+                                                    1930s semi in London</a></h3>
+                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
+                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
+                                                scriptorem mei.</p>
                                             <a class="preview" href="">Read more</a>
                                         </div>
                                     </div>
@@ -170,7 +156,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>21 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -179,7 +166,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>24 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -188,8 +176,9 @@
                                 </div>
                             </article>
                         </div>
-                        <div class="tab-pane fade" id="nav-travel" role="tabpanel" aria-labelledby="nav-travel-tab" tabindex="0">
-                        <article class="blog fadeIn">
+                        <div class="tab-pane fade" id="nav-travel" role="tabpanel" aria-labelledby="nav-travel-tab"
+                            tabindex="0">
+                            <article class="blog fadeIn">
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-8">
                                         <figure>
@@ -202,11 +191,14 @@
                                                 <strong>Admin</strong>
                                                 <span>-</span>
                                                 <small>10 Aug. 2023</small>
-                                            
+
                                             </div>
-                                            
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful 1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim offendit salutandi, in eos quod omnes epicurei, ex veri qualisque scriptorem mei.</p>
+
+                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
+                                                    1930s semi in London</a></h3>
+                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
+                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
+                                                scriptorem mei.</p>
                                             <a class="preview" href="">Read more</a>
                                         </div>
                                     </div>
@@ -217,7 +209,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>20 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -226,7 +219,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>25 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -252,27 +246,34 @@
                         </ul>
                     </nav>
                 </div>
-                
+
                 <!-- Advertising Ads -->
-                
+
                 <div class="ads">
                     <div class="row">
                         <div class="col-12 py-3">
-                            <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="" width="100%">
+                            <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg"
+                                alt="" width="100%">
                         </div>
                     </div>
                 </div>
 
                 <div class="second-category pt-3">
-                    <nav>                   
+                    <nav>
                         <div class="nav nav-tabs align-items-center" id="nav-tab" role="tablist">
-                            <h3 class="category-title fs-6 mb-0 fw-normal me-5 py-2 px-3 text-uppercase">LIFESTYLE NEWS</h3>
-                            <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All</button>
-                            <button class="nav-link" id="nav-travel-tab" data-bs-toggle="tab" data-bs-target="#nav-travel" type="button" role="tab" aria-controls="nav-travel" aria-selected="false">Travel</button>
+                            <h3 class="category-title fs-6 mb-0 fw-normal me-5 py-2 px-3 text-uppercase">LIFESTYLE NEWS
+                            </h3>
+                            <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
+                                aria-selected="true">All</button>
+                            <button class="nav-link" id="nav-travel-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-travel" type="button" role="tab" aria-controls="nav-travel"
+                                aria-selected="false">Travel</button>
                         </div>
                     </nav>
                     <div class="tab-content mt-3" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab" tabindex="0">
+                        <div class="tab-pane fade show active" id="nav-all" role="tabpanel"
+                            aria-labelledby="nav-all-tab" tabindex="0">
                             <article class="blog fadeIn">
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-8">
@@ -286,11 +287,14 @@
                                                 <strong>Admin</strong>
                                                 <span>-</span>
                                                 <small>14 Aug. 2023</small>
-                                            
+
                                             </div>
-                                            
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful 1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim offendit salutandi, in eos quod omnes epicurei, ex veri qualisque scriptorem mei.</p>
+
+                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
+                                                    1930s semi in London</a></h3>
+                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
+                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
+                                                scriptorem mei.</p>
                                             <a class="preview" href="">Read more</a>
                                         </div>
                                     </div>
@@ -301,7 +305,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>21 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -310,7 +315,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>24 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -319,8 +325,9 @@
                                 </div>
                             </article>
                         </div>
-                        <div class="tab-pane fade" id="nav-travel" role="tabpanel" aria-labelledby="nav-travel-tab" tabindex="0">
-                        <article class="blog fadeIn">
+                        <div class="tab-pane fade" id="nav-travel" role="tabpanel" aria-labelledby="nav-travel-tab"
+                            tabindex="0">
+                            <article class="blog fadeIn">
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-8">
                                         <figure>
@@ -333,11 +340,14 @@
                                                 <strong>Admin</strong>
                                                 <span>-</span>
                                                 <small>10 Aug. 2023</small>
-                                            
+
                                             </div>
-                                            
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful 1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim offendit salutandi, in eos quod omnes epicurei, ex veri qualisque scriptorem mei.</p>
+
+                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
+                                                    1930s semi in London</a></h3>
+                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
+                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
+                                                scriptorem mei.</p>
                                             <a class="preview" href="">Read more</a>
                                         </div>
                                     </div>
@@ -348,7 +358,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>20 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -357,7 +368,8 @@
                                                     <img src="http://via.placeholder.com/100x100.jpg" alt="">
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s semi in London</h6>
+                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
+                                                        semi in London</h6>
                                                     <small>25 Aug. 2023</small>
                                                 </div>
                                             </a>
@@ -384,7 +396,8 @@
                     </nav>
                 </div>
             </div>
-            
+
+            <!-- Sidebar  -->
             <aside class="col-12 col-lg-3">
                 <div class="widget">
                     <form class="mb-3">
@@ -392,15 +405,16 @@
                             <input type="text" name="search" id="search" class="form-control" placeholder="Search...">
                             <button type="submit" id="submit" class="btn_1"> Search</button>
                         </div>
-                        
+
                     </form>
                 </div>
 
-                
+
                 <div class="ads">
                     <div class="row">
                         <div class="col-12 py-3">
-                            <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/10/newspaper-rec300d.jpg" alt="right side ads" width="100%">
+                            <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/10/newspaper-rec300d.jpg"
+                                alt="right side ads" width="100%">
                         </div>
                     </div>
                 </div>
@@ -414,7 +428,7 @@
                             <a href="#0">
                                 <img src="http://via.placeholder.com/160x160.jpg" alt="" width="100px">
                             </a>
-                            <div>                            
+                            <div>
                                 <h3 class="fs-6"><a href="#" title="">Verear qualisque ex minimum...</a></h3>
                                 <small>11.08.2016</small>
                             </div>
@@ -423,8 +437,9 @@
                             <a href="#0">
                                 <img src="http://via.placeholder.com/160x160.jpg" alt="" width="100px">
                             </a>
-                            <div>                            
-                                <h3 class="fs-6"><a href="#" title="">Outdoor Kitchen Decorating: Furnish and Accessorize...</a></h3>
+                            <div>
+                                <h3 class="fs-6"><a href="#" title="">Outdoor Kitchen Decorating: Furnish and
+                                        Accessorize...</a></h3>
                                 <small>10.08.2016</small>
                             </div>
                         </li>
@@ -432,12 +447,13 @@
                             <a href="#0">
                                 <img src="http://via.placeholder.com/160x160.jpg" alt="" width="100px">
                             </a>
-                            <div>                            
-                                <h3 class="fs-6"><a href="#" title="">Interior Design Tips: Decorating to Celebrate...</a></h3>
+                            <div>
+                                <h3 class="fs-6"><a href="#" title="">Interior Design Tips: Decorating to
+                                        Celebrate...</a></h3>
                                 <small>09.08.2016</small>
                             </div>
                         </li>
-                       
+
                     </ul>
                 </div>
                 <!-- /widget -->
@@ -469,7 +485,7 @@
                         <a href="#">Cancer</a>
                     </div>
                 </div>
-                
+
             </aside>
         </div>
     </div>
