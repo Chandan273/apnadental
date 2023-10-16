@@ -73,7 +73,7 @@
 
     }
 
-    .blogs-section .blog-wraper {
+    /* .blogs-section .blog-wraper {
         height: 100%;
         position: relative;
         overflow: hidden;
@@ -100,7 +100,7 @@
     }
     .blogs-section .blog-wraper:hover img {
         transform: scale(1.03);
-    }
+    } */
     .carousel-item img.d-block.w-100 {
         height: 400px;
     }

@@ -4,41 +4,22 @@
 
 </style>
 <main>
-    <div class="bg-white action-filter py-3">
-        <div class="container">
-            <div class="row g-2">
-                <div class="col-12 col-sm-4 action-buttons">
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-primary">About</button>
-                        <button class="btn btn-outline-primary">Health feed</button>
-                        <button class="btn btn-outline-primary">Find Doctor</button>
-                    </div>
-
-                </div>
-                <div class="col-12 col-sm-8">
-                    <form class="d-flex flex-nowrap gap-2">
-                        <input type="text" class="form-control" id="search" placeholder="search">
-                        <button type="submit" class="btn btn-primary">Search</button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="breadcrumb">
         <div class="container">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li>Services</li>
+                <li>cosmetics_dentistry</li>
             </ul>
         </div>
     </div>
     <!-- /breadcrumb end -->
+
+
+    <!-- contant  section -->
+
     <div class="container-fluid container-lg">
         <div class="row g-3 pt-3">
             <div class="col-12 col-lg-9">
-                <!-- contant  section -->
-
                 <section class="content-section bg-white py-5">
                     <div class="container">
                         <div class="row align-items-center g-3">
@@ -49,14 +30,13 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-9 col-lg-9">
-                                <h2 class="text-uppercase">Root Canal Treatment - Procedure, Cost And Side Effects</h2>
-                                <p>Root canal is a term which is used for describing your natural cavity that lies
-                                    within the center
-                                    of your tooth. The nerves of the tooth lie in the root canal. When the nerve tissue
-                                    or the pulp
-                                    of your tooth gets damaged, it will break down, resulting in multiplication of
-                                    bacteria in
-                                    the pulp chamber.</p>
+                                <h2 class="text-uppercase">Cosmetic Dentistry
+                                </h2>
+                                <p>Cosmetic dentistry is the branch of dentistry that focuses on improving the
+                                    appearance of your
+                                    smile. Common cosmetic dental treatments include teeth whitening, dental
+                                    bonding and veneers.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -71,31 +51,28 @@
 
                                 <div class="row align-items-center">
                                     <div class="col-12">
-                                        <h2 class="text-uppercase">what is root canal treatment?</h2>
-                                        <p>The presence of bacteria and the decayed debris may cause a tooth infection.
-                                            It
-                                            can also cause a swelling that sometimes spreads to the other parts of the
-                                            neck,
-                                            face or head. If you are experiencing pain, tooth discoloration, swelling or
-                                            a
-                                            feeling of tenderness in your lymph nodes, there may be a chance that you
-                                            require a root canal treatment.
-                                            </br>
-                                            </br>
-                                            A root canal is performed for repairing or saving an infected tooth that has
-                                            been damaged badly. The procedure is carried out by removing the area of the
-                                            tooth that is damaged, commonly known as the pulp. After that, the area is
-                                            cleaned and disinfected before being filled and sealed.
-                                            </br>
-                                            </br>
-                                            Once this initial root canal treatment performed, you can visit the dentist
-                                            later who may place a crown on the affected tooth for protection and restore
-                                            it
-                                            to function perfectly. A root canal treatment may comprise of one to three
-                                            visits to the dentist, depending on the severity of the condition.</p>
+                                        <h5>Overview</h5>
+                                        <h2 class="text-uppercase">What is cosmetic dentistry?</h2>
+                                        <p>Cosmetic dentistry focuses on improving the appearance and aesthetics of your
+                                            smile.
+                                            Common cosmetic dental procedures include teeth whitening, dental bonding
+                                            and veneers.
+                                        </p>
+
+                                        <h3>What’s the difference between cosmetic dentistry and general dentistry?</h3>
+                                        <p>
+                                            A general dentist is a primary dental care provider. They offer preventative
+                                            care, like
+                                            teeth cleanings, and restorative dentistry treatments, such as dental
+                                            fillings, crowns
+                                            and bridges. Most dental treatments restore appearance as well as health and
+                                            function.
+                                            However, a cosmetic dentist focuses on beautifying your smile. They offer
+                                            treatments
+                                            aimed at improving the appearance of your teeth and gums.</p>
 
                                         <div class="row">
-                                            <h3>Doctor for Root Canal Treatment in Delhi</h3>
+                                            <h3 class="mb-3">Doctor for cosmetic dentistry Treatment in Delhi</h3>
                                             <div class="col-4">
                                                 <div class="box_list home">
                                                     <div class="wrapper">
@@ -230,49 +207,40 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 class="text-uppercase">A root canal involves the following steps:</h2>
+                                    <h2 class="text-uppercase">Who benefits from cosmetic dentistry?
+                                    </h2>
+                                    <p>Cosmetic dentistry might be an option if you have:
+                                    </p>
                                     <ul class="list-group gap-2 list-group-numbered">
-                                        <li class="list-group-item">Initially, you have to undergo an x-ray so that your
-                                            doctor
-                                            can examine and locate the position of your infected tooth. After it has
-                                            been
-                                            located, the dentist will administer local anesthesia for numbing the area
-                                            around
-                                            that particular tooth.</li>
-                                        <li class="list-group-item">The doctor then places a rubber sheet around the
-                                            affected
-                                            tooth to ensure that the area is dry.</li>
-                                        <li class="list-group-item">A hole is drilled in your tooth to remove the debris
-                                            and the
-                                            nerve tissues that have decayed. Suitable files are used to scrape away the
-                                            decayed
-                                            portion in the process. Sodium hypochlorite or water is periodically used
-                                            for
-                                            flushing away the debris.</li>
-                                        <li class="list-group-item">Once the tooth has been thoroughly cleaned, the
-                                            doctor seals
-                                            it. In case there is an infection, your doctor may apply some medicine to
-                                            cure it
-                                            before sealing the tooth.</li>
-                                        <li class="list-group-item">If the treatment remains incomplete, the exterior
-                                            hole of
-                                            your tooth is given a temporary filling to keep away the food and saliva.
-                                            The
-                                            permanent filling is done in the following appointment.</li>
-                                        <li class="list-group-item">The permanent filling is done with a material called
-                                            gutta-percha (a tough and rigid substance from the latex of some
-                                            specific trees).
+                                        <li class="list-group-item">Chipped or cracked teeth.
                                         </li>
-                                        <li class="list-group-item">The final step is the restoration of your tooth. In
-                                            this
-                                            process, a crown is placed on the teeth for protection and safeguarding it
-                                            from
-                                            breaking. The crown also makes sure that the affected tooth regains its
-                                            full functionality.</li>
+                                        <li class="list-group-item">Small gaps or spaces between your teeth.
+                                        </li>
+                                        <li class="list-group-item">Tooth discoloration and staining.
+                                        </li>
+                                        <li class="list-group-item">Misshapen teeth.
+                                        </li>
+                                        <li class="list-group-item">Misaligned teeth.</li>
 
                                     </ul>
+                                </div>
+
+
+                                <div class="my-4">
+                                    <h2 class="text-uppercase">Can anyone undergo cosmetic dentistry treatments?</h2>
+                                    <p>As long as you have healthy teeth and gums, you can pursue cosmetic dental
+                                        treatments. But if
+                                        you have extensive cavities or gum disease, your dentist will want to address
+                                        those
+                                        conditions first. Once your smile is healthy again, you can decide which
+                                        cosmetic treatments
+                                        you want to explore.
+                                    </p>
 
                                 </div>
+
+
+                                <!-- ads  -->
                                 <div class="row my-4">
                                     <div class="col-12">
                                         <img class="w-100" src="{{ asset('public/assets/img/ads-2.jpg') }}"
@@ -280,488 +248,505 @@
                                     </div>
                                 </div>
 
-                                <div>
-                                    <h2 class="text-uppercase mb-2">Who is eligible for root canal treatment? (When is
-                                        the
-                                        treatment done?)
-                                    </h2>
-                                    <p>You may require a root canal if you suffer from the following conditions:
+                                <div class="my-4">
+                                    <h5>Procedure Details </h5>
+                                    <div>
+                                        <h2 class="text-uppercase">What are examples of cosmetic dentistry?
+                                        </h2>
+                                        <p>Cosmetic dentistry aims to create a more balanced, symmetrical and
+                                            aesthetically pleasing
+                                            smile. Common cosmetic dental services include teeth whitening, dental
+                                            bonding, veneers,
+                                            and
+                                            tooth and gum contouring.
+                                        </p>
+
+                                    </div>
+
+
+                                    <div>
+                                        <h2 class="text-uppercase">Teeth whitening</h2>
+                                        <p>Over time, dark-colored foods and drinks (like coffee, tea and berries) can
+                                            stain your
+                                            teeth. Professional teeth whitening can dramatically and safely lighten the
+                                            shade of
+                                            your teeth and brighten your smile.
+                                        </p>
+                                        <p>Many dentists offer both in-office and at-home teeth whitening. In-office
+                                            whitening takes
+                                            about one hour to complete. At-home whitening usually takes a couple of
+                                            weeks.
+                                        </p>
+
+                                    </div>
+
+
+
+                                    <div>
+                                        <h2 class="text-uppercase">Dental bonding</h2>
+                                        <p>Dental bonding involves the application of tooth-colored composite resin.
+                                            Your dentist
+                                            uses this material to cover up and conceal cracks, craze lines (hairline
+                                            cracks),
+                                            discoloration and other cosmetic imperfections. Dental bonding can change
+                                            the shape of a
+                                            tooth to make it longer, wider or more uniform.
+                                        </p>
+                                        <p>Dental bonding usually needs replacing every five to seven years. It doesn’t
+                                            require the
+                                            removal of natural tooth enamel either, which means it’s completely
+                                            reversible.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h2 class="text-uppercase">Porcelain veneers
+                                        </h2>
+                                        <p>Made of medical grade ceramic, porcelain veneers are thin, strong shells that
+                                            adhere to
+                                            the front surfaces of your teeth. Like dental bonding, veneers can conceal a
+                                            wide range
+                                            of cosmetic flaws, including chips, cracks and discoloration.
+
+                                        </p>
+                                        <p>There are many types of veneers, including traditional and minimal prep. All
+                                            veneers
+                                            require at least some removal of natural enamel, which means they could be
+                                            reversible
+                                            depending on which kind you choose. In most cases, porcelain veneers need
+                                            replacing
+                                            every 10 years or so.
+                                        </p>
+                                    </div>
+
+
+
+                                    <div>
+                                        <h2 class="text-uppercase">Tooth contouring
+
+                                        </h2>
+                                        <p>This procedure removes small amounts of enamel to change the shape of your
+                                            teeth. Because
+                                            you only have so much natural enamel, there’s a limit to how much tooth
+                                            structure your
+                                            dentist can remove. Your dentist can complete tooth contouring during a
+                                            single office
+                                            visit.
+                                        </p>
+
+                                    </div>
+
+                                    <div>
+                                        <h2 class="text-uppercase">Gum contouring
+
+
+                                        </h2>
+                                        <p>Some people are born with excess gum tissue. When this happens, it can make
+                                            your smile
+                                            appear “gummy” or unbalanced. During gum contouring, your dentist removes
+                                            excess gum
+                                            tissue and reshapes your gum line for a more symmetrical, balanced
+                                            appearance.
+                                        </p>
+
+                                    </div>
+
+
+                                    <div>
+                                        <h2 class="text-uppercase">Can restorative dental procedures also offer cosmetic
+                                            benefits?
+                                        </h2>
+                                        <p>The procedures outlined above are strictly cosmetic in nature. But sometimes,
+                                            restorative
+                                            dentistry treatments, which repair teeth, can also improve the appearance of
+                                            your smile.
+                                            For example, if you repair a cracked tooth with a dental crown, it not only
+                                            improves the
+                                            health and function of your smile, but also its appearance.
+                                        </p>
+                                        <p>Similarly, dental braces aim to improve your bite and your overall oral
+                                            health. But
+                                            braces also improve the aesthetics of your smile dramatically.</p>
+                                    </div>
+
+                                </div>
+
+                                <section class="py-5">
+                                    <div>
+                                        <h2 class="text-uppercase text-center mb-4">Dentist Clinics</h2>
+                                        <div class="row gy-3">
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="card p-3 ">
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <div>
+                                                            <h3 class="h5 txt-primary">Max Lab</h3>
+                                                            <h4 class="h6 txt-primary">Sector-1</h4>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" class="me-2"><a
+                                                                    href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
+                                                                    target="_blank">Directions</a></a>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card_body">
+                                                        <div class="row mb-2 g-1">
+                                                            <div class="col-12">
+                                                                <p>
+                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                                    elit.
+                                                                    Nostrum, nam.
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="icon-location-1 h5 txt-primary"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h3 class="h6">C-1 Ground floor, Govt School,
+                                                                    Noida-201301 </h3>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-2 g-1">
+                                                            <div class="col-auto">
+                                                                <i class="icon-phone h5 txt-primary"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a href="tel:+4733378901">
+                                                                    <h3 class="h6">+91 1234567890</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <span class="rating"><i class="icon_star voted"></i><i
+                                                                        class="icon_star voted"></i><i
+                                                                        class="icon_star voted"></i><i
+                                                                        class="icon_star"></i><i class="icon_star"></i>
+                                                                    <small>(145)</small></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between mt-4 flex-wrap">
+                                                            <form>
+                                                                <div class="form-check align-items-center">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="exampleCheck1">
+                                                                    <label class="form-check-label"
+                                                                        for="exampleCheck1">Compare
+                                                                        Doctor</label>
+                                                                </div>
+                                                            </form>
+                                                            <a class="btn_1 " href="#">Book Now</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="card p-3 ">
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <div>
+                                                            <h3 class="h5 txt-primary">Max Lab</h3>
+                                                            <h4 class="h6 txt-primary">Sector-1</h4>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" class="me-2"><a
+                                                                    href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
+                                                                    target="_blank">Directions</a></a>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card_body">
+                                                        <div class="row mb-2 g-1">
+                                                            <div class="col-12">
+                                                                <p>
+                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                                    elit.
+                                                                    Nostrum, nam.
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="icon-location-1 h5 txt-primary"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h3 class="h6">C-1 Ground floor, Govt School,
+                                                                    Noida-201301 </h3>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-2 g-1">
+                                                            <div class="col-auto">
+                                                                <i class="icon-phone h5 txt-primary"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a href="tel:+4733378901">
+                                                                    <h3 class="h6">+91 1234567890</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <span class="rating"><i class="icon_star voted"></i><i
+                                                                        class="icon_star voted"></i><i
+                                                                        class="icon_star voted"></i><i
+                                                                        class="icon_star"></i><i class="icon_star"></i>
+                                                                    <small>(145)</small></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between mt-4 flex-wrap">
+                                                            <form>
+                                                                <div class="form-check align-items-center">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="exampleCheck1">
+                                                                    <label class="form-check-label"
+                                                                        for="exampleCheck1">Compare
+                                                                        Doctor</label>
+                                                                </div>
+                                                            </form>
+                                                            <a class="btn_1 " href="#">Book Now</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="card p-3 ">
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <div>
+                                                            <h3 class="h5 txt-primary">Max Lab</h3>
+                                                            <h4 class="h6 txt-primary">Sector-1</h4>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" class="me-2"><a
+                                                                    href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
+                                                                    target="_blank">Directions</a></a>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card_body">
+                                                        <div class="row mb-2 g-1">
+                                                            <div class="col-12">
+                                                                <p>
+                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                                    elit.
+                                                                    Nostrum, nam.
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="icon-location-1 h5 txt-primary"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h3 class="h6">C-1 Ground floor, Govt School,
+                                                                    Noida-201301 </h3>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-2 g-1">
+                                                            <div class="col-auto">
+                                                                <i class="icon-phone h5 txt-primary"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a href="tel:+4733378901">
+                                                                    <h3 class="h6">+91 1234567890</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <span class="rating"><i class="icon_star voted"></i><i
+                                                                        class="icon_star voted"></i><i
+                                                                        class="icon_star voted"></i><i
+                                                                        class="icon_star"></i><i class="icon_star"></i>
+                                                                    <small>(145)</small></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between mt-4 flex-wrap">
+                                                            <form>
+                                                                <div class="form-check align-items-center">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="exampleCheck1">
+                                                                    <label class="form-check-label"
+                                                                        for="exampleCheck1">Compare
+                                                                        Doctor</label>
+                                                                </div>
+                                                            </form>
+                                                            <a class="btn_1 " href="#">Book Now</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <div class="my-4">
+                                    <h2 class="text-uppercase">What is the most popular cosmetic dental procedure?</h2>
+                                    <p>Teeth whitening is the most common cosmetic dental procedure. It allows people to
+                                        make
+                                        noticeable improvements to their smile without undergoing invasive treatments.
                                     </p>
 
-                                    <ul class="list-group gap-2 list-group-flush list-group-numbered">
-                                        <li class="list-group-item">Acute pain in the teeth when you are chewing food or
-                                            if you
-                                            are putting pressure in that area
-                                        </li>
-                                        <li class="list-group-item">Sensitivity when you are consuming any food either
-                                            hot or
-                                            cold. Often, the feeling lingers long after you have eaten such foods.
-                                        </li>
-                                        <li class="list-group-item">Bump on your tooth gums near the area where it is
-                                            paining
-                                        </li>
-                                        <li class="list-group-item">Darkening of your tooth
-                                        </li>
-                                        <li class="list-group-item">Swelling or tenderness in the gums</li>
-                                    </ul>
 
-                                    <div class="my-3">
-                                        <h3>Who is not eligible for the treatment?</h3>
-                                        <p>A person is not eligible for undergoing a root canal if he/she is suffering
-                                            from:</p>
-                                        <ul class="list-group gap-2 list-group-flush list-group-numbered">
-                                            <li class="list-group-item">Hypertension</li>
-                                            <li class="list-group-item">Diabetes</li>
-                                            <li class="list-group-item">Infections or fever</li>
-                                            <li class="list-group-item">Osteoporosis (the condition wherein the bones
-                                                become brittle and weak)</li>
-                                            <li class="list-group-item">Autoimmune diseases</li>
-                                            <li class="list-group-item">If he/ she is taking blood thinning medications.
-                                                In this
-                                                case, your dentist can advise you to stop taking blood thinners for some
-                                                days
-                                                before the treatment commences.</li>
+                                    <div class="my-4">
+                                        <h5>Risks / Benefits
+                                        </h5>
+                                        <h2 class="text-uppercase">What are the advantages of cosmetic dentistry?
+                                        </h2>
+                                        <p>Cosmetic dentistry services can:</p>
+                                        <ul class="list-group gap-2 list-group-numbered">
+                                            <li class="list-group-item">Enhance your smile.
+
+                                            </li>
+                                            <li class="list-group-item">Brighten dull, stained teeth.
+
+                                            </li>
+                                            <li class="list-group-item">Improve the shape of your teeth.
+
+                                            </li>
+                                            <li class="list-group-item">Conceal chips and cracks.
+
+                                            </li>
+                                            <li class="list-group-item">Bring balance and symmetry to your smile.</li>
+                                            <li class="list-group-item">Boost your confidence.
+                                            </li>
+
                                         </ul>
                                     </div>
 
-                                    <section class="py-5">
-                                        <div>
-                                            <h2 class="text-uppercase text-center mb-4">Clinics</h2>
-                                            <div class="row gy-3">
-                                                <div class="col-12 col-md-6 col-lg-4">
-                                                    <div class="card p-3 ">
-                                                        <div class="d-flex justify-content-between mb-3">
-                                                            <div>
-                                                                <h3 class="h5 txt-primary">Max Lab</h3>
-                                                                <h4 class="h6 txt-primary">Sector-1</h4>
-                                                            </div>
-                                                            <div>
-                                                                <a href="#" class="me-2"><a
-                                                                        href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                                        target="_blank">Directions</a></a>
+                                    <div>
+                                        <h2 class="text-uppercase">What are the disadvantages of cosmetic dentistry?
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-12">
-                                                                    <p>
-                                                                        Lorem ipsum dolor, sit amet consectetur
-                                                                        adipisicing elit.
-                                                                        Nostrum, nam.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <i class="icon-location-1 h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <h3 class="h6">C-1 Ground floor, Govt School,
-                                                                        Noida-201301 </h3>
-                                                                </div>
-                                                            </div>
+                                        </h2>
+                                        <p>Cosmetic dentistry costs aren’t usually covered by insurance. This is because
+                                            insurance
+                                            companies don’t consider cosmetic procedures essential or necessary from a
+                                            health
+                                            standpoint.
+                                        </p>
 
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-auto">
-                                                                    <i class="icon-phone h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <a href="tel:+4733378901">
-                                                                        <h3 class="h6">+91 1234567890</h3>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <span class="rating"><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star"></i><i
-                                                                            class="icon_star"></i>
-                                                                        <small>(145)</small></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                                                <form>
-                                                                    <div class="form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="exampleCheck1">
-                                                                        <label class="form-check-label"
-                                                                            for="exampleCheck1">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                                <a class="btn_1 " href="#">Book Now</a>
-                                                            </div>
-                                                        </div>
+                                        <p>You’ll also need a certain level of commitment to maintain your smile. Some
+                                            treatments —
+                                            like porcelain veneers — are irreversible and require replacement
+                                            every few years.</p>
+                                    </div>
 
-                                                    </div>
-                                                </div>
+                                    <div>
+                                        <h5>Recovery and Outlook
 
-                                                <div class="col-12 col-md-6 col-lg-4">
-                                                    <div class="card p-3 ">
-                                                        <div class="d-flex justify-content-between mb-3">
-                                                            <div>
-                                                                <h3 class="h5 txt-primary">Max Lab</h3>
-                                                                <h4 class="h6 txt-primary">Sector-1</h4>
-                                                            </div>
-                                                            <div>
-                                                                <a href="#" class="me-2"><a
-                                                                        href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                                        target="_blank">Directions</a></a>
+                                        </h5>
+                                        <h2 class="text-uppercase">What is the recovery time?
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-12">
-                                                                    <p>
-                                                                        Lorem ipsum dolor, sit amet consectetur
-                                                                        adipisicing elit.
-                                                                        Nostrum, nam.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <i class="icon-location-1 h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <h3 class="h6">C-1 Ground floor, Govt School,
-                                                                        Noida-201301 </h3>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-auto">
-                                                                    <i class="icon-phone h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <a href="tel:+4733378901">
-                                                                        <h3 class="h6">+91 1234567890</h3>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <span class="rating"><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star"></i><i
-                                                                            class="icon_star"></i>
-                                                                        <small>(145)</small></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                                                <form>
-                                                                    <div class="form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="exampleCheck1">
-                                                                        <label class="form-check-label"
-                                                                            for="exampleCheck1">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                                <a class="btn_1 " href="#">Book Now</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6 col-lg-4">
-                                                    <div class="card p-3 ">
-                                                        <div class="d-flex justify-content-between mb-3">
-                                                            <div>
-                                                                <h3 class="h5 txt-primary">Max Lab</h3>
-                                                                <h4 class="h6 txt-primary">Sector-1</h4>
-                                                            </div>
-                                                            <div>
-                                                                <a href="#" class="me-2"><a
-                                                                        href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                                        target="_blank">Directions</a></a>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-12">
-                                                                    <p>
-                                                                        Lorem ipsum dolor, sit amet consectetur
-                                                                        adipisicing elit.
-                                                                        Nostrum, nam.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <i class="icon-location-1 h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <h3 class="h6">C-1 Ground floor, Govt School,
-                                                                        Noida-201301 </h3>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-auto">
-                                                                    <i class="icon-phone h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <a href="tel:+4733378901">
-                                                                        <h3 class="h6">+91 1234567890</h3>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <span class="rating"><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star"></i><i
-                                                                            class="icon_star"></i>
-                                                                        <small>(145)</small></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                                                <form>
-                                                                    <div class="form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="exampleCheck1">
-                                                                        <label class="form-check-label"
-                                                                            for="exampleCheck1">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                                <a class="btn_1 " href="#">Book Now</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                </div>
+                                        </h2>
+                                        <p>It depends on the type of cosmetic procedure and the number of teeth that
+                                            need treatment.
+                                            For example, someone who has dental bonding on one tooth can resume normal
+                                            activities
+                                            immediately. However, someone who has gum contouring may need to take a day
+                                            or two off
+                                            work to recover. Your dentist can tell you what kind of recovery
+                                            timeline to expect.</p>
+                                    </div>
 
 
-                                <div>
-                                    <h2>Are there any side effects after root canal treatment?</h2>
-                                    <p>The possible side effects of a root canal procedure can be the following:</p>
-                                    <ul class="list-group gap-2 list-group-flush list-group-numbered">
-                                        <li class="list-group-item">You may experience a dull pain after the procedure.
-                                            It
-                                            generally does not last for more than a week. In case any bacteria remain,
-                                            the
-                                            infection can begin once again. So it is better to visit your doctor if you
-                                            experience a recurring pain.
-                                        </li>
-                                        <li class="list-group-item">In some cases, there is a formation of a crack at
-                                            the root
-                                            of your treated tooth, which can go unnoticed by your doctor. The crack
-                                            exposes the
-                                            area to bacterial infection.
-                                        </li>
-                                        <li class="list-group-item">If the crown comes loose, your treated tooth will
-                                            get
-                                            exposed. The seal that has been made will erode which can bring back the
-                                            infection.
-                                            You must get your dislodged crown fixed immediately.
-                                        </li>
-                                        <li class="list-group-item">If the fillers were of defective material, it will
-                                            eventually erode, thus leading to bacterial infection.</li>
-                                    </ul>
+                                    <div>
+                                        <h5>When to Call the Doctor
+                                        </h5>
+                                        <h2 class="text-uppercase">When should I see my healthcare provider?
+                                        </h2>
+                                        <p>If chipped, cracked, crooked or discolored teeth make you feel embarrassed or
+                                            self-conscious about your smile, talk to your dentist about options in
+                                            cosmetic dentistry. There are several different ways to improve the
+                                            appearance of your smile. Your dentist can talk with you about your cosmetic
+                                            goals and recommend an appropriate treatment plan.
+                                        </p>
+                                        <p>In the meantime, you should continue seeing your general dentist for routine
+                                            care, such as dental check-ups and cleanings. Practice good oral hygiene at
+                                            home between visits to keep your teeth and gums healthy.</p>
+                                    </div>
 
-                                    <div class="row mt-3">
-                                        <div class="col-4">
-                                            <div class="box_list home">
-
-
-                                                <div class="wrapper">
-                                                    <small>Psicologist</small>
-                                                    <h3>Dr. Watamaniuk</h3>
-                                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo
-                                                        nobis persecuti cuodo....</p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <span class="rating"><i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star"></i>
-                                                            <i class="icon_star"></i>
-                                                            <small>(145)</small>
-                                                            <a href="#0" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Badge Level"
-                                                                class="badge_list_1"><img
-                                                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                    width="15" height="15" alt=""></a>
-                                                        </span>
-                                                        <a href="tel:+0123456789" class="btn_listing">Get a Free Call
-                                                            now</a>
-                                                    </div>
-                                                </div>
-
-                                                <ul>
-                                                    <li>
-                                                        <form>
-                                                            <div class="mb-3 form-check align-items-center">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck1">
-                                                                <label class="form-check-label"
-                                                                    for="exampleCheck1">Compare
-                                                                    Doctor</label>
-                                                            </div>
-                                                        </form>
-                                                    </li>
-                                                    <li><a href="detail-page.html">Book now</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="box_list home">
-                                                <div class="wrapper">
-                                                    <small>Psicologist</small>
-                                                    <h3>Dr. Watamaniuk</h3>
-                                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo
-                                                        nobis persecuti cuodo....</p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <span class="rating"><i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star"></i>
-                                                            <i class="icon_star"></i>
-                                                            <small>(145)</small>
-                                                            <a href="#0" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Badge Level"
-                                                                class="badge_list_1"><img
-                                                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                    width="15" height="15" alt=""></a>
-                                                        </span>
-                                                        <a href="tel:+0123456789" class="btn_listing">Get a Free Call
-                                                            now</a>
-                                                    </div>
-                                                </div>
-
-                                                <ul>
-                                                    <li>
-                                                        <form>
-                                                            <div class="mb-3 form-check align-items-center">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck1">
-                                                                <label class="form-check-label"
-                                                                    for="exampleCheck1">Compare
-                                                                    Doctor</label>
-                                                            </div>
-                                                        </form>
-                                                    </li>
-                                                    <li><a href="detail-page.html">Book now</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="box_list home">
-
-                                                <div class="wrapper">
-                                                    <small>Psicologist</small>
-                                                    <h3>Dr. Watamaniuk</h3>
-                                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo
-                                                        nobis persecuti cuodo....</p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <span class="rating"><i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star"></i>
-                                                            <i class="icon_star"></i>
-                                                            <small>(145)</small>
-                                                            <a href="#0" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Badge Level"
-                                                                class="badge_list_1"><img
-                                                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                    width="15" height="15" alt=""></a>
-                                                        </span>
-                                                        <a href="tel:+0123456789" class="btn_listing">Get a Free Call
-                                                            now</a>
-                                                    </div>
-                                                </div>
-
-                                                <ul>
-                                                    <li>
-                                                        <form>
-                                                            <div class="mb-3 form-check align-items-center">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck1">
-                                                                <label class="form-check-label"
-                                                                    for="exampleCheck1">Compare
-                                                                    Doctor</label>
-                                                            </div>
-                                                        </form>
-                                                    </li>
-                                                    <li><a href="detail-page.html">Book now</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <h2 class="text-uppercase">A note from Apna Dentist
+                                        </h2>
+                                        <p>Cosmetic dentistry focuses on improving the appearance of your smile. There
+                                            are many treatments available, ranging from simple to complex. Talk to your
+                                            dentist about your specific cosmetic goals so they can design a treatment
+                                            plan that works for your budget and lifestyle.</p>
                                     </div>
                                 </div>
 
-                                <div class="accordion accordion-flush" id="accordionFlushExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                                aria-expanded="false" aria-controls="flush-collapseOne">
-                                                What to eat after teeth scaling?
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                            data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Exercitationem, nam, dolorum sequi veritatis nihil beatae esse
-                                                vitae,
-                                                fugiat ipsa quasi soluta magnam accusantium nemo debitis nostrum ullam.
-                                                Vero
-                                                quasi neque quisquam velit sed quos quam, reiciendis, totam quae aut
-                                                soluta
-                                                reprehenderit nam, perspiciatis deleniti? Nihil aspernatur quae
-                                                explicabo,
-                                                ipsam dicta laudantium consequatur dolores est doloribus delectus, ut
-                                                labore, atque a.</div>
+
+                                <div class="mt-4">
+
+                                    <h2>Faq</h2>
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                    aria-expanded="false" aria-controls="flush-collapseOne">
+                                                    What to eat after teeth scaling?
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
+                                                    adipisicing
+                                                    elit. Exercitationem, nam, dolorum sequi veritatis nihil beatae esse
+                                                    vitae,
+                                                    fugiat ipsa quasi soluta magnam accusantium nemo debitis nostrum
+                                                    ullam.
+                                                    Vero
+                                                    quasi neque quisquam velit sed quos quam, reiciendis, totam quae aut
+                                                    soluta
+                                                    reprehenderit nam, perspiciatis deleniti? Nihil aspernatur quae
+                                                    explicabo,
+                                                    ipsam dicta laudantium consequatur dolores est doloribus delectus,
+                                                    ut
+                                                    labore, atque a.</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                                aria-expanded="false" aria-controls="flush-collapseTwo">
-                                                Is scaling good for teeth?
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                            data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Itaque voluptatibus facere asperiores accusamus! Provident
-                                                repellendus
-                                                velit natus sunt eveniet officiis et! Sed dolore reiciendis, dicta
-                                                asperiores hic doloribus doloremque corporis laborum maxime officiis
-                                                voluptatum natus maiores distinctio labore adipisci velit?</div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                                    aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                    Is scaling good for teeth?
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
+                                                    adipisicing
+                                                    elit. Itaque voluptatibus facere asperiores accusamus! Provident
+                                                    repellendus
+                                                    velit natus sunt eveniet officiis et! Sed dolore reiciendis, dicta
+                                                    asperiores hic doloribus doloremque corporis laborum maxime officiis
+                                                    voluptatum natus maiores distinctio labore adipisci velit?</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                                aria-expanded="false" aria-controls="flush-collapseThree">
-                                                Is scaling of teeth painful?
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                            data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Itaque asperiores magnam illum. Qui culpa veritatis adipisci dicta
-                                                nemo repellendus voluptates natus eos, aliquam dolorum maxime voluptas,
-                                                tempore, neque id ratione saepe voluptatum possimus nihil velit quaerat
-                                                totam nostrum error est optio! Beatae cum odio nihil hic harum illum
-                                                recusandae minima.</div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                                    aria-expanded="false" aria-controls="flush-collapseThree">
+                                                    Is scaling of teeth painful?
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
+                                                    adipisicing
+                                                    elit. Itaque asperiores magnam illum. Qui culpa veritatis adipisci
+                                                    dicta
+                                                    nemo repellendus voluptates natus eos, aliquam dolorum maxime
+                                                    voluptas,
+                                                    tempore, neque id ratione saepe voluptatum possimus nihil velit
+                                                    quaerat
+                                                    totam nostrum error est optio! Beatae cum odio nihil hic harum illum
+                                                    recusandae minima.</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </section>
 
 
@@ -1175,7 +1160,6 @@
                     </div>
                 </section>
             </div>
-
             <div class="col-12 col-lg-3">
                 <aside>
                     <div class="widget">
@@ -1269,7 +1253,6 @@
                 </aside>
             </div>
         </div>
-
     </div>
 
 
