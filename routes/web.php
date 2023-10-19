@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DentalController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CSVController;
-use App\Http\Controllers\User\Auth\AuthController;
+use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------

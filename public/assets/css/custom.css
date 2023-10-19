@@ -31,28 +31,30 @@
   color: var(--secondary);
 }
 
-.btn_outline_2{
-  background-color:  #fff;
+.btn_outline_2 {
+  background-color: #fff;
   border-color: var(--secondary);
   color: var(--secondary);
 }
 
-.btn_outline_2:hover{
+.btn_outline_2:hover {
   background-color: var(--secondary);
   border-color: var(--secondary);
   color: #fff;
 }
 
-.btn_2{
-  background-color:  #3f4079ea;
+.btn_2 {
+  background-color: #3f4079ea;
   border-color: var(--secondary);
   color: #fff;
 }
-.btn_2:hover{
+
+.btn_2:hover {
   background-color: var(--secondary);
   border-color: var(--secondary);
   color: #fff;
 }
+
 .navbar-cstm-bg {
   background-color: var(--secondary);
   text-transform: capitalize;
@@ -240,15 +242,28 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   width: 120px;
 }
 
-.add-member-modal label.btn-outline-primary,.add-member-modal label.btn-outline-primary:hover {
+.add-member-modal label.btn-outline-primary,
+.add-member-modal label.btn-outline-primary:hover {
   border-color: var(--pink);
   color: var(--pink);
 }
 
 .add-member-modal .btn-check:checked+.btn {
   background-color: var(--pink);
-  color: #fff;border-color: var(--pink);
+  color: #fff;
+  border-color: var(--pink);
 }
+
+form #error-message {
+  font-size: 11px;
+}
+.dropdown-toggle::after{
+  color: #fff;
+}
+
+
+
+
 
 @media screen and (max-width: 575px) {
   .add-member .member-img-wraper {
