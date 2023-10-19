@@ -188,22 +188,18 @@
                         <h2 class="fs-4">Start Your Search</h2>        
                         <div class="row g-3 g-lg-2">
                             <div class="col col-lg-4">
-                                <select class="form-select" aria-label="location">
+                                <select class="form-select" aria-label="location" id="service-select">
                                     <option selected="">Select a Treatment</option>
-                                    <option value="1">Periodontics</option>
-                                    <option value="2">Pedodontics</option>
-                                    <option value="3">Prosthodontics</option>
-                                    <option value="4">Orthodontics</option>
-                                    <option value="5">Endodontics</option>
-                                    <option value="6">Maxillofacial Surgery</option>
-                                    <option value="7">Implantology</option>
+                                    @foreach ($services as $service)
+                                    <option value="{{ $service->service_name }}">{{ $service->service_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col col-lg-6">
                                 <input type="text" name="keyword" class="form-control" placeholder="Search doctors, clinics, hospitals, etc." value="">
                             </div>
                             <div class="col-12 col-lg-2">
-                                <button class="btn btn-cstm w-100">search</button>
+                                <button type="button" class="btn btn-cstm w-100" id="search-button">search</button>
                             </div>
                         </div>
                     </div>
@@ -1308,6 +1304,28 @@
 
         // Call the getLocation function on page load
         window.onload = getLocation;
+    });
+
+    document.getElementById('search-button').addEventListener('click', function () {
+        const selectedService = document.getElementById('service-select').value;
+        // const keyword = document.querySelector('input[name="keyword"]').value;
+
+        // Check if a service is selected
+        if (selectedService !== '') {
+            // Construct the URL based on the selected service and keyword (if any)
+            let url = `search/doctors?results_type=${selectedService}`;
+
+            // If a keyword is provided, append it to the URL
+            // if (keyword !== '') {
+            //     url += `&keyword=${keyword}`;
+            // }
+
+            // Redirect the user to the generated URL
+            window.location.href = url;
+        } else {
+            // Handle the case where no service is selected
+            alert('Please select a treatment before searching.');
+        }
     });
 </script>
 

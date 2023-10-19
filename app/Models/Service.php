@@ -14,14 +14,9 @@ class Service extends Model
         'description',
     ];
 
-    public function locations()
-    {
-        return $this->hasMany(Location::class);
-    }
-
     public function doctors()
     {
-        return $this->hasMany(Doctor::class);
+        return $this->hasMany(Doctor::class, 'service_id');
     }
 
 }

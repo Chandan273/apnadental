@@ -2,7 +2,7 @@
         <div class="container-fliud container-lg">
             <div class="row align-items-center justify-content-between py-1 py-lg-3">
                 <div class="col-3 col-lg-2">
-                    <a class="d-block brand-logo" href="/">
+                    <a class="d-block brand-logo" href="{{ url('/') }}">
                         <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}" alt="apna-dental-logo">
                     </a>
                 </div>
@@ -29,13 +29,13 @@
                                   <h2 class="h4">Login</h2>
                               </div>
                               <div class="col-12">
-                                  <input type="email" class="form-control" placeholder="Your email address">
+                                  <input type="number" class="form-control" placeholder="Enter Phone Number">
                               </div>
                               <div class="col-12">
                                   <div class="hideShowPassword-wrapper"
                                       style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
-                                      <input type="password" class="form-control hideShowPassword-field"
-                                          placeholder="Your password" name="password" id="password"
+                                      <input type="number" class="form-control hideShowPassword-field"
+                                          placeholder="Enter Otp" name="otp" id="password"
                                           style="margin: 0px; padding-right: 0px;">
                                       <button type="button" role="button" aria-label="Show Password"
                                           title="Show Password" tabindex="0"
@@ -137,18 +137,20 @@
                                   <i class="pe-7s-user h4 text-white mb-0"></i>
                               </a>
                               <div class="dropdown-menu bg-white border-0 rounded shadow p-3">
-                                  <form class="row g-3">
+                                <form class="row g-3" id="otp-login-form" action="{{ route('otplogin.post') }}" method="POST">
+                                    @csrf
+                                      @if (!Auth::check())
                                       <div class="col-12">
                                           <h2 class="h4">Login</h2>
                                       </div>
                                       <div class="col-12">
-                                          <input type="email" class="form-control" placeholder="Your email address">
+                                          <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
                                       </div>
                                       <div class="col-12">
                                           <div class="hideShowPassword-wrapper"
                                               style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
-                                              <input type="password" class="form-control hideShowPassword-field"
-                                                  placeholder="Your password" name="password" id="password"
+                                              <input type="text" class="form-control"
+                                                  placeholder="Enter OTP" name="otp" id="password"
                                                   style="margin: 0px; padding-right: 0px;">
                                               <button type="button" role="button" aria-label="Show Password"
                                                   title="Show Password" tabindex="0"
@@ -156,21 +158,27 @@
                                                   style="position: absolute; right: 0px; top: 50%; margin-top: -15px; display: none;">Show</button>
                                           </div>
                                       </div>
-                                      <div class="col-12">
+                                      {{-- <div class="col-12">
                                           <a href="#0" class="forgot"><small>Forgot password?</small></a>
-                                      </div>
+                                      </div> --}}
+                                      <div id="error-message" class="text-danger"></div>
                                       <div class="col-12">
-                                          <input class="btn_1 w-100" type="submit" value="Login">
+                                          <input class="btn_1 w-100" id="login-button" type="submit" value="Login">
                                       </div>
-
+                                      @else
+                                      <div class="col-12">
+                                        <a href="{{ route('user.logout') }}" class="btn_1 w-100 text-center">Logout</a>
+                                      </div>
+                                      @endif
                                   </form>
                               </div>
                           </li>
+                          @if (!Auth::check())
                           <li class="nav-item">
                               <a class="nav-link active" aria-current="page"
                               href="{{ url('/register') }}"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
-
                           </li>
+                          @endif
 
                           <li class="nav-item">
                             <div class="position-relative">
@@ -187,7 +195,6 @@
           </div>
       </nav>
   </header>
-
 <!-- /header -->
 
 <script>
@@ -371,4 +378,31 @@
     // Call the getLocation function on page load
     window.onload = getLocation;
   });
+
+  $(document).ready(function () {
+        $('#otp-login-form').submit(function (e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+
+            $('#error-message').text("");
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('otplogin.post') }}",
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        // User successfully logged in
+                        window.location.href = "http://localhost/projects/apnadental/";
+                    } else {
+                      $('#error-message').text(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                  console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+
 </script>

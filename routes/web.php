@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DentalController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CSVController;
-use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\User\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +90,10 @@ Route::prefix('admin')->group(function () {
 Route::get('/', [SearchController::class, 'index']);
 Route::view('/404', 'apnadental/404');
 Route::view('/login', 'apnadental/login');
-Route::view('/register', 'apnadental/register');
+Route::get('logout', [App\Http\Controllers\User\Auth\AuthController::class, 'logout'])->name('user.logout');
+Route::get('/register', [App\Http\Controllers\User\Auth\AuthController::class, 'index']);
+Route::post('/otp-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post'); 
+Route::post('/post-registration', [App\Http\Controllers\User\Auth\AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::view('/blog', 'apnadental/blog');
 Route::view('/about-us', 'apnadental/about');
 Route::view('/service', 'apnadental/service');
@@ -100,7 +103,7 @@ Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-Route::view('/doctor', 'apnadental/doctor');
+Route::get('/search/doctors', [DoctorController::class, 'doctorList']);
 
 // new pages 
 Route::view('/my_account', 'apnadental/my_account');
