@@ -105,4 +105,9 @@ Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails'
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/search/doctors', [DoctorController::class, 'doctorList']);
 
+// new pages 
+Route::view('/my_account', 'apnadental/my_account');
+Route::view('/cosmetics_dentistry', 'apnadental/cosmetics_dentistry');
+Route::view('/periodontics', 'apnadental/periodontics');
+
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);

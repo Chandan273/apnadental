@@ -5,6 +5,54 @@
   --pink: #e74e84;
 }
 
+@media screen and (min-width: 1600px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl .container-xxxl {
+    max-width: 1536px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navbar-cstm-bg.navbar-expand-lg .navbar-nav .dropdown-menu {
+    width: 50vw;
+  }
+}
+
+.txt-primary {
+  color: var(--primary);
+}
+
+.txt-secondary {
+  color: var(--secondary);
+}
+
+.btn_outline_2{
+  background-color:  #fff;
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.btn_outline_2:hover{
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+}
+
+.btn_2{
+  background-color:  #3f4079ea;
+  border-color: var(--secondary);
+  color: #fff;
+}
+.btn_2:hover{
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+}
 .navbar-cstm-bg {
   background-color: var(--secondary);
   text-transform: capitalize;
@@ -12,12 +60,6 @@
 
 .login-dropdown .dropdown-menu {
   width: 300px;
-}
-
-@media (min-width: 992px) {
-  .navbar-cstm-bg.navbar-expand-lg .navbar-nav .dropdown-menu {
-      width: 50vw;
-  }
 }
 
 header .navigation-bg .main-menu>ul>li>a:hover,
@@ -111,9 +153,107 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   text-transform: uppercase;
 }
 
-.patient-detail-modal form label.service-for{
+.patient-detail-modal form label.service-for {
   border: 1px solid #ddd;
   width: 100%;
   padding: 10px;
   background-color: #fff;
 }
+
+.blogs-section .blog-wraper {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s;
+  display: block;
+}
+
+.blogs-section .blog-wraper .blog-content-wrraper {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  padding: 15px;
+  padding-right: 50px;
+}
+
+.blogs-section .blog-wraper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: all 0.6s;
+}
+
+.blogs-section .blog-wraper:hover img {
+  transform: scale(1.03);
+}
+
+.content-section .image-wrraper {
+  max-width: 250px;
+  max-height: 250px;
+  border: 5px solid #ddd;
+  overflow: hidden;
+}
+
+.content-section .image-wrraper img {
+  width: 100%;
+}
+
+.nav-tabs .nav-link.txt-secondary.active {
+  color: var(--primary);
+}
+
+#breadcrumb {
+  background-color: #efefef;
+  color: #000;
+}
+
+#breadcrumb ul li a {
+  color: var(--pink);
+}
+
+.list-group .list-group-item {
+  background-color: transparent;
+  border: 0;
+}
+
+
+/* my_account-page */
+.my_account-page .nav.nav-pills .nav-link {
+  background-color: #fff;
+  color: var(--secondary);
+  box-shadow: 0 0 3px #ddd;
+  padding: 15px 8px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.my_account-page .nav.nav-pills .nav-link.active {
+  color: #fff;
+  background-color: var(--secondary);
+}
+
+.add-member .member-img-wraper {
+  width: 120px;
+}
+
+.add-member-modal label.btn-outline-primary,.add-member-modal label.btn-outline-primary:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+.add-member-modal .btn-check:checked+.btn {
+  background-color: var(--pink);
+  color: #fff;border-color: var(--pink);
+}
+
+@media screen and (max-width: 575px) {
+  .add-member .member-img-wraper {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {}

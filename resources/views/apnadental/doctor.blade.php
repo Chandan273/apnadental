@@ -130,15 +130,32 @@
                     <!-- end  -->
 
                     <div class="shadow patient-detail-modal mb-3 p-3">
-                        <div class="row">
+                        <div class="row g-3">
                             <div class="col-12 col-md-6">
                                 <div class="card">
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                           <h4><i class="icon-home-1"></i>In-clinic Appointment</h4>
+                                        <li class="list-group-item py-3">
+                                           <h4>
+                                            <i class="icon-home-1 text-primary"></i>
+                                            In-clinic Appointment</h4>
+                                           
                                         </li>
-                                        <li class="list-group-item">A second item</li>
-                                        <li class="list-group-item">A third item</li>
+                                        <li class="list-group-item py-3">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <p class="mb-1">On 18 Sep,2023</p>
+                                                    <a href="#">Change date & Time</a>
+                                                </div>
+                                                <p class="mb-1">On 18 Sep,2023</p>
+                                            </div>
+
+
+                                        </li>
+                                        <li class="list-group-item py-3">
+                                            <div class="d-flex">
+                                                
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
