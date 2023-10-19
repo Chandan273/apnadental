@@ -14,9 +14,10 @@ class SearchController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
+        //$services = Service::all();
         $sliders = Slider::all();
         $brands = Brand::all();
+        $services = Service::with('doctors')->get();
         return view('apnadental.index', compact('brands', 'services', 'sliders'));
     }
 

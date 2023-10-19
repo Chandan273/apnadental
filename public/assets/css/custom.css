@@ -5,15 +5,6 @@
   --pink: #e74e84;
 }
 
-/* header .navigation-bg {
-  background-color: var(--secondary);
-}
-
-header .navigation-bg .main-menu>ul>li>a,
-ul#top_access li a {
-  color: #fff;
-} */
-
 .navbar-cstm-bg {
   background-color: var(--secondary);
   text-transform: capitalize;
@@ -28,11 +19,6 @@ ul#top_access li a {
       width: 50vw;
   }
 }
-
-
-
-
-
 
 header .navigation-bg .main-menu>ul>li>a:hover,
 ul#top_access li a:hover {

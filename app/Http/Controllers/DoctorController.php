@@ -42,6 +42,31 @@ class DoctorController extends Controller
         return view('apnadental.doctors', ['doctors' => $doctors, 'service_name' => $request->input('service_name')]);
     }
 
+    public function doctorList(Request $request)
+    {
+        // Get the results_type parameter from the URL
+        $resultsType = $request->query('results_type');
+
+        // Set the number of doctors to display per page
+        $perPage = 10; // You can adjust this as needed
+
+        if ($resultsType) {
+            // Use the `whereHas` method to filter doctors by service_name
+            $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
+                $query->where('service_name', $resultsType);
+            });
+        } else {
+            // If no results_type is provided, fetch all doctors
+            $doctorsQuery = Doctor::query();
+        }
+
+        // Paginate the results
+        $doctors = $doctorsQuery->paginate($perPage);
+
+        // Pass the doctors data to the view
+        return view('apnadental.doctor', compact('doctors', 'resultsType'));
+    }
+
     public function searchDoctors(Request $request)
     {
         $locationId = $request->input('location_id');

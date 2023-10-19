@@ -34,29 +34,30 @@
 									</figure>
 								</div>
 								<div class="col-lg-7 col-md-8">
-									<small>Primary care - Internist</small>
-									<h1>{{ $doctor->first_name }} {{ $doctor->last_name }}</h1>
+									<small>{{ $doctor->description }}</small>
+									<h1>{{ $doctor->company_name }}</h1>
 									<span class="rating">
 										<i class="icon_star voted"></i>
 										<i class="icon_star voted"></i>
 										<i class="icon_star voted"></i>
 										<i class="icon_star voted"></i>
 										<i class="icon_star"></i>
-										<small>(145)</small>
+										<small>({{ $doctor->rating_count }})</small>
 										<a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15" height="15" alt=""></a>
 									</span>
 									<ul class="statistic">
+										<li>{{ $doctor->main_category }}</li>
 										<li>854 Views</li>
 										<li>124 Patients</li>
 									</ul>
 									<ul class="contacts">
 										<li>
 											<h6>Address</h6>
-											2726 Shinn Street, New York -
-											<a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"> <strong>View on map</strong></a>
+											{{ $doctor->location }}, {{ $doctor->zip_code }}, {{ $doctor->city }}, {{ $doctor->country }}
+											<a href="{{ $doctor->map_url }}" target="_blank"> <strong>View on map</strong></a>
 										</li>
 										<li>
-											<h6>Phone</h6> <a href="tel://000434323342">+00043 4323342</a> - <a href="tel://000434323342">+00043 4323342</a></li>
+											<h6>Phone</h6> <a href="tel://{{ $doctor->phone }}">+{{ $doctor->phone }}</a></li>
 									</ul>
 								</div>
 							</div>
