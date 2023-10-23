@@ -257,13 +257,43 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
 form #error-message {
   font-size: 11px;
 }
-.dropdown-toggle::after{
+
+.dropdown-toggle::after {
   color: #fff;
 }
 
+.bg-verticle-gradient {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(116, 209, 198, 1) 100%);
+}
 
+.confused-help-offcanvas .offcanvas-confused-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  right: 0;
+  top: 70%;
+  z-index: 9999;
+}
 
+.confused-help-offcanvas .offcanvas.offcanvas-end {
+  width: 100%;
+  height: 500px;
+  right: 0%;
+  top: 50%;
+  transform: translate(100%, -50%);
+}
 
+.confused-help-offcanvas .offcanvas.show:not(.hiding),
+.confused-help-offcanvas .offcanvas.showing {
+  transform: translate(0%, -50%);
+}
+
+.footer-cta {
+  bottom: 0vh;
+  left: 50%;
+  width: 100%;
+}
 
 @media screen and (max-width: 575px) {
   .add-member .member-img-wraper {
