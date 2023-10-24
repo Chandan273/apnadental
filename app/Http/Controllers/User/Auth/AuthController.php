@@ -19,14 +19,14 @@ class AuthController extends Controller
         return redirect("/");
     }
 
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('admin.dashboard');
-        }
+    // public function dashboard()
+    // {
+    //     if(Auth::check()){
+    //         return view('admin.dashboard');
+    //     }
   
-        return redirect("admin/login")->withError('Opps! You do not have access');
-    }
+    //     return redirect("admin/login")->withError('Opps! You do not have access');
+    // }
 
     public function verifyOTP(Request $request)
     {

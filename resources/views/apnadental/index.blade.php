@@ -825,15 +825,15 @@
         <div class="container-fluid container-lg">
             <div class="row g-1">
                 <div class="col-12 col-sm-6">
-                    <a href="" class=" blog-wraper">
-                        <img src="{{ asset('public/assets/img/blog-big.jpg') }}" alt="blog image">
+                    <a href="{{ $posts[0]['link'] }}" class=" blog-wraper">
+                        <img src="{{ $posts[0]['_embedded']['wp:featuredmedia'][0]['source_url'] }}" alt="blog image">
                         <div class="blog-content-wrraper">
-                            <span class="post-category small text-white">Fashion</span>
+                            <span class="post-category small text-white">{{ $posts[0]['_embedded']['wp:term'][0][0]['name'] }}</span>
                             <h3 class="text-white">
-                                WordPress News Magazine Charts the Most Chic and Fashionable Women of New York City
+                                {{ $posts[0]['title']['rendered'] }}
                             </h3>
                             <div class="td-editor-date">
-                                <span class="post-author-name text-white">Armin Vans</span>
+                                <span class="post-author-name text-white">{{ $posts[0]['_embedded']['author'][0]['name'] }}</span>
                             </div>
                         </div>
                     </a>
@@ -841,35 +841,35 @@
                 <div class="col-12 col-sm-6">
                     <div class="row g-1">
                         <div class="col-12">
-                            <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-medium.jpg') }}" alt="blog image">
+                            <a href="{{ $posts[1]['link'] }}" class=" blog-wraper">
+                                <img src="{{ $posts[1]['_embedded']['wp:featuredmedia'][0]['source_url'] }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white">Gadgets</span>
+                                    <span class="post-category small text-white">{{ $posts[1]['_embedded']['wp:term'][0][0]['name'] }}</span>
                                     <h3 class="text-white fs-5">
-                                        Game Changing Virtual Reality Console Hits the Market
+                                        {{ $posts[1]['title']['rendered'] }}
                                     </h3>
 
                                 </div>
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-small1.jpg') }}" alt="blog image">
+                            <a href="{{ $posts[2]['link'] }}" class=" blog-wraper">
+                                <img src="{{ $posts[2]['_embedded']['wp:featuredmedia'][0]['source_url'] }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white">Travel</span>
+                                    <span class="post-category small text-white">{{ $posts[2]['_embedded']['wp:term'][0][0]['name'] }}</span>
                                     <h3 class="text-white fs-6">
-                                        Discover the Most Magical Sunset in Santorini
+                                        {{ $posts[2]['title']['rendered'] }}
                                     </h3>
                                 </div>
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-small2.jpg') }}" alt="blog image">
+                            <a href="{{ $posts[3]['link'] }}" class=" blog-wraper">
+                                <img src="{{ $posts[3]['_embedded']['wp:featuredmedia'][0]['source_url'] }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>
+                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">{{ $posts[3]['_embedded']['wp:term'][0][0]['name'] }}</span>
                                     <h3 class="text-white fs-6">
-                                        Computer Filters Noise to Make You a Better Listener
+                                        {{ $posts[3]['title']['rendered'] }}
                                     </h3>
                                 </div>
                             </a>
