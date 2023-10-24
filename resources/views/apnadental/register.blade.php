@@ -28,21 +28,21 @@
                                     <label>Name</label>
                                     <input type="text" name="name" class="form-control" placeholder="Your name" value="{{ old('name') }}">
                                     @if ($errors->has('name'))
-                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        <span id="error-message" class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" placeholder="Your email address" value="{{ old('email') }}">
                                     @if ($errors->has('email'))
-                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        <span id="error-message" class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Phone</label>
                                     <input type="text" name="phone_no" class="form-control" placeholder="Your Phone number" value="{{ old('phone_no') }}">
                                     @if ($errors->has('phone_no'))
-                                        <span class="text-danger">{{ $errors->first('phone_no') }}</span>
+                                        <span id="error-message" class="text-danger">{{ $errors->first('phone_no') }}</span>
                                     @endif
                                 </div>
                                 {{-- <div class="form-group">
@@ -62,7 +62,7 @@
                                     </div>
                                     {{-- <a href="#!" class="text-body">Forgot password?</a> --}}
                                     </div>
-                                <div class="form-group text-center add_top_30">
+                                <div class="form-group text-start add_top_30">
                                     <input class="btn_1" type="submit" value="Submit">
                                 </div>
                             </div>

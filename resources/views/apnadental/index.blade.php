@@ -2,11 +2,6 @@
 @section("content")
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <style>
-    /* :root {
-        --primary: #74d1c6;
-        --secondary: #3f4079;
-        --pink: #e74e84;
-    } */
     .bg-cst-blue{
         background-color:var(--secondary);
     }
@@ -73,34 +68,6 @@
 
     }
 
-    /* .blogs-section .blog-wraper {
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.6s;
-        display: block;
-    }
-
-    .blogs-section .blog-wraper .blog-content-wrraper {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        bottom: 0%;
-        left: 50%;
-        transform: translate(-50%, -15%);
-        padding: 15px;
-        padding-right: 50px;
-    }
-    .blogs-section .blog-wraper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.5);
-        transition: all 0.6s;
-    }
-    .blogs-section .blog-wraper:hover img {
-        transform: scale(1.03);
-    } */
     .carousel-item img.d-block.w-100 {
         height: 400px;
     }
@@ -118,11 +85,6 @@
         margin-top:-75px;
         position: relative;
     }
-
-    /* .sympthoms .item-card {
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-    } */
     
     .sympthoms .image-wrraper{
         width: 100px;
@@ -434,7 +396,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="Correct-my-smile" role="tabpanel" aria-labelledby="Correct-my-smile-tab" tabindex="0">
-                                <div class="row g-2 flex-nowrap">
+                                <div class="row g-2 flex-wrap">
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div class="card p-3 text-center h-100 justify-content-between align-items-center">
                                             <img src="{{ asset('public/assets/img/starTick.svg') }}" alt="starTick" width="50px">
@@ -468,7 +430,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="pills-Missing-teeth" role="tabpanel" aria-labelledby="pills-Missing-teeth-tab" tabindex="0">
-                                <div class="row g-2 flex-nowrap">
+                                <div class="row g-2 flex-wrap">
 
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div class="card p-3 text-center h-100 justify-content-between align-items-center">
@@ -511,7 +473,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="pills-Clean-teeth" role="tabpanel" aria-labelledby="pills-Clean-teeth-tab" tabindex="0">
-                                <div class="row g-2 flex-nowrap">
+                                <div class="row g-2 flex-wrap">
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div class="card p-3 text-center h-100 justify-content-between align-items-center">
                                             <img src="{{ asset('public/assets/img/starTick.svg') }}" alt="starTick" width="50px">
@@ -528,7 +490,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="pills-routine-dental" role="tabpanel" aria-labelledby="pills-routine-dental-tab" tabindex="0">
-                                <div class="row g-2 flex-nowrap">
+                                <div class="row g-2 flex-wrap">
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div class="card p-3 text-center h-100 justify-content-between align-items-center">
                                             <img src="{{ asset('public/assets/img/starTick.svg') }}" alt="starTick" width="50px">
@@ -574,7 +536,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/filling-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Dental Fillings</h3>
                         </div>
                     </a>
@@ -584,7 +546,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/root-canal-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Root Canal Treatment</h3>
                         </div>
                     </a>
@@ -594,7 +556,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/teeth-removal-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Wisdom Teeth Removal</h3>
                         </div>
                     </a>
@@ -604,7 +566,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/braces-aligners-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Braces & Aligners</h3>
                         </div>
                     </a>
@@ -614,7 +576,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/dental-implant-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Dental Implants</h3>
                         </div>
                     </a>
@@ -624,7 +586,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/dentures-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Dentures</h3>
                         </div>
                     </a>
@@ -634,7 +596,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/crowns-bridges-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Bridges & Crowns</h3>
                         </div>
                     </a>
@@ -644,7 +606,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/childrens-dentistry-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Kids Dentistry</h3>
                         </div>
                     </a>
@@ -654,7 +616,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/smile-makeover-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Smile Makeover</h3>
                         </div>
                     </a>
@@ -664,7 +626,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/teeth-whitening-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Teeth Whitening</h3>
                         </div>
                     </a>
@@ -674,7 +636,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/mouth-ulcers-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">Mouth Ulcers</h3>
                         </div>
                     </a>
@@ -684,7 +646,7 @@
                         <div class="card p-3 text-center">
                             <div class="image-wrraper">
                             <img src="{{ asset('public/assets/img/read-more-icon.png') }}"  alt="filling">
-    </div>
+            </div>
                             <h3 class="fs-6 mt-3">View More</h3>
                         </div>
                     </a>
@@ -1119,6 +1081,50 @@
             </div>
         </div>
     </div>
+    <div class="confused-help-offcanvas">
+        <button title="Confused ? Lets Help you" class="btn btn-primary offcanvas-confused-btn rounded-circle p-0" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"><i class="icon-help"></i></button>
+
+        <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate neque mollitia vel provident,
+                autem
+                laboriosam consequatur est earum expedita officia repellendus dolor assumenda culpa laborum quaerat?
+                Aperiam quas ab nulla! lorem500
+            </div>
+        </div>
+    </div>
+
+     <!-- CTA fixed positon on stroll start -->
+     <div class="footer-cta" id="scroll-triggered-cta">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8">
+                    <div class="row align-items-center px-2 py-4 rounded-3 bg-white shadow">
+                        <div class="col-12 col-lg-6">
+                            <p class="mb-0">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <form class="input-group">     
+                                <input type="email" class="form-control" placeholder="email@example.com" aria-label="CTA Email" aria-describedby="cta email subscribe input">                       
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get a Free Updates</button>
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </div>
+    <!-- CTA fixed positon on stroll end -->
 
 </main>
 <!-- /main content -->
@@ -1327,6 +1333,26 @@
             alert('Please select a treatment before searching.');
         }
     });
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const cta = document.getElementById("scroll-triggered-cta");
+        const footer = document.querySelector("footer");
+        function toggleCTAVisibility() {
+            if (window.scrollY >= footer.offsetTop - window.innerHeight) {
+                cta.style.position = "initial";
+                cta.style.transform = "translateX(0%)";
+                cta.style.transform = "translateY(50%)";
+            } else {
+                cta.style.position = "fixed";
+                cta.style.transform = "translateX(-50%)";
+            }
+        }
+        window.addEventListener("scroll", toggleCTAVisibility);
+        toggleCTAVisibility();
+    });
+
 </script>
 
 

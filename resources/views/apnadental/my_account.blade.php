@@ -159,11 +159,11 @@
                     <div class="tab-pane p-3 fade" id="v-pills-three" role="tabpanel"
                         aria-labelledby="v-pills-three-tab" tabindex="0">...</div>
 
-                        <!-- Orders & Appointments tab content -->
+                    <!-- Orders & Appointments tab content -->
                     <div class="tab-pane p-3 fade" id="v-pills-orders-appointments" role="tabpanel"
                         aria-labelledby="v-pills-orders-appointments-tab" tabindex="0">
                         <div>
-                            <h5 class="txt-primary mb-3">All Appointment</h5>
+                            <h4 class="txt-primary mb-3 h5">All Appointment</h4>
                             <div class="card text-bg-light mb-3">
                                 <div class="card-body py-3">
                                     <div class="d-flex justify-content-between">
@@ -318,8 +318,8 @@
 
                                 </div>
                                 <div class="modal-footer p-3 gap-2 border-top">
-                                    <button type="button" class="btn btn_outline_2"
-                                        data-bs-dismiss="modal">Book Again</button>
+                                    <button type="button" class="btn btn_outline_2" data-bs-dismiss="modal">Book
+                                        Again</button>
                                     <button type="button" class="btn btn_2">View Prescription</button>
                                 </div>
                             </div>
@@ -332,15 +332,110 @@
 
                     <!-- Refer & Earn tab content  -->
                     <div class="tab-pane p-3 fade" id="v-pills-refer-earn" role="tabpanel"
-                        aria-labelledby="v-pills-refer-earn-tab" tabindex="0">...</div>
+                        aria-labelledby="v-pills-refer-earn-tab" tabindex="0">
+
+                        <div>
+                            <h4 class="txt-primary mb-3 h5">Refer & Earn</h4>
+                            <div class="card text-bg-light mb-3">
+                                <div class="card-body pt-0 pb-2">
+
+                                    <div class="row align-items-center bg-verticle-gradient py-3">
+                                        <div class="col-12 col-sm-8">
+                                            <div class="text-center">
+                                                <h5 class="h2 fw-bold mb-3 txt-secondary">Enjoying our service and <span
+                                                        class="h1 fw-bold d-block">
+                                                        <i class="icon-rupee"></i>Discounts?</span>
+                                                </h5>
+                                                <p class="h5">Spread the positivity to your friends and
+                                                    family</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 col-sm-4">
+                                            <img class="w-100" src="{{ asset('public/assets/img/money.svg') }}"
+                                                alt="refer image">
+                                        </div>
+                                    </div>
 
 
-                        <!-- Need Help tab content  -->
+                                    <div class="row py-3">
+                                        <div class="col-12">
+                                            <div class="d-flex align-items-center justify-content-center py-3">
+                                                <span class="border-bottom border-top border-secondary px-5"></span>
+                                                <h4 class="mb-0 mx-2">Refer via</h4>
+                                                <span class="border-bottom border-top border-secondary px-5"></span>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center justify-content-center flex-wrap gap-3">
+                                                <button class="btn btn_outline_2">Invite on Whatsapp</button>
+                                                <button class="btn btn_2">Copy Referral link</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <h5>Refer to your friend and family so that they can also experience:</h5>
+
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex align-items-center gap-2">
+                                                    <div class="rounded-circle bg-primary bg-opacity-25 p-1">
+                                                        <i class="icon-mail fs-3 txt-secondary"></i>
+                                                    </div>
+                                                    <h5 class="mb-0">2 Hour Medicine Delivery</h5>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center gap-2">
+                                                    <div class="rounded-circle bg-primary bg-opacity-25 p-1">
+                                                        <i class="icon-dollar fs-3 txt-secondary"></i>
+                                                    </div>
+                                                    <h5 class="mb-0">Awesome Discounts and Cashbacks</h5>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center gap-2">
+                                                    <div class="rounded-circle bg-primary bg-opacity-25 p-1">
+                                                        <i class="icon-bag fs-3 txt-secondary"></i>
+                                                    </div>
+                                                    <h5 class="mb-0">A wide range of Products, Doctors & Lab Tests</h5>
+                                                </li>
+                                            </ul>
+
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                </div>
+
+                                <!-- <div class="card-footer py-3 bg-light">
+                                    <a href="">Terms & condition</a>
+                                    <a href="">Faqs</a>
+                                   
+                                </div> -->
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                    <!-- Need Help tab content  -->
                     <div class="tab-pane p-3 fade" id="v-pills-need-help" role="tabpanel"
                         aria-labelledby="v-pills-need-help-tab" tabindex="0">...</div>
 
 
-                        <!-- About Apna Dental tab content  -->
+                    <!-- About Apna Dental tab content  -->
                     <div class="tab-pane p-3 fade" id="v-pills-about-apna-dental" role="tabpanel"
                         aria-labelledby="v-pills-about-apna-dental-tab" tabindex="0">...</div>
                 </div>

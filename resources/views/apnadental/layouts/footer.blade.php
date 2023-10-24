@@ -26,11 +26,11 @@
       <div class="col-6 col-sm-4 col-md-auto col-lg-auto col-xl-2">
         <h3 class="fs-6 fw-bold">COMPANY</h3>
         <ul>
-          <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>About us</a></li>
+          <li class="mb-0"><a class="d-block" href="{{ url('/about-us') }}"><span class="fs-5">&#8226; &nbsp;</span>About us</a></li>
+          <li class="mb-0"><a class="d-block" href="{{ url('/contact-us') }}"><span class="fs-5">&#8226; &nbsp;</span>Contact Us</a></li>
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>Testimonials</a></li>
           <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>Affiliate Program</a></li>
-          <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>Terms & Conditions</a></li>
-          <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>Contact Us</a></li>
+          <li class="mb-0"><a class="d-block" href="#"><span class="fs-5">&#8226; &nbsp;</span>Terms & Conditions</a></li>          
         </ul>
       </div>
       <div class="col-6 col-sm-4 col-md-auto col-lg-auto col-xl-2">
