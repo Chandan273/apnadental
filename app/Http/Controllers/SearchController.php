@@ -20,7 +20,7 @@ class SearchController extends Controller
         $brands = Brand::all();
         $services = Service::with('doctors')->get();
 
-        $url = 'http://localhost/projects/apnadental/blog/wp-json/wp/v2/posts';
+        $url = 'http://localhost/apnadental/blog/wp-json/wp/v2/posts';
 
         // Make the API request using Laravel HTTP client
         $response = Http::get($url, ['_embed' => true]);
@@ -30,7 +30,7 @@ class SearchController extends Controller
         // Check if the request was successful
         // if ($response->successful()) {
             $posts = $response->json();
-            //echo "<pre>"; print_r($posts[0]); echo "</pre>";
+            //echo "<pre>"; print_r($posts); echo "</pre>";
             // You can now work with the $posts array, which contains the WordPress posts data.
             //return view('wordpress.posts', ['posts' => $posts]);
         // } else {

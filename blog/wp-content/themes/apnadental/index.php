@@ -24,8 +24,8 @@
         <div id="breadcrumb">
             <div class="container">
                 <ul>
-                    <li><a href="http://localhost/projects/apnadental">Home</a></li>
-                    <li><a href="http://localhost/projects/apnadental/blog">Blog</a></li>
+                    <li><a href="http://localhost/apnadental">Home</a></li>
+                    <li><a href="http://localhost/apnadental/blog">Blog</a></li>
                     <li>Page active</li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
                 <div class="row g-1">
                     <div class="col-12 col-sm-6">
                         <a href="" class=" blog-wraper">
-                            <img src="http://localhost/projects/apnadental/public/assets/img/blog-big.jpg" alt="blog image">
+                            <img src="http://localhost/apnadental/public/assets/img/blog-big.jpg" alt="blog image">
                             <div class="blog-content-wrraper">
                                 <span
                                     class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Fashion</span>
@@ -59,7 +59,7 @@
                         <div class="row g-1">
                             <div class="col-12">
                                 <a href="" class=" blog-wraper">
-                                    <img src="http://localhost/projects/apnadental/public/assets/img/blog-medium.jpg" alt="blog image">
+                                    <img src="http://localhost/apnadental/public/assets/img/blog-medium.jpg" alt="blog image">
                                     <div class="blog-content-wrraper">
                                         <span
                                             class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Gadgets</span>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <a href="" class=" blog-wraper">
-                                    <img src="http://localhost/projects/apnadental/public/assets/img/blog-small1.jpg" alt="blog image">
+                                    <img src="http://localhost/apnadental/public/assets/img/blog-small1.jpg" alt="blog image">
                                     <div class="blog-content-wrraper">
                                         <span class="post-category small text-white">Travel</span>
                                         <h3 class="text-white fs-6">
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <a href="" class=" blog-wraper">
-                                    <img src="http://localhost/projects/apnadental/public/assets/img/blog-small2.jpg" alt="blog image">
+                                    <img src="http://localhost/apnadental/public/assets/img/blog-small2.jpg" alt="blog image">
                                     <div class="blog-content-wrraper">
                                         <span
                                             class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>

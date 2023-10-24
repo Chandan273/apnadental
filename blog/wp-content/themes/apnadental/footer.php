@@ -4,7 +4,7 @@
                 <div class="row gy-4 justify-content-between">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-12 col-xl-3">
                         <a href="index.html" title="Findoctor" class="d-block mb-3">
-                        <img src="http://localhost/projects/apnadental/public/assets/apnadental/img/logo.png" alt="logo" width="163" height="36" class="img-fluid">
+                        <img src="http://localhost/apnadental/public/assets/apnadental/img/logo.png" alt="logo" width="163" height="36" class="img-fluid">
                         </a>
                         <div class="d-flex flex-nowrap gap-2 mb-2">
                             <h3 class="fs-6 mw-88">Address :</h3>
@@ -79,15 +79,15 @@
                         <div class="d-flex align-items-center gap-3 flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
                             <h3 class="fs-6 mb-0 text-nowrap">ACCEPTED PAYMENT METHODS:</h3>
                             <ul class="nav gap-2 justify-content-center justify-content-sm-start">
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/ups-pay.png" alt="ups-pay" width="99" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/qiwi-pay-2.png" alt="qiwi-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-3.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-4.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-5.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-6.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-7.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-8.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
-                                <li class="mb-0"><img src="http://localhost/projects/apnadental/public/assets/img/pay-9.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/ups-pay.png" alt="ups-pay" width="99" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/qiwi-pay-2.png" alt="qiwi-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-3.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-4.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-5.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-6.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-7.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-8.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
+                                <li class="mb-0"><img src="http://localhost/apnadental/public/assets/img/pay-9.png" alt="union-pay" width="99" height="45" class="img-fluid"></li>
                             </ul>
                         </div>
                     </div>
@@ -264,13 +264,13 @@
         <div id="toTop"></div>
         <!-- Back to top button -->
         <!-- COMMON SCRIPTS -->
-        <script src="http://localhost/projects/apnadental/public/assets/apnadental/js/jquery-3.6.3.min.js"></script>
-        <script src="http://localhost/projects/apnadental/public/assets/apnadental/js/common_scripts.min.js"></script>
-        <script src="http://localhost/projects/apnadental/public/assets/apnadental/js/functions.js"></script>
+        <script src="http://localhost/apnadental/public/assets/apnadental/js/jquery-3.6.3.min.js"></script>
+        <script src="http://localhost/apnadental/public/assets/apnadental/js/common_scripts.min.js"></script>
+        <script src="http://localhost/apnadental/public/assets/apnadental/js/functions.js"></script>
         <!-- SPECIFIC SCRIPTS -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsYL1hrGBbl8KI_DhiULQGaoMfSkQAjA4&libraries=places"></script>
-        <script src="http://localhost/projects/apnadental/public/assets/apnadental/js/markerclusterer.js"></script>
-        <script src="http://localhost/projects/apnadental/public/assets/apnadental/js/map_home.js"></script>
+        <script src="http://localhost/apnadental/public/assets/apnadental/js/markerclusterer.js"></script>
+        <script src="http://localhost/apnadental/public/assets/apnadental/js/map_home.js"></script>
         <?php wp_footer(); ?>
     </body>
 </html>
