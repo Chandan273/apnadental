@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DentalController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CSVController;
-use App\Http\Controllers\User\Auth\AuthController;
+use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ Route::get('logout', [App\Http\Controllers\User\Auth\AuthController::class, 'log
 Route::get('/register', [App\Http\Controllers\User\Auth\AuthController::class, 'index']);
 Route::post('/otp-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post'); 
 Route::post('/post-registration', [App\Http\Controllers\User\Auth\AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::view('/blog', 'apnadental/blog');
+Route::view('/blogsssss', 'apnadental/blog');
 Route::view('/about-us', 'apnadental/about');
 Route::view('/service', 'apnadental/service');
 Route::get('/doctors', [DoctorController::class, 'index']);
