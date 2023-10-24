@@ -31,6 +31,10 @@
   color: var(--secondary);
 }
 
+/* img {
+  width: 100%;
+} */
+
 .btn_outline_2 {
   background-color: #fff;
   border-color: var(--secondary);

@@ -7,22 +7,22 @@
         <meta name="author" content="Ansonika">
         <title>APNA DENTAL - Find easily a doctor and book online an appointment</title>
         <!-- Favicons-->
-        <link rel="shortcut icon" href="http://localhost/projects/apnadental/public/assets/apnadental/img/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost/projects/apnadental/public/assets/apnadental/img/apple-touch-icon-57x57-precomposed.png">
-        <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="http://localhost/projects/apnadental/public/assets/apnadental/img/apple-touch-icon-72x72-precomposed.png">
-        <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="http://localhost/projects/apnadental/public/assets/apnadental/img/apple-touch-icon-114x114-precomposed.png">
-        <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="http://localhost/projects/apnadental/public/assets/apnadental/img/apple-touch-icon-144x144-precomposed.png">
+        <link rel="shortcut icon" href="http://localhost/apnadental/public/assets/apnadental/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost/apnadental/public/assets/apnadental/img/apple-touch-icon-57x57-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="http://localhost/apnadental/public/assets/apnadental/img/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="http://localhost/apnadental/public/assets/apnadental/img/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="http://localhost/apnadental/public/assets/apnadental/img/apple-touch-icon-144x144-precomposed.png">
         <!-- GOOGLE WEB FONT -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
         <!-- BASE CSS -->
-        <link href="http://localhost/projects/apnadental/public/assets/apnadental/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://localhost/projects/apnadental/public/assets/apnadental/css/style.css" rel="stylesheet">
-        <link href="http://localhost/projects/apnadental/public/assets/apnadental/css/menu.css" rel="stylesheet">
-        <link href="http://localhost/projects/apnadental/public/assets/apnadental/css/vendors.css" rel="stylesheet">
-        <link href="http://localhost/projects/apnadental/public/assets/apnadental/css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/apnadental/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/apnadental/css/style.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/apnadental/css/menu.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/apnadental/css/vendors.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/apnadental/css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
         <!-- YOUR CUSTOM CSS -->
-        <link href="http://localhost/projects/apnadental/public/assets/apnadental/css/custom.css" rel="stylesheet">
-        <link href="http://localhost/projects/apnadental/public/assets/css/custom.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/apnadental/css/custom.css" rel="stylesheet">
+        <link href="http://localhost/apnadental/public/assets/css/custom.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <?php wp_head(); ?>
     </head>
@@ -37,8 +37,8 @@
             <div class="container-fliud container-lg">
                 <div class="row align-items-center justify-content-between py-1 py-lg-3">
                     <div class="col-3 col-lg-2">
-                        <a class="d-block brand-logo" href="http://localhost/projects/apnadental">
-                        <img max-width="150px" width="100%" src="http://localhost/projects/apnadental/public/assets/img/apna-dental-logo1.svg" alt="apna-dental-logo">
+                        <a class="d-block brand-logo" href="http://localhost/apnadental">
+                        <img max-width="150px" width="100%" src="http://localhost/apnadental/public/assets/img/apna-dental-logo1.svg" alt="apna-dental-logo">
                         </a>
                     </div>
                     <div class="col-9">
@@ -89,7 +89,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                                href="http://localhost/projects/apnadental/register"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
+                                href="http://localhost/apnadental/register"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
                         </li>
                         <li class="nav-item">
                             <div class="position-relative">
@@ -110,7 +110,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="http://localhost/projects/apnadental">Home</a>
+                                <a class="nav-link active" aria-current="page" href="http://localhost/apnadental">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -144,16 +144,16 @@
                                 <a class="nav-link" href="#">Oral health</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/projects/apnadental/blog">Blog</a>
+                                <a class="nav-link" href="http://localhost/apnadental/blog">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/projects/apnadental/service">Service</a>
+                                <a class="nav-link" href="http://localhost/apnadental/service">Service</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/projects/apnadental/about-us">About us</a>
+                                <a class="nav-link" href="http://localhost/apnadental/about-us">About us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/projects/apnadental/contact-us">Contact us</a>
+                                <a class="nav-link" href="http://localhost/apnadental/contact-us">Contact us</a>
                             </li>
                         </ul>
                         <div class="d-none d-lg-block">
@@ -164,7 +164,7 @@
                                     <i class="pe-7s-user h4 text-white mb-0"></i>
                                     </a>
                                     <div class="dropdown-menu bg-white border-0 rounded shadow p-3">
-                                        <form class="row g-3" id="otp-login-form" action="http://localhost/projects/apnadental/otp-login" method="POST">
+                                        <form class="row g-3" id="otp-login-form" action="http://localhost/apnadental/otp-login" method="POST">
                                             <input type="hidden" name="_token" value="xk31eP83DnyOOGpwf8uxPaSt7kRbl6R9wtQxca0w">                                                                            
                                             <div class="col-12">
                                                 <h2 class="h4">Login</h2>
@@ -193,7 +193,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page"
-                                        href="http://localhost/projects/apnadental/register"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
+                                        href="http://localhost/apnadental/register"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
                                 </li>
                                 <li class="nav-item">
                                     <div class="position-relative">
