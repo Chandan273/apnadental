@@ -9,7 +9,6 @@ use App\Models\Location;
 use App\Models\Doctor;
 use App\Models\Slider;
 use App\Models\Brand;
-use Illuminate\Support\Facades\Http;
 
 class SearchController extends Controller
 {
@@ -20,25 +19,7 @@ class SearchController extends Controller
         $brands = Brand::all();
         $services = Service::with('doctors')->get();
 
-        $url = 'http://localhost/apnadental/blog/wp-json/wp/v2/posts';
-
-        // Make the API request using Laravel HTTP client
-        $response = Http::get($url, ['_embed' => true]);
-
-        
-
-        // Check if the request was successful
-        // if ($response->successful()) {
-            $posts = $response->json();
-            //echo "<pre>"; print_r($posts); echo "</pre>";
-            // You can now work with the $posts array, which contains the WordPress posts data.
-            //return view('wordpress.posts', ['posts' => $posts]);
-        // } else {
-        //     // Handle the case where the request was not successful, e.g., show an error message.
-        //     return view('wordpress.error');
-        // }
-
-        return view('apnadental.index', compact('brands', 'services', 'sliders', 'posts'));
+        return view('apnadental.index', compact('brands', 'services', 'sliders'));
     }
 
     public function searchDoctors(Request $request)
