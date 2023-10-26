@@ -1,4 +1,4 @@
-<footer class="py-5">
+<footer class="py-5 mt-md-4">
   <div class="container-fluid container-lg">
     <div class="row gy-4 justify-content-between">
       <div class="col-12 col-sm-12 col-md-4 col-lg-12 col-xl-3">
@@ -58,7 +58,7 @@
         <form action="#">
           <div class="input-group mt-3">
             <input type="search" class="form-control shadow-none" placeholder="Your Email address" aria-label="User Email address" aria-describedby="search-buuton">
-            <button class="btn btn-danger" type="button" id="search-buuton">ok</button>
+            <button class="btn btn_pink" type="button" id="search-buuton">ok</button>
           </div>
         </form>
 
