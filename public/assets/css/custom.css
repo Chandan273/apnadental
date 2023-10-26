@@ -299,6 +299,27 @@ form #error-message {
   width: 100%;
 }
 
+.nav-item.dropdown-mega .nav-pills .nav-link {
+  cursor: pointer;
+
+}
+
+.nav-item.dropdown-mega .nav-pills .nav-link.active {
+  background-color: transparent;
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+.nav-item.dropdown-mega .list-group .list-group-item a {
+  color: #161616;
+}
+
+.nav-item.dropdown-mega .list-group .list-group-item a:active,
+.nav-item.dropdown-mega .list-group .list-group-item a:hover {
+  color: var(--pink);
+}
+
+
 @media screen and (max-width: 575px) {
   .add-member .member-img-wraper {
     width: 100%;
