@@ -94,7 +94,7 @@ Route::get('logout', [App\Http\Controllers\User\Auth\AuthController::class, 'log
 Route::get('/register', [App\Http\Controllers\User\Auth\AuthController::class, 'index']);
 Route::post('/otp-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post'); 
 Route::post('/post-registration', [App\Http\Controllers\User\Auth\AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::view('/blog', 'apnadental/blog');
+Route::get('/blog', [BlogController::class, 'blogPage']);
 Route::view('/about-us', 'apnadental/about');
 Route::view('/service', 'apnadental/service');
 Route::get('/doctors', [DoctorController::class, 'index']);

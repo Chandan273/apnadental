@@ -1,10 +1,6 @@
 @extends('apnadental.master')
 @section("content")
 
-<style>
-
-</style>
-
 <main>
     <div class="bg-white action-filter py-3">
         <div class="container">
@@ -48,16 +44,13 @@
         <div class="container-fluid container-lg">
             <div class="row g-1">
                 <div class="col-12 col-sm-6">
-                    <a href="" class=" blog-wraper">
-                        <img src="{{ asset('public/assets/img/blog-big.jpg') }}" alt="blog image">
+                    <a href="" class="blog-wraper">
+                        <img src="{{ asset('public/'.$blogs[0]->blog_image) }}" alt="blog image">
                         <div class="blog-content-wrraper">
-                            <span
-                                class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Fashion</span>
-                            <h3 class="text-white">
-                                WordPress News Magazine Charts the Most Chic and Fashionable Women of New York City
-                            </h3>
+                            <span class="post-category small text-white">{{ $blogs[0]->category->name }}</span>
+                            <h3 class="text-white">{{ $blogs[0]->title }}</h3>
                             <div class="td-editor-date">
-                                <span class="post-author-name text-white">Armin Vans</span>
+                                <span class="post-author-name text-white">{{ $blogs[0]->created_at->format('Y-M-d') }}</span>
                             </div>
                         </div>
                     </a>
@@ -66,12 +59,11 @@
                     <div class="row g-1">
                         <div class="col-12">
                             <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-medium.jpg') }}" alt="blog image">
+                                <img src="{{ asset('public/'.$blogs[1]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span
-                                        class="post-category small text-white  badge bg-dark rounded-0 fw-normal">Gadgets</span>
+                                    <span class="post-category small text-white">{{ $blogs[1]->category->name }}</span>
                                     <h3 class="text-white fs-5">
-                                        Game Changing Virtual Reality Console Hits the Market
+                                        {{ $blogs[1]->title }}
                                     </h3>
 
                                 </div>
@@ -79,23 +71,22 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-small1.jpg') }}" alt="blog image">
+                                <img src="{{ asset('public/'.$blogs[2]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white">Travel</span>
+                                    <span class="post-category small text-white">{{ $blogs[2]->category->name }}</span>
                                     <h3 class="text-white fs-6">
-                                        Discover the Most Magical Sunset in Santorini
+                                        {{ $blogs[2]->title }}
                                     </h3>
                                 </div>
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
                             <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-small2.jpg') }}" alt="blog image">
+                                <img src="{{ asset('public/'.$blogs[3]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span
-                                        class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>
+                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">{{ $blogs[3]->category->name }}</span>
                                     <h3 class="text-white fs-6">
-                                        Computer Filters Noise to Make You a Better Listener
+                                        {{ $blogs[3]->title }}
                                     </h3>
                                 </div>
                             </a>
@@ -130,22 +121,19 @@
                                     <div class="col-12 col-lg-8">
                                         <figure>
                                             <a href="blog-post.html">
-                                                <img src="http://via.placeholder.com/800x533.jpg" alt="" class="w-100">
+                                                <img src="{{ asset('public/'.$blogs[3]->blog_image) }}" alt="" class="w-100">
                                             </a>
                                         </figure>
                                         <div class="post_info">
                                             <div class="d-flex aligm-items-center justify-content-start gap-2 mb-2">
                                                 <strong>Admin</strong>
                                                 <span>-</span>
-                                                <small>14 Aug. 2023</small>
+                                                <small>{{ $blogs[0]->created_at->format('d .M Y') }}</small>
 
                                             </div>
 
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
-                                                    1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
-                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
-                                                scriptorem mei.</p>
+                                            <h3><a href="blog-post.html">{{ $blogs[3]->title }}</a></h3>
+                                            <p class="mb-2">{!! $blogs[3]->content !!}</p>
                                             <a class="preview" href="">Read more</a>
                                         </div>
                                     </div>
@@ -231,20 +219,11 @@
                         </div>
                     </div>
 
+                    <br>
                     <!-- /pagination -->
-                    <nav aria-label="..." class="mt-3">
-                        <ul class="pagination pagination-sm">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div class="pagination">
+                        {{ $blogs->links() }}
+                    </div>
                 </div>
 
                 <!-- Advertising Ads -->
@@ -256,144 +235,6 @@
                                 alt="" width="100%">
                         </div>
                     </div>
-                </div>
-
-                <div class="second-category pt-3">
-                    <nav>
-                        <div class="nav nav-tabs align-items-center" id="nav-tab" role="tablist">
-                            <h3 class="category-title fs-6 mb-0 fw-normal me-5 py-2 px-3 text-uppercase">LIFESTYLE NEWS
-                            </h3>
-                            <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
-                                aria-selected="true">All</button>
-                            <button class="nav-link" id="nav-travel-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-travel" type="button" role="tab" aria-controls="nav-travel"
-                                aria-selected="false">Travel</button>
-                        </div>
-                    </nav>
-                    <div class="tab-content mt-3" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-all" role="tabpanel"
-                            aria-labelledby="nav-all-tab" tabindex="0">
-                            <article class="blog fadeIn">
-                                <div class="row g-3">
-                                    <div class="col-12 col-lg-8">
-                                        <figure>
-                                            <a href="blog-post.html">
-                                                <img src="http://via.placeholder.com/800x533.jpg" alt="" class="w-100">
-                                            </a>
-                                        </figure>
-                                        <div class="post_info">
-                                            <div class="d-flex aligm-items-center justify-content-start gap-2 mb-2">
-                                                <strong>Admin</strong>
-                                                <span>-</span>
-                                                <small>14 Aug. 2023</small>
-
-                                            </div>
-
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
-                                                    1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
-                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
-                                                scriptorem mei.</p>
-                                            <a class="preview" href="">Read more</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-4">
-                                        <div class="related-post">
-                                            <a href="" class="d-flex gap-2 mb-3">
-                                                <div class="thumb" style="max-width:100px;">
-                                                    <img src="http://via.placeholder.com/100x100.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
-                                                        semi in London</h6>
-                                                    <small>21 Aug. 2023</small>
-                                                </div>
-                                            </a>
-                                            <a href="" class="d-flex gap-2 mb-3">
-                                                <div class="thumb" style="max-width:100px;">
-                                                    <img src="http://via.placeholder.com/100x100.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
-                                                        semi in London</h6>
-                                                    <small>24 Aug. 2023</small>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="tab-pane fade" id="nav-travel" role="tabpanel" aria-labelledby="nav-travel-tab"
-                            tabindex="0">
-                            <article class="blog fadeIn">
-                                <div class="row g-3">
-                                    <div class="col-12 col-lg-8">
-                                        <figure>
-                                            <a href="blog-post.html">
-                                                <img src="http://via.placeholder.com/800x533.jpg" alt="" class="w-100">
-                                            </a>
-                                        </figure>
-                                        <div class="post_info">
-                                            <div class="d-flex aligm-items-center justify-content-start gap-2 mb-2">
-                                                <strong>Admin</strong>
-                                                <span>-</span>
-                                                <small>10 Aug. 2023</small>
-
-                                            </div>
-
-                                            <h3><a href="blog-post.html">Have a look around this bold and colourful
-                                                    1930s semi in London</a></h3>
-                                            <p class="mb-2">Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim
-                                                offendit salutandi, in eos quod omnes epicurei, ex veri qualisque
-                                                scriptorem mei.</p>
-                                            <a class="preview" href="">Read more</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-4">
-                                        <div class="related-post">
-                                            <a href="" class="d-flex gap-2 mb-3">
-                                                <div class="thumb" style="max-width:100px;">
-                                                    <img src="http://via.placeholder.com/100x100.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
-                                                        semi in London</h6>
-                                                    <small>20 Aug. 2023</small>
-                                                </div>
-                                            </a>
-                                            <a href="" class="d-flex gap-2 mb-3">
-                                                <div class="thumb" style="max-width:100px;">
-                                                    <img src="http://via.placeholder.com/100x100.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <h6 class="fw-bold">Have a look around this bold and colourful 1930s
-                                                        semi in London</h6>
-                                                    <small>25 Aug. 2023</small>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <!-- /pagination -->
-                    <nav aria-label="..." class="mt-3">
-                        <ul class="pagination pagination-sm">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
 

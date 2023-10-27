@@ -84,7 +84,7 @@
                         <div class="strip_list wow fadeIn">
                             <a href="#0" class="wish_bt"></a>
                             <figure>
-                                <a href="http://localhost/apnadental/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg" alt=""></a>
+                                <a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg" alt=""></a>
                             </figure>
                             <small>{{ $resultsType }}</small>
                             <h3>{{ $doctor->company_name }}</h3>
@@ -95,7 +95,7 @@
                                 <li><a href="tel:+91{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a></li>
                                 <li><a href="{{ $doctor->map_url }}" target="_blank">Directions</a></li>
                                 <li class="ms-auto me-3"><a class="btn rounded-pill" href="#">No Booking Fee</a></li>
-                                <li><a href="http://localhost/apnadental/doctor-details/{{ $doctor->id }}">Book now</a></li>
+                                <li><a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}">Book now</a></li>
                             </ul>
                         </div>
                     @endforeach

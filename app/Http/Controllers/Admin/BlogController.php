@@ -174,4 +174,22 @@ class BlogController extends Controller
 
         return redirect()->route('blogs.all')->with('success', 'Blog updated successfully.');
     }
+
+    public function blogPage()
+    {
+        $blogs = Blog::with('category')->paginate(5);
+        return view('apnadental.blog', compact('blogs'));
+    }
+
+    public function blogDetail($id)
+    {
+        $blog = Blog::find($id);
+        $categories = BlogCategory::all();
+
+        if (!$blog) {
+            return redirect()->back()->with('error', 'Blog not found.');
+        }
+
+        return view('admin.edit_blog', compact('blog','categories'));
+    }
 }
