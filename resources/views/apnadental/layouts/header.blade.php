@@ -576,7 +576,7 @@
         success: function (response) {
           if (response.success) {
             // User successfully logged in
-            window.location.href = "http://localhost/apnadental/";
+            window.location.href = "<?php echo env('APP_URL'); ?>/";
           } else {
             $('#error-message').text(response.message);
           }

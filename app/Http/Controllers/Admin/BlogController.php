@@ -190,6 +190,6 @@ class BlogController extends Controller
             return redirect()->back()->with('error', 'Blog not found.');
         }
 
-        return view('admin.edit_blog', compact('blog','categories'));
+        return view('apnadental.blog_details', compact('blog','categories'));
     }
 }
