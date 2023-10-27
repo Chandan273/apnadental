@@ -95,6 +95,7 @@ Route::get('/register', [App\Http\Controllers\User\Auth\AuthController::class, '
 Route::post('/otp-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post'); 
 Route::post('/post-registration', [App\Http\Controllers\User\Auth\AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::get('/blog', [BlogController::class, 'blogPage']);
+Route::get('/blog-details/{id}', [BlogController::class, 'blogDetail']);
 Route::view('/about-us', 'apnadental/about');
 Route::view('/service', 'apnadental/service');
 Route::get('/doctors', [DoctorController::class, 'index']);

@@ -84,18 +84,18 @@
                         <div class="strip_list wow fadeIn">
                             <a href="#0" class="wish_bt"></a>
                             <figure>
-                                <a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg" alt=""></a>
+                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg" alt=""></a>
                             </figure>
                             <small>{{ $resultsType }}</small>
                             <h3>{{ $doctor->company_name }}</h3>
                             <p>{{ $doctor->description }}</p>
                             <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>({{ $doctor->rating_count }})</small></span>
-                            <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+                            <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
                             <ul class="d-flex align-items-center">
                                 <li><a href="tel:+91{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a></li>
                                 <li><a href="{{ $doctor->map_url }}" target="_blank">Directions</a></li>
                                 <li class="ms-auto me-3"><a class="btn rounded-pill" href="#">No Booking Fee</a></li>
-                                <li><a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}">Book now</a></li>
+                                <li><a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}">Book now</a></li>
                             </ul>
                         </div>
                     @endforeach
@@ -350,7 +350,7 @@
                                 <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1"
                                     aria-label="Badge Level" data-bs-original-title="Badge Level">
                                     <img class="d-inline"
-                                        src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg"
+                                        src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg"
                                         width="15" height="15" alt=""></a>
                             </div>
 
@@ -380,7 +380,7 @@
                                 <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1"
                                     aria-label="Badge Level" data-bs-original-title="Badge Level">
                                     <img class="d-inline"
-                                        src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg"
+                                        src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg"
                                         width="15" height="15" alt=""></a>
                             </div>
 
@@ -410,7 +410,7 @@
                                 <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" class="badge_list_1"
                                     aria-label="Badge Level" data-bs-original-title="Badge Level">
                                     <img class="d-inline"
-                                        src="http://localhost/apnadental/public/assets/apnadental/img/badges/badge_1.svg"
+                                        src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg"
                                         width="15" height="15" alt="">
                                 </a>
                             </div>

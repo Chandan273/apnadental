@@ -765,10 +765,10 @@
                 @foreach($doctors as $doctor)
                 <div class="col-lg-4 col-md-6">
                     <div class="box_list home">
-                        <a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist"
+                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist"
                             class="wish_bt"></a>
                         <figure>
-                            <a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg"
+                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg"
                                     class="img-fluid" alt=""></a>
                             <div class="preview"><span>Read more</span></div>
                         </figure>
@@ -787,7 +787,7 @@
 
                         <ul>
                             <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}">Book now</a></li>
+                            <li><a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}">Book now</a></li>
                         </ul>
                     </div>
                 </div>
@@ -807,7 +807,7 @@
         <div class="container-fluid container-lg">
             <div class="row g-1">
                 <div class="col-12 col-sm-6">
-                    <a href="" class="blog-wraper">
+                    <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[4]->id }}" class="blog-wraper">
                         <img src="{{ asset('public/'.$blogs[4]->blog_image) }}" alt="blog image">
                         <div class="blog-content-wrraper">
                             <span class="post-category small text-white">{{ $blogs[4]->category->name }}</span>
@@ -821,7 +821,7 @@
                 <div class="col-12 col-sm-6">
                     <div class="row g-1">
                         <div class="col-12">
-                            <a href="" class=" blog-wraper">
+                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[5]->id }}" class=" blog-wraper">
                                 <img src="{{ asset('public/'.$blogs[5]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
                                     <span class="post-category small text-white">{{ $blogs[5]->category->name }}</span>
@@ -833,7 +833,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="" class=" blog-wraper">
+                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[2]->id }}" class=" blog-wraper">
                                 <img src="{{ asset('public/'.$blogs[2]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
                                     <span class="post-category small text-white">{{ $blogs[2]->category->name }}</span>
@@ -844,7 +844,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="" class=" blog-wraper">
+                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[3]->id }}" class=" blog-wraper">
                                 <img src="{{ asset('public/'.$blogs[3]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
                                     <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">{{ $blogs[3]->category->name }}</span>
