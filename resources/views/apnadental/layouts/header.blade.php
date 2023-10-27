@@ -102,8 +102,8 @@
                 <div class="row">
                   <div class="col">
                     <div class="d-flex align-items-start">
-                      <div class="nav flex-column nav-pills me-3 text-start bg-light px-2" id="v-pills-tab"
-                        role="tablist" aria-orientation="vertical">
+                      <div class="nav flex-shrink-0 flex-column nav-pills me-3 text-start bg-light px-2"
+                        id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
 
                         <a class="nav-link active" id="v-pills-cosmetics-dentistry-tab" data-bs-toggle="pill"
@@ -145,28 +145,28 @@
                       </div>
 
 
-                      <div class="tab-content" id="v-pills-tabContent">
+                      <div class="tab-content w-100 pt-1" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-cosmetics-dentistry" role="tabpanel"
                           aria-labelledby="v-pills-cosmetics-dentistry-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Teeth Whitening</a></li>
-                            <li class="list-group-item"><a href="">Veneers</a></li>
-                            <li class="list-group-item"><a href="">Teeth Straightening</a></li>
-                            <li class="list-group-item"><a href="">Crowns</a></li>
-                            <li class="list-group-item"><a href="">Bridges</a></li>
-                            <li class="list-group-item"><a href="">White fillings</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Teeth Whitening</a></li>
+                            <li class="col-md-6"><a href="">Veneers</a></li>
+                            <li class="col-md-6"><a href="">Teeth Straightening</a></li>
+                            <li class="col-md-6"><a href="">Crowns</a></li>
+                            <li class="col-md-6"><a href="">Bridges</a></li>
+                            <li class="col-md-6"><a href="">White fillings</a></li>
                           </ul>
                         </div>
 
 
                         <div class="tab-pane fade" id="v-pills-periodontics" role="tabpanel"
                           aria-labelledby="v-pills-periodontics-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">scaling</a></li>
-                            <li class="list-group-item"><a href="">root planing</a></li>
-                            <li class="list-group-item"><a href="">root surface debridement</a></li>
-                            <li class="list-group-item"><a href="">oral inflammation treatment</a></li>
-                            <li class="list-group-item"><a href="">cosmetic periodontal procedures</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">scaling</a></li>
+                            <li class="col-md-6"><a href="">root planing</a></li>
+                            <li class="col-md-6"><a href="">root surface debridement</a></li>
+                            <li class="col-md-6"><a href="">oral inflammation treatment</a></li>
+                            <li class="col-md-6"><a href="">cosmetic periodontal procedures</a></li>
                           </ul>
 
 
@@ -176,97 +176,95 @@
                         <div class="tab-pane fade" id="v-pills-Pedodontics" role="tabpanel"
                           aria-labelledby="v-pills-Pedodontics-tab" tabindex="0">
 
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Children's Tooth Fillings</a></li>
-                            <li class="list-group-item"><a href="">Children's Tooth Extractions</a></li>
-                            <li class="list-group-item"><a href="">Children's Tooth Dental Crowns</a></li>
-                            <li class="list-group-item"><a href="">Children's Tooth Root Canals</a></li>
-                            <li class="list-group-item"><a href="">Children's Dental X-rays</a></li>
-                            <li class="list-group-item"><a href="">Children's Sealants</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Children's Tooth Fillings</a></li>
+                            <li class="col-md-6"><a href="">Children's Tooth Extractions</a></li>
+                            <li class="col-md-6"><a href="">Children's Tooth Dental Crowns</a></li>
+                            <li class="col-md-6"><a href="">Children's Tooth Root Canals</a></li>
+                            <li class="col-md-6"><a href="">Children's Dental X-rays</a></li>
+                            <li class="col-md-6"><a href="">Children's Sealants</a></li>
                           </ul>
                         </div>
 
 
                         <div class="tab-pane fade" id="v-pills-Prosthodontics" role="tabpanel"
                           aria-labelledby="v-pills-Prosthodontics-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Dental crowns</a></li>
-                            <li class="list-group-item"><a href="">Dental bridges</a></li>
-                            <li class="list-group-item"><a href="">Dentures</a></li>
-                            <li class="list-group-item"><a href="">Inlays and Onlays</a></li>
-                            <li class="list-group-item"><a href="">Dental implants</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Dental crowns</a></li>
+                            <li class="col-md-6"><a href="">Dental bridges</a></li>
+                            <li class="col-md-6"><a href="">Dentures</a></li>
+                            <li class="col-md-6"><a href="">Inlays and Onlays</a></li>
+                            <li class="col-md-6"><a href="">Dental implants</a></li>
                           </ul>
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-Orthodontics" role="tabpanel"
                           aria-labelledby="v-pills-Orthodontics-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Braces</a></li>
-                            <li class="list-group-item"><a href="">Aligners</a></li>
-                            <li class="list-group-item"><a href="">Retainers</a></li>
-                            <li class="list-group-item"><a href="">Palate expanders</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Braces</a></li>
+                            <li class="col-md-6"><a href="">Aligners</a></li>
+                            <li class="col-md-6"><a href="">Retainers</a></li>
+                            <li class="col-md-6"><a href="">Palate expanders</a></li>
                           </ul>
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-Endodontics" role="tabpanel"
                           aria-labelledby="v-pills-Endodontics-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">removing pulpal tissue</a></li>
-                            <li class="list-group-item"><a href="">Tooth filing</a></li>
-                            <li class="list-group-item"><a href="">filing and shaping root canals</a></li>
-                            <li class="list-group-item"><a href="">obturating the root canal space</a></li>
-                            <li class="list-group-item"><a href="">permanent restoration for the tooth</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">removing pulpal tissue</a></li>
+                            <li class="col-md-6"><a href="">Tooth filing</a></li>
+                            <li class="col-md-6"><a href="">filing and shaping root canals</a></li>
+                            <li class="col-md-6"><a href="">obturating the root canal space</a></li>
+                            <li class="col-md-6"><a href="">permanent restoration for the tooth</a></li>
                           </ul>
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-Maxillofacial" role="tabpanel"
                           aria-labelledby="v-pills-Maxillofacial-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Maxillary osteotomy</a></li>
-                            <li class="list-group-item"><a href="">Mandibular osteotomy</a></li>
-                            <li class="list-group-item"><a href="">Genioplasty</a></li>
-                            <li class="list-group-item"><h5 class="txt-primary">TMJ operation</h5></li>
-                            <li class="list-group-item"><a href="">Arthrocentesis</a></li>
-                            <li class="list-group-item"><a href="">Arthroscopy</a></li>
-                            <li class="list-group-item"><a href="">Open joint procedures</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Maxillary osteotomy</a></li>
+                            <li class="col-md-6"><a href="">Mandibular osteotomy</a></li>
+                            <li class="col-md-6"><a href="">Genioplasty</a></li>
+
+                            <li class="col-12 mt-3">
+                              <h5 class="txt-primary">TMJ operation</h5>
+                            </li>
+
+                            <li class="col-md-6"><a href="">Arthrocentesis</a></li>
+                            <li class="col-md-6"><a href="">Arthroscopy</a></li>
+                            <li class="col-md-6"><a href="">Open joint procedures</a></li>
                           </ul>
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-Implantology" role="tabpanel"
                           aria-labelledby="v-pills-Implantology-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Endosteal </a></li>
-                            <li class="list-group-item"><a href="">Subperiosteal</a></li>
-                            <li class="list-group-item"><a href="">Zygomatic</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Endosteal </a></li>
+                            <li class="col-md-6"><a href="">Subperiosteal</a></li>
+                            <li class="col-md-6"><a href="">Zygomatic</a></li>
                           </ul>
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-Laser-dentistry" role="tabpanel"
                           aria-labelledby="v-pills-Laser-dentistry-tab" tabindex="0">
-                          <ul class="list-group">
-                            <li class="list-group-item"><a href="">Laser Gum Therapy</a></li>
-                            <li class="list-group-item"><h5 class="txt-primary">Laser Oral Surgery</h5></li>
-                            <li class="list-group-item"><a href="">Frenectomy (removal of a frenulum)</a></li>
-                            <li class="list-group-item"><a href="">gingivectomy (removal of excess gum tissue)</a></li>
-                            <li class="list-group-item"><a href="">Biopsy of abnormal oral tissue</a></li>
-                            <li class="list-group-item"><a href="">Removal of tumors and cysts</a></li>
-                            <li class="list-group-item"><a href="">Bone reshaping for dental implants</a></li>
-                            <li class="list-group-item"><a href="">Resection of the jaw</a></li>
-                            <li class="list-group-item"><a href="">Treatment of periodontal (gum) disease</a></li>
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Laser Gum Therapy</a></li>
+                            <li class="col-md-6"><a href="">Laser Assisted Dental Implantology</a></li>
+                            <li class="col-md-6"><a href="">Laser Dentin Hypersensitivity</a></li>
+                            <li class="col-md-6"><a href="">Laser Gum Depigmentation</a></li>
+                            <li class="col-md-6"><a href="">Laser Assisted Root Canal Treatment</a></li>
+                            <li class="col-md-6"><a href="">Laser In TMJ Pain</a></li>
 
-                            <!-- <li class="list-group-item"><a href="">Laser Assisted Dental Implantology</a></li>
-                            <li class="list-group-item"><a href="">Laser Dentin Hypersensitivity</a></li>
-                            <li class="list-group-item"><a href="">Laser Gum Depigmentation</a></li>
-                            <li class="list-group-item"><a href="">Laser Assisted Root Canal Treatment</a></li>
-                            <li class="list-group-item"><a href="">Laser In TMJ Pain</a></li> -->
-                          </ul>
-                          <ul class="list-group">
-
-                            <li class="list-group-item"><a href="">Laser Assisted Dental Implantology</a></li>
-                            <li class="list-group-item"><a href="">Laser Dentin Hypersensitivity</a></li>
-                            <li class="list-group-item"><a href="">Laser Gum Depigmentation</a></li>
-                            <li class="list-group-item"><a href="">Laser Assisted Root Canal Treatment</a></li>
-                            <li class="list-group-item"><a href="">Laser In TMJ Pain</a></li>
+                            <li class="col-12 mt-3">
+                              <h5 class="txt-primary">Laser Oral Surgery</h5>
+                            </li>
+                            <li class="col-md-6"><a href="">Frenectomy (removal of a frenulum)</a></li>
+                            <li class="col-md-6"><a href="">gingivectomy (removal of excess gum tissue)</a></li>
+                            <li class="col-md-6"><a href="">Biopsy of abnormal oral tissue</a></li>
+                            <li class="col-md-6"><a href="">Removal of tumors and cysts</a></li>
+                            <li class="col-md-6"><a href="">Bone reshaping for dental implants</a></li>
+                            <li class="col-md-6"><a href="">Resection of the jaw</a></li>
+                            <li class="col-md-6"><a href="">Treatment of periodontal (gum) disease</a></li>
                           </ul>
                         </div>
 
