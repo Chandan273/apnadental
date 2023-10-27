@@ -667,18 +667,19 @@
             </div>
 
             <div class="row">
+                @foreach($doctors as $doctor)
                 <div class="col-lg-4 col-md-6">
                     <div class="box_list home">
-                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
+                        <a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
                         <figure>
-                            <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
+                            <a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
                             <div class="preview"><span>Read more</span></div>
                         </figure>
 
                         <div class="wrapper">
                             <small>Psicologist</small>
-                            <h3>Dr. Watamaniuk</h3>
-                            <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+                            <h3>{{ $doctor->company_name }}</h3>
+                            <p>{{ $doctor->description }}</p>
                             <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
 
                             <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15" height="15" alt=""></a>
@@ -686,130 +687,11 @@
 
                         <ul>
                             <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="detail-page.html">Book now</a></li>
+                            <li><a href="http://localhost/projects/apnadental/doctor-details/{{ $doctor->id }}">Book now</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="box_list home">
-                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
-                        <figure>
-                            <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
-                            <div class="preview"><span>Read more</span></div>
-                        </figure>
-
-                        <div class="wrapper">
-                            <small>Psicologist</small>
-                            <h3>Dr. Mantooth</h3>
-                            <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-
-                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15" height="15" alt=""></a>
-                        </div>
-
-                        <ul>
-                            <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="detail-page.html">Book now</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box_list home">
-                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
-
-                        <figure>
-                            <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
-                            <div class="preview"><span>Read more</span></div>
-                        </figure>
-
-                        <div class="wrapper">
-                            <small>Psicologist</small>
-                            <h3>Dr. Pullman</h3>
-                            <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-
-                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_2.svg') }}" width="15" height="15" alt=""></a>
-                        </div>
-
-                        <ul>
-                            <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="detail-page.html">Book now</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box_list home">
-                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
-                        <figure>
-                            <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
-                            <div class="preview"><span>Read more</span></div>
-                        </figure>
-
-                        <div class="wrapper">
-                            <small>Psicologist</small>
-                            <h3>Dr. Toothaker</h3>
-                            <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-
-                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_6.svg') }}" width="15" height="15" alt=""></a>
-                        </div>
-
-                        <ul>
-                            <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="detail-page.html">Book now</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box_list home">
-                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
-                        <figure>
-                            <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
-                            <div class="preview"><span>Read more</span></div>
-                        </figure>
-
-                        <div class="wrapper">
-                            <small>Psicologist</small>
-                            <h3>Dr. Brilliant</h3>
-                            <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-
-                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_6.svg') }}" width="15" height="15" alt=""></a>
-                        </div>
-
-                        <ul>
-                            <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="detail-page.html">Book now</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box_list home">
-                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist" class="wish_bt"></a>
-                        <figure>
-                            <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt=""></a>
-                            <div class="preview"><span>Read more</span></div>
-                        </figure>
-
-                        <div class="wrapper">
-                            <small>Psicologist</small>
-                            <h3>Dr. Crownover</h3>
-                            <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-
-                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15" height="15" alt=""></a>
-                        </div>
-
-                        <ul>
-                            <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="detail-page.html">Book now</a></li>
-                        </ul>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- /row -->
@@ -825,15 +707,13 @@
         <div class="container-fluid container-lg">
             <div class="row g-1">
                 <div class="col-12 col-sm-6">
-                    <a href="" class=" blog-wraper">
-                        <img src="{{ asset('public/assets/img/blog-big.jpg') }}" alt="blog image">
+                    <a href="" class="blog-wraper">
+                        <img src="{{ asset('public/'.$blogs[4]->blog_image) }}" alt="blog image">
                         <div class="blog-content-wrraper">
-                            <span class="post-category small text-white">Fashion</span>
-                            <h3 class="text-white">
-                                WordPress News Magazine Charts the Most Chic and Fashionable Women of New York City
-                            </h3>
+                            <span class="post-category small text-white">{{ $blogs[4]->category->name }}</span>
+                            <h3 class="text-white">{{ $blogs[4]->title }}</h3>
                             <div class="td-editor-date">
-                                <span class="post-author-name text-white">Armin Vans</span>
+                                <span class="post-author-name text-white">{{ $blogs[4]->created_at->format('Y-M-d') }}</span>
                             </div>
                         </div>
                     </a>
@@ -842,11 +722,11 @@
                     <div class="row g-1">
                         <div class="col-12">
                             <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-medium.jpg') }}" alt="blog image">
+                                <img src="{{ asset('public/'.$blogs[5]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white">Gadgets</span>
+                                    <span class="post-category small text-white">{{ $blogs[5]->category->name }}</span>
                                     <h3 class="text-white fs-5">
-                                        Game Changing Virtual Reality Console Hits the Market
+                                        {{ $blogs[5]->title }}
                                     </h3>
 
                                 </div>
@@ -854,22 +734,22 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-small1.jpg') }}" alt="blog image">
+                                <img src="{{ asset('public/'.$blogs[2]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white">Travel</span>
+                                    <span class="post-category small text-white">{{ $blogs[2]->category->name }}</span>
                                     <h3 class="text-white fs-6">
-                                        Discover the Most Magical Sunset in Santorini
+                                        {{ $blogs[2]->title }}
                                     </h3>
                                 </div>
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
                             <a href="" class=" blog-wraper">
-                                <img src="{{ asset('public/assets/img/blog-small2.jpg') }}" alt="blog image">
+                                <img src="{{ asset('public/'.$blogs[3]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>
+                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">{{ $blogs[3]->category->name }}</span>
                                     <h3 class="text-white fs-6">
-                                        Computer Filters Noise to Make You a Better Listener
+                                        {{ $blogs[3]->title }}
                                     </h3>
                                 </div>
                             </a>

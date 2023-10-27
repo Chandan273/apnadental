@@ -9,6 +9,7 @@ use App\Models\Location;
 use App\Models\Doctor;
 use App\Models\Slider;
 use App\Models\Brand;
+use App\Models\Blog;
 
 class SearchController extends Controller
 {
@@ -17,9 +18,11 @@ class SearchController extends Controller
         //$services = Service::all();
         $sliders = Slider::all();
         $brands = Brand::all();
+        $doctors = Doctor::take(6)->get();
+        $blogs = Blog::with('category')->get();
         $services = Service::with('doctors')->get();
 
-        return view('apnadental.index', compact('brands', 'services', 'sliders'));
+        return view('apnadental.index', compact('brands', 'services', 'doctors', 'sliders', 'blogs'));
     }
 
     public function searchDoctors(Request $request)
