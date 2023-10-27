@@ -34,8 +34,7 @@
                 <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
               </div>
               <div class="col-12">
-                <div class="hideShowPassword-wrapper"
-                  style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
+                <div class="hideShowPassword-wrapper" style="position: relative; display: block; margin: 0px;">
                   <input type="text" class="form-control" placeholder="Enter OTP" name="otp" id="password"
                     style="margin: 0px; padding-right: 0px;">
                   <button type="button" role="button" aria-label="Show Password" title="Show Password" tabindex="0"
@@ -54,11 +53,14 @@
               <div class="mt-0"></div>
         <li class="border-bottom py-2 mb-2 mt-0">Deepak</li>
         <li class="border-bottom py-2 mb-2 mt-0 small fw-light">UHID : APJ1.0005455032</li>
-        <li class="border-bottom py-2 mb-2 mt-0 d-flex align-items-center justify-content-between small fw-light"><span>MALE
-            | 28</span> <span>+91987654321</span></li>
+        <li class="border-bottom py-2 mb-2 mt-0 d-flex align-items-center justify-content-between small fw-light">
+          <span>MALE
+            | 28</span> <span>+91987654321</span>
+        </li>
         <li class="border-bottom py-2 mb-2 mt-0"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
             <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
-        <li class="border-bottom py-2 mb-2 mt-0"><a href="{{ route('user.logout') }}" class="btn_1 text-center">Logout</a>
+        <li class="border-bottom py-2 mb-2 mt-0"><a href="{{ route('user.logout') }}"
+            class="btn_1 text-center">Logout</a>
         </li>
         @endif
         </form>
@@ -91,19 +93,193 @@
           <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            speciality
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        <li class="nav-item dropdown dropdown-mega">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            data-bs-auto-close="outside">speciality</a>
+          <div class="dropdown-menu shadow">
+            <div class="mega-content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex align-items-start">
+                      <div class="nav flex-shrink-0 flex-column nav-pills me-3 text-start bg-light px-2"
+                        id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+
+                        <a class="nav-link active" id="v-pills-cosmetics-dentistry-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-cosmetics-dentistry" role="tab"
+                          aria-controls="v-pills-cosmetics-dentistry" aria-selected="true">cosmetics Dentistry</a>
+
+                        <a class="nav-link" id="v-pills-periodontics-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-periodontics" role="tab" aria-controls="v-pills-periodontics"
+                          aria-selected="false">Periodontics</a>
+
+                        <a class="nav-link" id="v-pills-Pedodontics-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Pedodontics" role="tab" aria-controls="v-pills-Pedodontics"
+                          aria-selected="false">Pedodontics</a>
+
+                        <a class="nav-link" id="v-pills-Prosthodontics-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Prosthodontics" role="tab" aria-controls="v-pills-Prosthodontics"
+                          aria-selected="false">Prosthodontics</a>
+
+                        <a class="nav-link" id="v-pills-Orthodontics-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Orthodontics" role="tab" aria-controls="v-pills-Orthodontics"
+                          aria-selected="false">Orthodontics</a>
+
+                        <a class="nav-link" id="v-pills-Endodontics-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Endodontics" role="tab" aria-controls="v-pills-Endodontics"
+                          aria-selected="false">Endodontics</a>
+
+                        <a class="nav-link" id="v-pills-Maxillofacial-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Maxillofacial" role="tab" aria-controls="v-pills-Maxillofacial"
+                          aria-selected="false">Maxillofacial</a>
+
+                        <a class="nav-link" id="v-pills-Implantology-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Implantology" role="tab" aria-controls="v-pills-Implantology"
+                          aria-selected="false">Implantology</a>
+
+                        <a class="nav-link" id="v-pills-Laser-dentistry-tab" data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Laser-dentistry" role="tab" aria-controls="v-pills-Laser-dentistry"
+                          aria-selected="false">Laser-dentistry</a>
+
+                      </div>
+
+
+                      <div class="tab-content w-100 pt-1" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-cosmetics-dentistry" role="tabpanel"
+                          aria-labelledby="v-pills-cosmetics-dentistry-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Teeth Whitening</a></li>
+                            <li class="col-md-6"><a href="">Veneers</a></li>
+                            <li class="col-md-6"><a href="">Teeth Straightening</a></li>
+                            <li class="col-md-6"><a href="">Crowns</a></li>
+                            <li class="col-md-6"><a href="">Bridges</a></li>
+                            <li class="col-md-6"><a href="">White fillings</a></li>
+                          </ul>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="v-pills-periodontics" role="tabpanel"
+                          aria-labelledby="v-pills-periodontics-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">scaling</a></li>
+                            <li class="col-md-6"><a href="">root planing</a></li>
+                            <li class="col-md-6"><a href="">root surface debridement</a></li>
+                            <li class="col-md-6"><a href="">oral inflammation treatment</a></li>
+                            <li class="col-md-6"><a href="">cosmetic periodontal procedures</a></li>
+                          </ul>
+
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="v-pills-Pedodontics" role="tabpanel"
+                          aria-labelledby="v-pills-Pedodontics-tab" tabindex="0">
+
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Children's Tooth Fillings</a></li>
+                            <li class="col-md-6"><a href="">Children's Tooth Extractions</a></li>
+                            <li class="col-md-6"><a href="">Children's Tooth Dental Crowns</a></li>
+                            <li class="col-md-6"><a href="">Children's Tooth Root Canals</a></li>
+                            <li class="col-md-6"><a href="">Children's Dental X-rays</a></li>
+                            <li class="col-md-6"><a href="">Children's Sealants</a></li>
+                          </ul>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="v-pills-Prosthodontics" role="tabpanel"
+                          aria-labelledby="v-pills-Prosthodontics-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Dental crowns</a></li>
+                            <li class="col-md-6"><a href="">Dental bridges</a></li>
+                            <li class="col-md-6"><a href="">Dentures</a></li>
+                            <li class="col-md-6"><a href="">Inlays and Onlays</a></li>
+                            <li class="col-md-6"><a href="">Dental implants</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-Orthodontics" role="tabpanel"
+                          aria-labelledby="v-pills-Orthodontics-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Braces</a></li>
+                            <li class="col-md-6"><a href="">Aligners</a></li>
+                            <li class="col-md-6"><a href="">Retainers</a></li>
+                            <li class="col-md-6"><a href="">Palate expanders</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-Endodontics" role="tabpanel"
+                          aria-labelledby="v-pills-Endodontics-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">removing pulpal tissue</a></li>
+                            <li class="col-md-6"><a href="">Tooth filing</a></li>
+                            <li class="col-md-6"><a href="">filing and shaping root canals</a></li>
+                            <li class="col-md-6"><a href="">obturating the root canal space</a></li>
+                            <li class="col-md-6"><a href="">permanent restoration for the tooth</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-Maxillofacial" role="tabpanel"
+                          aria-labelledby="v-pills-Maxillofacial-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Maxillary osteotomy</a></li>
+                            <li class="col-md-6"><a href="">Mandibular osteotomy</a></li>
+                            <li class="col-md-6"><a href="">Genioplasty</a></li>
+
+                            <li class="col-12 mt-3">
+                              <h5 class="txt-primary">TMJ operation</h5>
+                            </li>
+
+                            <li class="col-md-6"><a href="">Arthrocentesis</a></li>
+                            <li class="col-md-6"><a href="">Arthroscopy</a></li>
+                            <li class="col-md-6"><a href="">Open joint procedures</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-Implantology" role="tabpanel"
+                          aria-labelledby="v-pills-Implantology-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Endosteal </a></li>
+                            <li class="col-md-6"><a href="">Subperiosteal</a></li>
+                            <li class="col-md-6"><a href="">Zygomatic</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-Laser-dentistry" role="tabpanel"
+                          aria-labelledby="v-pills-Laser-dentistry-tab" tabindex="0">
+                          <ul class="row">
+                            <li class="col-md-6"><a href="">Laser Gum Therapy</a></li>
+                            <li class="col-md-6"><a href="">Laser Assisted Dental Implantology</a></li>
+                            <li class="col-md-6"><a href="">Laser Dentin Hypersensitivity</a></li>
+                            <li class="col-md-6"><a href="">Laser Gum Depigmentation</a></li>
+                            <li class="col-md-6"><a href="">Laser Assisted Root Canal Treatment</a></li>
+                            <li class="col-md-6"><a href="">Laser In TMJ Pain</a></li>
+
+                            <li class="col-12 mt-3">
+                              <h5 class="txt-primary">Laser Oral Surgery</h5>
+                            </li>
+                            <li class="col-md-6"><a href="">Frenectomy (removal of a frenulum)</a></li>
+                            <li class="col-md-6"><a href="">gingivectomy (removal of excess gum tissue)</a></li>
+                            <li class="col-md-6"><a href="">Biopsy of abnormal oral tissue</a></li>
+                            <li class="col-md-6"><a href="">Removal of tumors and cysts</a></li>
+                            <li class="col-md-6"><a href="">Bone reshaping for dental implants</a></li>
+                            <li class="col-md-6"><a href="">Resection of the jaw</a></li>
+                            <li class="col-md-6"><a href="">Treatment of periodontal (gum) disease</a></li>
+                          </ul>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
+
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dr. By Treatment
@@ -147,8 +323,7 @@
                   <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
                 </div>
                 <div class="col-12">
-                  <div class="hideShowPassword-wrapper"
-                    style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
+                  <div class="hideShowPassword-wrapper" style="position: relative; display: block;  margin: 0px;">
                     <input type="text" class="form-control" placeholder="Enter OTP" name="otp" id="password"
                       style="margin: 0px; padding-right: 0px;">
                     <button type="button" role="button" aria-label="Show Password" title="Show Password" tabindex="0"
@@ -172,7 +347,8 @@
               <li class="border-bottom py-2 mb-2">Deepak</li>
               <li class="border-bottom py-2 mb-2 small fw-light">UHID : APJ1.0005455032</li>
               <li class="border-bottom py-2 mb-2 d-flex align-items-center justify-content-between small fw-light">
-                <span>MALE | 28</span> <span>+91987654321</span></li>
+                <span>MALE | 28</span> <span>+91987654321</span>
+              </li>
               <li class="border-bottom py-2 mb-2"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
                   <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
               <li class="border-bottom py-2 mb-2"><a href="{{ route('user.logout') }}"

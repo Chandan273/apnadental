@@ -19,7 +19,7 @@
 
 @media screen and (min-width: 992px) {
   .navbar-cstm-bg.navbar-expand-lg .navbar-nav .dropdown-menu {
-    width: 50vw;
+    width: 60vw;
   }
 }
 
@@ -31,9 +31,6 @@
   color: var(--secondary);
 }
 
-/* img {
-  width: 100%;
-} */
 
 .btn_outline_2 {
   background-color: #fff;
@@ -57,6 +54,18 @@
   background-color: var(--secondary);
   border-color: var(--secondary);
   color: #fff;
+}
+
+.btn_pink {
+  background-color: var(--pink);
+  border-color: var(--pink);
+  color: #fff;
+}
+
+.btn_pink:hover {
+  background-color: #dd2666;
+  border-color: var(--pink);
+  color:#ffffff;
 }
 
 .navbar-cstm-bg {
@@ -297,12 +306,59 @@ form #error-message {
   bottom: 0vh;
   left: 50%;
   width: 100%;
+  z-index: 2;
+}
+
+.nav-item.dropdown-mega .nav-pills .nav-link {
+  cursor: pointer;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.nav-item.dropdown-mega .nav-pills .nav-link.active {
+  background-color: transparent;
+  color: var(--pink);
+  text-decoration: underline;
+}
+.nav-item.dropdown-mega ul li{
+  padding: 4px 6px;
+}
+
+.nav-item.dropdown-mega ul{
+  padding-left: 30px;
+  list-style-type: disclosure-closed;
+}
+
+.nav-item.dropdown-mega ul li a {
+  color: #161616;
+}
+
+.nav-item.dropdown-mega ul li a:active,
+.nav-item.dropdown-mega ul li a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+footer .input-group .btn{
+  z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #scroll-triggered-cta{
+    position: relative!important;
+    transform: translate(0px, 0px)!important;
+    left: auto;
+    margin: 15px 0;
+  }
+  #scroll-triggered-cta .rounded-pill{
+    border-radius: 10px!important;
+  }
 }
 
 @media screen and (max-width: 575px) {
   .add-member .member-img-wraper {
     width: 100%;
   }
+  
 }
 
 @media screen and (min-width: 576px) {}
