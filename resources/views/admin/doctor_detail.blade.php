@@ -8,17 +8,17 @@
 			<li class="breadcrumb-item">
 				<a href="{{ url('/dashboard') }}">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">All Service</li>
+			<li class="breadcrumb-item active">Doctor Details</li>
 		</ol>
 
 		<div class="box_general p-3">
 			<div class="row mb-3">
 				<div class="col">
-					<h4>Service List</h4>
+					<h4>Doctor Details</h4>
 				</div>
 				<div class="col text-end">
 					<button type="button" class="btn btn-primary">
-						<i class="fa fa-plus" aria-hidden="true"></i> Add Service
+						<i class="fa fa-plus" aria-hidden="true"></i> Add Doctors
 					</button>
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 					<thead>
 						<tr>
 							<th scope="col">#ID</th>
-							<th scope="col">Service Name</th>
+							<th scope="col">Doctor Name</th>
 							<th scope="col">Created at</th>
 							<th scope="col">Action</th>
 						</tr>
@@ -76,17 +76,16 @@
 							<td>2023-08-24 07:43:08
 							</td>
 							<td>
-								<div class="d-flex gap-2 flex-nowrap">
-									<button type="button" class="btn btn-primary btn-sm">
-										<i class="fa fa-eye" aria-hidden="true"></i>
-									</button>
-									<button type="button" class="btn btn-success btn-sm mx-1">
-										<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-									</button>
-									<button type="button" class="btn btn-danger btn-sm">
-										<i class="fa fa-trash" aria-hidden="true"></i>
-									</button>
-								</div>
+								<button type="button" class="btn btn-primary btn-sm">
+									<i class="fa fa-eye" aria-hidden="true"></i>
+								</button>
+								<button type="button" class="btn btn-success btn-sm mx-1">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+								</button>
+								<button type="button" class="btn btn-danger btn-sm">
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</button>
+
 							</td>
 						</tr>
 					</tbody>

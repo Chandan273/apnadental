@@ -25,24 +25,24 @@
             <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
                 @csrf
 
-                <div class="form-group">
-                    <label for="title">Heading</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="title">Heading</label>
                     <input type="text" class="form-control" id="title" name="title" required>
 					@if ($errors->has('title'))
 						<span class="text-danger">{{ $errors->first('title') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-                    <label for="slider_image">Slider Image</label>
-                    <input type="file" class="form-control-file" id="slider_image" name="slider_image" accept="image/*" required>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="slider_image">Slider Image</label>
+                    <input type="file" class="form-control" id="slider_image" name="slider_image" accept="image/*" required>
 					@if ($errors->has('slider_image'))
 						<span class="text-danger">{{ $errors->first('slider_image') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-					<label for="description">Description</label>
+                <div class="form-group mb-3">
+					<label  class="form-label"for="description">Description</label>
 					<textarea class="form-control" name="description" id="description" rows="5">{{ old('description') }}</textarea>
 					@if ($errors->has('description'))
 						<span class="text-danger">{{ $errors->first('description') }}</span>

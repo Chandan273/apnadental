@@ -26,16 +26,16 @@
                 @csrf
                 @method('PUT')
 
-                <div class="form-group">
-                    <label for="brand_name">Brand Name</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="brand_name">Brand Name</label>
                     <input type="text" class="form-control" id="brand_name" name="brand_name" value="{{ $brand->brand_name }}">
 					@if ($errors->has('servicename'))
 						<span class="text-danger">{{ $errors->first('brand_name') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-                    <label for="brand_image">Brand Image</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="brand_image">Brand Image</label>
                     <input type="file" class="form-control-file" id="brand_image" name="brand_image" accept="image/*">
 					@if ($errors->has('servicename'))
 						<span class="text-danger">{{ $errors->first('brand_image') }}</span>

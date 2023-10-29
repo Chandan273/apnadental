@@ -1,20 +1,20 @@
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top px-2" id="mainNav">
     <a class="navbar-brand" href="{{ url('/admin/dashboard') }}"><img src="{{ asset('public/assets/img/logo.png') }}" data-retina="true" alt="" width="163" height="36"></a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{ url('/admin/dashboard') }}">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Service">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseService" data-parent="#exampleAccordion">
-            <i class="fa fa-cog mr-1" aria-hidden="true"></i>
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Service">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseService" data-parent="#exampleAccordion">
+            <i class="fa fa-cog" aria-hidden="true"></i>
             <span class="nav-link-text">Service</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseService">
@@ -25,9 +25,10 @@
               <a href="{{ url('/admin/all-services') }}">All Services</a>
             </li>
           </ul>
+
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBrand" data-parent="#exampleAccordion">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Brands">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseBrand" data-parent="#exampleAccordion">
             <i class="fa fa-picture-o" aria-hidden="true"></i>
             <span class="nav-link-text">Brands</span>
           </a>
@@ -40,8 +41,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blog">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsCategory" data-parent="#exampleAccordion">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Blog">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapsCategory" data-parent="#exampleAccordion">
             <i class="fa fa-archive" aria-hidden="true"></i>
             <span class="nav-link-text">Blog</span>
           </a>
@@ -60,8 +61,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slider">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSlider" data-parent="#exampleAccordion">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Slider">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseSlider" data-parent="#exampleAccordion">
             <i class="fa fa-gg" aria-hidden="true"></i>
             <span class="nav-link-text">Slider</span>
           </a>
@@ -74,8 +75,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slider">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseDentalSlider" data-parent="#exampleAccordion">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Slider">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseDentalSlider" data-parent="#exampleAccordion">
             <i class="fa fa-plus-square" aria-hidden="true"></i>
             <span class="nav-link-text">Dental Service</span>
           </a>
@@ -88,8 +89,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="import">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseImport" data-parent="#exampleAccordion">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="import">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseImport" data-parent="#exampleAccordion">
             <i class="fa fa-upload" aria-hidden="true"></i>
             <span class="nav-link-text">Import</span>
           </a>
@@ -102,44 +103,57 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Doctor">
-          <a class="nav-link" href="{{ url('/admin/add-doctor') }}">
+       
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Blog">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapsDoctor" data-parent="#exampleAccordion">
             <i class="fa fa-user-md" aria-hidden="true"></i>
-            <span class="nav-link-text">Add Doctor</span>
+            <span class="nav-link-text">Doctor</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapsDoctor">
+            <li>
+              <a href="{{ url('/admin/add-doctor') }}">Add Doctor</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/all-doctors') }}">All Doctor</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/doctor-detail') }}">Doctor Details</a>
+            </li>
+          </ul>
         </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
+
+		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Messages">
           <a class="nav-link" href="{{ url('/admin/messages') }}">
             <i class="fa fa-fw fa-envelope-open"></i>
             <span class="nav-link-text">Messages</span>
           </a>
         </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
+		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Bookings">
           <a class="nav-link" href="{{ url('/admin/bookings') }}">
             <i class="fa fa-fw fa-calendar-check-o"></i>
             <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
           </a>
         </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
+		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Reviews">
           <a class="nav-link" href="{{ url('/admin/reviews') }}">
             <i class="fa fa-fw fa-star"></i>
             <span class="nav-link-text">Reviews</span>
           </a>
         </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
+		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Bookmarks">
           <a class="nav-link" href="{{ url('/admin/bookmarks') }}">
             <i class="fa fa-fw fa-heart"></i>
             <span class="nav-link-text">Bookmarks</span>
           </a>
         </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
+		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Add listing">
           <a class="nav-link" href="{{ url('/admin/add-listing') }}">
             <i class="fa fa-fw fa-plus-circle"></i>
             <span class="nav-link-text">Add listing</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProfile" data-parent="#exampleAccordion">
+        <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="My profile">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseProfile" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">My profile</span>
           </a>
@@ -152,8 +166,8 @@
             </li>
           </ul>
         </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-gear"></i>
             <span class="nav-link-text">Components</span>
           </a>
@@ -174,9 +188,13 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
+
+
+
+      
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle me-lg-2" id="messagesDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
@@ -210,7 +228,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle me-lg-2" id="alertsDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-bell"></i>
             <span class="d-lg-none">Alerts
               <span class="badge badge-pill badge-warning">6 New</span>
@@ -253,19 +271,17 @@
           </div>
         </li>
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+          <form class="form-inline my-2 my-lg-0 me-lg-2">
             <div class="input-group">
-              <input class="form-control search-top" type="text" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
+              <input class="form-control p-2" type="text" placeholder="Search for...">           
+              <button class="btn btn-primary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
             </div>
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>

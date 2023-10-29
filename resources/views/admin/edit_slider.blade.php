@@ -26,26 +26,26 @@
                 @csrf
                 @method('PUT')
 
-                <div class="form-group">
-                    <label for="title">Heading</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="title">Heading</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{ $slider->title }}">
 					@if ($errors->has('title'))
 						<span class="text-danger">{{ $errors->first('title') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-                    <label for="description">Description</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="description">Description</label>
                     <textarea class="form-control" name="description" id="description" rows="3">{{ $slider->description }}</textarea>
 					@if ($errors->has('description'))
 						<span class="text-danger">{{ $errors->first('description') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-                    <label for="slider_image">Slider Image</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="slider_image">Slider Image</label>
                     <p><strong>Selected Image: </strong> {{ $slider->slider_image }}</p>
-                    <input type="file" class="form-control-file" id="slider_image" name="slider_image" accept="image/*">
+                    <input type="file" class="form-control" id="slider_image" name="slider_image" accept="image/*">
 					@if ($errors->has('slider_image'))
 						<span class="text-danger">{{ $errors->first('slider_image') }}</span>
 					@endif

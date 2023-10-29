@@ -26,16 +26,16 @@
                 @csrf
                 @method('PUT')
 
-                <div class="form-group">
-                    <label for="title">Blog Title</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="title">Blog Title</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{ $blog->title }}">
 					@if ($errors->has('title'))
 						<span class="text-danger">{{ $errors->first('title') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-                    <label for="blog_category_id">Assign Category</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="blog_category_id">Assign Category</label>
                     <select class="form-control" id="blog_category_id" name="blog_category_id">
                         <option value="">Select Category</option>
                         @foreach ($categories as $category)
@@ -49,18 +49,18 @@
                     @endif
                 </div>
 
-                <div class="form-group">
-                    <label for="description">Description</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="description">Description</label>
                     <textarea class="form-control" name="content" id="description" rows="3">{{ $blog->content }}</textarea>
 					@if ($errors->has('content'))
 						<span class="text-danger">{{ $errors->first('content') }}</span>
 					@endif
                 </div>
 
-                <div class="form-group">
-                    <label for="blog_image">Blog Image</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="blog_image">Blog Image</label>
                     <p><strong>Selected Image: </strong> {{ $blog->blog_image }}</p>
-                    <input type="file" class="form-control-file" id="blog_image" name="blog_image" accept="image/*">
+                    <input type="file" class="form-control" id="blog_image" name="blog_image" accept="image/*">
 					@if ($errors->has('servicename'))
 						<span class="text-danger">{{ $errors->first('blog_image') }}</span>
 					@endif
