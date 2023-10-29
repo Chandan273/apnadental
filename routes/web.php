@@ -107,6 +107,8 @@ Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/search/doctors', [DoctorController::class, 'doctorList']);
+Route::get('autocomplete', [SearchController::class, 'autocomplete'])->name('autocomplete');
+Route::get('{city}/specialties/{specialty}', [SearchController::class, 'findDoctor']);
 
 // new pages 
 Route::view('/my_account', 'apnadental/my_account');

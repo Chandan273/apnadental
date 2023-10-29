@@ -1,7 +1,11 @@
 @extends('apnadental.master')
 @section("content")
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <style>
+    span#errMsg {
+        text-align: center;
+        color: #dc3545;
+    }
+    
     .bg-cst-blue {
         background-color: var(--secondary);
     }
@@ -164,17 +168,23 @@
                                 <select class="form-select" aria-label="location" id="service-select">
                                     <option selected="">Select a Treatment</option>
                                     @foreach ($services as $service)
-                                    <option value="{{ $service->service_name }}">{{ $service->service_name }}</option>
+                                    <option data-service-id="{{ $service->id }}" value="{{ $service->service_name }}">{{ $service->service_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col col-lg-6">
-                                <input type="text" name="keyword" class="form-control"
+                                <input type="text" name="keyword" id="keywordSearch" class="form-control"
                                     placeholder="Search doctors, clinics, hospitals, etc." value="">
+                                <input type="hidden" name="doctor_id" id="doctor_id">    
+                                <input type="hidden" name="service_id" id="service_id">
+                                <input type="hidden" name="secondary_category" id="secondary_category">
+                                <input type="hidden" name="type" id="type">
+                                <input type="hidden" name="selectedCity" id="selectedCity">    
                             </div>
                             <div class="col-12 col-lg-2">
                                 <button type="button" class="btn btn-cstm w-100" id="search-button">search</button>
                             </div>
+                            <span id="errMsg"></span>
                         </div>
                     </div>
                 </div>
@@ -1440,7 +1450,6 @@
 </main>
 <!-- /main content -->
 
-<!-- Add this code block inside your <script> tag or an external JS file -->
 <script>
     $(document).ready(function () {
         function getLocation() {
@@ -1625,27 +1634,66 @@
 
     document.getElementById('search-button').addEventListener('click', function () {
         const selectedService = document.getElementById('service-select').value;
-        // const keyword = document.querySelector('input[name="keyword"]').value;
+        const doctor_id = document.querySelector('input[name="doctor_id"]').value;
+        const service_id = document.querySelector('input[name="service_id"]').value;
+        const secondary_category = document.querySelector('input[name="secondary_category"]').value;
+        const type = document.querySelector('input[name="type"]').value;
+        const selectedCity = document.querySelector('input[name="selectedCity"]').value;
+        const keyword = document.querySelector('input[name="keyword"]').value;
 
-        // Check if a service is selected
-        if (selectedService !== '') {
-            // Construct the URL based on the selected service and keyword (if any)
-            let url = `search/doctors?results_type=${selectedService}`;
+        const selectedOption = document.getElementById('service-select').querySelector('option:checked');
+        const serviceId = selectedOption.getAttribute('data-service-id');
 
-            // If a keyword is provided, append it to the URL
-            // if (keyword !== '') {
-            //     url += `&keyword=${keyword}`;
-            // }
+        if(keyword !== ''){
+            if(serviceId !== "" && serviceId === service_id){
+                let url = "<?php echo env('APP_URL'); ?>" + `/${selectedCity}/specialties/${secondary_category}?type=${type}&service_id=${doctor_id}`;
 
-            // Redirect the user to the generated URL
-            window.location.href = url;
+                window.location.href = url;
+            }   else {
+                $("#errMsg").text("Data Not Found!");
+            }
         } else {
-            // Handle the case where no service is selected
-            alert('Please select a treatment before searching.');
+            if (selectedService !== '' && selectedService !== "Select a Treatment") {
+                let url = `search/doctors?results_type=${selectedService}`;
+                window.location.href = url;
+            } else {
+                $("#errMsg").text("Please select a treatment before searching.");
+            }
         }
+
     });
 
+    var path = "{{ route('autocomplete') }}";
+    var data = [];
 
+    $('#keywordSearch').typeahead({
+        source: function (query, process) {
+            return $.get(path, {
+                query: query
+            }, function (responseData) {
+                data = responseData;
+                return process(data.map(function (item) {
+                    return item.company_name;
+                }));
+            });
+        },
+        updater: function (item) {
+            // Find the corresponding city for the selected company_name
+            const doctor_id = data.find(dataItem => dataItem.company_name === item).doctor_id;
+            const service_id = data.find(dataItem => dataItem.company_name === item).service_id;
+            const secondary_category = data.find(dataItem => dataItem.company_name === item).secondary_category;
+            const type = data.find(dataItem => dataItem.company_name === item).type;
+            const selectedCity = data.find(dataItem => dataItem.company_name === item).city;
+
+            $('#doctor_id').val(doctor_id);
+            $('#service_id').val(service_id);
+            $('#secondary_category').val(secondary_category);
+            $('#type').val(type);
+            $('#selectedCity').val(selectedCity);
+
+            return item;
+        }
+    });
 
     document.addEventListener("DOMContentLoaded", function () {
         const cta = document.getElementById("scroll-triggered-cta");

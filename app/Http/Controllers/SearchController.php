@@ -25,12 +25,43 @@ class SearchController extends Controller
         return view('apnadental.index', compact('brands', 'services', 'doctors', 'sliders', 'blogs'));
     }
 
+    public function autocomplete(Request $request)
+    {
+        $query = $request->get('query');
+
+        $results = Doctor::select("id", "service_id", "company_name", "secondary_category", "type", "city")
+            ->where('company_name', 'LIKE', '%' . $query . '%')
+            ->get();
+
+        $suggestions = $results->map(function ($result) {
+            return [
+                'doctor_id' => $result->id,
+                'service_id' => $result->service_id,
+                'company_name' => $result->company_name,
+                'secondary_category' => $result->secondary_category,
+                'type' => $result->type,
+                'city' => $result->city,
+            ];
+        });
+
+        return response()->json($suggestions);
+    }   
+
     public function searchDoctors(Request $request)
     {
         $locationId = $request->input('location_id');
         $doctors = Doctor::where('location_id', $locationId)->get();
 
         return response()->json(['doctors' => $doctors]);
+    }
+
+    public function findDoctor(Request $request)
+    {
+        $type = $request->input('type');
+        $serviceId = $request->input('service_id');
+
+        $doctor = Doctor::find($serviceId);
+        return view('apnadental.doctor_details', ['doctor' => $doctor]);
     }
 
     public function searchLocation(Request $request)
