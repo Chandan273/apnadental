@@ -1,21 +1,20 @@
 @extends('apnadental.master')
 @section("content")
-<style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-</style>
 <main>
     <div class="bg-white action-filter py-3">
         <div class="container">
-            <div class="row g-2">
-                <div class="col-12 col-sm-4 action-buttons">
-                    <div class="d-flex gap-2">
+            <div class="row g-2 justify-content-between">
+                <div class="col-12 col-sm-auto action-buttons">
+                    <div class="d-flex gap-2 flex-wrap">
                         <button class="btn btn-outline-primary">About</button>
                         <button class="btn btn-outline-primary">Health feed</button>
                         <button class="btn btn-outline-primary">Find Doctor</button>
                     </div>
 
                 </div>
-                <div class="col-12 col-sm-8">
+                <div class="col-12 col-sm-auto">
                     <form class="d-flex flex-nowrap gap-2">
                         <input type="text" class="form-control" id="search" placeholder="search">
                         <button type="submit" class="btn btn-primary">Search</button>
@@ -94,136 +93,141 @@
                                             to function perfectly. A root canal treatment may comprise of one to three
                                             visits to the dentist, depending on the severity of the condition.</p>
 
-                                        <div class="row">
+                                        <div>
                                             <h3>Doctor for Root Canal Treatment in Delhi</h3>
-                                            <div class="col-4">
-                                                <div class="box_list home">
-                                                    <div class="wrapper">
-                                                        <small>Psicologist</small>
-                                                        <h3>Dr. Watamaniuk</h3>
-                                                        <p>Id placerat tacimates definitionem sea, prima quidam vim no.
-                                                            Duo
-                                                            nobis persecuti cuodo....</p>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="rating"><i class="icon_star voted"></i>
-                                                                <i class="icon_star voted"></i>
-                                                                <i class="icon_star voted"></i>
-                                                                <i class="icon_star"></i>
-                                                                <i class="icon_star"></i>
-                                                                <small>(145)</small>
-                                                                <a href="#0" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top" title="Badge Level"
-                                                                    class="badge_list_1"><img
-                                                                        src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                        width="15" height="15" alt=""></a>
-                                                            </span>
-                                                            <a href="tel:+0123456789" class="btn_listing">Get a Free
-                                                                Call
-                                                                now</a>
+                                            <div class="row slider-clinic">
+                                                <div class="col-12 col-md-4">
+                                                    <div class="box_list home">
+                                                        <div class="wrapper">
+                                                            <small>Psicologist</small>
+                                                            <h3>Dr. Watamaniuk</h3>
+                                                            <p>Id placerat tacimates definitionem sea, prima quidam vim
+                                                                no.
+                                                                Duo
+                                                                nobis persecuti cuodo....</p>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="rating"><i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <small>(145)</small>
+                                                                    <a href="#0" data-bs-toggle="tooltip"
+                                                                        data-bs-placement="top" title="Badge Level"
+                                                                        class="badge_list_1"><img
+                                                                            src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
+                                                                            width="15" height="15" alt=""></a>
+                                                                </span>
+                                                                <a href="tel:+0123456789" class="btn_listing">Get a Free
+                                                                    Call
+                                                                    now</a>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <ul>
-                                                        <li>
-                                                            <form>
-                                                                <div class="mb-3 form-check align-items-center">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        id="exampleCheck1">
-                                                                    <label class="form-check-label"
-                                                                        for="exampleCheck1">Compare
-                                                                        Doctor</label>
-                                                                </div>
-                                                            </form>
-                                                        </li>
-                                                        <li><a href="detail-page.html">Book now</a></li>
-                                                    </ul>
+                                                        <ul class="d-flex align-items-center justify-content-between flex-wrap">
+                                                            <li>
+                                                                <form>
+                                                                    <div class="mb-3 form-check align-items-center">
+                                                                        <input type="checkbox" class="form-check-input"
+                                                                            id="compareDoctor">
+                                                                        <label class="form-check-label"
+                                                                            for="compareDoctor">Compare
+                                                                            Doctor</label>
+                                                                    </div>
+                                                                </form>
+                                                            </li>
+                                                            <li><a href="detail-page.html">Book now</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="box_list home">
-                                                    <div class="wrapper">
-                                                        <small>Psicologist</small>
-                                                        <h3>Dr. Watamaniuk</h3>
-                                                        <p>Id placerat tacimates definitionem sea, prima quidam vim no.
-                                                            Duo
-                                                            nobis persecuti cuodo....</p>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="rating"><i class="icon_star voted"></i>
-                                                                <i class="icon_star voted"></i>
-                                                                <i class="icon_star voted"></i>
-                                                                <i class="icon_star"></i>
-                                                                <i class="icon_star"></i>
-                                                                <small>(145)</small>
-                                                                <a href="#0" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top" title="Badge Level"
-                                                                    class="badge_list_1"><img
-                                                                        src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                        width="15" height="15" alt=""></a>
-                                                            </span>
-                                                            <a href="tel:+0123456789" class="btn_listing">Get a Free
-                                                                Call
-                                                                now</a>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="box_list home">
+                                                        <div class="wrapper">
+                                                            <small>Psicologist</small>
+                                                            <h3>Dr. Watamaniuk</h3>
+                                                            <p>Id placerat tacimates definitionem sea, prima quidam vim
+                                                                no.
+                                                                Duo
+                                                                nobis persecuti cuodo....</p>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="rating"><i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <small>(145)</small>
+                                                                    <a href="#0" data-bs-toggle="tooltip"
+                                                                        data-bs-placement="top" title="Badge Level"
+                                                                        class="badge_list_1"><img
+                                                                            src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
+                                                                            width="15" height="15" alt=""></a>
+                                                                </span>
+                                                                <a href="tel:+0123456789" class="btn_listing">Get a Free
+                                                                    Call
+                                                                    now</a>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <ul>
-                                                        <li>
-                                                            <form>
-                                                                <div class="mb-3 form-check align-items-center">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        id="exampleCheck1">
-                                                                    <label class="form-check-label"
-                                                                        for="exampleCheck1">Compare
-                                                                        Doctor</label>
-                                                                </div>
-                                                            </form>
-                                                        </li>
-                                                        <li><a href="detail-page.html">Book now</a></li>
-                                                    </ul>
+                                                        <ul class="d-flex align-items-center justify-content-between flex-wrap">
+                                                            <li>
+                                                                <form>
+                                                                    <div class="mb-3 form-check align-items-center">
+                                                                        <input type="checkbox" class="form-check-input"
+                                                                            id="compareDoctor1">
+                                                                        <label class="form-check-label"
+                                                                            for="compareDoctor1">Compare
+                                                                            Doctor</label>
+                                                                    </div>
+                                                                </form>
+                                                            </li>
+                                                            <li><a href="detail-page.html">Book now</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="box_list home">
+                                                <div class="col-12 col-md-4">
+                                                    <div class="box_list home">
 
-                                                    <div class="wrapper">
-                                                        <small>Psicologist</small>
-                                                        <h3>Dr. Watamaniuk</h3>
-                                                        <p>Id placerat tacimates definitionem sea, prima quidam vim no.
-                                                            Duo
-                                                            nobis persecuti cuodo....</p>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="rating"><i class="icon_star voted"></i>
-                                                                <i class="icon_star voted"></i>
-                                                                <i class="icon_star voted"></i>
-                                                                <i class="icon_star"></i>
-                                                                <i class="icon_star"></i>
-                                                                <small>(145)</small>
-                                                                <a href="#0" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top" title="Badge Level"
-                                                                    class="badge_list_1"><img
-                                                                        src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                        width="15" height="15" alt=""></a>
-                                                            </span>
-                                                            <a href="tel:+0123456789" class="btn_listing">Get a Free
-                                                                Call
-                                                                now</a>
+                                                        <div class="wrapper">
+                                                            <small>Psicologist</small>
+                                                            <h3>Dr. Watamaniuk</h3>
+                                                            <p>Id placerat tacimates definitionem sea, prima quidam vim
+                                                                no.
+                                                                Duo
+                                                                nobis persecuti cuodo....</p>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span class="rating"><i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <small>(145)</small>
+                                                                    <a href="#0" data-bs-toggle="tooltip"
+                                                                        data-bs-placement="top" title="Badge Level"
+                                                                        class="badge_list_1"><img
+                                                                            src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
+                                                                            width="15" height="15" alt=""></a>
+                                                                </span>
+                                                                <a href="tel:+0123456789" class="btn_listing">Get a Free
+                                                                    Call
+                                                                    now</a>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <ul>
-                                                        <li>
-                                                            <form>
-                                                                <div class="mb-3 form-check align-items-center">
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        id="exampleCheck1">
-                                                                    <label class="form-check-label"
-                                                                        for="exampleCheck1">Compare
-                                                                        Doctor</label>
-                                                                </div>
-                                                            </form>
-                                                        </li>
-                                                        <li><a href="detail-page.html">Book now</a></li>
-                                                    </ul>
+                                                        <ul class="d-flex align-items-center justify-content-between flex-wrap">
+                                                            <li>
+                                                                <form>
+                                                                    <div class="mb-3 form-check align-items-center">
+                                                                        <input type="checkbox" class="form-check-input"
+                                                                            id="compareDoctor2">
+                                                                        <label class="form-check-label"
+                                                                            for="compareDoctor2">Compare
+                                                                            Doctor</label>
+                                                                    </div>
+                                                                </form>
+                                                            </li>
+                                                            <li><a href="detail-page.html">Book now</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -327,8 +331,8 @@
                                     <section class="py-5">
                                         <div>
                                             <h2 class="text-uppercase text-center mb-4">Clinics</h2>
-                                            <div class="row gy-3">
-                                                <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="row gy-3 slider-clinic">
+                                                <div class="col-12 col-lg-6 col-xl-4">
                                                     <div class="card p-3 ">
                                                         <div class="d-flex justify-content-between mb-3">
                                                             <div>
@@ -383,9 +387,9 @@
                                                                 <form>
                                                                     <div class="form-check align-items-center">
                                                                         <input type="checkbox" class="form-check-input"
-                                                                            id="exampleCheck1">
+                                                                            id="compareDoctor3">
                                                                         <label class="form-check-label"
-                                                                            for="exampleCheck1">Compare
+                                                                            for="compareDoctor3">Compare
                                                                             Doctor</label>
                                                                     </div>
                                                                 </form>
@@ -396,7 +400,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="col-12 col-lg-6 col-xl-4">
                                                     <div class="card p-3 ">
                                                         <div class="d-flex justify-content-between mb-3">
                                                             <div>
@@ -451,9 +455,9 @@
                                                                 <form>
                                                                     <div class="form-check align-items-center">
                                                                         <input type="checkbox" class="form-check-input"
-                                                                            id="exampleCheck1">
+                                                                            id="compareDoctor4">
                                                                         <label class="form-check-label"
-                                                                            for="exampleCheck1">Compare
+                                                                            for="compareDoctor4">Compare
                                                                             Doctor</label>
                                                                     </div>
                                                                 </form>
@@ -463,7 +467,7 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="col-12 col-lg-6 col-xl-4">
                                                     <div class="card p-3 ">
                                                         <div class="d-flex justify-content-between mb-3">
                                                             <div>
@@ -518,9 +522,9 @@
                                                                 <form>
                                                                     <div class="form-check align-items-center">
                                                                         <input type="checkbox" class="form-check-input"
-                                                                            id="exampleCheck1">
+                                                                            id="compareDoctor5">
                                                                         <label class="form-check-label"
-                                                                            for="exampleCheck1">Compare
+                                                                            for="compareDoctor5">Compare
                                                                             Doctor</label>
                                                                     </div>
                                                                 </form>
@@ -566,7 +570,7 @@
                                     </ul>
 
                                     <div class="row mt-3">
-                                        <div class="col-4">
+                                        <div class="col-12 col-lg-6 col-xl-4">
                                             <div class="box_list home">
 
 
@@ -593,14 +597,14 @@
                                                     </div>
                                                 </div>
 
-                                                <ul>
+                                                <ul class="d-flex justify-content-between flex-wrap">
                                                     <li>
                                                         <form>
                                                             <div class="mb-3 form-check align-items-center">
                                                                 <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck1">
+                                                                    id="compareDoctor6">
                                                                 <label class="form-check-label"
-                                                                    for="exampleCheck1">Compare
+                                                                    for="compareDoctor6">Compare
                                                                     Doctor</label>
                                                             </div>
                                                         </form>
@@ -609,7 +613,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-12 col-lg-6 col-xl-4">
                                             <div class="box_list home">
                                                 <div class="wrapper">
                                                     <small>Psicologist</small>
@@ -634,14 +638,14 @@
                                                     </div>
                                                 </div>
 
-                                                <ul>
+                                                <ul class="d-flex justify-content-between flex-wrap">
                                                     <li>
                                                         <form>
                                                             <div class="mb-3 form-check align-items-center">
                                                                 <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck1">
+                                                                    id="compareDoctor7">
                                                                 <label class="form-check-label"
-                                                                    for="exampleCheck1">Compare
+                                                                    for="compareDoctor7">Compare
                                                                     Doctor</label>
                                                             </div>
                                                         </form>
@@ -650,7 +654,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-12 col-lg-6 col-xl-4">
                                             <div class="box_list home">
 
                                                 <div class="wrapper">
@@ -676,14 +680,14 @@
                                                     </div>
                                                 </div>
 
-                                                <ul>
+                                                <ul class="d-flex justify-content-between flex-wrap">
                                                     <li>
                                                         <form>
                                                             <div class="mb-3 form-check align-items-center">
                                                                 <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck1">
+                                                                    id="compareDoctor8">
                                                                 <label class="form-check-label"
-                                                                    for="exampleCheck1">Compare
+                                                                    for="compareDoctor8">Compare
                                                                     Doctor</label>
                                                             </div>
                                                         </form>
@@ -804,12 +808,12 @@
                                         </div>
                                     </div>
 
-                                    <ul>
+                                    <ul class="d-flex justify-content-between flex-wrap">
                                         <li>
                                             <form>
                                                 <div class="mb-3 form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">Compare
+                                                    <input type="checkbox" class="form-check-input" id="compareDoctor9">
+                                                    <label class="form-check-label" for="compareDoctor9">Compare
                                                         Doctor</label>
                                                 </div>
                                             </form>
@@ -850,12 +854,12 @@
                                         </div>
                                     </div>
 
-                                    <ul>
+                                    <ul class="d-flex justify-content-between flex-wrap">
                                         <li>
                                             <form>
                                                 <div class="mb-3 form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">Compare
+                                                    <input type="checkbox" class="form-check-input" id="compareDoctor10">
+                                                    <label class="form-check-label" for="compareDoctor10">Compare
                                                         Doctor</label>
                                                 </div>
                                             </form>
@@ -899,12 +903,12 @@
                                         </div>
                                     </div>
 
-                                    <ul>
+                                    <ul class="d-flex justify-content-between flex-wrap">
                                         <li>
                                             <form>
                                                 <div class="mb-3 form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">Compare
+                                                    <input type="checkbox" class="form-check-input" id="compareDoctor11">
+                                                    <label class="form-check-label" for="compareDoctor11">Compare
                                                         Doctor</label>
                                                 </div>
                                             </form>
@@ -972,8 +976,8 @@
                                         <div class="d-flex justify-content-between mt-4 flex-wrap">
                                             <form>
                                                 <div class="form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">Compare
+                                                    <input type="checkbox" class="form-check-input" id="12">
+                                                    <label class="form-check-label" for="compareDoctor12">Compare
                                                         Doctor</label>
                                                 </div>
                                             </form>
@@ -1033,8 +1037,8 @@
                                         <div class="d-flex justify-content-between mt-4 flex-wrap">
                                             <form>
                                                 <div class="form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">Compare
+                                                    <input type="checkbox" class="form-check-input" id="compareDoctor13">
+                                                    <label class="form-check-label" for="compareDoctor13">Compare
                                                         Doctor</label>
                                                 </div>
                                             </form>
@@ -1093,8 +1097,8 @@
                                         <div class="d-flex justify-content-between mt-4 flex-wrap">
                                             <form>
                                                 <div class="form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">Compare
+                                                    <input type="checkbox" class="form-check-input" id="compareDoctor14">
+                                                    <label class="form-check-label" for="compareDoctor14">Compare
                                                         Doctor</label>
                                                 </div>
                                             </form>
@@ -1269,13 +1273,35 @@
                 </aside>
             </div>
         </div>
-
     </div>
-
-
-
 </main>
 <!-- /main -->
+<script>
+    $(".slider-clinic").slick({
+        slidesToShow: 2,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: false,
+        arrows: false,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 567,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+        ],
 
+    });
+</script>
 
 @endsection("content")

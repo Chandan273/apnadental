@@ -20,11 +20,12 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
 	
   <!-- Bootstrap core CSS-->
-  <link href="{{ asset('public/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- <link href="{{ asset('public/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- Icon fonts-->
   <link href="{{ asset('public/assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- Plugin styles -->
-  <link href="{{ asset('public/assets/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+  <!-- <link href="{{ asset('public/assets/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet"> -->
   <!-- Main styles -->
   <link href="{{ asset('public/assets/css/admin.css') }}" rel="stylesheet">
   <!-- Your custom styles -->

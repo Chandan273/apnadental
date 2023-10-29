@@ -65,7 +65,7 @@
 .btn_pink:hover {
   background-color: #dd2666;
   border-color: var(--pink);
-  color:#ffffff;
+  color: #ffffff;
 }
 
 .navbar-cstm-bg {
@@ -83,7 +83,8 @@ ul#top_access li a:hover {
 }
 
 ul.mega-menu {
-  width: 70vw;
+  max-width: 70vw;
+  width: 100%;
 }
 
 ul.mega-menu .menu-item-card {
@@ -320,17 +321,18 @@ form #error-message {
   color: var(--pink);
   text-decoration: underline;
 }
-.nav-item.dropdown-mega ul li{
+
+.nav-item.dropdown-mega ul li {
   padding: 4px 6px;
 }
 
-.nav-item.dropdown-mega ul{
+.nav-item.dropdown-mega ul {
   padding-left: 30px;
   list-style-type: disclosure-closed;
 }
 
 .nav-item.dropdown-mega ul li a {
-  color: #161616;
+  color: #000;
 }
 
 .nav-item.dropdown-mega ul li a:active,
@@ -338,19 +340,50 @@ form #error-message {
   color: var(--pink);
   text-decoration: underline;
 }
-footer .input-group .btn{
+
+footer .input-group .btn {
   z-index: 0;
 }
 
 @media screen and (max-width: 768px) {
-  #scroll-triggered-cta{
-    position: relative!important;
-    transform: translate(0px, 0px)!important;
+  #scroll-triggered-cta {
+    position: relative !important;
+    transform: translate(0px, 0px) !important;
     left: auto;
     margin: 15px 0;
   }
-  #scroll-triggered-cta .rounded-pill{
-    border-radius: 10px!important;
+
+  #scroll-triggered-cta .rounded-pill {
+    border-radius: 10px !important;
+  }
+  .nav-item.dropdown-mega .nav-pills .nav-link,
+  .nav-item.dropdown-mega ul li a {
+    font-size: 12px;
+  }
+
+  .nav-item.dropdown-mega ul li h5.txt-primary {
+    font-size: 14px;
+  }
+
+  .nav-item.dropdown-mega ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .nav-item.dropdown-mega ul li {
+    padding: 4px 6px 4px 20px;
+    position: relative;
+  }
+
+  .nav-item.dropdown-mega ul li::before {
+    content: "";
+    left: 4px;
+    top: 10px;
+    position: absolute;
+    border-top: 5px solid transparent;
+    border-left: 10px solid #6c6c6c;
+    border-bottom: 5px solid transparent;
   }
 }
 
@@ -358,7 +391,6 @@ footer .input-group .btn{
   .add-member .member-img-wraper {
     width: 100%;
   }
-  
 }
 
 @media screen and (min-width: 576px) {}

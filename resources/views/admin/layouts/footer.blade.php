@@ -28,14 +28,15 @@
     </div>
   </div>
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ asset('public/assets/vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+   <!-- <script src="{{ asset('public/assets/vendor/jquery/jquery.min.js') }}"></script> -->
+  <!-- <script src="{{ asset('public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <!-- Core plugin JavaScript-->
   <script src="{{ asset('public/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
   <!-- Page level plugin JavaScript-->
   <script src="{{ asset('public/assets/vendor/chart.js/Chart.js') }}"></script>
-  <script src="{{ asset('public/assets/vendor/datatables/jquery.dataTables.js') }}"></script>
-  <script src="{{ asset('public/assets/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+  <!-- <script src="{{ asset('public/assets/vendor/datatables/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('public/assets/vendor/datatables/dataTables.bootstrap4.js') }}"></script> -->
   <script src="{{ asset('public/assets/vendor/jquery.selectbox-0.2.js') }}"></script>
   <script src="{{ asset('public/assets/vendor/retina-replace.min.js') }}"></script>
   <script src="{{ asset('public/assets/vendor/jquery.magnific-popup.min.js') }}"></script>

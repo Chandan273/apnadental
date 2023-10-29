@@ -25,8 +25,8 @@
 			<form method="POST" action="{{ route('category.update', $category->id) }}">
                 @csrf
                 @method('PATCH')
-                <div class="form-group">
-                    <label for="categoryname">Category Name</label>
+                <div class="form-group mb-3">
+                    <label  class="form-label"for="categoryname">Category Name</label>
                     <input type="name" name="name" class="form-control" id="categoryname" value="{{ $category->name }}">
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span>

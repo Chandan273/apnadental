@@ -24,16 +24,16 @@
 
 			<form method="POST" action="{{ route('services.store') }}">
 				@csrf
-				<div class="form-group">
-					<label for="servicename">Service Name</label>
+				<div class="form-group mb-3">
+					<label class="form-label" for="servicename">Service Name</label>
 					<input type="name" name="servicename" class="form-control" id="servicename" placeholder="Enter Service name" value="{{ old('servicename') }}">
 					@if ($errors->has('servicename'))
 						<span class="text-danger">{{ $errors->first('servicename') }}</span>
 					@endif
 				</div>
 
-				<div class="form-group">
-					<label for="description">Service Description</label>
+				<div class="form-group mb-3">
+					<label class="form-label" for="description">Service Description</label>
 					<textarea class="form-control" name="description" id="description" rows="10" value="{{ old('description') }}"></textarea>
 					@if ($errors->has('description'))
 						<span class="text-danger">{{ $errors->first('description') }}</span>
@@ -44,7 +44,6 @@
 				</div>
 			</form>
 		</div>
-
 	</div>
 </div>
 
