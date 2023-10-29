@@ -32,7 +32,7 @@
                 <div class="col">
                     <h4>Category List</h4>
                 </div>
-                <div class="col text-right">
+                <div class="col text-end">
                     <a href="{{ url('/admin/add-category') }}" class="btn btn-primary">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Blog Categories
                     </a>

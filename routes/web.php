@@ -40,6 +40,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
     Route::view('/add-listing', 'admin/add_listing');
     Route::view('/add-doctor', 'admin/add_doctor');
+    Route::view('/all-doctors', 'admin/all_doctors');
+    Route::view('/doctor-detail', 'admin/doctor_detail');
     Route::view('/bookings', 'admin/bookings');
     Route::view('/bookmarks', 'admin/bookmarks');
     Route::view('/charts', 'admin/charts');
@@ -110,5 +112,6 @@ Route::get('/search/doctors', [DoctorController::class, 'doctorList']);
 Route::view('/my_account', 'apnadental/my_account');
 Route::view('/cosmetics_dentistry', 'apnadental/cosmetics_dentistry');
 Route::view('/periodontics', 'apnadental/periodontics');
+Route::view('/doctor123', 'apnadental/doctor');
 
 //Route::get('/projects/apnadental/{slug}', [DoctorController::class, 'showDoctorDetailsBySlug']);

@@ -24,8 +24,8 @@
 
 			<form method="POST" action="{{ route('category.store') }}">
 				@csrf
-				<div class="form-group">
-					<label for="categoryname">Category Name</label>
+				<div class="form-group mb-3">
+					<label class="form-label" for="categoryname">Category Name</label>
 					<input type="name" name="name" class="form-control" id="categoryname" placeholder="Enter category name" value="{{ old('name') }}">
 					@if ($errors->has('name'))
 						<span class="text-danger">{{ $errors->first('name') }}</span>

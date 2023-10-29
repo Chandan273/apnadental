@@ -4,8 +4,8 @@
 <main>
     <div class="bg-white action-filter py-3">
         <div class="container">
-            <div class="row g-2">
-                <div class="col-12 col-sm-4 action-buttons">
+            <div class="row g-2 justify-content-between">
+                <div class="col-12 col-sm-auto action-buttons">
                     <div class="d-flex gap-2">
                         <button class="btn btn-outline-primary">About</button>
                         <button class="btn btn-outline-primary">Health feed</button>
@@ -13,7 +13,7 @@
                     </div>
 
                 </div>
-                <div class="col-12 col-sm-8">
+                <div class="col-12 col-sm-auto">
                     <form class="d-flex flex-nowrap gap-2">
                         <input type="text" class="form-control" id="search" placeholder="search">
                         <button type="submit" class="btn btn-primary">Search</button>

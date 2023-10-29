@@ -98,11 +98,11 @@
             data-bs-auto-close="outside">speciality</a>
           <div class="dropdown-menu shadow">
             <div class="mega-content">
-              <div class="container-fluid">
+              <div class="container-fluid ps-0">
                 <div class="row">
                   <div class="col">
                     <div class="d-flex align-items-start">
-                      <div class="nav flex-shrink-0 flex-column nav-pills me-3 text-start bg-light px-2"
+                      <div class="nav flex-md-shrink-0 flex-column nav-pills me-md-3 text-start bg-light px-md-2"
                         id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
 
@@ -225,11 +225,9 @@
                             <li class="col-md-6"><a href="">Maxillary osteotomy</a></li>
                             <li class="col-md-6"><a href="">Mandibular osteotomy</a></li>
                             <li class="col-md-6"><a href="">Genioplasty</a></li>
-
-                            <li class="col-12 mt-3">
+                            <li class="col-12 mt-md-3">
                               <h5 class="txt-primary">TMJ operation</h5>
                             </li>
-
                             <li class="col-md-6"><a href="">Arthrocentesis</a></li>
                             <li class="col-md-6"><a href="">Arthroscopy</a></li>
                             <li class="col-md-6"><a href="">Open joint procedures</a></li>
@@ -254,8 +252,7 @@
                             <li class="col-md-6"><a href="">Laser Gum Depigmentation</a></li>
                             <li class="col-md-6"><a href="">Laser Assisted Root Canal Treatment</a></li>
                             <li class="col-md-6"><a href="">Laser In TMJ Pain</a></li>
-
-                            <li class="col-12 mt-3">
+                            <li class="col-12 mt-md-3">
                               <h5 class="txt-primary">Laser Oral Surgery</h5>
                             </li>
                             <li class="col-md-6"><a href="">Frenectomy (removal of a frenulum)</a></li>
@@ -268,7 +265,6 @@
                           </ul>
                         </div>
 
-
                       </div>
                     </div>
                   </div>
@@ -277,7 +273,6 @@
             </div>
           </div>
         </li>
-
 
 
         <li class="nav-item dropdown">
