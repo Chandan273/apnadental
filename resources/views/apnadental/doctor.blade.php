@@ -148,15 +148,15 @@
                                     <p>Secure the future of your family with Rs. 1Cr. Life Cover starting $425/month</p>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <form class="text-center" id="otpDoctorForm">
+                                    <form class="text-center" id="otpDoctorForm{{ $doctor->id }}">
                                         @csrf
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
                                         </div>
                                         <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Enter OTP" name="otp" id="password">
+                                            <input type="password" class="form-control" placeholder="Enter OTP" name="otp">
                                         </div>
-                                        <input class="btn_1 rounded-2 btn-primary w-100" id="login-button-2" type="submit" value="Book a Slot Now">
+                                        <input class="btn_1 rounded-2 btn-primary w-100" type="submit" value="Book a Slot Now">
                                         <div class="text-danger error-message"></div>    
                                         <small class="mt-2 d-block">Life Insurance partner will get in touch with you soon.</small>
                                     </form>
@@ -265,15 +265,11 @@
                             </div> --}}
                         <!--/div-->
 
-
                         <div class="card p-3 mb-3" id="slot_{{ $doctor->id }}" data-secondary-category="{{ $doctor->secondary_category }}" style="display:none">
                             <!-- ... Tabs and their content ... -->
                             <div class="tab-content py-3" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                                    <form id="booking-form">
-                                        <input type="hidden" name="booking_date" id="booking-date">
-                                        <input type="hidden" name="start_time" id="start-time">
-                                        <input type="hidden" name="end_time" id="end-time">
+                                    <form>
                                         <div class="d-flex gap-2">
                                             <!-- Date Input -->
                                             <div>
@@ -370,14 +366,48 @@
                                                 </label>
                                             </div>
                                         </div>
+
                                         <div class="col-12 mb-2">
-                                            <button type="button confirmBooking" class="btn btn-primary w-100">Sign in</button>
+                                            <a href="javascript:void(0)" class="btn btn-primary w-100 confirmBooking">Sign in</a>
                                         </div>
                                         
                                     </form>
                                 </div>
                             </div>
                         </div>
+
+<script>
+            $(document).ready(function(){
+                $('#otpDoctorForm{{ $doctor->id }}').submit(function(e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success && response.userData) {
+							localStorage.setItem("user_name", response.userData.name);
+							localStorage.setItem("user_email", response.userData.email);
+							localStorage.setItem("user_phone_no", response.userData.phone_no);
+
+							$(".login_card").hide();
+							$("#slot_"+localStorage.getItem("doctorID")).fadeIn();
+						} else {
+							$('.error-message').text(response.message);
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+            });        
+    			
+</script>
 
                     @endforeach
 
@@ -550,6 +580,7 @@
 
 <script>
     $(document).ready(function(){
+        
         $(".bookNow").click(function(){
 
             $(".login_card").hide();
@@ -565,7 +596,6 @@
         });
 
         $(".book-appointment-cls").click(function () {
-            // Get the values of the fields
             var datepickerValue = $("#datepicker" + localStorage.getItem("doctorID")).val();
             var startTimeValue = $("#start_time" + localStorage.getItem("doctorID")).val();
             var endTimeValue = $("#end_time" + localStorage.getItem("doctorID")).val();
@@ -581,7 +611,12 @@
                 return;
             }
 
-            // Parse time values to compare
+            // Extract doctor's working hours
+            var doctorWorkingHours = "{{ $doctor->work_timings }}";
+            var doctorWorkingHoursParts = doctorWorkingHours.split(" - ");
+            var doctorWorkStartTime = new Date("2000-01-01T" + doctorWorkingHoursParts[0] + ":00");
+            var doctorWorkEndTime = new Date("2000-01-01T" + doctorWorkingHoursParts[1] + ":00");
+
             var startTime = new Date("2000-01-01T" + startTimeValue + ":00");
             var endTime = new Date("2000-01-01T" + endTimeValue + ":00");
 
@@ -590,36 +625,52 @@
                 return;
             }
 
+            if (startTime < doctorWorkStartTime || endTime > doctorWorkEndTime) {
+                alert("Selected time must be within doctor's working hours (" + doctorWorkingHours + ").");
+                return;
+            }
+
+            var timeDiff = (endTime - startTime) / (1000 * 60); // Calculate time difference in minutes
+            if (timeDiff < 60) {
+                alert("Minimum time slot duration is 1 hour.");
+                return;
+            }
+
+            // If all validations pass, proceed with the action
             $("#patient_" + localStorage.getItem("doctorID")).fadeIn();
-            // $("#fname_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_name"));
-            // $("#email_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_email"));
-            // $("#phone_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_phone_no"));
             $("#name_" + localStorage.getItem("doctorID")).text(localStorage.getItem("company_name"));
         });
 
-        // retrun false;
-        // $.ajax({
-        //     type: 'POST',
-        //     url: "{{ route('booking.post') }}",
-        //     data: {
-        //         doctor_id: 2, 
-        //         selected_date: '2023-11-03',
-        //         start_time: '09:00',
-        //         end_time: '10:00',
-        //         treatment: 'Service Name',
-        //         notes: 'Some notes',
-        //         _token: '{{ csrf_token() }}',
-        //     },
-        //     success: function (data) {
-        //         // Handle the success response
-        //         console.log(data);
-        //     },
-        //     error: function (error) {
-        //         // Handle the error response
-        //         console.error(error);
-        //     },
-        // });
+            // $("#fname_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_name"));
+            // $("#email_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_email"));
+            // $("#phone_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_phone_no"));
+           
 
+        // retrun false;
+        $(".confirmBooking").click(function(){
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('booking.post') }}",
+                data: {
+                    doctor_id: 2, 
+                    selected_date: '2023-11-03',
+                    start_time: '09:00',
+                    end_time: '10:00',
+                    opt_service : 'Service Name',
+                    notes: 'Some notes',
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (data) {
+                    // Handle the success response
+                    alert("booking added");
+                    console.log(data);
+                },
+                error: function (error) {
+                    // Handle the error response
+                    console.error(error);
+                },
+            });
+        });
     });
 
 </script>
