@@ -130,15 +130,12 @@ class CSVController extends Controller
                                 'main_category' => $data[9],
                                 'secondary_category' => $data[2],
                                 'image' => $data[0],
-                                'age' => 25,
-                                'sex' => $data[24],
                                 'phone' => $data[11],
                                 'email_1' => $data[12],
                                 'email_2' => $data[13],
                                 'email_3' => $data[14],
                                 'rating' => $rating,
                                 'rating_count' => $ratingCount,
-                                'experience' => $data[26],
                                 'education' => $data[5],
                                 'keyword' => $data[6],
                                 'website' => $data[10],
@@ -152,9 +149,12 @@ class CSVController extends Controller
                                 'administrative_area_level_1' => $data[19],
                                 'country' => 'india',
                                 'map_url' => $data[23],
-                                'work_timings' => $data[23],
+                                'sex' => $data[24],
+                                'age' => 25,
                                 'fee' => $data[25],
-                                'tags' => $data[27]
+                                'experience' => $data[26],
+                                'tags' => $data[27],
+                                'work_timings' => $data[28]
                             ]);
                         } catch (\Exception $e) {
                             unlink(storage_path('app/' . $filePath));

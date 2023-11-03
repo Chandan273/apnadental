@@ -11,7 +11,6 @@ class BookingController extends Controller
     {
         // Validate the incoming data
         $request->validate([
-            'user_id' => 'required|exists:users,id',
             'doctor_id' => 'required|exists:doctors,id',
             'selected_date' => 'required|date',
             'start_time' => 'required|date_format:H:i',
