@@ -47,7 +47,7 @@
 	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
-	<script src="{{ asset('public/assets/apnadental/js/jquery-3.6.3.min.js') }}"></script>
+	{{-- <script src="{{ asset('public/assets/apnadental/js/jquery-3.6.3.min.js') }}"></script> --}}
 	<script src="{{ asset('public/assets/apnadental/js/common_scripts.min.js') }}"></script>
 	<script src="{{ asset('public/assets/apnadental/js/functions.js') }}"></script>
 
@@ -146,6 +146,87 @@
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
+
+		$(document).ready(function () {
+			$('#otp-login-form').submit(function (e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success) {
+							// User successfully logged in
+							
+							window.location.href = "<?php echo env('APP_URL'); ?>/";
+						} else {
+							$('.error-message').text(response.message);
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+
+			$('#otp-login-form-mobile').submit(function (e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success) {
+							// User successfully logged in
+							window.location.href = "<?php echo env('APP_URL'); ?>/";
+						} else {
+							$('.error-message').text(response.message);
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+
+			$('#otpDoctorForm').submit(function(e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success && response.userData) {
+							localStorage.setItem("user_name", response.userData.name);
+							localStorage.setItem("user_email", response.userData.email);
+							localStorage.setItem("user_phone_no", response.userData.phone_no);
+
+							$(".login_card").hide();
+							$("#slot_"+localStorage.getItem("doctorID")).fadeIn();
+						} else {
+							$('.error-message').text(response.message);
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+
+		});
+
 	</script>
 
 </body>

@@ -268,8 +268,9 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   border-color: var(--pink);
 }
 
-form #error-message {
-  font-size: 11px;
+form .error-message{
+  font-size: 12px;
+  text-align: center;
 }
 
 .dropdown-toggle::after {

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('administrative_area_level_1')->after('zip_code');
             $table->string('country')->after('administrative_area_level_1');
             $table->string('map_url')->after('country');
+            $table->string('tags')->after('fee');
         });
     }
 

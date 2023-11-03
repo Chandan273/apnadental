@@ -36,7 +36,7 @@
     <div class="container-fluid container-lg">
         <div class="row g-3 pt-3">
             <div class="col-12 col-lg-9">
-                <!-- contant  section -->
+                <!-- contant section -->
 
                 <section class="content-section bg-white py-5">
                     <div class="container">
@@ -774,7 +774,7 @@
 
                 <section class="bg-white py-5">
                     <div class="container">
-                        <h1 class="text-uppercase text-center mb-4">Docotors</h1>
+                        <h1 class="text-uppercase text-center mb-4">Doctors</h1>
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
                                 <div class="box_list home">
@@ -868,7 +868,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="col-lg-4 col-md-6">
                                 <div class="box_list home">
                                     <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -917,7 +916,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
