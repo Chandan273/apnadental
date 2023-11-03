@@ -111,32 +111,35 @@
                             <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1">
                                 <img src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt="">
                             </a>
-                            <ul class="d-flex align-items-center">
-                                <li>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-2">
+                                <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+                              
                                     <a href="tel:+91{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a>
-                                </li>
-                                <li>
+                                    <div class="vr"></div>
                                     <a href="{{ $doctor->map_url }}" target="_blank">Directions</a>
-                                </li>
-                                <li class="ms-auto me-3">
+                               
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+                                  
                                     <form>
-                                        <div class="form-check align-items-center">
-                                            <input type="checkbox" class="form-check-input" id="12">
-                                            <label class="form-check-label" for="compareDoctor12">Compare Doctor</label>
+                                        <div class="form-check d-flex align-items-center gap-2 mb-0">
+                                            <input type="checkbox" class="form-check-input mb-1" id="12">
+                                            <label class="form-check-label m-0 lh-0" for="compareDoctor12">Compare Doctor</label>
                                         </div>
                                     </form>
-                                </li>
-                                
-                                @if(!Auth::check())
-                                    <li>
-                                        <a class="bookNow" data-company-name="{{ $doctor->company_name }}" data-bookId="{{ $doctor->id }}" href="javascript:void(0)">Book now</a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a class="bookNow" data-bookId="{{ $doctor->id }}" href="javascript:void(0)">Book now</a>
-                                    </li>
-                                @endif
-                            </ul>
+                                    <div>                                    
+                                        @if(!Auth::check())
+                                            <div>
+                                                <a class="bookNow btn_outline_pink" data-company-name="{{ $doctor->company_name }}" data-bookId="{{ $doctor->id }}" href="javascript:void(0)">Book now</a>
+                                            </div>
+                                        @else
+                                            <div>
+                                                <a class="bookNow btn_outline_pink" data-bookId="{{ $doctor->id }}" href="javascript:void(0)">Book now</a>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         @if (!Auth::check())
@@ -148,14 +151,20 @@
                                     <p>Secure the future of your family with Rs. 1Cr. Life Cover starting $425/month</p>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <form class="text-center" id="otpDoctorForm">
+                                    <form class="text-center bg-light px-3 py-4 hadow-sm rounded-3" id="otpDoctorForm">
                                         @csrf
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Enter OTP" name="otp" id="password">
-                                        </div>
+                                        </div>                                                                                       
+                                        <div id="otp" class="inputs d-flex flex-row justify-content-start mb-3"> 
+                                            <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="first" maxlength="1" /> 
+                                            <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="second" maxlength="1" /> 
+                                            <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="third" maxlength="1" /> 
+                                            <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="fourth" maxlength="1" /> 
+                                            <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="fifth" maxlength="1" /> 
+                                            <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="sixth" maxlength="1" /> 
+                                        </div> 
+                                          
                                         <input class="btn_1 rounded-2 btn-primary w-100" id="login-button-2" type="submit" value="Book a Slot Now">
                                         <div class="text-danger error-message"></div>    
                                         <small class="mt-2 d-block">Life Insurance partner will get in touch with you soon.</small>
@@ -271,29 +280,33 @@
                             <div class="tab-content py-3" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                     <form id="booking-form">
-                                        <input type="hidden" name="booking_date" id="booking-date">
-                                        <input type="hidden" name="start_time" id="start-time">
-                                        <input type="hidden" name="end_time" id="end-time">
-                                        <div class="d-flex gap-2">
-                                            <!-- Date Input -->
+                                        <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
                                             <div>
-                                                <label for="datepicker">Select Date:</label>
-                                                <input type="date" id="datepicker{{ $doctor->id }}" class="form-control" required>
+                                                <input type="hidden" name="booking_date" id="booking-date">
+                                                <input type="hidden" name="start_time" id="start-time">
+                                                <input type="hidden" name="end_time" id="end-time">
+                                                <div class="d-flex gap-2">
+                                                    <!-- Date Input -->
+                                                    <div>
+                                                        <label for="datepicker">Select Date:</label>
+                                                        <input type="date" id="datepicker{{ $doctor->id }}" class="form-control" required>
+                                                    </div>
+                                                    <div>
+                                                        <label for="start-time-select">Select Start Time:</label>
+                                                        <input type="time" id="start_time{{ $doctor->id }}" class="form-control" required>
+                                                    </div>
+                                                    <!-- End Time Input -->
+                                                    <div>
+                                                        <label for="end-time-select">Select End Time:</label>
+                                                        <input type="time" id="end_time{{ $doctor->id }}" class="form-control" required>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <label for="start-time-select">Select Start Time:</label>
-                                                <input type="time" id="start_time{{ $doctor->id }}" class="form-control" required>
-                                            </div>
-                                            <!-- End Time Input -->
-                                            <div>
-                                                <label for="end-time-select">Select End Time:</label>
-                                                <input type="time" id="end_time{{ $doctor->id }}" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <!-- Checkbox buttons for slots can remain as they are -->
-                                        <!-- ... Checkbox buttons ... -->
-                        
-                                        <button type="button" id="bookAppointment{{ $doctor->id }}" class="btn btn-primary book-appointment-cls">Book Appointment</button>
+                                            <!-- Checkbox buttons for slots can remain as they are -->
+                                            <!-- ... Checkbox buttons ... -->
+                            
+                                            <button type="button" id="bookAppointment{{ $doctor->id }}" class="btn btn-primary book-appointment-cls">Book Appointment</button>
+                                        </div> 
                                     </form>
                                 </div>
                             </div>
@@ -622,5 +635,13 @@
 
     });
 
+    document.addEventListener("DOMContentLoaded", function(event) {
+  
+  function OTPInput() {
+const inputs = document.querySelectorAll('#otp > *[id]');
+for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ; if (i !==0) inputs[i - 1].focus(); } else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput();
+
+    
+});
 </script>
 @endsection

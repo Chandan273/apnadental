@@ -34,13 +34,15 @@
                 <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
               </div>
               <div class="col-12">
-                <div class="hideShowPassword-wrapper" style="position: relative; display: block; margin: 0px;">
-                  <input type="text" class="form-control" placeholder="Enter OTP" name="otp" id="password"
-                    style="margin: 0px; padding-right: 0px;">
-                  <button type="button" role="button" aria-label="Show Password" title="Show Password" tabindex="0"
-                    class="my-toggle hideShowPassword-toggle-show" aria-pressed="false"
-                    style="position: absolute; right: 0px; top: 50%; margin-top: -15px; display: none;">Show</button>
-                </div>
+                  <!-- <input type="password" class="form-control" placeholder="Enter OTP" name="otp"> -->
+                  <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
+                  </div> 
               </div>
               {{-- <div class="col-12">
                 <a href="#0" class="forgot"><small>Forgot password?</small></a>
@@ -319,14 +321,16 @@
                 <div class="col-12">
                   <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
                 </div>
-                <div class="col-12">
-                  <div class="hideShowPassword-wrapper" style="position: relative; display: block;  margin: 0px;">
-                    <input type="text" class="form-control" placeholder="Enter OTP" name="otp" id="password"
-                      style="margin: 0px; padding-right: 0px;">
-                    <button type="button" role="button" aria-label="Show Password" title="Show Password" tabindex="0"
-                      class="my-toggle hideShowPassword-toggle-show" aria-pressed="false"
-                      style="position: absolute; right: 0px; top: 50%; margin-top: -15px; display: none;">Show</button>
-                  </div>
+                <div class="col-12">                   
+                      <!-- <input type="password" class="form-control" placeholder="Enter OTP" name="otp" /> -->
+                  <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
+                    <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
+                  </div> 
                 </div>
                 {{-- <div class="col-12">
                   <a href="#0" class="forgot"><small>Forgot password?</small></a>
