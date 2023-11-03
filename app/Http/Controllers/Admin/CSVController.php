@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Service;
 use App\Models\Doctor;
+use App\Models\Service;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class CSVController extends Controller
 {
@@ -130,14 +131,14 @@ class CSVController extends Controller
                                 'secondary_category' => $data[2],
                                 'image' => $data[0],
                                 'age' => 25,
-                                'sex' => 'null',
+                                'sex' => $data[24],
                                 'phone' => $data[11],
                                 'email_1' => $data[12],
                                 'email_2' => $data[13],
                                 'email_3' => $data[14],
                                 'rating' => $rating,
                                 'rating_count' => $ratingCount,
-                                'experience' => $data[5],
+                                'experience' => $data[26],
                                 'education' => $data[5],
                                 'keyword' => $data[6],
                                 'website' => $data[10],
@@ -151,8 +152,9 @@ class CSVController extends Controller
                                 'administrative_area_level_1' => $data[19],
                                 'country' => 'india',
                                 'map_url' => $data[23],
-                                'work_timings' => "null",
-                                'fee' => 0.00
+                                'work_timings' => $data[23],
+                                'fee' => $data[25],
+                                'tags' => $data[27]
                             ]);
                         } catch (\Exception $e) {
                             unlink(storage_path('app/' . $filePath));

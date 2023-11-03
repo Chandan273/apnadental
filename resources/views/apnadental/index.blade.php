@@ -1,11 +1,6 @@
 @extends('apnadental.master')
 @section("content")
 <style>
-    span#errMsg {
-        text-align: center;
-        color: #dc3545;
-    }
-    
     .bg-cst-blue {
         background-color: var(--secondary);
     }
@@ -184,7 +179,7 @@
                             <div class="col-12 col-lg-2">
                                 <button type="button" class="btn btn-cstm w-100" id="search-button">search</button>
                             </div>
-                            <span id="errMsg"></span>
+                            <span class="text-danger text-center" id="errMsg"></span>
                         </div>
                     </div>
                 </div>
@@ -773,42 +768,161 @@
 
             <div class="row">
                 @foreach($doctors as $doctor)
+
                 <div class="col-lg-4 col-md-6">
                     <div class="box_list home">
-                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist"
-                            class="wish_bt"></a>
+                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Add to wishlist" class="wish_bt"></a>
                         <figure>
-                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg"
-                                    class="img-fluid" alt=""></a>
+                            <a href="detail-page.html">
+                                @if(!empty($doctor->image))
+                                    <img src="{{ $doctor->image }}" class="img-fluid" alt="{{ $doctor->company_name }}">
+                                @else
+                                    <img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt="">
+                                @endif
+                            </a>
                             <div class="preview"><span>Read more</span></div>
                         </figure>
 
                         <div class="wrapper">
-                            <small>Psicologist</small>
+                            <small>{{ $doctor->secondary_category }}</small>
                             <h3>{{ $doctor->company_name }}</h3>
                             <p>{{ $doctor->description }}</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+                            <div class="d-flex justify-content-between">
+                                <span class="rating"><i class="icon_star voted"></i>
+                                    @php
+                                        $rating = $doctor->rating;
+                                        $filledStars = floor($rating);
+                                        $halfStar = ($rating - $filledStars) >= 0.5;
+                                    @endphp
 
-                            <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level"
-                                class="badge_list_1"><img
-                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15"
-                                    height="15" alt=""></a>
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if ($i <= $filledStars)
+                                            <i class="icon_star voted"></i>
+                                        @elseif ($halfStar && $i == $filledStars + 1)
+                                            <i class="icon_star voted half"></i>
+                                        @else
+                                            <i class="icon_star"></i>
+                                        @endif
+                                    @endfor
+
+                                    <small>({{ $doctor->rating_count }})</small>
+                                    <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Badge Level" class="badge_list_1">
+                                        <img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15" height="15" alt="">
+                                    </a>
+                                </span>
+                                <a href="tel:+{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a>
+                            </div>
                         </div>
 
-                        <ul>
-                            <li><i class="icon-eye-7"></i> 854 Views</li>
-                            <li><a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}">Book now</a></li>
+                        <ul class="d-flex justify-content-between flex-wrap">
+                            <li>
+                                <form>
+                                    <div class="mb-3 form-check align-items-center">
+                                        <input type="checkbox" class="form-check-input" id="compareDoctor9">
+                                        <label class="form-check-label" for="compareDoctor9">Compare Doctor</label>
+                                    </div>
+                                </form>
+                            </li>
+                            <li><a href="detail-page.html">Book Now</a></li>
                         </ul>
+                    </div>
+                </div>
+
+                @endforeach
+            </div>
+
+            <!-- /row -->
+            <p class="text-center add_top_30"><a href="#" class="btn_1 medium">View all Doctors</a></p>
+        </div>
+        <!-- /container -->
+    </div>
+
+    <div class="bg_color_1">
+        <div class="container py-5">
+            <div class="main_title">
+                <h2>Most Viewed Clinics</h2>
+                <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
+            </div>
+
+            <div class="row">
+                @foreach($clinics as $clinic)
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="box_list home card p-3 ">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div>
+                                <h3 class="h5 txt-primary">{{ $clinic->company_name }}</h3>
+                                <h4 class="h6 txt-primary">Sector-1</h4>
+                            </div>
+                            <div>
+                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}" class="me-2"><a href="{{ $clinic->map_url }}" target="_blank">Directions</a></a>
+                            </div>
+                        </div>
+                        <div class="card_body">
+                            <div class="row mb-2 g-1">
+                                <div class="col-12">
+                                    <p>{{ $clinic->description }}</p>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="icon-location-1 h5 txt-primary"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="h6">{{ $clinic->locality }}, {{ $clinic->city }}, {{ $clinic->state }}, {{ $clinic->zip_code }}</h3>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 g-1">
+                                <div class="col-auto">
+                                    <i class="icon-phone h5 txt-primary"></i>
+                                </div>
+                                <div class="col">
+                                    <a href="tel:+{{ $clinic->phone }}">
+                                        <h3 class="h6">{{ $clinic->phone }}</h3>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <span class="rating">
+                                        @php
+                                        $rating = $clinic->rating;
+                                        $filledStars = floor($rating);
+                                        $halfStar = ($rating - $filledStars) >= 0.5;
+                                    @endphp
+
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if ($i <= $filledStars)
+                                            <i class="icon_star voted"></i>
+                                        @elseif ($halfStar && $i == $filledStars + 1)
+                                            <i class="icon_star voted half"></i>
+                                        @else
+                                            <i class="icon_star"></i>
+                                        @endif
+                                    @endfor    
+                                    <small>({{ $clinic->rating_count }})</small></span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4 flex-wrap">
+                                <form>
+                                    <div class="form-check align-items-center">
+                                        <input type="checkbox" class="form-check-input" id="12">
+                                        <label class="form-check-label" for="compareDoctor12">Compare Doctor</label>
+                                    </div>
+                                </form>
+                                <a class="btn_1" href="#">Book Now</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 @endforeach
             </div>
 
             <!-- /row -->
-            <p class="text-center add_top_30"><a href="list.html" class="btn_1 medium">View all Doctors</a></p>
+            <p class="text-center add_top_30"><a href="#" class="btn_1 medium">View all Clinics</a></p>
         </div>
         <!-- /container -->
     </div>
+
     <!-- /white_bg -->
 
     <!-- Blog section start  -->

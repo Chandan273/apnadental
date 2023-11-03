@@ -30,20 +30,20 @@ class AuthController extends Controller
 
     public function verifyOTP(Request $request)
     {
-        $request->validate([
-            'phone_no' => 'required',
-            'otp' => 'required',
-        ]);
-
         $phoneNo = $request->input('phone_no');
         $otp = $request->input('otp');
 
         $user = User::where('phone_no', $phoneNo)->first();
 
+        if(empty($phoneNo)){
+            return response()->json(['success' => false, 'message' => 'Please enter registered phone number.']);
+        }
+
         if ($user) {
             if ($otp == $user->otp) {
                 Auth::login($user);
-                return response()->json(['success' => true]);
+                
+                return response()->json(['success' => true, 'userData' => $user]);
             } else {
                 return response()->json(['success' => false, 'message' => 'Invalid OTP. Please try again.']);
             }

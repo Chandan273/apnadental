@@ -84,231 +84,302 @@
                         <div class="strip_list wow fadeIn">
                             <a href="#0" class="wish_bt"></a>
                             <figure>
-                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"><img src="http://via.placeholder.com/565x565.jpg" alt=""></a>
+                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"><img src="{{ $doctor->image }}" alt="{{ $doctor->company_name }}"></a>
                             </figure>
                             <small>{{ $resultsType }}</small>
                             <h3>{{ $doctor->company_name }}</h3>
                             <p>{{ $doctor->description }}</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>({{ $doctor->rating_count }})</small></span>
-                            <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+                            <span class="rating">
+                                    @php
+                                        $rating = $doctor->rating;
+                                        $filledStars = floor($rating);
+                                        $halfStar = ($rating - $filledStars) >= 0.5;
+                                    @endphp
+
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if ($i <= $filledStars)
+                                            <i class="icon_star voted"></i>
+                                        @elseif ($halfStar && $i == $filledStars + 1)
+                                            <i class="icon_star voted half"></i>
+                                        @else
+                                            <i class="icon_star"></i>
+                                        @endif
+                                    @endfor
+
+                                    <small>({{ $doctor->rating_count }})</small>
+                            </span>
+                            <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1">
+                                <img src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt="">
+                            </a>
                             <ul class="d-flex align-items-center">
-                                <li><a href="tel:+91{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a></li>
-                                <li><a href="{{ $doctor->map_url }}" target="_blank">Directions</a></li>
-                                <li class="ms-auto me-3"><a class="btn rounded-pill" href="#">No Booking Fee</a></li>
-                                <li><a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}">Book now</a></li>
+                                <li>
+                                    <a href="tel:+91{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a>
+                                </li>
+                                <li>
+                                    <a href="{{ $doctor->map_url }}" target="_blank">Directions</a>
+                                </li>
+                                <li class="ms-auto me-3">
+                                    <form>
+                                        <div class="form-check align-items-center">
+                                            <input type="checkbox" class="form-check-input" id="12">
+                                            <label class="form-check-label" for="compareDoctor12">Compare Doctor</label>
+                                        </div>
+                                    </form>
+                                </li>
+                                
+                                @if(!Auth::check())
+                                    <li>
+                                        <a class="bookNow" data-company-name="{{ $doctor->company_name }}" data-bookId="{{ $doctor->id }}" href="javascript:void(0)">Book now</a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a class="bookNow" data-bookId="{{ $doctor->id }}" href="javascript:void(0)">Book now</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
-                    @endforeach
-
-                    <!-- Book now Button click after auth  -->
-                    <div class="card px-3 py-4 mb-4">
-                        <div class="row align-items-center g-4">
-                            <div class="col-12 col-md-6">
-                                <img class="mb-3" src="{{ asset('public/assets/img/apna_dental_logo.svg') }}"
-                                    alt="brand logo" width="100px">
-                                <h6 class="h5">Stay protected with Term Life Insurance</h6>
-                                <p>Secure the future of your family with Rs. 1Cr. Life Cover starting $425/month</p>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <form class="text-center">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="number" aria-describedby="emailHelp"
-                                            placeholder="Mobile Number">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="OTP">
-                                    </div>
-                                    <button type="submit" class="btn_1 rounded-2 btn-primary w-100">Book a Slot
-                                        Now</button>
-                                    <small class="mt-2 d-block">Life Insurance partner will get in touch with you
-                                        soon.</small>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end  -->
-
-                    <div class="shadow patient-detail-modal mb-3 p-3">
-                        <div class="row g-3">
-                            <div class="col-12 col-md-6">
-                                <div class="card">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item py-3">
-                                           <h4>
-                                            <i class="icon-home-1 text-primary"></i>
-                                            In-clinic Appointment</h4>
-                                           
-                                        </li>
-                                        <li class="list-group-item py-3">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="mb-1">On 18 Sep,2023</p>
-                                                    <a href="#">Change date & Time</a>
-                                                </div>
-                                                <p class="mb-1">On 18 Sep,2023</p>
-                                            </div>
-
-
-                                        </li>
-                                        <li class="list-group-item py-3">
-                                            <div class="d-flex">
-                                                
-                                            </div>
-                                        </li>
-                                    </ul>
+                        
+                        @if (!Auth::check())
+                        <div class="login_card card px-3 py-4 mb-4" style="display:none" id="slotCard{{ $doctor->id }}">
+                            <div class="row align-items-center g-4">
+                                <div class="col-12 col-md-6">
+                                    <img class="mb-3" src="{{ asset('public/assets/img/apna_dental_logo.svg') }}" alt="brand logo" width="100px">
+                                    <h6 class="h5">Stay protected with Term Life Insurance</h6>
+                                    <p>Secure the future of your family with Rs. 1Cr. Life Cover starting $425/month</p>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <form class="text-center" id="otpDoctorForm">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" placeholder="Enter OTP" name="otp" id="password">
+                                        </div>
+                                        <input class="btn_1 rounded-2 btn-primary w-100" id="login-button-2" type="submit" value="Book a Slot Now">
+                                        <div class="text-danger error-message"></div>    
+                                        <small class="mt-2 d-block">Life Insurance partner will get in touch with you soon.</small>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <h3 class="mb-4">Patient Details</h3>
-                                <form class="row">
-                                   
-                                    <div class="col-12 mb-3">
-                                        <h6 class="text-black mb-0">This in-clinic appointment is for:</h6>
+                        </div>
+                        @endif
+
+                        <!--div class="card p-3 mb-3"-->
+                            {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#home-tab-pane" type="button" role="tab"
+                                        aria-controls="home-tab-pane" aria-selected="true">
+                                        <h5>25 Sep 2023</h5>
+                                        <p class="mb-2 text-danger">No Slot Available</p>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                        aria-controls="profile-tab-pane" aria-selected="false">
+                                        <h5>30 Sep 2023</h5>
+                                        <p class="mb-2 text-success">4 Slot Available</p>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                        data-bs-target="#contact-tab-pane" type="button" role="tab"
+                                        aria-controls="contact-tab-pane" aria-selected="false">
+                                        <h5>16 October 2023</h5>
+                                        <p class="mb-2 text-success">6 Slot Available</p>
+                                    </button>
+                                </li>
+                            </ul> --}}
+
+                            {{-- <div class="tab-content py-3" id="myTabContent" data-secondary-category="{{ $doctor->secondary_category }}">
+                                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+                                    aria-labelledby="home-tab" tabindex="0">
+                                    <form action="">
+                                        <div class="d-flex gap-2">
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="one-pm"
+                                                    autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="one-pm">01:00 PM</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="two-pm"
+                                                    autocomplete="off" disabled>
+                                                <label class="btn btn-outline-secondary" for="two-pm">02::00 PM</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="three-pm"
+                                                    autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="three-pm">03:00 PM</label><br>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="slot_{{ $doctor->id }}" data-secondary-category="{{ $doctor->secondary_category }}" role="tabpanel"
+                                    aria-labelledby="profile-tab" tabindex="0">
+                                    <form action="">
+                                        <div class="d-flex gap-2">
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="four-pm"
+                                                    autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="four-pm">04:00 PM</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="five-pm"
+                                                    autocomplete="off" disabled>
+                                                <label class="btn btn-outline-secondary" for="five-pm">05::00 PM</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="six-pm"
+                                                    autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="six-pm">06:00 PM</label><br>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
+                                    aria-labelledby="contact-tab" tabindex="0">
+                                    <form action="">
+                                        <div class="d-flex gap-2">
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="one-pm1"
+                                                    autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="one-pm1">01:00 PM</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="two-pm2"
+                                                    autocomplete="off" disabled>
+                                                <label class="btn btn-outline-secondary" for="two-pm2">02::00 PM</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="btn-check" name="time" id="three-pm3"
+                                                    autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="three-pm3">03:00 PM</label><br>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div> --}}
+                        <!--/div-->
+
+
+                        <div class="card p-3 mb-3" id="slot_{{ $doctor->id }}" data-secondary-category="{{ $doctor->secondary_category }}" style="display:none">
+                            <!-- ... Tabs and their content ... -->
+                            <div class="tab-content py-3" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                    <form id="booking-form">
+                                        <input type="hidden" name="booking_date" id="booking-date">
+                                        <input type="hidden" name="start_time" id="start-time">
+                                        <input type="hidden" name="end_time" id="end-time">
+                                        <div class="d-flex gap-2">
+                                            <!-- Date Input -->
+                                            <div>
+                                                <label for="datepicker">Select Date:</label>
+                                                <input type="date" id="datepicker{{ $doctor->id }}" class="form-control" required>
+                                            </div>
+                                            <div>
+                                                <label for="start-time-select">Select Start Time:</label>
+                                                <input type="time" id="start_time{{ $doctor->id }}" class="form-control" required>
+                                            </div>
+                                            <!-- End Time Input -->
+                                            <div>
+                                                <label for="end-time-select">Select End Time:</label>
+                                                <input type="time" id="end_time{{ $doctor->id }}" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <!-- Checkbox buttons for slots can remain as they are -->
+                                        <!-- ... Checkbox buttons ... -->
+                        
+                                        <button type="button" id="bookAppointment{{ $doctor->id }}" class="btn btn-primary book-appointment-cls">Book Appointment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Patient From Starts Here  -->
+                        <div class="shadow patient-detail-modal mb-3 p-3" style="display:none" id="patient_{{ $doctor->id }}">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <div class="card">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item py-3">
+                                               <h4><i class="icon-home-1 text-primary"></i><span id="name_{{ $doctor->id }}"><span></h4>
+                                            </li>
+                                            <li class="list-group-item py-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                        <p class="mb-1">On 18 Sep,2023</p>
+                                                        <a href="#">Change date & Time</a>
+                                                    </div>
+                                                    <p class="mb-1">On 18 Sep,2023</p>
+                                                </div>
+    
+    
+                                            </li>
+                                            <li class="list-group-item py-3">
+                                                <div class="d-flex">
+                                                    
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="col-12 mb-2">
-                                        <label class="form-check-label mb-0 service-for rounded" for="gridRadios1">
-                                            <input class="form-check-input me-2" type="radio" name="gridRadios"
-                                                id="gridRadios1" value="option1" checked>
-                                        
-                                            Myself
-                                        </label>
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <label class="form-check-label mb-0 service-for rounded" for="gridRadios2">
-                                            <input class="form-check-input me-2" type="radio" name="gridRadios"
-                                                id="gridRadios2" value="option2">                                        
-                                                Someone Else
-                                        </label>
-                                    </div>
-                                 
-                                    <div class="col-12 my-3">
-                                        <h6 class="text-black mb-0">Please provide followning infomation about user:</h6>
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <label for="f_name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="f_name">
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <label for="moble" class="form-label">Mobile</label>
-                                        <input type="number" class="form-control" id="mobile">
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <label for="inputEmail3" class="form-label">Your Email</label>
-                                        <input type="email" class="form-control" id="inputEmail3">
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                            Get update on Whatsapp number +91987654321
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <h3 class="mb-4">Patient Details</h3>
+                                    <form class="row">
+                                       
+                                        <div class="col-12 mb-3">
+                                            <h6 class="text-black mb-0">This in-clinic appointment is for:</h6>
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label class="form-check-label mb-0 service-for rounded" for="gridRadios1">
+                                                <input class="form-check-input me-2" type="radio" name="gridRadios" id="myself" value="myself" checked>
+                                                Myself
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <button type="submit" class="btn btn-primary w-100">Sign in</button>
-                                    </div>
-                                    
-                                </form>
+                                        <div class="col-12 mb-2">
+                                            <label class="form-check-label mb-0 service-for rounded" for="gridRadios2">
+                                                <input class="form-check-input me-2" type="radio" name="gridRadios" id="somelse" value="somelse">
+                                                Someone Else
+                                            </label>
+                                        </div>
+                                     
+                                        <div class="col-12 my-3">
+                                            <h6 class="text-black mb-0">Please provide followning infomation about user:</h6>
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label for="fname{{ $doctor->id }}" class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="fname{{ $doctor->id }}">
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label for="phone{{ $doctor->id }}" class="form-label">Mobile</label>
+                                            <input type="number" class="form-control" id="phone{{ $doctor->id }}">
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <label for="email{{ $doctor->id }}" class="form-label">Your Email</label>
+                                            <input type="email" class="form-control" id="email{{ $doctor->id }}">
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                Get update on Whatsapp number +91987654321
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-2">
+                                            <button type="button confirmBooking" class="btn btn-primary w-100">Sign in</button>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card p-3 mb-3">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home-tab-pane" type="button" role="tab"
-                                    aria-controls="home-tab-pane" aria-selected="true">
-                                    <h5>25 Sep 2023</h5>
-                                    <p class="mb-2 text-danger">No Slot Available</p>
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                    aria-controls="profile-tab-pane" aria-selected="false">
-                                    <h5>30 Sep 2023</h5>
-                                    <p class="mb-2 text-success">4 Slot Available</p>
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                    data-bs-target="#contact-tab-pane" type="button" role="tab"
-                                    aria-controls="contact-tab-pane" aria-selected="false">
-                                    <h5>16 October 2023</h5>
-                                    <p class="mb-2 text-success">6 Slot Available</p>
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="tab-content py-3" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="0">
-                                <form action="">
-                                    <div class="d-flex gap-2">
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="one-pm"
-                                                autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="one-pm">01:00 PM</label><br>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="two-pm"
-                                                autocomplete="off" disabled>
-                                            <label class="btn btn-outline-secondary" for="two-pm">02::00 PM</label><br>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="three-pm"
-                                                autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="three-pm">03:00 PM</label><br>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
-                                aria-labelledby="profile-tab" tabindex="0">
-                                <form action="">
-                                    <div class="d-flex gap-2">
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="four-pm"
-                                                autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="four-pm">04:00 PM</label><br>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="five-pm"
-                                                autocomplete="off" disabled>
-                                            <label class="btn btn-outline-secondary" for="five-pm">05::00 PM</label><br>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="six-pm"
-                                                autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="six-pm">06:00 PM</label><br>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
-                                aria-labelledby="contact-tab" tabindex="0">
-                                <form action="">
-                                    <div class="d-flex gap-2">
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="one-pm1"
-                                                autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="one-pm1">01:00 PM</label><br>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="two-pm2"
-                                                autocomplete="off" disabled>
-                                            <label class="btn btn-outline-secondary" for="two-pm2">02::00 PM</label><br>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" class="btn-check" name="time" id="three-pm3"
-                                                autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="three-pm3">03:00 PM</label><br>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+
+                    @endforeach
 
                     <!-- Advertising Ads -->
                     <div class="bg-white mb-4 shadow-sm rounded-1">
@@ -477,16 +548,79 @@
 </main>
 <!-- /main -->
 
-
 <script>
-    $(".slider-for").slick({
-        slidesToShow: 1,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        dots: false,
-        arrows: false
+    $(document).ready(function(){
+        $(".bookNow").click(function(){
+
+            $(".login_card").hide();
+
+            let bookID = $(this).attr("data-bookId");
+            let companyName = $(this).attr("data-company-name");
+            
+            localStorage.setItem("doctorID", bookID);
+            localStorage.setItem("company_name", companyName);
+
+            $(`#slotCard${bookID}`).fadeIn(1000);
+            $(`#slot_${bookID}`).fadeIn();
+        });
+
+        $(".book-appointment-cls").click(function () {
+            // Get the values of the fields
+            var datepickerValue = $("#datepicker" + localStorage.getItem("doctorID")).val();
+            var startTimeValue = $("#start_time" + localStorage.getItem("doctorID")).val();
+            var endTimeValue = $("#end_time" + localStorage.getItem("doctorID")).val();
+
+            if (!datepickerValue || !startTimeValue || !endTimeValue) {
+                alert("Please fill out all the fields.");
+                return;
+            }
+
+            var timeFormat = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+            if (!timeFormat.test(startTimeValue) || !timeFormat.test(endTimeValue)) {
+                alert("Please enter valid time in HH:MM format.");
+                return;
+            }
+
+            // Parse time values to compare
+            var startTime = new Date("2000-01-01T" + startTimeValue + ":00");
+            var endTime = new Date("2000-01-01T" + endTimeValue + ":00");
+
+            if (startTime >= endTime) {
+                alert("End time must be later than start time.");
+                return;
+            }
+
+            $("#patient_" + localStorage.getItem("doctorID")).fadeIn();
+            // $("#fname_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_name"));
+            // $("#email_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_email"));
+            // $("#phone_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_phone_no"));
+            $("#name_" + localStorage.getItem("doctorID")).text(localStorage.getItem("company_name"));
+        });
+
+        // retrun false;
+        // $.ajax({
+        //     type: 'POST',
+        //     url: "{{ route('booking.post') }}",
+        //     data: {
+        //         doctor_id: 2, 
+        //         selected_date: '2023-11-03',
+        //         start_time: '09:00',
+        //         end_time: '10:00',
+        //         treatment: 'Service Name',
+        //         notes: 'Some notes',
+        //         _token: '{{ csrf_token() }}',
+        //     },
+        //     success: function (data) {
+        //         // Handle the success response
+        //         console.log(data);
+        //     },
+        //     error: function (error) {
+        //         // Handle the error response
+        //         console.error(error);
+        //     },
+        // });
 
     });
+
 </script>
 @endsection

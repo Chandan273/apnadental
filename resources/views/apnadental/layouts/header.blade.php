@@ -24,7 +24,7 @@
             <i class="pe-7s-user h4 text-white mb-0"></i>
           </a>
           <div class="dropdown-menu bg-white border-0 rounded shadow p-3">
-            <form class="row g-3" id="otp-login-form" action="{{ route('otplogin.post') }}" method="POST">
+            <form class="row g-3" id="otp-login-form-mobile">
               @csrf
               @if (!Auth::check())
               <div class="col-12">
@@ -45,31 +45,34 @@
               {{-- <div class="col-12">
                 <a href="#0" class="forgot"><small>Forgot password?</small></a>
               </div> --}}
-              <div id="error-message" class="text-danger"></div>
+              <div class="text-danger error-message"></div>
               <div class="col-12">
-                <input class="btn_1 w-100" id="login-button" type="submit" value="Login">
+                <input class="btn_1 w-100" id="login-button-2" type="submit" value="Login">
               </div>
               @else
               <div class="mt-0"></div>
-        <li class="border-bottom py-2 mb-2 mt-0">Deepak</li>
-        <li class="border-bottom py-2 mb-2 mt-0 small fw-light">UHID : APJ1.0005455032</li>
-        <li class="border-bottom py-2 mb-2 mt-0 d-flex align-items-center justify-content-between small fw-light">
-          <span>MALE
-            | 28</span> <span>+91987654321</span>
-        </li>
-        <li class="border-bottom py-2 mb-2 mt-0"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
-            <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
-        <li class="border-bottom py-2 mb-2 mt-0"><a href="{{ route('user.logout') }}"
-            class="btn_1 text-center">Logout</a>
-        </li>
+                <li class="border-bottom py-2 mb-2 mt-0">Deepak</li>
+                <li class="border-bottom py-2 mb-2 mt-0 small fw-light">UHID : APJ1.0005455032</li>
+                <li class="border-bottom py-2 mb-2 mt-0 d-flex align-items-center justify-content-between small fw-light">
+                  <span>MALE
+                    | 28</span> <span>+91987654321</span>
+                </li>
+                <li class="border-bottom py-2 mb-2 mt-0"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
+                    <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
+                <li class="border-bottom py-2 mb-2 mt-0"><a href="{{ route('user.logout') }}"
+                    class="btn_1 text-center">Logout</a>
+                </li>
         @endif
         </form>
     </div>
     </li>
+    
+    @if (!Auth::check())
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="{{ url('/register') }}"><i
           class="pe-7s-add-user text-white h4 mb-0"></i></a>
     </li>
+    @endif
 
     <li class="nav-item">
       <div class="position-relative">
@@ -104,7 +107,6 @@
                     <div class="d-flex align-items-start">
                       <div class="nav flex-md-shrink-0 flex-column nav-pills me-md-3 text-start bg-light px-md-2"
                         id="v-pills-tab" role="tablist" aria-orientation="vertical">
-
 
                         <a class="nav-link active" id="v-pills-cosmetics-dentistry-tab" data-bs-toggle="pill"
                           data-bs-target="#v-pills-cosmetics-dentistry" role="tab"
@@ -308,7 +310,7 @@
               <i class="pe-7s-user h4 text-white mb-0"></i>
             </a>
             <ul class="dropdown-menu bg-white border-0 rounded shadow p-3">
-              <form class="row g-3" id="otp-login-form" action="{{ route('otplogin.post') }}" method="POST">
+              <form class="row g-3" id="otp-login-form">
                 @csrf
                 @if (!Auth::check())
                 <div class="col-12">
@@ -329,7 +331,7 @@
                 {{-- <div class="col-12">
                   <a href="#0" class="forgot"><small>Forgot password?</small></a>
                 </div> --}}
-                <div id="error-message" class="text-danger"></div>
+                <div class="text-danger error-message"></div>
                 <div class="col-12">
                   <input class="btn_1 w-100" id="login-button" type="submit" value="Login">
                 </div>
@@ -338,10 +340,10 @@
                 @endif
               </form>
               @if (Auth::check())
-              <div class="mt-3"></div>
-              <li class="border-bottom py-2 mb-2">Deepak</li>
-              <li class="border-bottom py-2 mb-2 small fw-light">UHID : APJ1.0005455032</li>
-              <li class="border-bottom py-2 mb-2 d-flex align-items-center justify-content-between small fw-light">
+                <div class="mt-3"></div>
+                <li class="border-bottom py-2 mb-2">Deepak</li>
+                <li class="border-bottom py-2 mb-2 small fw-light">UHID : APJ1.0005455032</li>
+                <li class="border-bottom py-2 mb-2 d-flex align-items-center justify-content-between small fw-light">
                 <span>MALE | 28</span> <span>+91987654321</span>
               </li>
               <li class="border-bottom py-2 mb-2"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
@@ -556,31 +558,4 @@
     // Call the getLocation function on page load
     window.onload = getLocation;
   });
-
-  $(document).ready(function () {
-    $('#otp-login-form').submit(function (e) {
-      e.preventDefault();
-      var formData = $(this).serialize();
-
-      $('#error-message').text("");
-
-      $.ajax({
-        type: "POST",
-        url: "{{ route('otplogin.post') }}",
-        data: formData,
-        success: function (response) {
-          if (response.success) {
-            // User successfully logged in
-            window.location.href = "<?php echo env('APP_URL'); ?>/";
-          } else {
-            $('#error-message').text(response.message);
-          }
-        },
-        error: function (xhr, status, error) {
-          console.log(xhr.responseText);
-        }
-      });
-    });
-  });
-
 </script>

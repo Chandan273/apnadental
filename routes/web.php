@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\BlogController;
@@ -109,6 +110,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/search/doctors', [DoctorController::class, 'doctorList']);
 Route::get('autocomplete', [SearchController::class, 'autocomplete'])->name('autocomplete');
 Route::get('{city}/specialties/{specialty}', [SearchController::class, 'findDoctor']);
+Route::post('/bookings', [BookingController::class, 'store'])->name('booking.post');
 
 // new pages 
 Route::view('/my_account', 'apnadental/my_account');

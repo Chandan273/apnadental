@@ -18,11 +18,12 @@ class SearchController extends Controller
         //$services = Service::all();
         $sliders = Slider::all();
         $brands = Brand::all();
-        $doctors = Doctor::take(6)->get();
+        $doctors = Doctor::where('type', 'Doctor')->take(6)->get();
+        $clinics = Doctor::where('type', 'Clinics')->take(6)->get();
         $blogs = Blog::with('category')->get();
         $services = Service::with('doctors')->get();
 
-        return view('apnadental.index', compact('brands', 'services', 'doctors', 'sliders', 'blogs'));
+        return view('apnadental.index', compact('brands', 'services', 'doctors', 'clinics', 'sliders', 'blogs'));
     }
 
     public function autocomplete(Request $request)
