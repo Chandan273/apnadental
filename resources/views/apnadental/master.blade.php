@@ -196,35 +196,6 @@
 					}
 				});
 			});
-
-			$('#otpDoctorForm').submit(function(e) {
-				e.preventDefault();
-				var formData = $(this).serialize();
-
-				$('.error-message').text("");
-
-				$.ajax({
-					type: "POST",
-					url: "{{ route('otplogin.post') }}",
-					data: formData,
-					success: function (response) {
-						if (response.success && response.userData) {
-							localStorage.setItem("user_name", response.userData.name);
-							localStorage.setItem("user_email", response.userData.email);
-							localStorage.setItem("user_phone_no", response.userData.phone_no);
-
-							$(".login_card").hide();
-							$("#slot_"+localStorage.getItem("doctorID")).fadeIn();
-						} else {
-							$('.error-message').text(response.message);
-						}
-					},
-					error: function (xhr, status, error) {
-						console.log(xhr.responseText);
-					}
-				});
-			});
-
 		});
 
 	</script>

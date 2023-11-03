@@ -274,7 +274,6 @@
                             </div> --}}
                         <!--/div-->
 
-
                         <div class="card p-3 mb-3" id="slot_{{ $doctor->id }}" data-secondary-category="{{ $doctor->secondary_category }}" style="display:none">
                             <!-- ... Tabs and their content ... -->
                             <div class="tab-content py-3" id="myTabContent">
@@ -383,14 +382,48 @@
                                                 </label>
                                             </div>
                                         </div>
+
                                         <div class="col-12 mb-2">
-                                            <button type="button confirmBooking" class="btn btn-primary w-100">Sign in</button>
+                                            <a href="javascript:void(0)" class="btn btn-primary w-100 confirmBooking">Sign in</a>
                                         </div>
                                         
                                     </form>
                                 </div>
                             </div>
                         </div>
+
+<script>
+            $(document).ready(function(){
+                $('#otpDoctorForm{{ $doctor->id }}').submit(function(e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success && response.userData) {
+							localStorage.setItem("user_name", response.userData.name);
+							localStorage.setItem("user_email", response.userData.email);
+							localStorage.setItem("user_phone_no", response.userData.phone_no);
+
+							$(".login_card").hide();
+							$("#slot_"+localStorage.getItem("doctorID")).fadeIn();
+						} else {
+							$('.error-message').text(response.message);
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+            });        
+    			
+</script>
 
                     @endforeach
 
@@ -563,6 +596,7 @@
 
 <script>
     $(document).ready(function(){
+        
         $(".bookNow").click(function(){
 
             $(".login_card").hide();
@@ -578,7 +612,6 @@
         });
 
         $(".book-appointment-cls").click(function () {
-            // Get the values of the fields
             var datepickerValue = $("#datepicker" + localStorage.getItem("doctorID")).val();
             var startTimeValue = $("#start_time" + localStorage.getItem("doctorID")).val();
             var endTimeValue = $("#end_time" + localStorage.getItem("doctorID")).val();
@@ -594,7 +627,12 @@
                 return;
             }
 
-            // Parse time values to compare
+            // Extract doctor's working hours
+            var doctorWorkingHours = "{{ $doctor->work_timings }}";
+            var doctorWorkingHoursParts = doctorWorkingHours.split(" - ");
+            var doctorWorkStartTime = new Date("2000-01-01T" + doctorWorkingHoursParts[0] + ":00");
+            var doctorWorkEndTime = new Date("2000-01-01T" + doctorWorkingHoursParts[1] + ":00");
+
             var startTime = new Date("2000-01-01T" + startTimeValue + ":00");
             var endTime = new Date("2000-01-01T" + endTimeValue + ":00");
 
@@ -603,43 +641,65 @@
                 return;
             }
 
+            if (startTime < doctorWorkStartTime || endTime > doctorWorkEndTime) {
+                alert("Selected time must be within doctor's working hours (" + doctorWorkingHours + ").");
+                return;
+            }
+
+            var timeDiff = (endTime - startTime) / (1000 * 60); // Calculate time difference in minutes
+            if (timeDiff < 60) {
+                alert("Minimum time slot duration is 1 hour.");
+                return;
+            }
+
+            // If all validations pass, proceed with the action
             $("#patient_" + localStorage.getItem("doctorID")).fadeIn();
-            // $("#fname_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_name"));
-            // $("#email_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_email"));
-            // $("#phone_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_phone_no"));
             $("#name_" + localStorage.getItem("doctorID")).text(localStorage.getItem("company_name"));
         });
 
-        // retrun false;
-        // $.ajax({
-        //     type: 'POST',
-        //     url: "{{ route('booking.post') }}",
-        //     data: {
-        //         doctor_id: 2, 
-        //         selected_date: '2023-11-03',
-        //         start_time: '09:00',
-        //         end_time: '10:00',
-        //         treatment: 'Service Name',
-        //         notes: 'Some notes',
-        //         _token: '{{ csrf_token() }}',
-        //     },
-        //     success: function (data) {
-        //         // Handle the success response
-        //         console.log(data);
-        //     },
-        //     error: function (error) {
-        //         // Handle the error response
-        //         console.error(error);
-        //     },
-        // });
+            // $("#fname_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_name"));
+            // $("#email_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_email"));
+            // $("#phone_" + localStorage.getItem("doctorID")).val(localStorage.getItem("user_phone_no"));
+           
 
+        // retrun false;
+        $(".confirmBooking").click(function(){
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('booking.post') }}",
+                data: {
+                    doctor_id: 2, 
+                    selected_date: '2023-11-03',
+                    start_time: '09:00',
+                    end_time: '10:00',
+                    opt_service : 'Service Name',
+                    notes: 'Some notes',
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (data) {
+                    // Handle the success response
+                    alert("booking added");
+                    console.log(data);
+                },
+                error: function (error) {
+                    // Handle the error response
+                    console.error(error);
+                },
+            });
+        });
     });
 
     document.addEventListener("DOMContentLoaded", function(event) {
   
   function OTPInput() {
 const inputs = document.querySelectorAll('#otp > *[id]');
-for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ; if (i !==0) inputs[i - 1].focus(); } else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput();
+for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ;
+     if (i !==0) inputs[i - 1].focus(); } 
+     else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } 
+     else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; 
+        if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } 
+        else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); 
+            if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput();
 
     
 });
