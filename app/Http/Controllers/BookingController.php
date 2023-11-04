@@ -7,6 +7,14 @@ use App\Models\Booking;
 
 class BookingController extends Controller
 {
+
+    public function index()
+    {
+        $bookings = Booking::paginate(10);
+        
+        return view('admin.all_bookings', compact('bookings'));
+    }
+
     public function store(Request $request)
     {
         // Validate the incoming data
