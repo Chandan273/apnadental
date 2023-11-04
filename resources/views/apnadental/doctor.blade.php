@@ -151,19 +151,24 @@
                                     <p>Secure the future of your family with Rs. 1Cr. Life Cover starting $425/month</p>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <form class="text-center bg-light px-3 py-4 hadow-sm rounded-3" id="otpDoctorForm">
+                                    <form class="text-center bg-light px-3 py-4 hadow-sm rounded-3" id="otpDoctorForm{{ $doctor->id }}">
                                         @csrf
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
-                                        </div>                                                                                       
-                                        <div id="otp" class="inputs d-flex flex-row justify-content-start mb-3"> 
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" placeholder="Enter OTP" name="otp">
+                                        </div>
+
+                                        {{-- <div id="otp" class="inputs d-flex flex-row justify-content-start mb-3"> 
                                             <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="first" maxlength="1" /> 
                                             <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="second" maxlength="1" /> 
                                             <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="third" maxlength="1" /> 
                                             <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="fourth" maxlength="1" /> 
                                             <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="fifth" maxlength="1" /> 
                                             <input class="m-1 p-1 text-center form-control rounded" type="text" placeholder="0" id="sixth" maxlength="1" /> 
-                                        </div> 
+                                        </div>  --}}
                                           
                                         <input class="btn_1 rounded-2 btn-primary w-100" id="login-button-2" type="submit" value="Book a Slot Now">
                                         <div class="text-danger error-message"></div>    
@@ -689,19 +694,19 @@
         });
     });
 
-    document.addEventListener("DOMContentLoaded", function(event) {
+//     document.addEventListener("DOMContentLoaded", function(event) {
   
-  function OTPInput() {
-const inputs = document.querySelectorAll('#otp > *[id]');
-for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ;
-     if (i !==0) inputs[i - 1].focus(); } 
-     else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } 
-     else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; 
-        if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } 
-        else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); 
-            if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput();
+//   function OTPInput() {
+//     const inputs = document.querySelectorAll('#otp > *[id]');
+//     for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ;
+//         if (i !==0) inputs[i - 1].focus(); } 
+//         else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } 
+//         else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; 
+//         if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } 
+//         else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); 
+//             if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput();
 
-    
-});
+
+//     });
 </script>
 @endsection

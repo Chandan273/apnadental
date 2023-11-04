@@ -307,54 +307,49 @@
       <div class="d-none d-lg-block">
         <ul class="nav align-items-center gap-3">
           <li class="nav-item dropdown login-dropdown">
-            <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown"
+            <a class="dropdown-toggle login-toggle-cls d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               <i class="pe-7s-user h4 text-white mb-0"></i>
             </a>
-            <ul class="dropdown-menu bg-white border-0 rounded shadow p-3">
-              <form class="row g-3" id="otp-login-form">
-                @csrf
-                @if (!Auth::check())
-                <div class="col-12">
-                  <h2 class="h4">Login</h2>
-                </div>
-                <div class="col-12">
-                  <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
-                </div>
-                <div class="col-12">                   
-                      <!-- <input type="password" class="form-control" placeholder="Enter OTP" name="otp" /> -->
-                  <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
-                    <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
-                    <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
-                    <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
-                    <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
-                    <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
-                    <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
-                  </div> 
-                </div>
-                {{-- <div class="col-12">
-                  <a href="#0" class="forgot"><small>Forgot password?</small></a>
-                </div> --}}
-                <div class="text-danger error-message"></div>
-                <div class="col-12">
-                  <input class="btn_1 w-100" id="login-button" type="submit" value="Login">
-                </div>
-                @else
-
-                @endif
-              </form>
-              @if (Auth::check())
-                <div class="mt-3"></div>
-                <li class="border-bottom py-2 mb-2">Deepak</li>
-                <li class="border-bottom py-2 mb-2 small fw-light">UHID : APJ1.0005455032</li>
-                <li class="border-bottom py-2 mb-2 d-flex align-items-center justify-content-between small fw-light">
-                <span>MALE | 28</span> <span>+91987654321</span>
-              </li>
-              <li class="border-bottom py-2 mb-2"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
-                  <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
-              <li class="border-bottom py-2 mb-2"><a href="{{ route('user.logout') }}"
-                  class="btn_1 text-center">Logout</a></li>
-              @endif
+            <ul class="dropdown-menu login-menu-cls bg-white border-0 rounded shadow p-3">
+                <form class="row g-3 userLogincard" id="otp-login-form">
+                  @csrf
+                  <div class="col-12">
+                    <h2 class="h4">Login</h2>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                  </div>
+                  <div class="col-12">                   
+                    <input type="password" class="form-control" placeholder="Enter OTP" name="otp" />
+                    {{-- <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
+                      <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
+                      <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
+                      <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
+                      <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
+                      <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
+                      <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
+                    </div>  --}}
+                  </div>
+                  {{-- <div class="col-12">
+                    <a href="#0" class="forgot"><small>Forgot password?</small></a>
+                  </div> --}}
+                  <div class="text-danger error-message"></div>
+                  <div class="col-12">
+                    <input class="btn_1 w-100" id="login-button" type="submit" value="Login">
+                  </div>
+                </form>
+                <div class="userPopupcard">
+                  <div class="mt-3"></div>
+                  <li class="border-bottom py-2 mb-2">Deepak</li>
+                  <li class="border-bottom py-2 mb-2 small fw-light">UHID : APJ1.0005455032</li>
+                  <li class="border-bottom py-2 mb-2 d-flex align-items-center justify-content-between small fw-light">
+                  <span>MALE | 28</span> <span>+91987654321</span>
+                  </li>
+                  <li class="border-bottom py-2 mb-2"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
+                    <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
+                  <li class="border-bottom py-2 mb-2"><a href="javascript:void(0)" class="btn_1 text-center logout">Logout</a></li>
+                </div>    
             </ul>
           </li>
           @if (!Auth::check())
