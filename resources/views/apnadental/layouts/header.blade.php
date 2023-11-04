@@ -341,19 +341,19 @@
                 </form>
                 <div class="userPopupcard">
                   <div class="mt-3"></div>
-                  <li class="border-bottom py-2 mb-2">Deepak</li>
-                  <li class="border-bottom py-2 mb-2 small fw-light">UHID : APJ1.0005455032</li>
+                  <li class="border-bottom py-2 mb-2" id="logged_name"></li>
+                  <li class="border-bottom py-2 mb-2 small fw-light" id="logged_email"></li>
                   <li class="border-bottom py-2 mb-2 d-flex align-items-center justify-content-between small fw-light">
-                  <span>MALE | 28</span> <span>+91987654321</span>
+                  <span id="logged_phone"></span>
                   </li>
-                  <li class="border-bottom py-2 mb-2"><a class="d-flex gap-2" href="{{ url('/my_account') }}">
+                  <li class="border-bottom py-2 mb-2"><a class="d-flex gap-2" href="{{ url('/my-account') }}">
                     <i class="icon-user-male"></i> My Account <i class="icon-right-open ms-auto"></i></a></li>
                   <li class="border-bottom py-2 mb-2"><a href="javascript:void(0)" class="btn_1 text-center logout">Logout</a></li>
                 </div>    
             </ul>
           </li>
           @if (!Auth::check())
-          <li class="nav-item">
+          <li class="nav-item register-card-cls">
             <a aria-current="page" href="{{ url('/register') }}"><i class="pe-7s-add-user text-white h4 mb-0"></i></a>
           </li>
           @endif
