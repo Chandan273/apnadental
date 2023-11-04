@@ -825,7 +825,7 @@
                                     </div>
                                 </form>
                             </li>
-                            <li><a href="detail-page.html">Book Now</a></li>
+                            <li><a href="javascript:void(0)" onclick="bookNow({{ $doctor->id }}, '{{ $doctor->company_name }}', '{{ $doctor->secondary_category }}', '{{ $doctor->work_timings }}')">Book Now</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1559,13 +1559,375 @@
             </div>
         </div>
     </div>
+      
+      <!-- The Modal -->
+      <div class="modal modal-xl" id="bookModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <a class="h4 modal-title" id="modalHeading">Login</a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <!-- Booking Login Form -->
+                <div class="login_card card px-3 py-4 mb-4" id="slotCard">
+                    <div class="row align-items-center g-4">
+                        <div class="col-12 col-md-6">
+                            <img class="mb-3" src="{{ asset('public/assets/img/apna_dental_logo.svg') }}" alt="brand logo" width="100px">
+                            <h6 class="h5">Stay protected with Term Life Insurance</h6>
+                            <p>Secure the future of your family with Rs. 1Cr. Life Cover starting $425/month</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <form class="text-center bg-light px-3 py-4 hadow-sm rounded-3" id="otpDoctorLogin">
+                                @csrf
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Enter OTP" name="otp">
+                                </div>
+                                  
+                                <input class="btn_1 rounded-2 btn-primary w-100" type="submit" value="Book a Slot Now">
+                                <div class="text-danger error-message"></div>    
+                                <small class="mt-2 d-block">Life Insurance partner will get in touch with you soon.</small>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Time Slot -->
+                <div class="card p-3 mb-3 time-slot-cls" id="Timeslot" style="display:none">
+                    <!-- ... Tabs and their content ... -->
+                    <div class="tab-content py-3" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                            <form id="booking-form">
+                                <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+                                    <div>
+                                        <div class="d-flex gap-2">
+                                            <!-- Date Input -->
+                                            <div>
+                                                <label for="datepicker">Select Date:</label>
+                                                <input type="date" id="datepicker" class="form-control" required>
+                                            </div>
+                                            <div>
+                                                <label for="start-time-select">Select Start Time:</label>
+                                                <input type="time" id="start_time" class="form-control" required>
+                                            </div>
+                                            <!-- End Time Input -->
+                                            <div>
+                                                <label for="end-time-select">Select End Time:</label>
+                                                <input type="time" id="end_time" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Checkbox buttons for slots can remain as they are -->
+                                    <!-- ... Checkbox buttons ... -->
+                    
+                                    <button type="button" id="bookAppointment{{ $doctor->id }}" class="btn_1 rounded-2 btn-primary book-appointment-cls">Book Appointment</button>
+                                </div> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Patient From Starts Here  -->
+                <div class="shadow patient-detail-modal mb-3 p-3" style="display:none" id="patientForm">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <div class="card">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item py-3">
+                                       <h4><i class="icon-home-1 text-primary"></i><span id="CompanyName"><span></h4>
+                                    </li>
+                                    <li class="list-group-item py-3">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <p class="mb-1">On 18 Sep,2023</p>
+                                                <a href="javascript:void(0);" class="backTimeSlot">Change date & Time</a>
+                                            </div>
+                                            <p class="mb-1">On 18 Sep,2023</p>
+                                        </div>
+
+                                    </li>
+                                    <li class="list-group-item py-3">
+                                        <div class="d-flex">
+                                            
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h3 class="mb-4">Patient Details</h3>
+                            <form class="row">
+                               
+                                <div class="col-12 mb-3">
+                                    <h6 class="text-black mb-0">This in-clinic appointment is for:</h6>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label class="form-check-label mb-0 service-for rounded" for="gridRadios1">
+                                        <input class="form-check-input me-2" type="radio" name="gridRadios" id="myself" value="myself" checked>
+                                        Myself
+                                    </label>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label class="form-check-label mb-0 service-for rounded" for="gridRadios2">
+                                        <input class="form-check-input me-2" type="radio" name="gridRadios" id="somelse" value="somelse">
+                                        Someone Else
+                                    </label>
+                                </div>
+                             
+                                <div class="col-12 my-3">
+                                    <h6 class="text-black mb-0">Please provide followning infomation about user:</h6>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label for="fname" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fname">
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label for="phone" class="form-label">Mobile</label>
+                                    <input type="number" class="form-control" id="phone">
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                        Get update on Whatsapp number +91987654321
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mb-2">
+                                    <a href="javascript:void(0)" class="btn btn-primary w-100 confirmBooking">Sign in</a>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+      
+          </div>
+        </div>
+      </div>
     <!-- CTA fixed positon on stroll end -->
 
 </main>
 <!-- /main content -->
 
 <script>
+    function bookNow(bookID, companyName, secondaryCategory, workTimings) {
+        $('.error-message').text("");
+        $('#bookModal').appendTo("body").modal('show');
+
+        localStorage.setItem("doctorID", bookID);
+        localStorage.setItem("company_name", companyName);
+        localStorage.setItem("secondary_category", secondaryCategory);
+        localStorage.setItem("work_timings", workTimings);
+
+        if(localStorage.getItem("logged") != null){
+            if(localStorage.getItem("logged")!=false){
+                $('.login_card').hide();
+                $("#modalHeading").text("Booking Time Slot");
+                $('#Timeslot').fadeIn(1000);
+            }
+        }
+    }
+
     $(document).ready(function () {
+        $('#otpDoctorLogin').submit(function(e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success && response.userData) {
+
+                            Swal.fire({
+                                icon: 'success',
+                                text: `Login Succesfully!`,
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 2000
+                            })
+
+                            $('.userLogincard').hide();
+					        $('.userPopupcard').show();
+
+                            $("#modalHeading").text("Booking Time Slot");
+
+                            localStorage.setItem("logged", 1);
+							localStorage.setItem("user_name", response.userData.name);
+							localStorage.setItem("user_email", response.userData.email);
+							localStorage.setItem("user_phone_no", response.userData.phone_no);
+
+							$(".login_card").hide();
+							$('#Timeslot').fadeIn(1000);
+						} else {
+                            Swal.fire({
+                                icon: 'error',
+                                text: response.message,
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+
+
+        $(".book-appointment-cls").click(function () {
+
+            var datepickerValue = $("#datepicker").val();
+            var startTimeValue = $("#start_time").val();
+            var endTimeValue = $("#end_time").val();
+
+            if (!datepickerValue || !startTimeValue || !endTimeValue) {
+                Swal.fire({
+                    icon: 'error',
+                    text: "Please fill out all the fields.",
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                
+                return;
+            }
+
+            var timeFormat = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+            if (!timeFormat.test(startTimeValue) || !timeFormat.test(endTimeValue)) {
+                Swal.fire({
+                    icon: 'error',
+                    text: "Please enter valid time in HH:MM format.",
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            // Extract doctor's working hours
+            var doctorWorkingHours = localStorage.getItem("work_timings");
+            var doctorWorkingHoursParts = doctorWorkingHours.split(" - ");
+            var doctorWorkStartTime = new Date("2000-01-01T" + doctorWorkingHoursParts[0] + ":00");
+            var doctorWorkEndTime = new Date("2000-01-01T" + doctorWorkingHoursParts[1] + ":00");
+
+            var startTime = new Date("2000-01-01T" + startTimeValue + ":00");
+            var endTime = new Date("2000-01-01T" + endTimeValue + ":00");
+
+            if (startTime >= endTime) {
+                Swal.fire({
+                    icon: 'error',
+                    text: "End time must be later than start time.",
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            if (startTime < doctorWorkStartTime || endTime > doctorWorkEndTime) {
+                Swal.fire({
+                    icon: 'error',
+                    text: `Selected time must be within doctor's working hours ${doctorWorkingHours}.`,
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            var timeDiff = (endTime - startTime) / (1000 * 60); // Calculate time difference in minutes
+            if (timeDiff < 60) {
+                Swal.fire({
+                    icon: 'error',
+                    text: `Minimum time slot duration is 1 hour.`,
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            // If all validations pass, proceed with the action
+            $(".time-slot-cls").hide();
+            $("#patientForm").show();
+            $("#fname").val(localStorage.getItem("user_name"));
+            $("#email").val(localStorage.getItem("user_email"));
+            $("#phone").val(localStorage.getItem("user_phone_no"));
+            $("#CompanyName").text(localStorage.getItem("company_name"));
+        });
+
+        $(".backTimeSlot").click(function(){
+            $("#patientForm").hide();
+            $(".time-slot-cls").show();
+        });
+
+        $(".confirmBooking").click(function(){
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('booking.post') }}",
+                data: {
+                    doctor_id: localStorage.getItem("doctorID"), 
+                    selected_date: $("#datepicker").val(),
+                    start_time: $("#start_time").val(),
+                    end_time: $("#end_time").val(),
+                    opt_service : localStorage.getItem("secondary_category"),
+                    notes: 'Some notes',
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (data) {
+                    Swal.fire({
+                        icon: 'success',
+                        text: `Booking Succesfully!`,
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    }).then(function() {
+                        $('#bookModal').modal('hide');
+                        location.reload();
+                    });
+                },
+                error: function (error) {
+                    console.error(error);
+                },
+            });
+        });
+
         function getLocation() {
             var latitude = getCookie("latitude");
             var longitude = getCookie("longitude");
