@@ -67,7 +67,7 @@
                                 <!-- Checkbox buttons for slots can remain as they are -->
                                 <!-- ... Checkbox buttons ... -->
                 
-                                <button type="button" id="bookAppointment{{ $doctor->id }}" class="btn_1 rounded-2 btn-primary book-appointment-cls">Book Slot</button>
+                                <button type="button" id="bookAppointment" class="btn_1 rounded-2 btn-primary book-appointment-cls">Book Slot</button>
                             </div> 
                         </form>
                     </div>
