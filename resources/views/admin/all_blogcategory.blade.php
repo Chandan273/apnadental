@@ -38,34 +38,35 @@
                     </a>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#ID</th>
-                        <th scope="col">Category Name</th>
-                        <th scope="col">Created at</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($categories as $category)
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ $category->id }}</td>
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->created_at }}</td>
-                            <td>
-                                <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
-                                <form method="POST" action="{{ route('category.destroy', $category->id) }}" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
-                                </form>
-                            </td>
+                            <th scope="col">#ID</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Created at</th>
+                            <th scope="col">Action</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            
+                    </thead>
+                    <tbody>
+                        @foreach ($categories as $category)
+                            <tr>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->created_at }}</td>
+                                <td>
+                                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
+                                    <form method="POST" action="{{ route('category.destroy', $category->id) }}" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
             <div class="pagination">
                 {{ $categories->links() }}
             </div>

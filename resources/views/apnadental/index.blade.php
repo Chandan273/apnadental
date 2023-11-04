@@ -163,18 +163,19 @@
                                 <select class="form-select" aria-label="location" id="service-select">
                                     <option selected="">Select a Treatment</option>
                                     @foreach ($services as $service)
-                                    <option data-service-id="{{ $service->id }}" value="{{ $service->service_name }}">{{ $service->service_name }}</option>
+                                    <option data-service-id="{{ $service->id }}" value="{{ $service->service_name }}">{{
+                                        $service->service_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col col-lg-6">
                                 <input type="text" name="keyword" id="keywordSearch" class="form-control"
                                     placeholder="Search doctors, clinics, hospitals, etc." value="">
-                                <input type="hidden" name="doctor_id" id="doctor_id">    
+                                <input type="hidden" name="doctor_id" id="doctor_id">
                                 <input type="hidden" name="service_id" id="service_id">
                                 <input type="hidden" name="secondary_category" id="secondary_category">
                                 <input type="hidden" name="type" id="type">
-                                <input type="hidden" name="selectedCity" id="selectedCity">    
+                                <input type="hidden" name="selectedCity" id="selectedCity">
                             </div>
                             <div class="col-12 col-lg-2">
                                 <button type="button" class="btn btn-cstm w-100" id="search-button">search</button>
@@ -766,19 +767,20 @@
                 <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
             </div>
 
-            <div class="row">
+            <div class="row gy-4">
                 @foreach($doctors as $doctor)
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="box_list home">
-                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top"
-                            title="Add to wishlist" class="wish_bt"></a>
+                    <div class="box_list doctor-card home h-100 position-relative">
+                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist"
+                            class="wish_bt"></a>
                         <figure>
                             <a href="detail-page.html">
                                 @if(!empty($doctor->image))
-                                    <img src="{{ $doctor->image }}" class="img-fluid" alt="{{ $doctor->company_name }}">
+                                <img src="{{ $doctor->image }}" class="img-fluid" alt="{{ $doctor->company_name }}">
                                 @else
-                                    <img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt="">
+                                <img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt="">
                                 @endif
                             </a>
                             <div class="preview"><span>Read more</span></div>
@@ -791,41 +793,42 @@
                             <div class="d-flex justify-content-between">
                                 <span class="rating"><i class="icon_star voted"></i>
                                     @php
-                                        $rating = $doctor->rating;
-                                        $filledStars = floor($rating);
-                                        $halfStar = ($rating - $filledStars) >= 0.5;
+                                    $rating = $doctor->rating;
+                                    $filledStars = floor($rating);
+                                    $halfStar = ($rating - $filledStars) >= 0.5;
                                     @endphp
 
-                                    @for ($i = 1; $i <= 5; $i++)
-                                        @if ($i <= $filledStars)
-                                            <i class="icon_star voted"></i>
+                                    @for ($i = 1; $i <= 5; $i++) @if ($i <=$filledStars) <i class="icon_star voted"></i>
                                         @elseif ($halfStar && $i == $filledStars + 1)
-                                            <i class="icon_star voted half"></i>
+                                        <i class="icon_star voted half"></i>
                                         @else
-                                            <i class="icon_star"></i>
+                                        <i class="icon_star"></i>
                                         @endif
-                                    @endfor
+                                        @endfor
 
-                                    <small>({{ $doctor->rating_count }})</small>
-                                    <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Badge Level" class="badge_list_1">
-                                        <img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}" width="15" height="15" alt="">
-                                    </a>
+                                        <small>({{ $doctor->rating_count }})</small>
+                                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Badge Level" class="badge_list_1">
+                                            <img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
+                                                width="15" height="15" alt="">
+                                        </a>
                                 </span>
                                 <a href="tel:+{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a>
                             </div>
                         </div>
 
-                        <ul class="d-flex justify-content-between flex-wrap">
+                        <ul class="d-flex justify-content-between flex-wrap position-absolute start-0 bottom-0 mb-0">
                             <li>
                                 <form>
-                                    <div class="mb-3 form-check align-items-center">
+                                    <div class="form-check align-items-center">
                                         <input type="checkbox" class="form-check-input" id="compareDoctor9">
                                         <label class="form-check-label" for="compareDoctor9">Compare Doctor</label>
                                     </div>
                                 </form>
                             </li>
-                            <li><a href="javascript:void(0)" onclick="bookNow({{ $doctor->id }}, '{{ $doctor->company_name }}', '{{ $doctor->secondary_category }}', '{{ $doctor->work_timings }}')">Book Now</a></li>
+                            <li><a href="javascript:void(0)"
+                                    onclick="bookNow({{ $doctor->id }}, '{{ $doctor->company_name }}', '{{ $doctor->secondary_category }}', '{{ $doctor->work_timings }}')">Book
+                                    Now</a></li>
                         </ul>
                     </div>
                 </div>
@@ -846,20 +849,21 @@
                 <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
             </div>
 
-            <div class="row">
+            <div class="row gy-4">
                 @foreach($clinics as $clinic)
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="box_list home card p-3 ">
-                        <div class="d-flex justify-content-between mb-3">
+                    <div class="box_list home card h-100 pt-3 pb-5 position-relative">
+                        <div class="d-flex justify-content-between mb-3 px-3">
                             <div>
                                 <h3 class="h5 txt-primary">{{ $clinic->company_name }}</h3>
                                 <h4 class="h6 txt-primary">Sector-1</h4>
                             </div>
                             <div>
-                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}" class="me-2"><a href="{{ $clinic->map_url }}" target="_blank">Directions</a></a>
+                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}" class="me-2"><a
+                                        href="{{ $clinic->map_url }}" target="_blank">Directions</a></a>
                             </div>
                         </div>
-                        <div class="card_body">
+                        <div class="card_body px-3">
                             <div class="row mb-2 g-1">
                                 <div class="col-12">
                                     <p>{{ $clinic->description }}</p>
@@ -868,7 +872,8 @@
                                     <i class="icon-location-1 h5 txt-primary"></i>
                                 </div>
                                 <div class="col">
-                                    <h3 class="h6">{{ $clinic->locality }}, {{ $clinic->city }}, {{ $clinic->state }}, {{ $clinic->zip_code }}</h3>
+                                    <h3 class="h6">{{ $clinic->locality }}, {{ $clinic->city }}, {{ $clinic->state }},
+                                        {{ $clinic->zip_code }}</h3>
                                 </div>
                             </div>
 
@@ -887,21 +892,21 @@
                                         $rating = $clinic->rating;
                                         $filledStars = floor($rating);
                                         $halfStar = ($rating - $filledStars) >= 0.5;
-                                    @endphp
+                                        @endphp
 
-                                    @for ($i = 1; $i <= 5; $i++)
-                                        @if ($i <= $filledStars)
-                                            <i class="icon_star voted"></i>
-                                        @elseif ($halfStar && $i == $filledStars + 1)
+                                        @for ($i = 1; $i <= 5; $i++) @if ($i <=$filledStars) <i class="icon_star voted">
+                                            </i>
+                                            @elseif ($halfStar && $i == $filledStars + 1)
                                             <i class="icon_star voted half"></i>
-                                        @else
+                                            @else
                                             <i class="icon_star"></i>
-                                        @endif
-                                    @endfor    
-                                    <small>({{ $clinic->rating_count }})</small></span>
+                                            @endif
+                                            @endfor
+                                            <small>({{ $clinic->rating_count }})</small></span>
                                 </div>
-                            </div>
-                            <div class="d-flex justify-content-between mt-4 flex-wrap">
+                            </div>                           
+                        </div>
+                        <div class="d-flex justify-content-between mt-4 flex-wrap position-absolute start-0 bottom-0 px-3 w-100 py-3">
                                 <form>
                                     <div class="form-check align-items-center">
                                         <input type="checkbox" class="form-check-input" id="12">
@@ -910,8 +915,6 @@
                                 </form>
                                 <a class="btn_1" href="javascript:void(0);" onclick="bookNow({{ $clinic->id }}, '{{ $clinic->company_name }}', '{{ $clinic->secondary_category }}', '{{ $clinic->work_timings }}')">Book Now</a>
                             </div>
-                        </div>
-
                     </div>
                 </div>
                 @endforeach
@@ -935,7 +938,8 @@
                             <span class="post-category small text-white">{{ $blogs[4]->category->name }}</span>
                             <h3 class="text-white">{{ $blogs[4]->title }}</h3>
                             <div class="td-editor-date">
-                                <span class="post-author-name text-white">{{ $blogs[4]->created_at->format('Y-M-d') }}</span>
+                                <span class="post-author-name text-white">{{ $blogs[4]->created_at->format('Y-M-d')
+                                    }}</span>
                             </div>
                         </div>
                     </a>
@@ -943,7 +947,8 @@
                 <div class="col-12 col-sm-6">
                     <div class="row g-1">
                         <div class="col-12">
-                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[5]->id }}" class=" blog-wraper">
+                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[5]->id }}"
+                                class=" blog-wraper">
                                 <img src="{{ asset('public/'.$blogs[5]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
                                     <span class="post-category small text-white">{{ $blogs[5]->category->name }}</span>
@@ -955,7 +960,8 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[2]->id }}" class=" blog-wraper">
+                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[2]->id }}"
+                                class=" blog-wraper">
                                 <img src="{{ asset('public/'.$blogs[2]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
                                     <span class="post-category small text-white">{{ $blogs[2]->category->name }}</span>
@@ -966,10 +972,12 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[3]->id }}" class=" blog-wraper">
+                            <a href="<?php echo env('APP_URL'); ?>/blog-details/{{ $blogs[3]->id }}"
+                                class=" blog-wraper">
                                 <img src="{{ asset('public/'.$blogs[3]->blog_image) }}" alt="blog image">
                                 <div class="blog-content-wrraper">
-                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">{{ $blogs[3]->category->name }}</span>
+                                    <span class="post-category small text-white badge bg-dark rounded-0 fw-normal">{{
+                                        $blogs[3]->category->name }}</span>
                                     <h3 class="text-white fs-6">
                                         {{ $blogs[3]->title }}
                                     </h3>
@@ -1528,7 +1536,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
-                    <div class="row align-items-center px-2 px-md-4 py-4 mx-2 rounded-pill bg-white shadow">
+                    <div class="row align-items-center px-2 px-md-3 py-3 mx-2 rounded-pill bg-white shadow">
                         <div class="col-12 col-md-5">
                             <div
                                 class="d-flex align-items-center flex-nowrap gap-3 justify-content-center justify-content-lg-start">
@@ -1755,12 +1763,12 @@
         const selectedOption = document.getElementById('service-select').querySelector('option:checked');
         const serviceId = selectedOption.getAttribute('data-service-id');
 
-        if(keyword !== ''){
-            if(serviceId !== "" && serviceId === service_id){
+        if (keyword !== '') {
+            if (serviceId !== "" && serviceId === service_id) {
                 let url = "<?php echo env('APP_URL'); ?>" + `/${selectedCity}/specialties/${secondary_category}?type=${type}&service_id=${doctor_id}`;
 
                 window.location.href = url;
-            }   else {
+            } else {
                 $("#errMsg").text("Data Not Found!");
             }
         } else {
