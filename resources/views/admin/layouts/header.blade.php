@@ -131,7 +131,9 @@
 		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Bookings">
           <a class="nav-link" href="{{ url('/admin/bookings') }}">
             <i class="fa fa-fw fa-calendar-check-o"></i>
-            <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
+            <span class="nav-link-text">Bookings 
+              <!-- <span class="badge badge-pill badge-primary">6 New</span> -->
+            </span>
           </a>
         </li>
 		    <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Reviews">
