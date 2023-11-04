@@ -31,7 +31,6 @@
   color: var(--secondary);
 }
 
-
 .btn_outline_2 {
   background-color: #fff;
   border-color: var(--secondary);
@@ -66,6 +65,29 @@
   background-color: #dd2666;
   border-color: var(--pink);
   color: #ffffff;
+}
+
+.btn_outline_pink {
+  background: #fff;
+  border: 2px solid #e74e84;
+  color: #e74e84;
+  padding: 5px 20px;
+  font-weight: 500;
+  line-height: 1;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.btn_outline_pink:hover {
+  background: #e74e84;
+  color: #fff;
 }
 
 .navbar-cstm-bg {
@@ -126,7 +148,7 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   background: var(--pink);
 }
 
-.strip_list ul li a.btn {
+.strip_list a.btn {
   color: #fff;
   background: var(--secondary);
   border: 2px solid var(--secondary);
@@ -143,14 +165,14 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   font-weight: 500;
 }
 
-.strip_list ul li a.btn:hover {
+.strip_list a.btn:hover {
   color: var(--secondary);
   background: transparent;
 }
 
-.doctor-page .strip_list ul li:first-child {
+/* .doctor-page .strip_list ul li:first-child {
   display: block;
-}
+} */
 
 
 .doctor-page .nav-tabs .nav-link.active {
@@ -268,7 +290,7 @@ ul#top_access li.login-dropdown .dropdown-menu a.forgot {
   border-color: var(--pink);
 }
 
-form .error-message{
+form .error-message {
   font-size: 12px;
   text-align: center;
 }
@@ -346,6 +368,20 @@ footer .input-group .btn {
   z-index: 0;
 }
 
+/* OTP inputs  */
+#otp.inputs input {
+  width: 40px;
+}
+
+#otp input[type=number]::-webkit-inner-spin-button,
+#otp input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0
+}
+/* OTP inputs  end*/
+
 @media screen and (max-width: 768px) {
   #scroll-triggered-cta {
     position: relative !important;
@@ -357,6 +393,7 @@ footer .input-group .btn {
   #scroll-triggered-cta .rounded-pill {
     border-radius: 10px !important;
   }
+
   .nav-item.dropdown-mega .nav-pills .nav-link,
   .nav-item.dropdown-mega ul li a {
     font-size: 12px;
