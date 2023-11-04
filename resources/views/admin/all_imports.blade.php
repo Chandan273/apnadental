@@ -22,6 +22,8 @@
                     </a>
                 </div>
             </div>
+        </div>
+        <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -38,26 +40,26 @@
                 </thead>
                 <tbody>
                     @foreach ($doctors as $doctor)
-                        <tr>
-                            <td>{{ $doctor->company_name }}</td>
-                            <td>{{ $doctor->type }}</td>
-                            <td>{{ $doctor->email_1 }}</td>
-                            <td>{{ $doctor->phone }}</td>
-                            <td>{{ $doctor->education }}</td>
-                            <td>{{ $doctor->specialization }}</td>
-                            <td>{{ $doctor->location }}</td>
-                            <td>{{ $doctor->city }}</td>
-                            <td>{{ $doctor->created_at }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ $doctor->company_name }}</td>
+                        <td>{{ $doctor->type }}</td>
+                        <td>{{ $doctor->email_1 }}</td>
+                        <td>{{ $doctor->phone }}</td>
+                        <td>{{ $doctor->education }}</td>
+                        <td>{{ $doctor->specialization }}</td>
+                        <td>{{ $doctor->location }}</td>
+                        <td>{{ $doctor->city }}</td>
+                        <td>{{ $doctor->created_at }}</td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
-            
-            <div class="pagination">
-                {{ $doctors->links() }}
-            </div>
+        </div>
+        <div class="pagination">
+            {{ $doctors->links() }}
         </div>
     </div>
+</div>
 </div>
 
 @endsection
