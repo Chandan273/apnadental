@@ -44,6 +44,7 @@
 
 	@include('apnadental.layouts.header')
 	@yield('content')
+	@include('apnadental.layouts.modal')
 	@include('apnadental.layouts.footer')
 
 	<div id="toTop"></div>
@@ -58,6 +59,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsYL1hrGBbl8KI_DhiULQGaoMfSkQAjA4&libraries=places"></script>
 	<script src="{{ asset('public/assets/apnadental/js/markerclusterer.js') }}"></script>
     <script src="{{ asset('public/assets/apnadental/js/map_home.js') }}"></script>
+	<script src="{{ asset('public/assets/apnadental/js/custom.js') }}"></script>
     {{-- <script src="{{ asset('public/assets/apnadental/vendor/js/infobox.js') }}"></script> --}}
 
 	<script>
@@ -151,29 +153,29 @@
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 		$(document).ready(function () {
-			$('#otp-login-form').submit(function (e) {
-				e.preventDefault();
-				var formData = $(this).serialize();
+			// $('#otp-login-form').submit(function (e) {
+			// 	e.preventDefault();
+			// 	var formData = $(this).serialize();
 
-				$('.error-message').text("");
+			// 	$('.error-message').text("");
 
-				$.ajax({
-					type: "POST",
-					url: "{{ route('otplogin.post') }}",
-					data: formData,
-					success: function (response) {
-						if (response.success) {
-							localStorage.setItem("logged", true);
-							window.location.href = "<?php echo env('APP_URL'); ?>/";
-						} else {
-							$('.error-message').text(response.message);
-						}
-					},
-					error: function (xhr, status, error) {
-						console.log(xhr.responseText);
-					}
-				});
-			});
+			// 	$.ajax({
+			// 		type: "POST",
+			// 		url: "{{ route('otplogin.post') }}",
+			// 		data: formData,
+			// 		success: function (response) {
+			// 			if (response.success) {
+			// 				localStorage.setItem("logged", true);
+			// 				window.location.href = "<?php echo env('APP_URL'); ?>/";
+			// 			} else {
+			// 				$('.error-message').text(response.message);
+			// 			}
+			// 		},
+			// 		error: function (xhr, status, error) {
+			// 			console.log(xhr.responseText);
+			// 		}
+			// 	});
+			// });
 
 			$('#otp-login-form-mobile').submit(function (e) {
 				e.preventDefault();
@@ -199,51 +201,173 @@
 				});
 			});
 
-			$(".login-toggle-cls").click(function(){
-				$(".login-menu-cls").toggle();
+			// Login with otp and set info to local storage
+			$('#otpDoctorLogin, #otp-login-form').submit(function(e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$('.error-message').text("");
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('otplogin.post') }}",
+					data: formData,
+					success: function (response) {
+						if (response.success && response.userData) {
+
+							Swal.fire({
+								icon: 'success',
+								text: `Login Succesfully!`,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 2000
+							})
+
+							$('.userLogincard').hide();
+							$('.userPopupcard').show();
+							$('.register-card-cls').hide();
+							$("#modalHeading").text("Booking Time Slot");
+							$('#logged_name').text(response.userData.name);
+							$('#logged_email').text(response.userData.email);
+							$('#logged_phone').text(response.userData.phone_no);
+
+							localStorage.setItem("logged", 1);
+							localStorage.setItem("user_name", response.userData.name);
+							localStorage.setItem("user_email", response.userData.email);
+							localStorage.setItem("user_phone_no", response.userData.phone_no);
+
+							$(".login_card").hide();
+							$('#Timeslot').fadeIn(1000);
+						} else {
+							Swal.fire({
+								icon: 'error',
+								text: response.message,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 3000
+							});
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
 			});
 
-			if(localStorage.getItem("logged") != null){
-				if(localStorage.getItem("logged")!=false){
-					$('.userLogincard').hide();
-					$('.userPopupcard').show();
-				}else{
-					$('.userLogincard').show();
-					$('.userPopupcard').hide();
+			// Confrim Booking Appointment
+			$(".confirmBooking").click(function(){
+				if($("#fname").val() == ""){
+					Swal.fire({
+						icon: 'error',
+						text: `first name is required`,
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000
+					});
+
+					return;  
 				}
-        	}
 
-		});
+				if($("#email").val() == ""){
+					Swal.fire({
+						icon: 'error',
+						text: `email is required`,
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000
+					});
 
-		$(".logout").click(function(){
-			$.ajax({
-				type: "get",
-				url: "{{ route('user.logout') }}",
-				success: function (response) {
-					if (response.success) {
+					return;  
+				}
 
-						localStorage.setItem("logged", 0);
+				if($("#phone").val() == ""){
+					Swal.fire({
+						icon: 'error',
+						text: `phone number is required`,
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000
+					});
+
+					return;  
+				}
+
+				$.ajax({
+					type: 'POST',
+					url: "{{ route('booking.post') }}",
+					data: {
+						doctor_id: localStorage.getItem("doctorID"),
+						company_name: localStorage.getItem("company_name"),
+						patient_name: $("#fname").val(),
+						patient_email: $("#email").val(),
+						patient_phone_no: $("#phone").val(),
+						selected_date: $("#datepicker").val(),
+						start_time: $("#start_time").val(),
+						end_time: $("#end_time").val(),
+						opt_service : localStorage.getItem("secondary_category"),
+						notes: 'Some notes',
+						_token: '{{ csrf_token() }}',
+					},
+					success: function (data) {
+						localStorage.setItem("doctorID", "");
+						localStorage.setItem("company_name", "");
+						localStorage.setItem("secondary_category", "");
+						localStorage.setItem("work_timings", "");
 
 						Swal.fire({
 							icon: 'success',
-							text: `Logout Succesfully!`,
+							text: `Booking Succesfully!`,
 							toast: true,
 							position: 'top-end',
 							showConfirmButton: false,
-							timer: 1000
+							timer: 3000
 						}).then(function() {
-							window.location.href = "<?php echo env('APP_URL'); ?>/";
+							$('#bookModal').modal('hide');
+							location.reload();
 						});
-					} else {
-						$('.error-message').text(response.message);
+					},
+					error: function (error) {
+						console.error(error);
+					},
+				});
+			});
+
+			$(".logout").click(function(){
+				$.ajax({
+					type: "get",
+					url: "{{ route('user.logout') }}",
+					success: function (response) {
+						if (response.success) {
+							localStorage.setItem("logged", 0);
+							localStorage.setItem("user_name", "");
+							localStorage.setItem("user_email", "");
+							localStorage.setItem("user_phone_no", "");
+
+							Swal.fire({
+								icon: 'success',
+								text: `Logout Succesfully!`,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 1000
+							}).then(function() {
+								window.location.href = "<?php echo env('APP_URL'); ?>/";
+							});
+						} else {
+							$('.error-message').text(response.message);
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
 					}
-				},
-				error: function (xhr, status, error) {
-					console.log(xhr.responseText);
-				}
+				});
 			});
 		});
-
 	</script>
 
 </body>

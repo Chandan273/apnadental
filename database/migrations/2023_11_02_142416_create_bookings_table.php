@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('doctor_id');
+            $table->string('company_name');
+            $table->string('patient_name');
+            $table->string('patient_email');
+            $table->string('patient_phone_no');
             $table->date('selected_date');
             $table->time('start_time');
             $table->time('end_time');
