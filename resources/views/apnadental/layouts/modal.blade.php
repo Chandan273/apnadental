@@ -45,30 +45,27 @@
                 <div class="tab-content py-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                         <form id="booking-form">
-                            <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
-                                <div>
-                                    <div class="d-flex gap-2">
-                                        <!-- Date Input -->
-                                        <div>
-                                            <label for="datepicker">Select Date:</label>
-                                            <input type="date" id="datepicker" class="form-control" required>
-                                        </div>
-                                        <div>
-                                            <label for="start-time-select">Select Start Time:</label>
-                                            <input type="time" id="start_time" class="form-control" required>
-                                        </div>
-                                        <!-- End Time Input -->
-                                        <div>
-                                            <label for="end-time-select">Select End Time:</label>
-                                            <input type="time" id="end_time" class="form-control" required>
-                                        </div>
-                                    </div>
+                            <div class="row g-3 align-items-end">
+                                <!-- Date Input -->
+                                <div class="col">
+                                    <label for="datepicker">Select Date:</label>
+                                    <input type="date" id="datepicker" class="form-control" required>
                                 </div>
-                                <!-- Checkbox buttons for slots can remain as they are -->
-                                <!-- ... Checkbox buttons ... -->
-                
-                                <button type="button" id="bookAppointment" class="btn_1 rounded-2 btn-primary book-appointment-cls">Book Slot</button>
-                            </div> 
+                                <div class="col">
+                                    <label for="start-time-select">Select Start Time:</label>
+                                    <input type="time" id="start_time" class="form-control" required>
+                                </div>
+                                <!-- End Time Input -->
+                                <div class="col">
+                                    <label for="end-time-select">Select End Time:</label>
+                                    <input type="time" id="end_time" class="form-control" required>
+                                </div>
+                                <div class="col">
+                                    <button type="button" id="bookAppointment" class="btn btn_pink py-2 w-100 rounded-2 btn-primary book-appointment-cls">Book Slot</button>
+                                </div>
+                            </div>
+                            <!-- Checkbox buttons for slots can remain as they are -->
+                            <!-- ... Checkbox buttons ... -->               
                         </form>
                     </div>
                 </div>
