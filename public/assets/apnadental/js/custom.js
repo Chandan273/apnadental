@@ -26,6 +26,9 @@ $(document).ready(function () {
             $('#logged_name').text(localStorage.getItem("user_name"));
             $('#logged_email').text(localStorage.getItem("user_email"));
             $('#logged_phone').text(localStorage.getItem("user_phone_no"));
+            $('#mobile_logged_name').text(localStorage.getItem("user_name"));
+            $('#mobile_logged_email').text(localStorage.getItem("user_email"));
+            $('#mobile_logged_phone').text(localStorage.getItem("user_phone_no"));
         }else{
             $('.userLogincard').show();
             $('.userPopupcard').hide();

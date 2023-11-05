@@ -177,32 +177,32 @@
 			// 	});
 			// });
 
-			$('#otp-login-form-mobile').submit(function (e) {
-				e.preventDefault();
-				var formData = $(this).serialize();
+			// $('#otp-login-form-mobile').submit(function (e) {
+			// 	e.preventDefault();
+			// 	var formData = $(this).serialize();
 
-				$('.error-message').text("");
+			// 	$('.error-message').text("");
 
-				$.ajax({
-					type: "POST",
-					url: "{{ route('otplogin.post') }}",
-					data: formData,
-					success: function (response) {
-						if (response.success) {
-							localStorage.setItem("logged", 1);
-							window.location.href = "<?php echo env('APP_URL'); ?>/";
-						} else {
-							$('.error-message').text(response.message);
-						}
-					},
-					error: function (xhr, status, error) {
-						console.log(xhr.responseText);
-					}
-				});
-			});
+			// 	$.ajax({
+			// 		type: "POST",
+			// 		url: "{{ route('otplogin.post') }}",
+			// 		data: formData,
+			// 		success: function (response) {
+			// 			if (response.success) {
+			// 				localStorage.setItem("logged", 1);
+			// 				window.location.href = "<?php echo env('APP_URL'); ?>/";
+			// 			} else {
+			// 				$('.error-message').text(response.message);
+			// 			}
+			// 		},
+			// 		error: function (xhr, status, error) {
+			// 			console.log(xhr.responseText);
+			// 		}
+			// 	});
+			// });
 
 			// Login with otp and set info to local storage
-			$('#otpDoctorLogin, #otp-login-form').submit(function(e) {
+			$('#otpDoctorLogin, #otp-login-form, otp-login-form-mobile').submit(function(e) {
 				e.preventDefault();
 				var formData = $(this).serialize();
 
@@ -231,6 +231,9 @@
 							$('#logged_name').text(response.userData.name);
 							$('#logged_email').text(response.userData.email);
 							$('#logged_phone').text(response.userData.phone_no);
+							$('#mobile_logged_name').text(response.userData.name);
+							$('#mobile_logged_email').text(response.userData.email);
+							$('#mobile_logged_phone').text(response.userData.phone_no);
 
 							localStorage.setItem("logged", 1);
 							localStorage.setItem("user_name", response.userData.name);
