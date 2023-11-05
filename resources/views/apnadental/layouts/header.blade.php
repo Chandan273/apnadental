@@ -17,7 +17,7 @@
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-cstm-bg">
     <div class="container-fluid container-lg">
-      <ul class="nav d-flex align-items-center flex-nowrap d-lg-none ms-auto">
+      <ul class="nav d-flex align-items-center flex-nowrap d-lg-none ms-auto gap-2">
         <li class="nav-item dropdown login-dropdown">
           <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -31,18 +31,25 @@
                 <h2 class="h4">Login</h2>
               </div>
               <div class="col-12">
-                <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                <div class="input-group">
+                  <span class="input-group-text" id="inputGroup"><i class="icon-email"></i></span>  
+                  <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                </div>
               </div>
               <div class="col-12">
-                  <!-- <input type="password" class="form-control" placeholder="Enter OTP" name="otp"> -->
-                  <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
+                <div class="input-group">
+                  <span class="input-group-text" id="inputGroup"><i class="icon-lock-open"></i></span>
+                  <input type="password" class="form-control" placeholder="Enter OTP" name="otp">
+                </div>
+
+                 {{-- <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
                     <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
                     <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
                     <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
                     <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
                     <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
                     <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
-                  </div> 
+                  </div> --}}
               </div>
               {{-- <div class="col-12">
                 <a href="#0" class="forgot"><small>Forgot password?</small></a>
@@ -318,10 +325,16 @@
                     <h2 class="h4">Login</h2>
                   </div>
                   <div class="col-12">
-                    <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                    <div class="input-group">                    
+                      <span class="input-group-text" id="inputGroup"><i class="icon-email"></i></span>                    
+                      <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                    </div>
                   </div>
-                  <div class="col-12">                   
+                  <div class="col-12">  
+                    <div class="input-group">  
+                      <span class="input-group-text" id="inputGroup"><i class="icon-lock-open"></i></span>                               
                     <input type="password" class="form-control" placeholder="Enter OTP" name="otp" />
+                    </div>
                     {{-- <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
                       <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
                       <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 

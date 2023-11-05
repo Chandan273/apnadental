@@ -27,7 +27,7 @@
 							</div>
 						</form>
 
-						<button type="button" class="btn btn-primary text-nowrap">
+						<button type="button" class="btn btn_pink text-nowrap">
 							<i class="fa fa-plus" aria-hidden="true"></i> Add Doctors
 						</button>
 					</div>

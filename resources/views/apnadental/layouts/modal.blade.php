@@ -24,11 +24,17 @@
                         <form class="text-center bg-light px-3 py-4 hadow-sm rounded-3" id="otpDoctorLogin">
                             @csrf
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup"><i class="icon-email"></i></span>  
+                                    <input type="text" class="form-control" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                                </div>
                             </div>
                             
                             <div class="mb-3">
-                                <input type="password" class="form-control" placeholder="Enter OTP" name="otp">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroup"><i class="icon-lock-open"></i></span>
+                                    <input type="password" class="form-control" placeholder="Enter OTP" name="otp">
+                                </div>
                             </div>
                               
                             <input class="btn_1 rounded-2 btn-primary w-100" type="submit" value="Book a Slot Now">

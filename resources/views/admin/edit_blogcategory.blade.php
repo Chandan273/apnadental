@@ -34,7 +34,7 @@
                 </div>
             
                 <div>
-                    <button type="submit" class="btn btn-primary mb-2">Update</button>
+                    <button type="submit" class="btn btn_pink mb-2">Update</button>
                 </div>
             </form>
 		</div>

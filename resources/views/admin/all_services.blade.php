@@ -17,7 +17,7 @@
 					<h4>Service List</h4>
 				</div>
 				<div class="col text-end">
-					<button type="button" class="btn btn-primary">
+					<button type="button" class="btn btn_pink">
 						<i class="fa fa-plus" aria-hidden="true"></i> Add Service
 					</button>
 				</div>

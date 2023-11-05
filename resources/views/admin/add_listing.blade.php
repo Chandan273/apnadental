@@ -162,7 +162,7 @@
 			<!-- /row-->
 		</div>
 		<!-- /box_general-->
-		<p><a href="#0" class="btn_1 medium">Save</a></p>
+		<p><a href="#0" class="btn btn_pink">Save</a></p>
 	  </div>
 	  <!-- /.container-fluid-->
    	</div>

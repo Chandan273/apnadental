@@ -29,7 +29,7 @@
   <!-- Main styles -->
   <link href="{{ asset('public/assets/css/admin.css') }}" rel="stylesheet">
   <!-- Your custom styles -->
-  <link href="{{ asset('public/assets/css/admin.css') }}" rel="stylesheet">
+  <link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
