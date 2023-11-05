@@ -49,7 +49,7 @@
 					@endif
 				</div>
                 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn_pink">Submit</button>
             </form>
 		</div>
 	</div>

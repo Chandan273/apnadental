@@ -17,7 +17,7 @@
                 <div class="col-12 col-sm-auto">
                     <form class="d-flex flex-nowrap gap-2">
                         <input type="text" class="form-control" id="search" placeholder="search">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn_pink">Search</button>
 
                     </form>
                 </div>

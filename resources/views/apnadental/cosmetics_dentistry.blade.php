@@ -1,13 +1,11 @@
 @extends('apnadental.master')
 @section("content")
-<style>
 
-</style>
 <main>
     <div id="breadcrumb">
         <div class="container">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li>cosmetics_dentistry</li>
             </ul>
         </div>

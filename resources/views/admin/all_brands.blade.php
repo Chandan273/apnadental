@@ -33,7 +33,7 @@
                     <h4>Brands List</h4>
                 </div>
                 <div class="col text-end">
-                    <a href="" class="btn btn-primary">
+                    <a href="" class="btn btn_pink">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Brand
                     </a>
                 </div>
@@ -68,6 +68,7 @@
                                     <input type="hidden" name="image_filename" value="{{ $brand->brand_image }}">
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this brand and its image?');">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                        Delete
                                     </button>
                                 </form>
                             </td>

@@ -17,7 +17,7 @@
                     <h4>Doctor List</h4>
                 </div>
                 <div class="col text-end">
-                    <a href="{{ url('/admin/add-category') }}" class="btn btn-primary">
+                    <a href="{{ url('/admin/add-category') }}" class="btn btn_pink">
                         <i class="fa fa-plus" aria-hidden="true"></i> Import CSV
                     </a>
                 </div>

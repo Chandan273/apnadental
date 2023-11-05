@@ -40,7 +40,7 @@
 					@endif
 				</div>
 				<div>
-					<button type="submit" class="btn btn-primary mb-2">Submit</button>
+					<button type="submit" class="btn btn_pink mb-2">Submit</button>
 				</div>
 			</form>
 		</div>

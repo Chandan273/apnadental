@@ -1,8 +1,6 @@
 @extends('apnadental.master')
 @section("content")
-<style>
 
-</style>
 <main>
     <div id="breadcrumb">
         <div class="container">

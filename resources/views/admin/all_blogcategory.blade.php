@@ -33,7 +33,7 @@
                     <h4>Category List</h4>
                 </div>
                 <div class="col text-end">
-                    <a href="{{ url('/admin/add-category') }}" class="btn btn-primary">
+                    <a href="{{ url('/admin/add-category') }}" class="btn btn_pink">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Blog Categories
                     </a>
                 </div>
@@ -55,11 +55,11 @@
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-success">Edit</a>
                                     <form method="POST" action="{{ route('category.destroy', $category->id) }}" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
