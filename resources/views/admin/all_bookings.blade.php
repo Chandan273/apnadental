@@ -75,147 +75,68 @@
 		<div class="box_general p-3">
 			<div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
 				<h4>All Booking</h4>
-				<div>
+				{{-- <div>
 					<select class="form-select" aria-label="Default select example">
 						<option selected>All</option>
 						<option value="approved">Approved</option>
 						<option value="pending">Pending</option>
 						<option value="cancelled">Cancelled</option>
 					</select>
-				</div>
+				</div> --}}
 			</div>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">User ID</th>
-							<th scope="col">doctor_id</th>
-							<th scope="col">selected_date</th>
-							<th scope="col">start_time</th>
-							<th scope="col">end_time</th>
-							<th scope="col">opt_service</th>
-							<th scope="col">notes</th>
-							<th scope="col">Created at</th>
-							<th scope="col">updated_at</th>
+							<th scope="col">Booking ID</th>
+							<th scope="col">Doctor/Clinic Name</th>
+							<th scope="col">Patient Name</th>
+							<th scope="col">Patient Email</th>
+							<th scope="col">Patient Phone Number</th>
+							<th scope="col">Selected Date</th>
+							<th scope="col">Start Date</th>
+							<th scope="col">End Date</th>
+							<th scope="col">Treatment</th>
+							<th scope="col">Notes</th>
 							<th scope="col">Status</th>
 							<th scope="col">Action</th>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($bookings as $booking)
 						<tr>
-							<td>1</td>
-							<td>12</td>
-							<td>23</td>
-							<td>2023-11-03</td>
-							<td>09:00:00</td>
-							<td>10:00:00</td>
-							<td>Root canal (RCT)</td>
-							<td>Lorem ipsum dolor sit amet.</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>2023-11-03 18:36:30</td>
+							<td>{{ $booking->id }}</td>
+							<td>{{ $booking->company_name }}</td>
+							<td>{{ $booking->patient_name }}</td>
+							<td>{{ $booking->patient_email }}</td>
+							<td>{{ $booking->patient_phone_no }}</td>
+							<td>{{ $booking->selected_date }}</td>
+							<td>{{ $booking->start_time }}</td>
+							<td>{{ $booking->end_time }}</td>
+							<td>{{ $booking->opt_service }}</td>
+							<td>{{ $booking->notes }}</td>
 							<td>
-								<select class="form-select form-select-sm w-auto rounded-pill" aria-label="Small select example">
+								<div class="d-flex align-items-center gap-2 flex-nowrap">
+								@if($booking->status == "approve")
+									<button class="btn btn-sm btn-success d-flex align-items-center gap-1 flex-nowrap pe-3"><i class="fa fa-fw fa-check-circle-o"></i>Approve</button>
+								@elseif($booking->status == "pending")
+									<button class="btn btn-sm btn-info d-flex align-items-center gap-1 flex-nowrap pe-3"><i class="fa fa-fw fa-check-circle-o"></i>Pending</button>
+								@else
+									<button class="btn btn-sm btn-danger d-flex align-items-center gap-1 flex-nowrap pe-3"><i class="fa fa-fw fa-times-circle-o"></i>Cancel</button>
+								@endif	
+								</div>
+							</td>
+							<td>
+								<select class="form-select form-select-sm w-auto" aria-label="Small select example">
 									<option selected>Change Status</option>
 									<option value="approved">Approved</option>
 									<option value="pending">Pending</option>
 									<option value="cancelled">Cancelled</option>
 								</select>
 							</td>
-							<td>
-								<div class="d-flex align-items-center gap-2 flex-nowrap">
-									<button class="btn btn-sm btn-success rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-check-circle-o"></i>Approve</button>
-									<button class="btn btn-sm btn-danger rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-times-circle-o"></i>Cancel</button>
-								</div>
-							</td>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>12</td>
-							<td>23</td>
-							<td>2023-11-03</td>
-							<td>09:00:00</td>
-							<td>10:00:00</td>
-							<td>Root canal (RCT)</td>
-							<td>Lorem ipsum dolor sit amet.</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>
-								<select class="form-select form-select-sm w-auto rounded-pill" aria-label="Small select example">
-									<option selected>Change Status</option>
-									<option value="approved">Approved</option>
-									<option value="pending">Pending</option>
-									<option value="cancelled">Cancelled</option>
-								</select>
-							</td>
-							<td>
-								<div class="d-flex align-items-center gap-2 flex-nowrap">
-									<button class="btn btn-sm btn-success rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-check-circle-o"></i>Approve</button>
-									<button class="btn btn-sm btn-danger rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-times-circle-o"></i>Cancel</button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>12</td>
-							<td>23</td>
-							<td>2023-11-03</td>
-							<td>09:00:00</td>
-							<td>10:00:00</td>
-							<td>Root canal (RCT)</td>
-							<td>Lorem ipsum dolor sit amet.</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>
-								<select class="form-select form-select-sm w-auto rounded-pill" aria-label="Small select example">
-									<option selected>Change Status</option>
-									<option value="approved">Approved</option>
-									<option value="pending">Pending</option>
-									<option value="cancelled">Cancelled</option>
-								</select>
-							</td>
-							<td>
-								<div class="d-flex align-items-center gap-2 flex-nowrap">
-									<button class="btn btn-sm btn-success rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-check-circle-o"></i>Approve</button>
-									<button class="btn btn-sm btn-danger rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-times-circle-o"></i>Cancel</button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>12</td>
-							<td>23</td>
-							<td>2023-11-03</td>
-							<td>09:00:00</td>
-							<td>10:00:00</td>
-							<td>Root canal (RCT)</td>
-							<td>Lorem ipsum dolor sit amet.</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>2023-11-03 18:36:30</td>
-							<td>
-								<select class="form-select form-select-sm w-auto rounded-pill" aria-label="Small select example">
-									<option selected>Change Status</option>
-									<option value="approved">Approved</option>
-									<option value="pending">Pending</option>
-									<option value="cancelled">Cancelled</option>
-								</select>
-							</td>
-							<td>
-								<div class="d-flex align-items-center gap-2 flex-nowrap">
-									<button class="btn btn-sm btn-success rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-check-circle-o"></i>Approve</button>
-									<button class="btn btn-sm btn-danger rounded-pill d-flex align-items-center gap-1 flex-nowrap pe-3"><i
-											class="fa fa-fw fa-times-circle-o"></i>Cancel</button>
-								</div>
-							</td>
-						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

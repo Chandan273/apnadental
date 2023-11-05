@@ -17,11 +17,6 @@ function bookNow(bookID, companyName, secondaryCategory, workTimings) {
 }
 
 $(document).ready(function () {
-    // Login Dropdown toggle
-    $(".login-toggle-cls").click(function(){
-        $(".login-menu-cls").toggle();
-    });
-
     // Check if user login
     if(localStorage.getItem("logged") != null){
         if(localStorage.getItem("logged")!=false){
@@ -92,7 +87,12 @@ $(document).ready(function () {
             return;
         }
 
-        if (startTime < doctorWorkStartTime || endTime > doctorWorkEndTime) {
+        if (
+            startTime < doctorWorkStartTime ||
+            endTime > doctorWorkEndTime ||
+            startTime < new Date("2000-01-01T08:00:00") || // Adjust to the actual start time
+            endTime > new Date("2000-01-01T20:00:00") // Adjust to the actual end time
+        ) {
             Swal.fire({
                 icon: 'error',
                 text: `Selected time must be within doctor's working hours ${doctorWorkingHours}.`,
@@ -106,10 +106,10 @@ $(document).ready(function () {
         }
 
         var timeDiff = (endTime - startTime) / (1000 * 60); // Calculate time difference in minutes
-        if (timeDiff < 60) {
+        if (timeDiff < 30) {
             Swal.fire({
                 icon: 'error',
-                text: `Minimum time slot duration is 1 hour.`,
+                text: `Minimum time slot duration is 30 minutes.`,
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
@@ -137,13 +137,17 @@ $(document).ready(function () {
         $(".time-slot-cls").show();
     });
 
+    // Radio button change event handler
     $('input[type=radio][name=bookingStatus]').change(function() {
         if (this.value == 'somelse') {
             $('#configform')[0].reset();
+            $("#flexCheckChecked").prop('checked', false); // Uncheck the checkbox for "Someone Else"
         } else if (this.value == 'myself') {
+            alert("kaskskdlkdsal");
             $("#fname").val(localStorage.getItem("user_name"));
             $("#email").val(localStorage.getItem("user_email"));
             $("#phone").val(localStorage.getItem("user_phone_no"));
+            $("#flexCheckChecked").prop('checked', true); // Check the checkbox for "Myself"
         }
     });
 });

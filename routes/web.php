@@ -43,7 +43,6 @@ Route::prefix('admin')->group(function () {
     Route::view('/add-doctor', 'admin/add_doctor');
     Route::view('/all-doctors', 'admin/all_doctors');
     Route::view('/doctor-detail', 'admin/doctor_detail');
-    Route::view('/bookings', 'admin/all_bookings');
     Route::view('/bookmarks', 'admin/bookmarks');
     Route::view('/charts', 'admin/charts');
     Route::view('/doctor-profile', 'admin/doctor_profile');
@@ -88,6 +87,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/all-imports', [CSVController::class, 'index'])->name('import.index');
     Route::post('/import', [CSVController::class, 'store'])->name('import.store');
 
+    Route::get('/all-bookings', [BookingController::class, 'index']);
 });
 
 Route::get('/', [SearchController::class, 'index']);

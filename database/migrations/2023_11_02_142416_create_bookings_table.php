@@ -24,6 +24,7 @@ return new class extends Migration
             $table->time('end_time');
             $table->string('opt_service');
             $table->text('notes')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
