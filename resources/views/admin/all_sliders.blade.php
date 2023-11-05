@@ -33,7 +33,7 @@
                     <h4>sliders List</h4>
                 </div>
                 <div class="col text-end">
-                    <a href="{{ route('slider.create') }}" class="btn btn-primary">
+                    <a href="{{ route('slider.create') }}" class="btn btn_pink">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Sliders
                     </a>
                 </div>
@@ -61,17 +61,19 @@
                             </td>
                             <td>{{ $slider->created_at->format('Y-m-d H:i:s') }}</td>
                             <td>
-                                <a href="{{ route('sliders.edit', $slider->id) }}" class="btn btn-success btn-sm">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
-                                </a>                            
-                                <form action="{{ route('sliders.destroy', $slider->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="hidden" name="image_filename" value="{{ $slider->slider_image }}">
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this slider and its image?');">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex align-items-center gap-1 flex-nowrap">
+                                    <a href="{{ route('sliders.edit', $slider->id) }}" class="btn btn-success btn-sm d-flex align-items-center gap-1 flex-nowrap">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit
+                                    </a>                            
+                                    <form action="{{ route('sliders.destroy', $slider->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="image_filename" value="{{ $slider->slider_image }}">
+                                        <button type="submit" class="btn btn-danger btn-sm d-flex align-items-center gap-1 flex-nowrap" onclick="return confirm('Are you sure you want to delete this slider and its image?');">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>Delete
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

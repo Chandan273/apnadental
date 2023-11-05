@@ -7,16 +7,16 @@
             <div class="row g-2 justify-content-between">
                 <div class="col-12 col-sm-auto action-buttons">
                     <div class="d-flex gap-2">
-                        <button class="btn btn-outline-primary">About</button>
-                        <button class="btn btn-outline-primary">Health feed</button>
-                        <button class="btn btn-outline-primary">Find Doctor</button>
+                        <button class="btn btn_outline_pink">About</button>
+                        <button class="btn btn_outline_pink">Health feed</button>
+                        <button class="btn btn_outline_pink">Find Doctor</button>
                     </div>
 
                 </div>
                 <div class="col-12 col-sm-auto">
                     <form class="d-flex flex-nowrap gap-2">
                         <input type="text" class="form-control" id="search" placeholder="search">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn_pink">Search</button>
 
                     </form>
                 </div>

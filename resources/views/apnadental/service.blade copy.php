@@ -1,30 +1,6 @@
 @extends('apnadental.master')
 @section("content")
-<style>
-    :root {
-    --primary: #74d1c6;
-    --secondary: #3f4079;
-    --pink: #e74e84;
-    }
-    .txt-primary{
-        color:var(--primary);
-    }
-    .txt-secondary{
-        color:var(--secondary);
-    }
-    .content-section .image-wrraper{
-        max-width:250px;
-        max-height:250px;
-        border: 5px solid #ddd;
-        overflow:hidden;
-    }
-    .content-section .image-wrraper img{
-        width:100%;
-    }
-    .nav-tabs .nav-link.txt-secondary.active{
-        color: var(--primary);
-    }
-</style>
+
 <main>
 	<div id="breadcrumb">
 		<div class="container">

@@ -70,7 +70,8 @@
                             Add New Profile
                         </button>
 
-                        <!-- Modal -->
+                        <!-- The model will run with the 'Add New Profile' button -->
+
                         <!-- <div class="modal fade" id="addNewFamily" tabindex="-1" aria-labelledby="addNewFamilyLabel"
                             aria-hidden="true"> -->
                         <div class="modal-dialog modal-dialog-scrollable shadow add-member-modal">
@@ -184,20 +185,23 @@
                                     </h6>
                                     <p>Book your slot with the doctor for a follow up consultation </p>
                                     <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
-                                        <button class="btn btn_outline_2">View Details</button>
+                                        <button class="btn btn_outline_2" data-bs-toggle="modal"
+                                            data-bs-target="#consultation-details">View Details</button>
                                         <button class="btn btn_2">Book Follow up</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- The model will run with the 'View Details' button -->
 
-                        <!-- <div class="modal fade" id="consultation-details" tabindex="-1" aria-labelledby="consultation-detailsLabel"
-                            aria-hidden="true"> -->
+                        <!-- <div class="modal fade" id="consultation-details" tabindex="-1"
+                            aria-labelledby="consultation-detailsLabel" aria-hidden="true"> -->
                         <div class="modal-dialog modal-dialog-scrollable shadow add-member-modal">
                             <div class="modal-content">
                                 <div class="modal-header p-3 border-bottom">
-                                    <h1 class="modal-title fs-5 txt-primary" id="consultation-detailsLabel">Consultation
+                                    <h1 class="modal-title fs-5 txt-primary" id="consultation-detailsLabel">
+                                        Consultation
                                         Details</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
@@ -213,7 +217,8 @@
 
                                             </div>
                                             <div>
-                                                <h6>Patient Name: <span class="txt-secondary">Deepak Kumar</span></h6>
+                                                <h6>Patient Name: <span class="txt-secondary">Deepak Kumar</span>
+                                                </h6>
                                                 <p class="card-text">22 feb 2023, 10:48PM</p>
                                             </div>
                                         </div>
@@ -238,7 +243,6 @@
                                                     Discount Applied
                                                     <span>-0</span>
                                                 </li>
-
 
                                                 <li
                                                     class="list-group-item d-flex justify-content-between align-items-center">
@@ -312,10 +316,7 @@
                                                 </button>
                                             </div>
                                         </div>
-
-
                                     </div>
-
                                 </div>
                                 <div class="modal-footer p-3 gap-2 border-top">
                                     <button type="button" class="btn btn_outline_2" data-bs-dismiss="modal">Book
@@ -325,9 +326,6 @@
                             </div>
                         </div>
                         <!-- </div> -->
-
-
-
                     </div>
 
                     <!-- Refer & Earn tab content  -->
@@ -338,7 +336,6 @@
                             <h4 class="txt-primary mb-3 h5">Refer & Earn</h4>
                             <div class="card text-bg-light mb-3">
                                 <div class="card-body pt-0 pb-2">
-
                                     <div class="row align-items-center bg-verticle-gradient py-3">
                                         <div class="col-12 col-sm-8">
                                             <div class="text-center">
@@ -349,14 +346,12 @@
                                                 <p class="h5">Spread the positivity to your friends and
                                                     family</p>
                                             </div>
-
                                         </div>
                                         <div class="col-12 col-sm-4">
                                             <img class="w-100" src="{{ asset('public/assets/img/money.svg') }}"
                                                 alt="refer image">
                                         </div>
                                     </div>
-
 
                                     <div class="row py-3">
                                         <div class="col-12">
@@ -372,7 +367,6 @@
                                             </div>
                                         </div>
                                     </div>
-
 
                                     <div class="row mt-3">
                                         <div class="col-12">
@@ -398,35 +392,11 @@
                                                     <h5 class="mb-0">A wide range of Products, Doctors & Lab Tests</h5>
                                                 </li>
                                             </ul>
-
-
-
                                         </div>
                                     </div>
-
-
-
-
-
-
-
                                 </div>
-
-                                <!-- <div class="card-footer py-3 bg-light">
-                                    <a href="">Terms & condition</a>
-                                    <a href="">Faqs</a>
-                                   
-                                </div> -->
                             </div>
                         </div>
-
-
-
-
-
-
-
-
                     </div>
 
 

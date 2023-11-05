@@ -33,7 +33,7 @@
                     <h4>Blogs List</h4>
                 </div>
                 <div class="col text-end">
-                    <a href="{{ route('blog.create') }}" class="btn btn-primary">
+                    <a href="{{ route('blog.create') }}" class="btn btn_pink">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Blogs
                     </a>
                 </div>
@@ -63,17 +63,19 @@
                             </td>
                             <td>{{ $blog->created_at->format('Y-m-d H:i:s') }}</td>
                             <td>
-                                <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-success btn-sm">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
-                                </a>                            
-                                <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="hidden" name="image_filename" value="{{ $blog->blog_image }}">
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this blog and its image?');">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex align-items-center gap-2 flex-nowrap">
+                                    <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-success btn-sm d-flex align-items-center gap-1 flex-nowrap">
+                                        <i class="fa fa-pencil-square-o lh-0" aria-hidden="true"></i> Edit
+                                    </a>                            
+                                    <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="image_filename" value="{{ $blog->blog_image }}">
+                                        <button type="submit" class="btn btn-danger btn-sm d-flex align-items-center gap-1 flex-nowrap" onclick="return confirm('Are you sure you want to delete this blog and its image?');">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>Delete
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

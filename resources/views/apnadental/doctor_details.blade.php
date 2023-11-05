@@ -5,8 +5,8 @@
 		<div class="container">
 			<ul>
 				<li><a href="#">Home</a></li>
-				<li><a href="#">Category</a></li>
-				<li>Page active</li>
+				<li><a href="#">Doctors</a></li>
+				<li>Doctor-details</li>
 			</ul>
 		</div>
 	</div>

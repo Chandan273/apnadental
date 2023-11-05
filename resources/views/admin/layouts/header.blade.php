@@ -276,7 +276,7 @@
           <form class="form-inline my-2 my-lg-0 me-lg-2">
             <div class="input-group">
               <input class="form-control p-2" type="text" placeholder="Search for...">           
-              <button class="btn btn-primary" type="button">
+              <button class="btn btn_pink" type="button">
                 <i class="fa fa-search"></i>
               </button>
             </div>

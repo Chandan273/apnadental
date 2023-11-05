@@ -1,26 +1,12 @@
 @extends('apnadental.master')
 @section("content")
-<style>
-	/* :root {
-		--primary: #74d1c6;
-		--secondary: #3f4079;
-		--pink: #e74e84;
-    } */
-    #breadcrumb {
-        background-color: #efefef;
-        color: #000;
-    }
-    #breadcrumb ul li a {
-        color: var(--pink);
-    }
-</style>
+
 <main>
 	<div id="breadcrumb">
 		<div class="container">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Category</a></li>
-				<li>Page active</li>
+				<li><a href="/">Home</a></li>
+				<li>About-us</li>
 			</ul>
 		</div>
 	</div>
