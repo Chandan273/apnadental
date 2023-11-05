@@ -906,9 +906,9 @@
                                 </div>
                             </div>                           
                         </div>
-                        <div class="d-flex justify-content-between mt-4 flex-wrap position-absolute start-0 bottom-0 px-3 w-100 py-3">
+                        <div class="d-flex align-items-center justify-content-between mt-4 flex-wrap position-absolute start-0 bottom-0 px-3 w-100 py-3">
                                 <form>
-                                    <div class="form-check align-items-center">
+                                    <div class="form-check align-items-center mb-0">
                                         <input type="checkbox" class="form-check-input" id="12">
                                         <label class="form-check-label" for="compareDoctor12">Compare Doctor</label>
                                     </div>
