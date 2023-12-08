@@ -36,9 +36,14 @@ Route::prefix('admin')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('post-login', [AuthController::class,'postLogin'])->name('login.post');
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
-    Route::view('/add-service', 'admin/add_service');
-    Route::view('/all-services', 'admin/all_services');
+
+    Route::view('/add-service', 'admin/add_service')->name('services.add');
+    Route::get('/all-services', [ServiceController::class, 'index'])->name('services.index');
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
+    Route::get('/service/{id}/edit', [ServiceController::class, 'edit'])->name('services.edit');
+    Route::delete('/service/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+    Route::put('/service/{id}', [ServiceController::class, 'update'])->name('services.update');
+
     Route::view('/add-listing', 'admin/add_listing');
     Route::view('/add-doctor', 'admin/add_doctor');
     Route::view('/all-doctors', 'admin/all_doctors');
