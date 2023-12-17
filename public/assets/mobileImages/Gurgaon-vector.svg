@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="74" viewBox="0 0 74 74">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.021" x2="0.5" y2="0.985" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ace8ff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <circle id="Oval" cx="36" cy="36" r="36" stroke="#69d6ff" stroke-miterlimit="10" stroke-width="1" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Gurgaon-vector" transform="translate(1 1)">
+    <g id="Oval-2" data-name="Oval" stroke="#69d6ff" stroke-miterlimit="10" stroke-width="1" fill="url(#linear-gradient)">
+      <circle cx="36" cy="36" r="36" stroke="none"/>
+      <circle cx="36" cy="36" r="36.5" fill="none"/>
+    </g>
+    <g id="Group_9" data-name="Group 9" clip-path="url(#clip-path)">
+      <g id="Group_10" data-name="Group 10" transform="translate(15.018 9)" opacity="0.5">
+        <path id="Shape" d="M1.86,2.762A2.667,2.667,0,0,1,4.373,0,2.363,2.363,0,0,1,6.031.7a2.887,2.887,0,0,1,.8,1.527h.024A2.263,2.263,0,0,1,8.982,4.6,2.263,2.263,0,0,1,6.854,6.97H1.888A2.007,2.007,0,0,1,0,4.866,2.011,2.011,0,0,1,1.86,2.762Z" fill="#fff"/>
+        <path id="Shape-2" data-name="Shape" d="M7.714,0a2.6,2.6,0,0,1,2.571,2.593c-.007.053-.012.106-.013.161l-.022.643.6.212A1.749,1.749,0,0,1,10.286,7H1.714a1.751,1.751,0,0,1-.027-3.5c.04.006.082.011.124.014l.651.044.214-.628A1.714,1.714,0,0,1,4.286,1.75a1.689,1.689,0,0,1,.3.032l.6.11.3-.543A2.563,2.563,0,0,1,7.714,0Z" transform="translate(34.982 8)" fill="#fff"/>
+      </g>
+      <g id="icon_gurgaon" transform="translate(3.6 12.6)">
+        <g id="Group" transform="translate(0 12.998)">
+          <g id="Clipped" transform="translate(0 34.66)">
+            <path id="Path" d="M0,0H59.76V2.7H0Z" fill="#fff" stroke="#14bfff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="0.972"/>
+          </g>
+          <g id="Clipped-2" data-name="Clipped" transform="translate(0.999 36.755)">
+            <path id="Path-2" data-name="Path" d="M0,0H59.718V11.483H0Z" fill="#1c208f"/>
+          </g>
+          <path id="Shape-3" data-name="Shape" d="M0,34.661V5.883l14.4.031V34.661ZM4.609,3.1h0ZM7.9,0h0Z" transform="translate(32.4)" fill="#fff" stroke="#14bfff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="0.972"/>
+          <path id="Combined_Shape" data-name="Combined Shape" d="M1.921,21.133a.72.72,0,1,1,.72.722A.721.721,0,0,1,1.921,21.133ZM0,19.858a.72.72,0,1,1,.72.722A.721.721,0,0,1,0,19.858Zm1.921-1.276a.72.72,0,1,1,.72.723A.721.721,0,0,1,1.921,18.581ZM0,17.306a.72.72,0,1,1,.72.723A.721.721,0,0,1,0,17.306Zm1.921-1.913a.72.72,0,1,1,.72.722A.721.721,0,0,1,1.921,15.393ZM0,14.116a.72.72,0,1,1,.72.723A.721.721,0,0,1,0,14.116Zm1.921-1.275a.72.72,0,1,1,.72.722A.722.722,0,0,1,1.921,12.841ZM0,10.928a.72.72,0,1,1,.72.722A.721.721,0,0,1,0,10.928ZM1.921,9.652a.72.72,0,1,1,.72.722A.721.721,0,0,1,1.921,9.652ZM0,8.376A.72.72,0,1,1,.72,9.1.721.721,0,0,1,0,8.376ZM1.921,6.463a.72.72,0,1,1,.72.722A.722.722,0,0,1,1.921,6.463ZM0,5.187a.72.72,0,1,1,.72.722A.721.721,0,0,1,0,5.187ZM1.921,3.911a.72.72,0,1,1,.72.723A.721.721,0,0,1,1.921,3.911ZM0,2a.72.72,0,1,1,.72.723A.721.721,0,0,1,0,2ZM1.921.722a.72.72,0,1,1,.72.723A.721.721,0,0,1,1.921.722Z" transform="translate(38.397 8.522)" fill="#1c208f"/>
+          <ellipse id="Oval-3" data-name="Oval" cx="4.006" cy="3.993" rx="4.006" ry="3.993" transform="translate(43.04 16.981)" fill="#fff" stroke="#14bfff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="0.972"/>
+          <path id="Path-3" data-name="Path" d="M.36,8.832V0" transform="translate(46.44 25.106)" fill="#fff" stroke="#14bfff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="0.972"/>
+        </g>
+        <g id="Group-2" data-name="Group" transform="translate(18.72)">
+          <path id="Path-4" data-name="Path" d="M13.99,0A21.193,21.193,0,0,0,0,19.907V47.686H13.99Z" fill="#fff" stroke="#14bfff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="0.972"/>
+          <path id="Shape-4" data-name="Shape" d="M0,35.114V29.978H3.1v5.135Zm0-8.292V21.686H3.1v5.135Zm0-8.293V13.395H3.1v5.134Zm0-7.654V5.74H3.1v5.135ZM.64,2.552A10.925,10.925,0,0,1,2.785,0V2.552Z" transform="translate(5.76 8.93)" fill="#fff" stroke="#14bfff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="0.972"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

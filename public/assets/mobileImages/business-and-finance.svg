@@ -1,0 +1,13 @@
+<svg id="business-and-finance" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <path id="Path" d="M26.833,0H1.167A1.166,1.166,0,0,0,0,1.167V15.12a3.5,3.5,0,0,0,3.5,3.5h21a3.5,3.5,0,0,0,3.5-3.5V1.167A1.166,1.166,0,0,0,26.833,0Z" transform="translate(0 9.38)" fill="#63d4ff"/>
+  <path id="Path-2" data-name="Path" d="M24.5,0H3.5A3.5,3.5,0,0,0,0,3.5V7.047H28V3.5A3.5,3.5,0,0,0,24.5,0Z" transform="translate(0 3.5)" fill="#2d31b2"/>
+  <path id="Path-3" data-name="Path" d="M14,0H0V13.953a3.5,3.5,0,0,0,3.5,3.5H14Z" transform="translate(0 10.547)" fill="#36c8ff"/>
+  <path id="check_-_anticon" data-name="check - anticon" d="M2.989,7.467a.129.129,0,0,1-.056-.011A.412.412,0,0,1,2.6,7.242L.06,4.264a.435.435,0,0,1-.045-.332.393.393,0,0,1,.207-.257.452.452,0,0,1,.341-.037.473.473,0,0,1,.279.2l2.248,2.5L9.507.129A.414.414,0,0,1,9.82,0a.442.442,0,0,1,.318.123.406.406,0,0,1,.128.305.382.382,0,0,1-.134.3L3.324,7.317,3.3,7.338A.414.414,0,0,1,2.989,7.467Z" transform="translate(9.333 14.933)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="1.867"/>
+  <path id="Path-4" data-name="Path" d="M14,0H3.5A3.5,3.5,0,0,0,0,3.5V7.047H14Z" transform="translate(0 3.5)" fill="#202890"/>
+  <g id="Group" transform="translate(4.667)">
+    <path id="Path-5" data-name="Path" d="M2.333,0H1.167A1.167,1.167,0,0,0,0,1.167V5.833A1.167,1.167,0,0,0,1.167,7H2.333A1.167,1.167,0,0,0,3.5,5.833V1.167A1.167,1.167,0,0,0,2.333,0Z" fill="#63d4ff"/>
+    <path id="Path-6" data-name="Path" d="M2.333,0H1.167A1.167,1.167,0,0,0,0,1.167V5.833A1.167,1.167,0,0,0,1.167,7H2.333A1.167,1.167,0,0,0,3.5,5.833V1.167A1.167,1.167,0,0,0,2.333,0Z" transform="translate(15.167)" fill="#63d4ff"/>
+  </g>
+  <path id="Path-7" data-name="Path" d="M1.75,0H1.167A1.166,1.166,0,0,0,0,1.167V5.833A1.166,1.166,0,0,0,1.167,7H1.75Z" transform="translate(4.667)" fill="#36c8ff"/>
+  <path id="Path-8" data-name="Path" d="M1.75,0H1.167A1.166,1.166,0,0,0,0,1.167V5.833A1.166,1.166,0,0,0,1.167,7H1.75Z" transform="translate(19.833)" fill="#36c8ff"/>
+</svg>

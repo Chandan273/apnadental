@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.386" height="28.458" viewBox="0 0 19.386 28.458">
+  <g id="doctor" transform="translate(-0.005)">
+    <path id="Path" d="M0,4.234A5.872,5.872,0,0,0,5.865,10.1V2.569A4.5,4.5,0,0,1,1.8,0,5.838,5.838,0,0,0,0,4.234Z" transform="translate(3.833 6.419)" fill="#2d31b2"/>
+    <path id="Path-2" data-name="Path" d="M0,2.569V10.1A5.872,5.872,0,0,0,5.865,4.234,5.838,5.838,0,0,0,4.06,0,4.5,4.5,0,0,1,0,2.569Z" transform="translate(9.698 6.419)" fill="#1c208f"/>
+    <path id="Path-3" data-name="Path" d="M9.592,1.272A9.677,9.677,0,0,0,0,1.272l4.8,4.8Z" transform="translate(4.902 17.619)" fill="#14bfff"/>
+    <path id="Path-4" data-name="Path" d="M4.9,0A9.7,9.7,0,0,0,0,8.421V9.568H9.693V4.8Z" transform="translate(0.005 18.891)" fill="#36c8ff"/>
+    <path id="Path-5" data-name="Path" d="M4.8,0,0,4.8V9.568H9.693V8.421A9.7,9.7,0,0,0,4.8,0Z" transform="translate(9.698 18.891)" fill="#63d4ff"/>
+    <path id="Path-6" data-name="Path" d="M4.494,8.989a4.5,4.5,0,1,0-4.06-2.57A4.5,4.5,0,0,0,4.494,8.989Z" transform="translate(5.204)" fill="#63d4ff"/>
+  </g>
+</svg>
