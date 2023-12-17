@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Models\DentalService;
+use App\Http\Controllers\Controller;
 
 class DentalController extends Controller
 {
@@ -152,7 +153,10 @@ class DentalController extends Controller
      */
     public function createPage()
     {
-        return view('admin.add_dental_service_page');
+        $doctors = Doctor::where('type', 'Doctor')->get();
+        $clinics = Doctor::where('type', 'Clinics')->get();
+
+        return view('admin.add_dental_service_page', compact('doctors','clinics'));
     }
 
     /**

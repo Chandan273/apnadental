@@ -64,6 +64,32 @@
 						<span class="text-danger">{{ $errors->first('description_two') }}</span>
 					@endif
 				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_one">Doctor Heading</label>
+                    <input type="text" class="form-control" id="heading_one" name="heading_one" value="{{ old('heading_one') }}">
+					@if ($errors->has('heading_one'))
+						<span class="text-danger">{{ $errors->first('heading_one') }}</span>
+					@endif
+                </div>
+
+				<div class="form-group">
+					<label><strong>Select Doctors :</strong></label><br/>
+					<select class="selectpicker" multiple data-live-search="true" name="doctors[]">
+						@foreach($doctors as $doctor)
+						<option value="{{ $doctor->id }}">{{ $doctor->company_name }}</option>
+						@endforeach
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label><strong>Select Clinics :</strong></label><br/>
+					<select class="selectpicker" multiple data-live-search="true" name="clinics[]">
+						@foreach($clinics as $clinic)
+						<option value="{{ $clinic->id }}">{{ $clinic->company_name }}</option>
+						@endforeach
+					</select>
+				</div>
                 
                 <button type="submit" class="btn btn_pink">Submit</button>
             </form>
