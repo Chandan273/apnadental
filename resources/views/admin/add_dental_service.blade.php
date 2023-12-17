@@ -8,11 +8,11 @@
 			<li class="breadcrumb-item">
 				<a href="{{ url('/dashboard') }}">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Add Dental</li>
+			<li class="breadcrumb-item active">Add Dental Service</li>
 		</ol>
 
 		<div class="box_general p-3">
-			<h4 class="mb-3">Add Dental</h4>
+			<h4 class="mb-3">Add Dental Service</h4>
 
 			<div>
 				@if (session('success'))
@@ -26,18 +26,18 @@
                 @csrf
 
                 <div class="form-group mb-3">
-                    <label class="form-label" for="title">Dental Title</label>
-                    <input type="text" class="form-control" id="title" name="title" required>
-					@if ($errors->has('title'))
-						<span class="text-danger">{{ $errors->first('title') }}</span>
+                    <label class="form-label" for="service_name">Dental Service Name</label>
+                    <input type="text" class="form-control" id="service_name" name="service_name" value="{{ old('service_name') }}">
+					@if ($errors->has('service_name'))
+						<span class="text-danger">{{ $errors->first('service_name') }}</span>
 					@endif
                 </div>
 
                 <div class="form-group mb-3">
-                    <label class="form-label" for="dental_image">Dental Image</label>
-                    <input type="file" class="form-control form-control-file" id="dental_image" name="dental_image" accept="image/*" required>
-					@if ($errors->has('dental_image'))
-						<span class="text-danger">{{ $errors->first('dental_image') }}</span>
+                    <label class="form-label" for="image">Dental Service Image</label>
+                    <input type="file" class="form-control form-control-file" id="image" name="image" accept="image/*">
+					@if ($errors->has('image'))
+						<span class="text-danger">{{ $errors->first('image') }}</span>
 					@endif
                 </div>
 
