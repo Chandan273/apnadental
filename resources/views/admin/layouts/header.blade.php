@@ -91,7 +91,7 @@
               <a href="{{ url('/admin/add-dental-service-page') }}">Add Dental Service Page</a>
             </li>
             <li>
-              <a href="{{ url('/admin/all-dental-services-page') }}">All Dental Services Pages</a>
+              <a href="{{ url('/admin/all-dental-services-pages') }}">All Dental Services Pages</a>
             </li>
           </ul>
         </li>

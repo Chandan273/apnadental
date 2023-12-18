@@ -53,4 +53,10 @@
             console.error(error);
         });
     });
+
+    $(document).ready(function(){
+      $(".toggle-faq-cls").click(function(){
+        $(".show_faq").toggle();
+      });
+    });
   </script>
