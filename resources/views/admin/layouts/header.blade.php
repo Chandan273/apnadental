@@ -78,7 +78,7 @@
         <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Slider">
           <a class="nav-link nav-link-collapse collapsed" data-bs-toggle="collapse" href="#collapseDentalSlider" data-parent="#exampleAccordion">
             <i class="fa fa-plus-square" aria-hidden="true"></i>
-            <span class="nav-link-text">Dental Service</span>
+            <span class="nav-link-text">Dental Service Page</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseDentalSlider">
             <li>
@@ -86,6 +86,12 @@
             </li>
             <li>
               <a href="{{ url('/admin/all-dental-services') }}">All Dental Services</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/add-dental-service-page') }}">Add Dental Service Page</a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/all-dental-services-page') }}">All Dental Services Pages</a>
             </li>
           </ul>
         </li>

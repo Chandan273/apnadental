@@ -82,11 +82,19 @@ Route::prefix('admin')->group(function () {
     Route::delete('/sliders/{id}', [SliderController::class, 'destroy'])->name('sliders.destroy');
 
     Route::get('/add-dental-service',[DentalController::class, 'create'])->name('dental.create');
-    Route::post('/dentals', [DentalController::class, 'store'])->name('dental.store');
+    Route::post('/dental', [DentalController::class, 'store'])->name('dental.store');
     Route::get('/all-dental-services',[DentalController::class, 'index'])->name('dentals.index');
-    Route::get('/dentals/{id}/edit', [DentalController::class, 'edit'])->name('dentals.edit');
-    Route::put('/dentals/{id}', [DentalController::class, 'update'])->name('dentals.update');
-    Route::delete('/dentals/{id}', [DentalController::class, 'destroy'])->name('dentals.destroy');
+    Route::get('/dental/{id}/edit', [DentalController::class, 'edit'])->name('dentals.edit');
+    Route::put('/dental/{id}', [DentalController::class, 'update'])->name('dentals.update');
+    Route::delete('/dental/{id}', [DentalController::class, 'destroy'])->name('dentals.destroy');
+
+    Route::get('/add-dental-service-page',[DentalController::class, 'createPage'])->name('dentalPage.create');
+    Route::post('/dental-page', [DentalController::class, 'storePage'])->name('dentalPage.store');
+    Route::get('/all-dental-services-pages',[DentalController::class, 'indexPage'])->name('dentalsPage.index');
+    Route::get('/dental-page/{id}/edit', [DentalController::class, 'editPage'])->name('dentalsPage.edit');
+    Route::put('/dental-page/{id}', [DentalController::class, 'updatePage'])->name('dentalsPage.update');
+    Route::delete('/dental-page/{id}', [DentalController::class, 'destroyPage'])->name('dentalsPage.destroy');
+
 
     Route::get('/import-csv', [CSVController::class, 'create'])->name('import.create');
     Route::get('/all-imports', [CSVController::class, 'index'])->name('import.index');

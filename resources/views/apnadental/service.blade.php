@@ -1,7 +1,5 @@
 @extends('apnadental.master')
 @section("content")
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
 <main>
     <div class="bg-white action-filter py-3">
         <div class="container">
@@ -569,7 +567,7 @@
                                             eventually erode, thus leading to bacterial infection.</li>
                                     </ul>
 
-                                    <div class="row mt-3">
+                                    <!-- <div class="row mt-3">
                                         <div class="col-12 col-lg-6 col-xl-4">
                                             <div class="box_list home">
 
@@ -696,7 +694,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -772,7 +770,7 @@
 
                 <!-- docotor section start -->
 
-                <section class="bg-white py-5">
+                <!-- <section class="bg-white py-5">
                     <div class="container">
                         <h1 class="text-uppercase text-center mb-4">Doctors</h1>
                         <div class="row">
@@ -918,10 +916,10 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
 
                 <!-- Clinics section start  -->
-                <section class="py-5">
+                <!-- <section class="py-5">
                     <div class="container">
                         <h2 class="text-uppercase text-center mb-4">Clinics</h2>
                         <div class="row gy-3">
@@ -1109,10 +1107,10 @@
 
                         </div>
                     </div>
-                </section>
+                </section> -->
 
                 <!-- Blog section start  -->
-                <section class="py-5 blogs-section">
+                <!-- <section class="py-5 blogs-section">
                     <h2 class="text-uppercase text-center mb-2 mb-sm-5">latest blogs</h2>
                     <div class="container-fluid container-lg">
                         <div class="row g-1">
@@ -1175,7 +1173,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
             </div>
 
             <div class="col-12 col-lg-3">
