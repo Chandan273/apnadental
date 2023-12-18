@@ -10,11 +10,11 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-2 bg-primary py-3">
+    <!-- <div class="container-fluid mt-2 bg-primary py-3">
         <div class="search-bar input-group bg-white border rounded-3">
             <span class="input-group-text border-0 bg-transparent"><i class="bi bi-search"></i></span>
             <input type="text" class="form-control border-0 ps-1 py-2"
                 placeholder="Search Doctors, Medicines, Hospitals" aria-label="ddf">
         </div>
-    </div>
+    </div> -->
 </header>

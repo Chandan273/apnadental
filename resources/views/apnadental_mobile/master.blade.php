@@ -50,7 +50,7 @@
 	<!-- End Preload -->
 	<div class="vh-100 d-flex flex-column justify-content-between">
 		@include('apnadental_mobile.layouts.header')
-		<div class="overflow-y-auto">
+		<div class="overflow-y-auto position-relative">
 			@yield('content')
 		</div>
 		@include('apnadental_mobile.layouts.footer')
