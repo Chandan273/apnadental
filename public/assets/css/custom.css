@@ -565,6 +565,14 @@ footer .input-group .btn {
   .add-member .member-img-wraper {
     width: 100%;
   }
+
+.home-page-mobile-hidden{
+  display: none;
+}
+
+
+
+
 }
 
 @media screen and (min-width: 576px) {}

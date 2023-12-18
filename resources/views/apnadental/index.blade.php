@@ -2,6 +2,7 @@
 @section("content")
 
 <main>
+    <div class="home-page-mobile-hidden">
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -647,7 +648,7 @@
         </div>
     </section>
 
-    <div class="bg_color_1">
+    <section class="most-viewed-doctors bg_color_1">
         <div class="container py-5">
             <div class="main_title">
                 <h2>Most Viewed doctors</h2>
@@ -727,9 +728,9 @@
             <p class="text-center add_top_30"><a href="#" class="btn_1 medium">View all Doctors</a></p>
         </div>
         <!-- /container -->
-    </div>
+    </section>
 
-    <div class="bg_color_1">
+    <section class="most-viewed-clinics bg_color_1">
         <div class="container py-5">
             <div class="main_title">
                 <h2>Most Viewed Clinics</h2>
@@ -811,7 +812,7 @@
             <p class="text-center add_top_30"><a href="#" class="btn_1 medium">View all Clinics</a></p>
         </div>
         <!-- /container -->
-    </div>
+    </section>
 
     <!-- Blog section start  -->
     <section class="py-5 blogs-section">
@@ -888,6 +889,11 @@
             </div>
         </div>
     </div>
+                                    </div>
+
+
+
+
     <!-- Faq start -->
     <section class="faqs pb-5">
 

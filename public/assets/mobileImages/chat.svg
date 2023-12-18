@@ -1,0 +1,9 @@
+<svg id="chat" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rectangle" width="24" height="24" fill="none"/>
+  <path id="Combined_Shape" data-name="Combined Shape" d="M3.5,16.388A4.5,4.5,0,0,1,0,12V4.5A4.5,4.5,0,0,1,4.5,0h10A4.5,4.5,0,0,1,19,4.5V12a4.5,4.5,0,0,1-4.5,4.5H6.446a9.25,9.25,0,0,0-1.248.729A13.141,13.141,0,0,0,3.5,19Z" transform="translate(3 3)" fill="#1d252d"/>
+  <g id="Group" transform="translate(6 10)">
+    <circle id="Oval" cx="1.5" cy="1.5" r="1.5" fill="#fff"/>
+    <circle id="Oval_Copy" data-name="Oval Copy" cx="1.5" cy="1.5" r="1.5" transform="translate(5)" fill="#fff"/>
+    <circle id="Oval_Copy_2" data-name="Oval Copy 2" cx="1.5" cy="1.5" r="1.5" transform="translate(10)" fill="#fff"/>
+  </g>
+</svg>

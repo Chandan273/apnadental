@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; // Add this import
-use App\Models\Service;
-use App\Models\Location;
+use App\Models\Blog;
+use App\Models\Brand;
 use App\Models\Doctor;
 use App\Models\Slider;
-use App\Models\Brand;
-use App\Models\Blog;
+use App\Models\Service;
+use App\Models\Location;
+use Jenssegers\Agent\Agent;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
     public function index()
     {
+        $agent = new Agent();
+
         //$services = Service::all();
         $sliders = Slider::all();
         $brands = Brand::all();
@@ -23,7 +26,11 @@ class SearchController extends Controller
         $blogs = Blog::with('category')->get();
         $services = Service::with('doctors')->get();
 
-        return view('apnadental.index', compact('brands', 'services', 'doctors', 'clinics', 'sliders', 'blogs'));
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.index');
+        } else {
+            return view('apnadental.index', compact('brands', 'services', 'doctors', 'clinics', 'sliders', 'blogs'));
+        }
     }
 
     public function autocomplete(Request $request)
