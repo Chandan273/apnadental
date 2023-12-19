@@ -32,6 +32,8 @@
 	<link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
 	<div class="layer"></div>
@@ -370,6 +372,8 @@
 					}
 				});
 			});
+			$(".page-cls").first().addClass("active");
+			$(".dental-nav-cls").first().addClass("active");
 		});
 	</script>
 

@@ -135,9 +135,7 @@
         </form>
     </div> --}}
     <!-- /hero_map -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+    
     <!-- Brand Logo section start -->
     <section class="brand py-5">
         <h2 class="text-uppercase text-center">Our Brand Partner</h2>

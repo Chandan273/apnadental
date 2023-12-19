@@ -1,5 +1,6 @@
 @extends('apnadental.master')
 @section("content")
+
 <main>
     <div class="bg-white action-filter py-3">
         <div class="container">
@@ -26,14 +27,14 @@
         <div class="container">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li>Services</li>
+                <li>{{ request('service') }}</li>
             </ul>
         </div>
     </div>
     <!-- /breadcrumb end -->
     <div class="container-fluid container-lg">
         <div class="row g-3 pt-3">
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-12">
                 <!-- contant section -->
 
                 <section class="content-section bg-white py-5">
@@ -41,26 +42,26 @@
                         <div class="row align-items-center g-3">
                             <div class="col-12 col-md-4 col-lg-3">
                                 <div class="image-wrraper">
-                                    <img src="{{ asset('public/assets/img/doctor-lady.jpg') }}" alt="doctor-lady.jpg"
+                                    <img src="{{ asset('public/'.$serviceData->image) }}" alt="{{ $serviceData->page_title }}"
                                         class="w-100">
                                 </div>
                             </div>
                             <div class="col-12 col-md-9 col-lg-9">
-                                <h2 class="text-uppercase">Root Canal Treatment - Procedure, Cost And Side Effects</h2>
-                                <p>Root canal is a term which is used for describing your natural cavity that lies
-                                    within the center
-                                    of your tooth. The nerves of the tooth lie in the root canal. When the nerve tissue
-                                    or the pulp
-                                    of your tooth gets damaged, it will break down, resulting in multiplication of
-                                    bacteria in
-                                    the pulp chamber.</p>
+
+                                @if(!empty($serviceData->page_title))
+                                    <h2 class="text-uppercase">{{$serviceData->page_title}}</h2>
+                                @endif
+
+                                @if(!empty($serviceData->description))
+                                    {!! $serviceData->description !!}
+                                @endif
+
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <!-- Tabs section  -->
-
                 <section class="service-tabs py-5">
                     <div class="container">
                         <div class="row">
@@ -68,297 +69,151 @@
 
                                 <div class="row align-items-center">
                                     <div class="col-12">
-                                        <h2 class="text-uppercase">what is root canal treatment?</h2>
-                                        <p>The presence of bacteria and the decayed debris may cause a tooth infection.
-                                            It
-                                            can also cause a swelling that sometimes spreads to the other parts of the
-                                            neck,
-                                            face or head. If you are experiencing pain, tooth discoloration, swelling or
-                                            a
-                                            feeling of tenderness in your lymph nodes, there may be a chance that you
-                                            require a root canal treatment.
-                                            </br>
-                                            </br>
-                                            A root canal is performed for repairing or saving an infected tooth that has
-                                            been damaged badly. The procedure is carried out by removing the area of the
-                                            tooth that is damaged, commonly known as the pulp. After that, the area is
-                                            cleaned and disinfected before being filled and sealed.
-                                            </br>
-                                            </br>
-                                            Once this initial root canal treatment performed, you can visit the dentist
-                                            later who may place a crown on the affected tooth for protection and restore
-                                            it
-                                            to function perfectly. A root canal treatment may comprise of one to three
-                                            visits to the dentist, depending on the severity of the condition.</p>
+
+                                        @if(!empty($serviceData->heading_two))
+                                            <h2 class="text-uppercase">{{$serviceData->heading_two}}</h2>
+                                        @endif
+
+                                        @if(!empty($serviceData->description_two))
+                                            {!! $serviceData->description_two !!}
+                                        @endif
 
                                         <div>
-                                            <h3>Doctor for Root Canal Treatment in Delhi</h3>
-                                            <div class="row slider-clinic">
+                                            <h3>Doctor for Root Canal Treatment</h3>
+                                            <div class="row slider-clinic autoplay_doctors">
+                                            @foreach($doctors as $doctor)
                                                 <div class="col-12 col-md-4">
-                                                    <div class="box_list home">
+                                                    <div class="box_list doctor-card home h-100 position-relative">
+                                                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist"
+                                                            class="wish_bt"></a>
+                                                        <figure>
+                                                            <a href="detail-page.html">
+                                                                @if(!empty($doctor->image))
+                                                                <img src="{{ $doctor->image }}" class="img-fluid" alt="{{ $doctor->company_name }}">
+                                                                @else
+                                                                <img src="http://via.placeholder.com/565x565.jpg" class="img-fluid" alt="">
+                                                                @endif
+                                                            </a>
+                                                            <div class="preview"><span>Read more</span></div>
+                                                        </figure>
+
                                                         <div class="wrapper">
-                                                            <small>Psicologist</small>
-                                                            <h3>Dr. Watamaniuk</h3>
-                                                            <p>Id placerat tacimates definitionem sea, prima quidam vim
-                                                                no.
-                                                                Duo
-                                                                nobis persecuti cuodo....</p>
+                                                            <small>{{ $doctor->secondary_category }}</small>
+                                                            <h3>{{ $doctor->company_name }}</h3>
+                                                            <p>{{ $doctor->description }}</p>
                                                             <div class="d-flex justify-content-between">
                                                                 <span class="rating"><i class="icon_star voted"></i>
-                                                                    <i class="icon_star voted"></i>
-                                                                    <i class="icon_star voted"></i>
-                                                                    <i class="icon_star"></i>
-                                                                    <i class="icon_star"></i>
-                                                                    <small>(145)</small>
-                                                                    <a href="#0" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top" title="Badge Level"
-                                                                        class="badge_list_1"><img
-                                                                            src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                            width="15" height="15" alt=""></a>
+                                                                    @php
+                                                                        $rating = $doctor->rating;
+                                                                        $filledStars = floor($rating);
+                                                                        $halfStar = ($rating - $filledStars) >= 0.5;
+                                                                    @endphp
+
+                                                                    @for ($i = 1; $i <= 5; $i++) @if ($i <=$filledStars) <i class="icon_star voted"></i>
+                                                                        @elseif ($halfStar && $i == $filledStars + 1)
+                                                                            <i class="icon_star voted half"></i>
+                                                                        @else
+                                                                            <i class="icon_star"></i>
+                                                                        @endif
+                                                                        @endfor
+
+                                                                        <small>({{ $doctor->rating_count }})</small>
+                                                                        <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                            title="Badge Level" class="badge_list_1">
+                                                                            <img src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
+                                                                                width="15" height="15" alt="">
+                                                                        </a>
                                                                 </span>
-                                                                <a href="tel:+0123456789" class="btn_listing">Get a Free
-                                                                    Call
-                                                                    now</a>
+                                                                <a href="tel:+{{ $doctor->phone }}" class="btn_listing">Get a Free Call now</a>
                                                             </div>
                                                         </div>
 
-                                                        <ul class="d-flex align-items-center justify-content-between flex-wrap">
+                                                        <ul class="d-flex justify-content-between flex-wrap position-absolute start-0 bottom-0 mb-0">
                                                             <li>
                                                                 <form>
-                                                                    <div class="mb-3 form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="compareDoctor">
-                                                                        <label class="form-check-label"
-                                                                            for="compareDoctor">Compare
-                                                                            Doctor</label>
+                                                                    <div class="form-check align-items-center">
+                                                                        <input type="checkbox" class="form-check-input" id="compareDoctor9">
+                                                                        <label class="form-check-label" for="compareDoctor9">Compare Doctor</label>
                                                                     </div>
                                                                 </form>
                                                             </li>
-                                                            <li><a href="detail-page.html">Book now</a></li>
+                                                            <li><a href="javascript:void(0)"onclick="bookNow({{ $doctor->id }}, '{{ $doctor->company_name }}', '{{ $doctor->secondary_category }}', '{{ $doctor->work_timings }}')">Book
+                                                                    Now</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-4">
-                                                    <div class="box_list home">
-                                                        <div class="wrapper">
-                                                            <small>Psicologist</small>
-                                                            <h3>Dr. Watamaniuk</h3>
-                                                            <p>Id placerat tacimates definitionem sea, prima quidam vim
-                                                                no.
-                                                                Duo
-                                                                nobis persecuti cuodo....</p>
-                                                            <div class="d-flex justify-content-between">
-                                                                <span class="rating"><i class="icon_star voted"></i>
-                                                                    <i class="icon_star voted"></i>
-                                                                    <i class="icon_star voted"></i>
-                                                                    <i class="icon_star"></i>
-                                                                    <i class="icon_star"></i>
-                                                                    <small>(145)</small>
-                                                                    <a href="#0" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top" title="Badge Level"
-                                                                        class="badge_list_1"><img
-                                                                            src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                            width="15" height="15" alt=""></a>
-                                                                </span>
-                                                                <a href="tel:+0123456789" class="btn_listing">Get a Free
-                                                                    Call
-                                                                    now</a>
-                                                            </div>
-                                                        </div>
 
-                                                        <ul class="d-flex align-items-center justify-content-between flex-wrap">
-                                                            <li>
-                                                                <form>
-                                                                    <div class="mb-3 form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="compareDoctor1">
-                                                                        <label class="form-check-label"
-                                                                            for="compareDoctor1">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li><a href="detail-page.html">Book now</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-4">
-                                                    <div class="box_list home">
-
-                                                        <div class="wrapper">
-                                                            <small>Psicologist</small>
-                                                            <h3>Dr. Watamaniuk</h3>
-                                                            <p>Id placerat tacimates definitionem sea, prima quidam vim
-                                                                no.
-                                                                Duo
-                                                                nobis persecuti cuodo....</p>
-                                                            <div class="d-flex justify-content-between">
-                                                                <span class="rating"><i class="icon_star voted"></i>
-                                                                    <i class="icon_star voted"></i>
-                                                                    <i class="icon_star voted"></i>
-                                                                    <i class="icon_star"></i>
-                                                                    <i class="icon_star"></i>
-                                                                    <small>(145)</small>
-                                                                    <a href="#0" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top" title="Badge Level"
-                                                                        class="badge_list_1"><img
-                                                                            src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                            width="15" height="15" alt=""></a>
-                                                                </span>
-                                                                <a href="tel:+0123456789" class="btn_listing">Get a Free
-                                                                    Call
-                                                                    now</a>
-                                                            </div>
-                                                        </div>
-
-                                                        <ul class="d-flex align-items-center justify-content-between flex-wrap">
-                                                            <li>
-                                                                <form>
-                                                                    <div class="mb-3 form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="compareDoctor2">
-                                                                        <label class="form-check-label"
-                                                                            for="compareDoctor2">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li><a href="detail-page.html">Book now</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 class="text-uppercase">A root canal involves the following steps:</h2>
-                                    <ul class="list-group gap-2 list-group-numbered">
-                                        <li class="list-group-item">Initially, you have to undergo an x-ray so that your
-                                            doctor
-                                            can examine and locate the position of your infected tooth. After it has
-                                            been
-                                            located, the dentist will administer local anesthesia for numbing the area
-                                            around
-                                            that particular tooth.</li>
-                                        <li class="list-group-item">The doctor then places a rubber sheet around the
-                                            affected
-                                            tooth to ensure that the area is dry.</li>
-                                        <li class="list-group-item">A hole is drilled in your tooth to remove the debris
-                                            and the
-                                            nerve tissues that have decayed. Suitable files are used to scrape away the
-                                            decayed
-                                            portion in the process. Sodium hypochlorite or water is periodically used
-                                            for
-                                            flushing away the debris.</li>
-                                        <li class="list-group-item">Once the tooth has been thoroughly cleaned, the
-                                            doctor seals
-                                            it. In case there is an infection, your doctor may apply some medicine to
-                                            cure it
-                                            before sealing the tooth.</li>
-                                        <li class="list-group-item">If the treatment remains incomplete, the exterior
-                                            hole of
-                                            your tooth is given a temporary filling to keep away the food and saliva.
-                                            The
-                                            permanent filling is done in the following appointment.</li>
-                                        <li class="list-group-item">The permanent filling is done with a material called
-                                            gutta-percha (a tough and rigid substance from the latex of some
-                                            specific trees).
-                                        </li>
-                                        <li class="list-group-item">The final step is the restoration of your tooth. In
-                                            this
-                                            process, a crown is placed on the teeth for protection and safeguarding it
-                                            from
-                                            breaking. The crown also makes sure that the affected tooth regains its
-                                            full functionality.</li>
+                               
+                                    @if(!empty($serviceData->heading_three))    
+                                        <h2 class="text-uppercase">{{$serviceData->heading_three}}</h2>
+                                    @endif
 
-                                    </ul>
+                                    @if(!empty($serviceData->description_three))
+                                        {!! $serviceData->description_three !!}
+                                    @endif
 
                                 </div>
                                 <div class="row my-4">
                                     <div class="col-12">
-                                        <img class="w-100" src="{{ asset('public/assets/img/ads-2.jpg') }}"
-                                            alt="advertisement">
+                                        <img class="w-100" src="{{ asset('public/assets/img/ads-2.jpg') }}" alt="advertisement">
                                     </div>
                                 </div>
 
                                 <div>
-                                    <h2 class="text-uppercase mb-2">Who is eligible for root canal treatment? (When is
-                                        the
-                                        treatment done?)
-                                    </h2>
-                                    <p>You may require a root canal if you suffer from the following conditions:
-                                    </p>
+                                    @if(!empty($serviceData->heading_three))    
+                                        <h2 class="text-uppercase mb-2">{{$serviceData->heading_three}}</h2>
+                                    @endif
 
-                                    <ul class="list-group gap-2 list-group-flush list-group-numbered">
-                                        <li class="list-group-item">Acute pain in the teeth when you are chewing food or
-                                            if you
-                                            are putting pressure in that area
-                                        </li>
-                                        <li class="list-group-item">Sensitivity when you are consuming any food either
-                                            hot or
-                                            cold. Often, the feeling lingers long after you have eaten such foods.
-                                        </li>
-                                        <li class="list-group-item">Bump on your tooth gums near the area where it is
-                                            paining
-                                        </li>
-                                        <li class="list-group-item">Darkening of your tooth
-                                        </li>
-                                        <li class="list-group-item">Swelling or tenderness in the gums</li>
-                                    </ul>
+                                    @if(!empty($serviceData->description_three))
+                                        {!! $serviceData->description_three !!}
+                                    @endif
 
                                     <div class="my-3">
-                                        <h3>Who is not eligible for the treatment?</h3>
-                                        <p>A person is not eligible for undergoing a root canal if he/she is suffering
-                                            from:</p>
-                                        <ul class="list-group gap-2 list-group-flush list-group-numbered">
-                                            <li class="list-group-item">Hypertension</li>
-                                            <li class="list-group-item">Diabetes</li>
-                                            <li class="list-group-item">Infections or fever</li>
-                                            <li class="list-group-item">Osteoporosis (the condition wherein the bones
-                                                become brittle and weak)</li>
-                                            <li class="list-group-item">Autoimmune diseases</li>
-                                            <li class="list-group-item">If he/ she is taking blood thinning medications.
-                                                In this
-                                                case, your dentist can advise you to stop taking blood thinners for some
-                                                days
-                                                before the treatment commences.</li>
-                                        </ul>
+                                        @if(!empty($serviceData->heading_four))    
+                                            <h2 class="text-uppercase">{{$serviceData->heading_four}}</h2>
+                                        @endif
+
+                                        @if(!empty($serviceData->description_four))
+                                            {!! $serviceData->description_four !!}
+                                        @endif
                                     </div>
 
                                     <section class="py-5">
                                         <div>
                                             <h2 class="text-uppercase text-center mb-4">Clinics</h2>
                                             <div class="row gy-3 slider-clinic">
-                                                <div class="col-12 col-lg-6 col-xl-4">
-                                                    <div class="card p-3 ">
-                                                        <div class="d-flex justify-content-between mb-3">
+                                                
+                                            @foreach($clinics as $clinic)
+                                                <div class="col-12 col-md-6 col-lg-4">
+                                                    <div class="box_list home card h-100 pt-3 pb-5 position-relative">
+                                                        <div class="d-flex justify-content-between mb-3 px-3">
                                                             <div>
-                                                                <h3 class="h5 txt-primary">Max Lab</h3>
+                                                                <h3 class="h5 txt-primary">{{ $clinic->company_name }}</h3>
                                                                 <h4 class="h6 txt-primary">Sector-1</h4>
                                                             </div>
                                                             <div>
-                                                                <a href="#" class="me-2"><a
-                                                                        href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                                        target="_blank">Directions</a></a>
-
+                                                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}" class="me-2"><a
+                                                                        href="{{ $clinic->map_url }}" target="_blank">Directions</a></a>
                                                             </div>
                                                         </div>
-                                                        <div class="card_body">
+                                                        <div class="card_body px-3">
                                                             <div class="row mb-2 g-1">
                                                                 <div class="col-12">
-                                                                    <p>
-                                                                        Lorem ipsum dolor, sit amet consectetur
-                                                                        adipisicing elit.
-                                                                        Nostrum, nam.
-                                                                    </p>
+                                                                    <p>{{ $clinic->description }}</p>
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <i class="icon-location-1 h5 txt-primary"></i>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <h3 class="h6">C-1 Ground floor, Govt School,
-                                                                        Noida-201301 </h3>
+                                                                    <h3 class="h6">{{ $clinic->locality }}, {{ $clinic->city }}, {{ $clinic->state }},
+                                                                        {{ $clinic->zip_code }}</h3>
                                                                 </div>
                                                             </div>
 
@@ -367,816 +222,143 @@
                                                                     <i class="icon-phone h5 txt-primary"></i>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <a href="tel:+4733378901">
-                                                                        <h3 class="h6">+91 1234567890</h3>
+                                                                    <a href="tel:+{{ $clinic->phone }}">
+                                                                        <h3 class="h6">{{ $clinic->phone }}</h3>
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-12">
-                                                                    <span class="rating"><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star"></i><i
-                                                                            class="icon_star"></i>
-                                                                        <small>(145)</small></span>
+                                                                    <span class="rating">
+                                                                        @php
+                                                                            $rating = $clinic->rating;
+                                                                            $filledStars = floor($rating);
+                                                                            $halfStar = ($rating - $filledStars) >= 0.5;
+                                                                        @endphp
+
+                                                                        @for ($i = 1; $i <= 5; $i++) @if ($i <=$filledStars) <i class="icon_star voted">
+                                                                            </i>
+                                                                            @elseif ($halfStar && $i == $filledStars + 1)
+                                                                                <i class="icon_star voted half"></i>
+                                                                            @else
+                                                                                <i class="icon_star"></i>
+                                                                            @endif
+                                                                            @endfor
+                                                                            <small>({{ $clinic->rating_count }})</small></span>
                                                                 </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between mt-4 flex-wrap">
+                                                            </div>                           
+                                                        </div>
+                                                        <div class="d-flex align-items-center justify-content-between mt-4 flex-wrap position-absolute start-0 bottom-0 px-3 w-100 py-3">
                                                                 <form>
-                                                                    <div class="form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="compareDoctor3">
-                                                                        <label class="form-check-label"
-                                                                            for="compareDoctor3">Compare
-                                                                            Doctor</label>
+                                                                    <div class="form-check align-items-center mb-0">
+                                                                        <input type="checkbox" class="form-check-input" id="12">
+                                                                        <label class="form-check-label" for="compareDoctor12">Compare Doctor</label>
                                                                     </div>
                                                                 </form>
-                                                                <a class="btn_1 " href="#">Book Now</a>
+                                                                <a class="btn_1" href="javascript:void(0);" onclick="bookNow({{ $clinic->id }}, '{{ $clinic->company_name }}', '{{ $clinic->secondary_category }}', '{{ $clinic->work_timings }}')">Book Now</a>
                                                             </div>
-                                                        </div>
-
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12 col-lg-6 col-xl-4">
-                                                    <div class="card p-3 ">
-                                                        <div class="d-flex justify-content-between mb-3">
-                                                            <div>
-                                                                <h3 class="h5 txt-primary">Max Lab</h3>
-                                                                <h4 class="h6 txt-primary">Sector-1</h4>
-                                                            </div>
-                                                            <div>
-                                                                <a href="#" class="me-2"><a
-                                                                        href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                                        target="_blank">Directions</a></a>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-12">
-                                                                    <p>
-                                                                        Lorem ipsum dolor, sit amet consectetur
-                                                                        adipisicing elit.
-                                                                        Nostrum, nam.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <i class="icon-location-1 h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <h3 class="h6">C-1 Ground floor, Govt School,
-                                                                        Noida-201301 </h3>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-auto">
-                                                                    <i class="icon-phone h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <a href="tel:+4733378901">
-                                                                        <h3 class="h6">+91 1234567890</h3>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <span class="rating"><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star"></i><i
-                                                                            class="icon_star"></i>
-                                                                        <small>(145)</small></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                                                <form>
-                                                                    <div class="form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="compareDoctor4">
-                                                                        <label class="form-check-label"
-                                                                            for="compareDoctor4">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                                <a class="btn_1 " href="#">Book Now</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-6 col-xl-4">
-                                                    <div class="card p-3 ">
-                                                        <div class="d-flex justify-content-between mb-3">
-                                                            <div>
-                                                                <h3 class="h5 txt-primary">Max Lab</h3>
-                                                                <h4 class="h6 txt-primary">Sector-1</h4>
-                                                            </div>
-                                                            <div>
-                                                                <a href="#" class="me-2"><a
-                                                                        href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                                        target="_blank">Directions</a></a>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-12">
-                                                                    <p>
-                                                                        Lorem ipsum dolor, sit amet consectetur
-                                                                        adipisicing elit.
-                                                                        Nostrum, nam.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <i class="icon-location-1 h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <h3 class="h6">C-1 Ground floor, Govt School,
-                                                                        Noida-201301 </h3>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2 g-1">
-                                                                <div class="col-auto">
-                                                                    <i class="icon-phone h5 txt-primary"></i>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <a href="tel:+4733378901">
-                                                                        <h3 class="h6">+91 1234567890</h3>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <span class="rating"><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star voted"></i><i
-                                                                            class="icon_star"></i><i
-                                                                            class="icon_star"></i>
-                                                                        <small>(145)</small></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                                                <form>
-                                                                    <div class="form-check align-items-center">
-                                                                        <input type="checkbox" class="form-check-input"
-                                                                            id="compareDoctor5">
-                                                                        <label class="form-check-label"
-                                                                            for="compareDoctor5">Compare
-                                                                            Doctor</label>
-                                                                    </div>
-                                                                </form>
-                                                                <a class="btn_1 " href="#">Book Now</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
+                                                @endforeach
                                             </div>
                                         </div>
                                     </section>
 
                                 </div>
 
+                                <div class="md-5">
+                                    @if(!empty($serviceData->heading_five))    
+                                        <h2 class="text-uppercase">{{$serviceData->heading_five}}</h2>
+                                    @endif
 
-                                <div>
-                                    <h2>Are there any side effects after root canal treatment?</h2>
-                                    <p>The possible side effects of a root canal procedure can be the following:</p>
-                                    <ul class="list-group gap-2 list-group-flush list-group-numbered">
-                                        <li class="list-group-item">You may experience a dull pain after the procedure.
-                                            It
-                                            generally does not last for more than a week. In case any bacteria remain,
-                                            the
-                                            infection can begin once again. So it is better to visit your doctor if you
-                                            experience a recurring pain.
-                                        </li>
-                                        <li class="list-group-item">In some cases, there is a formation of a crack at
-                                            the root
-                                            of your treated tooth, which can go unnoticed by your doctor. The crack
-                                            exposes the
-                                            area to bacterial infection.
-                                        </li>
-                                        <li class="list-group-item">If the crown comes loose, your treated tooth will
-                                            get
-                                            exposed. The seal that has been made will erode which can bring back the
-                                            infection.
-                                            You must get your dislodged crown fixed immediately.
-                                        </li>
-                                        <li class="list-group-item">If the fillers were of defective material, it will
-                                            eventually erode, thus leading to bacterial infection.</li>
-                                    </ul>
+                                    @if(!empty($serviceData->description_five))
+                                        {!! $serviceData->description_five !!}
+                                    @endif
 
-                                    <!-- <div class="row mt-3">
-                                        <div class="col-12 col-lg-6 col-xl-4">
-                                            <div class="box_list home">
-
-
-                                                <div class="wrapper">
-                                                    <small>Psicologist</small>
-                                                    <h3>Dr. Watamaniuk</h3>
-                                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo
-                                                        nobis persecuti cuodo....</p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <span class="rating"><i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star"></i>
-                                                            <i class="icon_star"></i>
-                                                            <small>(145)</small>
-                                                            <a href="#0" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Badge Level"
-                                                                class="badge_list_1"><img
-                                                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                    width="15" height="15" alt=""></a>
-                                                        </span>
-                                                        <a href="tel:+0123456789" class="btn_listing">Get a Free Call
-                                                            now</a>
-                                                    </div>
-                                                </div>
-
-                                                <ul class="d-flex justify-content-between flex-wrap">
-                                                    <li>
-                                                        <form>
-                                                            <div class="mb-3 form-check align-items-center">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="compareDoctor6">
-                                                                <label class="form-check-label"
-                                                                    for="compareDoctor6">Compare
-                                                                    Doctor</label>
-                                                            </div>
-                                                        </form>
-                                                    </li>
-                                                    <li><a href="detail-page.html">Book now</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-xl-4">
-                                            <div class="box_list home">
-                                                <div class="wrapper">
-                                                    <small>Psicologist</small>
-                                                    <h3>Dr. Watamaniuk</h3>
-                                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo
-                                                        nobis persecuti cuodo....</p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <span class="rating"><i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star"></i>
-                                                            <i class="icon_star"></i>
-                                                            <small>(145)</small>
-                                                            <a href="#0" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Badge Level"
-                                                                class="badge_list_1"><img
-                                                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                    width="15" height="15" alt=""></a>
-                                                        </span>
-                                                        <a href="tel:+0123456789" class="btn_listing">Get a Free Call
-                                                            now</a>
-                                                    </div>
-                                                </div>
-
-                                                <ul class="d-flex justify-content-between flex-wrap">
-                                                    <li>
-                                                        <form>
-                                                            <div class="mb-3 form-check align-items-center">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="compareDoctor7">
-                                                                <label class="form-check-label"
-                                                                    for="compareDoctor7">Compare
-                                                                    Doctor</label>
-                                                            </div>
-                                                        </form>
-                                                    </li>
-                                                    <li><a href="detail-page.html">Book now</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-xl-4">
-                                            <div class="box_list home">
-
-                                                <div class="wrapper">
-                                                    <small>Psicologist</small>
-                                                    <h3>Dr. Watamaniuk</h3>
-                                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo
-                                                        nobis persecuti cuodo....</p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <span class="rating"><i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star voted"></i>
-                                                            <i class="icon_star"></i>
-                                                            <i class="icon_star"></i>
-                                                            <small>(145)</small>
-                                                            <a href="#0" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Badge Level"
-                                                                class="badge_list_1"><img
-                                                                    src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                                    width="15" height="15" alt=""></a>
-                                                        </span>
-                                                        <a href="tel:+0123456789" class="btn_listing">Get a Free Call
-                                                            now</a>
-                                                    </div>
-                                                </div>
-
-                                                <ul class="d-flex justify-content-between flex-wrap">
-                                                    <li>
-                                                        <form>
-                                                            <div class="mb-3 form-check align-items-center">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="compareDoctor8">
-                                                                <label class="form-check-label"
-                                                                    for="compareDoctor8">Compare
-                                                                    Doctor</label>
-                                                            </div>
-                                                        </form>
-                                                    </li>
-                                                    <li><a href="detail-page.html">Book now</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                 </div>
-
-                                <div class="accordion accordion-flush" id="accordionFlushExample">
-                                    <div class="accordion-item">
+                            
+                                <div class="accordion accordion-flush mt-5" id="accordionFlushExample">
+                                @if(!empty($serviceData->faq_heading_one))
+                                    <div class="accordion-item mt-5">
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
                                                 aria-expanded="false" aria-controls="flush-collapseOne">
-                                                What to eat after teeth scaling?
+                                                {{$serviceData->faq_heading_one}}
                                             </button>
                                         </h2>
                                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Exercitationem, nam, dolorum sequi veritatis nihil beatae esse
-                                                vitae,
-                                                fugiat ipsa quasi soluta magnam accusantium nemo debitis nostrum ullam.
-                                                Vero
-                                                quasi neque quisquam velit sed quos quam, reiciendis, totam quae aut
-                                                soluta
-                                                reprehenderit nam, perspiciatis deleniti? Nihil aspernatur quae
-                                                explicabo,
-                                                ipsam dicta laudantium consequatur dolores est doloribus delectus, ut
-                                                labore, atque a.</div>
+                                            <div class="accordion-body">{{$serviceData->faq_des_one}}</div>
                                         </div>
                                     </div>
+                                @endif
+                                @if(!empty($serviceData->faq_heading_two))
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
                                                 aria-expanded="false" aria-controls="flush-collapseTwo">
-                                                Is scaling good for teeth?
+                                                {{$serviceData->faq_heading_two }}
                                             </button>
                                         </h2>
                                         <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Itaque voluptatibus facere asperiores accusamus! Provident
-                                                repellendus
-                                                velit natus sunt eveniet officiis et! Sed dolore reiciendis, dicta
-                                                asperiores hic doloribus doloremque corporis laborum maxime officiis
-                                                voluptatum natus maiores distinctio labore adipisci velit?</div>
+                                            <div class="accordion-body">{{$serviceData->faq_des_two}}</div>
                                         </div>
                                     </div>
+                                @endif
+                                @if(!empty($serviceData->faq_heading_three))
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
                                                 aria-expanded="false" aria-controls="flush-collapseThree">
-                                                Is scaling of teeth painful?
+                                                {{$serviceData->faq_heading_three}}
                                             </button>
                                         </h2>
                                         <div id="flush-collapseThree" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Itaque asperiores magnam illum. Qui culpa veritatis adipisci dicta
-                                                nemo repellendus voluptates natus eos, aliquam dolorum maxime voluptas,
-                                                tempore, neque id ratione saepe voluptatum possimus nihil velit quaerat
-                                                totam nostrum error est optio! Beatae cum odio nihil hic harum illum
-                                                recusandae minima.</div>
+                                            <div class="accordion-body">{{$serviceData->faq_des_three}}</div>
                                         </div>
                                     </div>
+                                @endif
+                                @if(!empty($serviceData->faq_heading_four))
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapsefour"
+                                                aria-expanded="false" aria-controls="flush-collapsefour">
+                                                {{$serviceData->faq_heading_four}}
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapsefour" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">{{$serviceData->faq_des_four}}</div>
+                                        </div>
+                                    </div>
+                                @endif
+                                @if(!empty($serviceData->faq_heading_five))
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapsefive"
+                                                aria-expanded="false" aria-controls="flush-collapsefive">
+                                                {{$serviceData->faq_heading_five}}
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapsefive" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">{{$serviceData->faq_des_five}}</div>
+                                        </div>
+                                    </div>
+                                @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-
-
-                <!-- docotor section start -->
-
-                <!-- <section class="bg-white py-5">
-                    <div class="container">
-                        <h1 class="text-uppercase text-center mb-4">Doctors</h1>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="box_list home">
-                                    <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Add to wishlist" class="wish_bt"></a>
-                                    <figure>
-                                        <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg"
-                                                class="img-fluid" alt=""></a>
-                                        <div class="preview"><span>Read more</span></div>
-                                    </figure>
-
-                                    <div class="wrapper">
-                                        <small>Psicologist</small>
-                                        <h3>Dr. Watamaniuk</h3>
-                                        <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis
-                                            persecuti
-                                            cuodo....</p>
-                                        <div class="d-flex justify-content-between">
-                                            <span class="rating"><i class="icon_star voted"></i>
-                                                <i class="icon_star voted"></i>
-                                                <i class="icon_star voted"></i>
-                                                <i class="icon_star"></i>
-                                                <i class="icon_star"></i>
-                                                <small>(145)</small>
-                                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Badge Level" class="badge_list_1"><img
-                                                        src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                        width="15" height="15" alt=""></a>
-                                            </span>
-                                            <a href="tel:+0123456789" class="btn_listing">Get a Free Call now</a>
-                                        </div>
-                                    </div>
-
-                                    <ul class="d-flex justify-content-between flex-wrap">
-                                        <li>
-                                            <form>
-                                                <div class="mb-3 form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="compareDoctor9">
-                                                    <label class="form-check-label" for="compareDoctor9">Compare
-                                                        Doctor</label>
-                                                </div>
-                                            </form>
-                                        </li>
-                                        <li><a href="detail-page.html">No Booking Fee</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="box_list home">
-                                    <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Add to wishlist" class="wish_bt"></a>
-                                    <figure>
-                                        <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg"
-                                                class="img-fluid" alt=""></a>
-                                        <div class="preview"><span>Read more</span></div>
-                                    </figure>
-
-                                    <div class="wrapper">
-                                        <small>Psicologist</small>
-                                        <h3>Dr. Mantooth</h3>
-                                        <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis
-                                            persecuti
-                                            cuodo....</p>
-                                        <div class="d-flex justify-content-between">
-                                            <span class="rating"><i class="icon_star voted"></i>
-                                                <i class="icon_star voted"></i>
-                                                <i class="icon_star voted"></i>
-                                                <i class="icon_star"></i>
-                                                <i class="icon_star"></i>
-                                                <small>(145)</small>
-                                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Badge Level" class="badge_list_1"><img
-                                                        src="{{ asset('public/assets/apnadental/img/badges/badge_1.svg') }}"
-                                                        width="15" height="15" alt=""></a>
-                                            </span>
-                                            <a href="tel:+0123456789" class="btn_listing">Get a Free Call now</a>
-                                        </div>
-                                    </div>
-
-                                    <ul class="d-flex justify-content-between flex-wrap">
-                                        <li>
-                                            <form>
-                                                <div class="mb-3 form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="compareDoctor10">
-                                                    <label class="form-check-label" for="compareDoctor10">Compare
-                                                        Doctor</label>
-                                                </div>
-                                            </form>
-                                        </li>
-                                        <li><a href="detail-page.html">No Booking Fee</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="box_list home">
-                                    <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Add to wishlist" class="wish_bt"></a>
-
-                                    <figure>
-                                        <a href="detail-page.html"><img src="http://via.placeholder.com/565x565.jpg"
-                                                class="img-fluid" alt=""></a>
-                                        <div class="preview"><span>Read more</span></div>
-                                    </figure>
-
-                                    <div class="wrapper">
-                                        <small>Psicologist</small>
-                                        <h3>Dr. Pullman</h3>
-                                        <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis
-                                            persecuti
-                                            cuodo....</p>
-
-                                        <div class="d-flex justify-content-between">
-                                            <span class="rating"><i class="icon_star voted"></i>
-                                                <i class="icon_star voted"></i>
-                                                <i class="icon_star voted"></i>
-                                                <i class="icon_star"></i>
-                                                <i class="icon_star"></i>
-                                                <small>(145)</small>
-                                                <a href="#0" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Badge Level" class="badge_list_1"><img
-                                                        src="{{ asset('public/assets/apnadental/img/badges/badge_2.svg') }}"
-                                                        width="15" height="15" alt=""></a>
-                                            </span>
-                                            <a href="tel:+0123456789" class="btn_listing">Get a Free Call now</a>
-                                        </div>
-                                    </div>
-
-                                    <ul class="d-flex justify-content-between flex-wrap">
-                                        <li>
-                                            <form>
-                                                <div class="mb-3 form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="compareDoctor11">
-                                                    <label class="form-check-label" for="compareDoctor11">Compare
-                                                        Doctor</label>
-                                                </div>
-                                            </form>
-                                        </li>
-                                        <li><a href="detail-page.html">No Booking Fee</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-
-                <!-- Clinics section start  -->
-                <!-- <section class="py-5">
-                    <div class="container">
-                        <h2 class="text-uppercase text-center mb-4">Clinics</h2>
-                        <div class="row gy-3">
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card p-3 ">
-                                    <div class="d-flex justify-content-between mb-3">
-                                        <div>
-                                            <h3 class="h5 txt-primary">Max Lab</h3>
-                                            <h4 class="h6 txt-primary">Sector-1</h4>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="me-2"><a
-                                                    href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                    target="_blank">Directions</a></a>
-
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="row mb-2 g-1">
-                                            <div class="col-12">
-                                                <p>
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum,
-                                                    nam.
-                                                </p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="icon-location-1 h5 txt-primary"></i>
-                                            </div>
-                                            <div class="col">
-                                                <h3 class="h6">C-1 Ground floor, Govt School, Noida-201301 </h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-2 g-1">
-                                            <div class="col-auto">
-                                                <i class="icon-phone h5 txt-primary"></i>
-                                            </div>
-                                            <div class="col">
-                                                <a href="tel:+4733378901">
-                                                    <h3 class="h6">+91 1234567890</h3>
-                                                </a>
-                                            </div>
-                                            <div class="col-12">
-                                                <span class="rating"><i class="icon_star voted"></i><i
-                                                        class="icon_star voted"></i><i class="icon_star voted"></i><i
-                                                        class="icon_star"></i><i class="icon_star"></i>
-                                                    <small>(145)</small></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                            <form>
-                                                <div class="form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="12">
-                                                    <label class="form-check-label" for="compareDoctor12">Compare
-                                                        Doctor</label>
-                                                </div>
-                                            </form>
-                                            <a class="btn_1 " href="#">Book Now</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card p-3 ">
-                                    <div class="d-flex justify-content-between mb-3">
-                                        <div>
-                                            <h3 class="h5 txt-primary">Max Lab</h3>
-                                            <h4 class="h6 txt-primary">Sector-1</h4>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="me-2"><a
-                                                    href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                    target="_blank">Directions</a></a>
-
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="row mb-2 g-1">
-                                            <div class="col-12">
-                                                <p>
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum,
-                                                    nam.
-                                                </p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="icon-location-1 h5 txt-primary"></i>
-                                            </div>
-                                            <div class="col">
-                                                <h3 class="h6">C-1 Ground floor, Govt School, Noida-201301 </h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-2 g-1">
-                                            <div class="col-auto">
-                                                <i class="icon-phone h5 txt-primary"></i>
-                                            </div>
-                                            <div class="col">
-                                                <a href="tel:+4733378901">
-                                                    <h3 class="h6">+91 1234567890</h3>
-                                                </a>
-                                            </div>
-                                            <div class="col-12">
-                                                <span class="rating"><i class="icon_star voted"></i><i
-                                                        class="icon_star voted"></i><i class="icon_star voted"></i><i
-                                                        class="icon_star"></i><i class="icon_star"></i>
-                                                    <small>(145)</small></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                            <form>
-                                                <div class="form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="compareDoctor13">
-                                                    <label class="form-check-label" for="compareDoctor13">Compare
-                                                        Doctor</label>
-                                                </div>
-                                            </form>
-                                            <a class="btn_1 " href="#">Book Now</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card p-3 ">
-                                    <div class="d-flex justify-content-between mb-3">
-                                        <div>
-                                            <h3 class="h5 txt-primary">Max Lab</h3>
-                                            <h4 class="h6 txt-primary">Sector-1</h4>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="me-2"><a
-                                                    href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
-                                                    target="_blank">Directions</a></a>
-
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="row mb-2 g-1">
-                                            <div class="col-12">
-                                                <p>
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum,
-                                                    nam.
-                                                </p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="icon-location-1 h5 txt-primary"></i>
-                                            </div>
-                                            <div class="col">
-                                                <h3 class="h6">C-1 Ground floor, Govt School, Noida-201301 </h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-2 g-1">
-                                            <div class="col-auto">
-                                                <i class="icon-phone h5 txt-primary"></i>
-                                            </div>
-                                            <div class="col">
-                                                <a href="tel:+4733378901">
-                                                    <h3 class="h6">+91 1234567890</h3>
-                                                </a>
-                                            </div>
-                                            <div class="col-12">
-                                                <span class="rating"><i class="icon_star voted"></i><i
-                                                        class="icon_star voted"></i><i class="icon_star voted"></i><i
-                                                        class="icon_star"></i><i class="icon_star"></i>
-                                                    <small>(145)</small></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between mt-4 flex-wrap">
-                                            <form>
-                                                <div class="form-check align-items-center">
-                                                    <input type="checkbox" class="form-check-input" id="compareDoctor14">
-                                                    <label class="form-check-label" for="compareDoctor14">Compare
-                                                        Doctor</label>
-                                                </div>
-                                            </form>
-                                            <a class="btn_1 " href="#">Book Now</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section> -->
-
-                <!-- Blog section start  -->
-                <!-- <section class="py-5 blogs-section">
-                    <h2 class="text-uppercase text-center mb-2 mb-sm-5">latest blogs</h2>
-                    <div class="container-fluid container-lg">
-                        <div class="row g-1">
-                            <div class="col-12 col-sm-6">
-                                <a href="" class=" blog-wraper">
-                                    <img src="{{ asset('public/assets/img/blog-big.jpg') }}" alt="blog image">
-                                    <div class="blog-content-wrraper">
-                                        <span class="post-category small text-white">Fashion</span>
-                                        <h3 class="text-white">
-                                            WordPress News Magazine Charts the Most Chic and Fashionable Women of New
-                                            York City
-                                        </h3>
-                                        <div class="td-editor-date">
-                                            <span class="post-author-name text-white">Armin Vans</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="row g-1">
-                                    <div class="col-12">
-                                        <a href="" class=" blog-wraper">
-                                            <img src="{{ asset('public/assets/img/blog-medium.jpg') }}"
-                                                alt="blog image">
-                                            <div class="blog-content-wrraper">
-                                                <span class="post-category small text-white">Gadgets</span>
-                                                <h3 class="text-white fs-5">
-                                                    Game Changing Virtual Reality Console Hits the Market
-                                                </h3>
-
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <a href="" class=" blog-wraper">
-                                            <img src="{{ asset('public/assets/img/blog-small1.jpg') }}"
-                                                alt="blog image">
-                                            <div class="blog-content-wrraper">
-                                                <span class="post-category small text-white">Travel</span>
-                                                <h3 class="text-white fs-6">
-                                                    Discover the Most Magical Sunset in Santorini
-                                                </h3>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <a href="" class=" blog-wraper">
-                                            <img src="{{ asset('public/assets/img/blog-small2.jpg') }}"
-                                                alt="blog image">
-                                            <div class="blog-content-wrraper">
-                                                <span
-                                                    class="post-category small text-white badge bg-dark rounded-0 fw-normal">Reviews</span>
-                                                <h3 class="text-white fs-6">
-                                                    Computer Filters Noise to Make You a Better Listener
-                                                </h3>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
             </div>
 
-            <div class="col-12 col-lg-3">
+            <!-- <div class="col-12 col-lg-3">
                 <aside>
                     <div class="widget">
                         <form class="mb-3">
@@ -1185,7 +367,6 @@
                                     placeholder="Search...">
                                 <button type="submit" id="submit" class="btn_1"> Search</button>
                             </div>
-
                         </form>
                     </div>
 
@@ -1236,8 +417,6 @@
 
                         </ul>
                     </div>
-                    <!-- /widget -->
-
                     <div class="widget">
                         <div class="widget-title">
                             <h4>Blog Categories</h4>
@@ -1250,8 +429,6 @@
                             <li><a href="#">Focus in the lab <span>(31)</span></a></li>
                         </ul>
                     </div>
-                    <!-- /widget -->
-
                     <div class="widget">
                         <div class="widget-title">
                             <h4>Popular Tags</h4>
@@ -1267,36 +444,34 @@
                     </div>
 
                 </aside>
-            </div>
+            </div> -->
         </div>
     </div>
 </main>
 <!-- /main -->
 <script>
-    $(".slider-clinic").slick({
-        slidesToShow: 2,
-        infinite: true,
+    $('.autoplay_doctors, .slider-clinic').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        dots: false,
         arrows: false,
-        slidesToScroll: 1,
+        centerMode: true,
+        focusOnSelect: true,
         responsive: [
             {
-                breakpoint: 992,
+                breakpoint: 991,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
+                    slidesToShow: 3,
+                }
             },
             {
-                breakpoint: 567,
+                breakpoint: 767,
                 settings: {
                     slidesToShow: 1,
-                },
-            },
-        ],
-
+                }
+            }
+        ]
     });
 </script>
 

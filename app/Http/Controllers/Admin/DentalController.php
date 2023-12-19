@@ -182,6 +182,12 @@ class DentalController extends Controller
         $dentalPage->description = $request->input('description');
         $dentalPage->heading_two = $request->input('heading_two');
         $dentalPage->description_two = $request->input('description_two');
+        $dentalPage->heading_three = $request->input('heading_three');
+        $dentalPage->description_three = $request->input('description_three');
+        $dentalPage->heading_four = $request->input('heading_four');
+        $dentalPage->description_four = $request->input('description_four');
+        $dentalPage->heading_five = $request->input('heading_five');
+        $dentalPage->description_five = $request->input('description_five');
         $dentalPage->doctors = json_encode($request->input('doctors'));
         $dentalPage->clinics = json_encode($request->input('clinics'));
         $dentalPage->faq_heading_one = $request->input('faq_heading_one');
@@ -256,6 +262,12 @@ class DentalController extends Controller
         $dentalPage->description = $request->input('description');
         $dentalPage->heading_two = $request->input('heading_two');
         $dentalPage->description_two = $request->input('description_two');
+        $dentalPage->heading_three = $request->input('heading_three');
+        $dentalPage->description_three = $request->input('description_three');
+        $dentalPage->heading_four = $request->input('heading_four');
+        $dentalPage->description_four = $request->input('description_four');
+        $dentalPage->heading_five = $request->input('heading_five');
+        $dentalPage->description_five = $request->input('description_five');
         $dentalPage->doctors = json_encode($request->input('doctors'));
         $dentalPage->clinics = json_encode($request->input('clinics'));
         $dentalPage->faq_heading_one = $request->input('faq_heading_one');
@@ -312,5 +324,21 @@ class DentalController extends Controller
         $dentalPage->delete();
 
         return redirect()->back()->with('success', 'Dental Service Page and its image deleted successfully.');
+    }
+
+    public function showDoctorPage($id)
+    {
+        $doctorsData = Doctor::where('type', 'Doctor')->get();
+        $clinicsData = Doctor::where('type', 'Clinics')->get();
+        $serviceData = DentalPage::find($id);
+    
+        $selectedDoctorsIds = json_decode($serviceData->doctors, true);
+        $selectedClinicsIds = json_decode($serviceData->clinics, true);
+    
+        // Filter doctors based on selected doctors' IDs
+        $doctors = $doctorsData->whereIn('id', $selectedDoctorsIds);
+        $clinics = $clinicsData->whereIn('id', $selectedClinicsIds);
+    
+        return view('apnadental.service', compact('serviceData', 'doctors', 'clinics'));
     }
 }
