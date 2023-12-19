@@ -56,7 +56,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col col-lg-6">
+                            <!-- <div class="col col-lg-6">
                                 <input type="text" name="keyword" id="keywordSearch" class="form-control"
                                     placeholder="Search doctors, clinics, hospitals, etc." value="">
                                 <input type="hidden" name="doctor_id" id="doctor_id">
@@ -68,7 +68,22 @@
                             <div class="col-12 col-lg-2">
                                 <button type="button" class="btn btn-cstm w-100" id="search-button">search</button>
                             </div>
+                            <span class="text-danger text-center" id="errMsg"></span> -->
+
+
+                            <div class="col col-lg-6">
+                                <div class="search_bar position-relative border border-1 rounded-3"> 
+                                    <input type="text" name="keyword" id="keywordSearch" class="form-control rounded border-0 shadow-none" placeholder="Search doctors, clinics, hospitals, etc." value="">
+                                    <input type="hidden" name="doctor_id" id="doctor_id">
+                                    <input type="hidden" name="service_id" id="service_id">
+                                    <input type="hidden" name="secondary_category" id="secondary_category">
+                                    <input type="hidden" name="type" id="type">
+                                    <input type="hidden" name="selectedCity" id="selectedCity">                      
+                                    <button type="button" class="btn btn-cstm position-absolute top-50 end-0 translate-middle-y rounded-0 rounded-end py-2" id="search-button">search</button>
+                                </div>
+                            </div>
                             <span class="text-danger text-center" id="errMsg"></span>
+
                         </div>
                     </div>
                 </div>

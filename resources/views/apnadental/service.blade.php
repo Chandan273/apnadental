@@ -14,10 +14,11 @@
 
                 </div>
                 <div class="col-12 col-sm-auto">
-                    <form class="d-flex flex-nowrap gap-2">
-                        <input type="text" class="form-control" id="search" placeholder="search">
-                        <button type="submit" class="btn btn_pink">Search</button>
-
+                    <form>
+                        <div class="input-group">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Search...">
+                            <button type="submit" id="submit" class="btn_1 rounded-end"> Search</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -365,7 +366,7 @@
                             <div class="input-group">
                                 <input type="text" name="search" id="search" class="form-control"
                                     placeholder="Search...">
-                                <button type="submit" id="submit" class="btn_1"> Search</button>
+                                <button type="submit" id="submit" class="btn_1 rounded-end"> Search</button>
                             </div>
                         </form>
                     </div>

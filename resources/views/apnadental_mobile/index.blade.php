@@ -19,7 +19,13 @@
     </div>
     <p class="text-info mb-0">Welcome back!</p>
     <h1>What are you looking for?</h1>
-
+    <div class="mt-2 py-2 bg-white sticky-top">
+        <div class="search-bar input-group bg-white border rounded-3">
+            <span class="input-group-text border-0 bg-transparent"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control border-0 ps-1 py-2"
+                placeholder="Search Doctors, Medicines, Hospitals" aria-label="ddf">
+        </div>
+    </div>
 
     <div class="row g-2 pt-2">
         <div class="col-6">
