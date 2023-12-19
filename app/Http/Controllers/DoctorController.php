@@ -2,48 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Doctor;
 use App\Models\Service;
 use App\Models\Location;
-use App\Models\Doctor;
+use Jenssegers\Agent\Agent;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DoctorController extends Controller
 {
     public function index(Request $request)
     {
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
-        $service_id = $request->input('service_id');
-        $radius = 50; // Radius in kilometers
-    
-        //echo "<pre>"; print_r($request->all()); echo "</pre>";
+        // $latitude = $request->input('latitude');
+        // $longitude = $request->input('longitude');
+        // $service_id = $request->input('service_id');
+        // $radius = 50; // Radius in kilometer
 
-        // Retrieve locations based on the service_id and distance
-        $locations = Location::select('id', 'latitude', 'longitude', 'locality', 'service_id')
-            ->selectRaw("(6371 * acos(cos(radians($latitude)) 
-                * cos(radians(latitude)) * cos(radians(longitude) 
-                - radians($longitude)) + sin(radians($latitude)) 
-                * sin(radians(latitude)))) AS distance")
-            ->where('service_id', $service_id)
-            ->having('distance', '<', $radius)
-            ->orderBy('distance', 'asc')
-            ->get();
+        // // Retrieve locations based on the service_id and distance
+        // $locations = Location::select('id', 'latitude', 'longitude', 'locality', 'service_id')
+        //     ->selectRaw("(6371 * acos(cos(radians($latitude)) 
+        //         * cos(radians(latitude)) * cos(radians(longitude) 
+        //         - radians($longitude)) + sin(radians($latitude)) 
+        //         * sin(radians(latitude)))) AS distance")
+        //     ->where('service_id', $service_id)
+        //     ->having('distance', '<', $radius)
+        //     ->orderBy('distance', 'asc')
+        //     ->get();
     
-        // Get an array of location IDs from the retrieved locations
-        $locationIds = $locations->pluck('id')->toArray();
+        // // Get an array of location IDs from the retrieved locations
+        // $locationIds = $locations->pluck('id')->toArray();
     
-        // Retrieve doctors based on location_id
-        $doctors = Doctor::select('doctors.*')
-            ->whereIn('location_id', $locationIds)
-            ->get();
+        // // Retrieve doctors based on location_id
+        // $doctors = Doctor::select('doctors.*')
+        //     ->whereIn('location_id', $locationIds)
+        //     ->get();
     
-        // You can now work with the $doctors collection to display the data in your view
-        return view('apnadental.doctors', ['doctors' => $doctors, 'service_name' => $request->input('service_name')]);
+        // // You can now work with the $doctors collection to display the data in your view
+        // return view('apnadental.doctors', ['doctors' => $doctors, 'service_name' => $request->input('service_name')]);
+
+        $agent = new Agent();
+
+        $services = Service::all();
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.doctors', compact('services'));
+        } else {
+            return view('apnadental.doctor');
+        }
     }
 
     public function doctorList(Request $request)
     {
+        $agent = new Agent();
         // Get the results_type parameter from the URL
         $resultsType = $request->query('results_type');
 
@@ -63,8 +73,22 @@ class DoctorController extends Controller
         // Paginate the results
         $doctors = $doctorsQuery->paginate($perPage);
 
-        // Pass the doctors data to the view
-        return view('apnadental.doctor', compact('doctors', 'resultsType'));
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.all-doctors', compact('doctors', 'resultsType'));
+        } else {
+            return view('apnadental.doctor', compact('doctors', 'resultsType'));
+        }
+    }
+
+    public function clinics(Request $request)
+    {
+        $agent = new Agent();
+
+        $services = Service::all();
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.clinics', compact('services'));
+        }
     }
 
     public function searchDoctors(Request $request)
