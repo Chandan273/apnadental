@@ -518,6 +518,15 @@ footer .input-group .btn {
   opacity: 1;
 }
 
+.clinic-slider h3,.doctor-card .wrapper h3{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;          
+  -webkit-box-orient: vertical;
+}
+
 @media screen and (max-width: 768px) {
   #scroll-triggered-cta {
     position: relative !important;

@@ -83,7 +83,7 @@
                                             <h3>Doctor for Root Canal Treatment</h3>
                                             <div class="row slider-clinic autoplay_doctors">
                                             @foreach($doctors as $doctor)
-                                                <div class="col-12 col-md-4">
+                                                <div class="mx-2">
                                                     <div class="box_list doctor-card home h-100 position-relative">
                                                         <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}"
                                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist"
@@ -192,8 +192,8 @@
                                             <div class="row gy-3 slider-clinic">
                                                 
                                             @foreach($clinics as $clinic)
-                                                <div class="col-12 col-md-6 col-lg-4">
-                                                    <div class="box_list home card h-100 pt-3 pb-5 position-relative">
+                                                <div class="mx-2">
+                                                    <div class="clinic-slider box_list home card h-100 pt-3 pb-5 position-relative">
                                                         <div class="d-flex justify-content-between mb-3 px-3">
                                                             <div>
                                                                 <h3 class="h5 txt-primary">{{ $clinic->company_name }}</h3>
@@ -463,7 +463,7 @@
             {
                 breakpoint: 991,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                 }
             },
             {
