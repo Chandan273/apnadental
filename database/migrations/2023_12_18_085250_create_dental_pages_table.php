@@ -21,6 +21,12 @@ return new class extends Migration
             $table->text('description');
             $table->string('heading_two')->nullable();
             $table->text('description_two')->nullable();
+            $table->string('heading_three')->nullable();
+            $table->text('description_three')->nullable();
+            $table->string('heading_four')->nullable();
+            $table->text('description_four')->nullable();
+            $table->string('heading_five')->nullable();
+            $table->text('description_five')->nullable();
             $table->text('doctors')->nullable();
             $table->text('clinics')->nullable();
             $table->string('faq_heading_one')->nullable();

@@ -10,8 +10,13 @@ class DentalService extends Model
     use HasFactory;
 
     protected $fillable = [
-        'service_name', 
+        'service_name',
         'image',
         'description'
     ];
+
+    public function pages()
+    {
+        return $this->hasMany(DentalPage::class);
+    }
 }

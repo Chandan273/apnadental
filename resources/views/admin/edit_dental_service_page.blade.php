@@ -86,6 +86,55 @@
 						<span class="text-danger">{{ $errors->first('description_two') }}</span>
 					@endif
 				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_three">Heading 3</label>
+                    <input type="text" class="form-control" name="heading_three" value="{{ $dentalPage->heading_three }}">
+					@if ($errors->has('heading_three'))
+						<span class="text-danger">{{ $errors->first('heading_three') }}</span>
+					@endif
+                </div>
+
+                <div class="form-group mb-3">
+					<label class="form-label" for="description_three">Description 3</label>
+					<textarea class="form-control" id="description_three" name="description_three" rows="3">{{ $dentalPage->description_three }}</textarea>
+					@if ($errors->has('description_three'))
+						<span class="text-danger">{{ $errors->first('description_three') }}</span>
+					@endif
+				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_four">Heading 4</label>
+                    <input type="text" class="form-control" name="heading_four" value="{{ $dentalPage->heading_four }}">
+					@if ($errors->has('heading_four'))
+						<span class="text-danger">{{ $errors->first('heading_four') }}</span>
+					@endif
+                </div>
+
+                <div class="form-group mb-3">
+					<label class="form-label" for="description_four">Description 4</label>
+					<textarea class="form-control" id="description_four" name="description_four" rows="3">{{ $dentalPage->description_four }}</textarea>
+					@if ($errors->has('description_four'))
+						<span class="text-danger">{{ $errors->first('description_four') }}</span>
+					@endif
+				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_five">Heading 5</label>
+                    <input type="text" class="form-control" name="heading_five" value="{{ $dentalPage->heading_five }}">
+					@if ($errors->has('heading_five'))
+						<span class="text-danger">{{ $errors->first('heading_five') }}</span>
+					@endif
+                </div>
+
+                <div class="form-group mb-3">
+					<label class="form-label" for="description_five">Description 5</label>
+					<textarea class="form-control" id="description_five" name="description_five" rows="3">{{ $dentalPage->description_five }}</textarea>
+					@if ($errors->has('description_five'))
+						<span class="text-danger">{{ $errors->first('description_five') }}</span>
+					@endif
+				</div>
+
                 
 				<div class="form-group">
 					<button type="button" class="btn-secondary btn-sm text-white p-1">Update Doctors

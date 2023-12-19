@@ -17,6 +17,12 @@ class DentalPage extends Model
         'description', 
         'heading_two',
         'description_two',
+        'heading_three',
+        'description_three',
+        'heading_four',
+        'description_four',
+        'heading_five',
+        'description_five',
         'doctors', 
         'clinics',
         'faq_heading_one',
@@ -30,4 +36,9 @@ class DentalPage extends Model
         'faq_heading_five',
         'faq_des_five'
     ];
+
+    public function dental_service()
+    {
+        return $this->belongsTo(DentalService::class, 'dental_service_id');
+    }
 }

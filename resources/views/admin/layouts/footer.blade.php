@@ -46,7 +46,7 @@
   <script src="{{ asset('public/assets/js/admin-charts.js') }}"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
   <script>
-    const editorIds = ['#description', '#description_two'];
+    const editorIds = ['#description', '#description_two', '#description_three', '#description_four', '#description_five'];
 
     editorIds.forEach(id => {
         ClassicEditor.create(document.querySelector(id)).catch(error => {

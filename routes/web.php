@@ -113,7 +113,7 @@ Route::post('/post-registration', [App\Http\Controllers\User\Auth\AuthController
 Route::get('/blog', [BlogController::class, 'blogPage']);
 Route::get('/blog-details/{id}', [BlogController::class, 'blogDetail']);
 Route::view('/about-us', 'apnadental/about');
-Route::view('/service', 'apnadental/service');
+Route::get('/service/{id}', [DentalController::class, 'showDoctorPage']);
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::view('/contact-us', 'apnadental/contact');
 Route::get('/search-location', [SearchController::class, 'searchLocation']);

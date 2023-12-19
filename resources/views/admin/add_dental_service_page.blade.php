@@ -76,9 +76,57 @@
 
                 <div class="form-group mb-3">
 					<label class="form-label" for="description_two">Description 2</label>
-					<textarea class="form-control" name="description_two" rows="3">{{ old('description_two') }}</textarea>
+					<textarea class="form-control" id="description_two" name="description_two" rows="3">{{ old('description_two') }}</textarea>
 					@if ($errors->has('description_two'))
 						<span class="text-danger">{{ $errors->first('description_two') }}</span>
+					@endif
+				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_three">Heading 3</label>
+                    <input type="text" class="form-control" name="heading_three" value="{{ old('heading_three') }}">
+					@if ($errors->has('heading_three'))
+						<span class="text-danger">{{ $errors->first('heading_three') }}</span>
+					@endif
+                </div>
+
+                <div class="form-group mb-3">
+					<label class="form-label" for="description_three">Description 3</label>
+					<textarea class="form-control" id="description_three" name="description_three" rows="3">{{ old('description_three') }}</textarea>
+					@if ($errors->has('description_three'))
+						<span class="text-danger">{{ $errors->first('description_three') }}</span>
+					@endif
+				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_four">Heading 4</label>
+                    <input type="text" class="form-control" name="heading_four" value="{{ old('heading_four') }}">
+					@if ($errors->has('heading_four'))
+						<span class="text-danger">{{ $errors->first('heading_four') }}</span>
+					@endif
+                </div>
+
+                <div class="form-group mb-3">
+					<label class="form-label" for="description_four">Description 4</label>
+					<textarea class="form-control" id="description_four" name="description_four" rows="3">{{ old('description_four') }}</textarea>
+					@if ($errors->has('description_four'))
+						<span class="text-danger">{{ $errors->first('description_four') }}</span>
+					@endif
+				</div>
+
+				<div class="form-group mb-3">
+                    <label class="form-label" for="heading_five">Heading 5</label>
+                    <input type="text" class="form-control" name="heading_five" value="{{ old('heading_five') }}">
+					@if ($errors->has('heading_five'))
+						<span class="text-danger">{{ $errors->first('heading_five') }}</span>
+					@endif
+                </div>
+
+                <div class="form-group mb-3">
+					<label class="form-label" for="description_five">Description 5</label>
+					<textarea class="form-control" id="description_five" name="description_five" rows="3">{{ old('description_five') }}</textarea>
+					@if ($errors->has('description_five'))
+						<span class="text-danger">{{ $errors->first('description_five') }}</span>
 					@endif
 				</div>
 
