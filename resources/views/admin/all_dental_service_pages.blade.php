@@ -28,15 +28,12 @@
         </div>
 
         <div class="box_general p-3">
-            <div class="row mb-3">
-                <div class="col">
+            <div class="mb-3 d-flex justify-content-between align-items-center">
                     <h4>All Pages List</h4>
-                </div>
-                <div class="col text-end">
+         
                     <a href="{{ route('dentalPage.create') }}" class="btn btn_pink">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add New Service Page
                     </a>
-                </div>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
