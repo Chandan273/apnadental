@@ -44,6 +44,14 @@ class DoctorController extends Controller
 
         $services = Service::all();
 
+        foreach ($services as $service) {
+            $count = Doctor::where('type', 'Doctor')
+                ->where('service_id', $service->id)
+                ->count();
+        
+            $service['total_count'] = $count;
+        }
+
         if ($agent->isMobile()) {
             return view('apnadental_mobile.doctors', compact('services'));
         } else {
@@ -62,9 +70,15 @@ class DoctorController extends Controller
 
         if ($resultsType) {
             // Use the `whereHas` method to filter doctors by service_name
-            $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
-                $query->where('service_name', $resultsType);
-            });
+            if ($agent->isMobile()) {
+                $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
+                    $query->where('service_name', $resultsType);
+                });
+            }else{
+                $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
+                    $query->where('service_name', $resultsType)->where('type', 'Doctor');
+                });
+            }
         } else {
             // If no results_type is provided, fetch all doctors
             $doctorsQuery = Doctor::query();
@@ -80,11 +94,54 @@ class DoctorController extends Controller
         }
     }
 
+    public function clinicList(Request $request)
+    {
+        $agent = new Agent();
+        // Get the results_type parameter from the URL
+        $resultsType = $request->query('results_type');
+
+        // Set the number of doctors to display per page
+        $perPage = 10; // You can adjust this as needed
+
+        if ($resultsType) {
+            // Use the `whereHas` method to filter doctors by service_name
+            if ($agent->isMobile()) {
+                $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
+                    $query->where('service_name', $resultsType);
+                });
+            }else{
+                $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
+                    $query->where('service_name', $resultsType)->where('type', 'clinics');
+                });
+            }
+        } else {
+            // If no results_type is provided, fetch all doctors
+            $doctorsQuery = Doctor::query();
+        }
+
+        // Paginate the results
+        $clinics = $doctorsQuery->paginate($perPage);
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.all-clinics', compact('clinics', 'resultsType'));
+        } else {
+            return view('apnadental.doctor', compact('clinics', 'resultsType'));
+        }
+    }
+
     public function clinics(Request $request)
     {
         $agent = new Agent();
 
         $services = Service::all();
+
+        foreach ($services as $service) {
+            $count = Doctor::where('type', 'Clinics')
+                ->where('service_id', $service->id)
+                ->count();
+        
+            $service['total_count'] = $count;
+        }
 
         if ($agent->isMobile()) {
             return view('apnadental_mobile.clinics', compact('services'));
@@ -100,7 +157,14 @@ class DoctorController extends Controller
 
     public function showDoctorDetails($id)
     {
+        $agent = new Agent();
+
         $doctor = Doctor::find($id);
-        return view('apnadental.doctor_details', ['doctor' => $doctor]);
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.doctor_details', ['doctor' => $doctor]);
+        }else{
+            return view('apnadental.doctor_details', ['doctor' => $doctor]);
+        }
     }
 }

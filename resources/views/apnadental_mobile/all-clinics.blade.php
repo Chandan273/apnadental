@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="top-bar mb-1 py-2 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <a class="text-reset" href="<?php echo env('APP_URL'); ?>/clinics">
+            <a class="text-reset" href="<?php echo env('APP_URL'); ?>/doctors">
                 <img src="{{ asset('public/assets/mobileImages/arrow-back.svg') }}" alt="back-arrow">
             </a>
             <h3 class="mb-0 ps-3">{{ $resultsType }}</h3>
@@ -26,17 +26,17 @@
     <div class="search-bar pt-2">
         <div class="input-group bg-white border rounded-3 p-2 mb-3">
             <span class="input-group-text border-0 bg-transparent"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control border-0 ps-1" placeholder="Search Doctors, Medicines, Hospitals"
+            <input type="text" class="form-control border-0 ps-1" placeholder="Search clinics, Medicines, Hospitals"
                 aria-label="ddf">
         </div>
     </div>
 
-    @foreach ($doctors as $doctor)
+    @foreach ($clinics as $clinic)
     <div class="mb-4">
-        <div class="d-flex doctor-info gap-3 py-4">
+        <div class="d-flex clinic-info gap-3 py-4">
             <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}?type={{ $resultsType }}">
-                    <img src="{{ $doctor->image }}" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
+                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}?type={{ $resultsType }}">
+                    <img src="{{ $clinic->image }}" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $clinic->company_name }}">
                 </a>
             </div>
 
@@ -44,16 +44,16 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <h5 class="mb-1">
-                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}?type={{ $resultsType }}">{{ $doctor->company_name }}</a>
+                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}?type={{ $resultsType }}">{{ $clinic->company_name }}</a>
                         </h5>
                         <p class="mb-0 fs-sm">{{ $resultsType }}</p>
-                        <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
-                        <h4 class="mt-1 fs-sm">{{ $doctor->description }}</h4>
+                        <p class="mb-0 fs-sm">{{ $clinic->experience }}, {{ $clinic->city }}</p>
+                        <h4 class="mt-1 fs-sm">{{ $clinic->description }}</h4>
                     </div>
                     <div>
                         <p class="d-flex reviews mb-0 gap-1 justify-content-end">
                             @php
-                                $rating = $doctor->rating;
+                                $rating = $clinic->rating;
                                 $filledStars = floor($rating);
                                 $halfStar = ($rating - $filledStars) >= 0.5;
                             @endphp
@@ -67,10 +67,10 @@
                                     <i class="icon_star"></i>
                                 @endif
                             @endfor
-                            <span>{{ $doctor->rating }}</span>
+                            <span>{{ $clinic->rating }}</span>
                             <i class="bi bi-star-fill text-success"></i>
                         </p>
-                        <p class="reviews">{{ $doctor->rating_count }} Reviews</p>
+                        <p class="reviews">{{ $clinic->rating_count }} Reviews</p>
                     </div>
                 </div>
                 
@@ -78,8 +78,8 @@
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <form class="form-check d-flex gap-2 align-items-center mb-0">
-                <input type="checkbox" class="form-check-input mb-1" id="compareDoctor1">
-                <label class="form-check-label fs-sm" for="compareDoctor1">Compare</label>
+                <input type="checkbox" class="form-check-input mb-1" id="compareclinic1">
+                <label class="form-check-label fs-sm" for="compareclinic1">Compare</label>
             </form>
             <div>
                 <a href="#" class="btn me-1 d-inline-flex btn-outline-success"><i class="bi bi-telephone-fill pe-2"></i>
@@ -90,7 +90,7 @@
     </div>
     @endforeach
 
-    {{$doctors->links()}}
+    {{$clinics->links()}}
 
 </div>
 @endsection

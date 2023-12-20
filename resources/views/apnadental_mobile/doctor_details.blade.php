@@ -5,7 +5,7 @@
 
 
     <div class="top-bar mb-1 py-2 d-flex justify-content-between align-items-center">
-        <a href="#" class="text-reset">
+        <a href="javascript:void(0)" class="text-reset" onclick="goBack()">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left"
                 viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -26,45 +26,61 @@
         <div class="flex-grow-1">
             <div class="d-flex justify-content-between">
                 <div>
-                    <h3 class="mb-1 fw-bold">Dr. Adaora Azubuike</h3>
-                    <p class="mb-1 fs-sm">Cardiologist</p>
-                    <p class="mb-0 fs-sm">14 yrs Experience, Janakpuri <br> MBBS, MD, General Medicine</p>
-                    <h4 class="mt-2 fs-sm fw-bold">₹500 Consultation Fees</h4>
+                    <h3 class="mb-1 fw-bold">{{ $doctor->company_name }}</h3>
+                    <p class="mb-1 fs-sm">{{ request('type') }}</p>
+                    <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }} <br> {{ $doctor->education }}, {{ $doctor->specialization }}</p>
+                    <h4 class="mt-2 fs-sm fw-bold">₹{{ $doctor->fee }} Consultation Fees</h4>
                 </div>
             </div>
         </div>
         <div>
             <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="doctor">
+                <img src="{{$doctor->image}}" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
             </div>
             <div class="text-center mt-1">
                 <p class="d-flex reviews mb-0 gap-1 justify-content-center fs-xs">
-                    <span class="fw-bold">4.8</span>
+                    @php
+                        $rating = $doctor->rating;
+                        $filledStars = floor($rating);
+                        $halfStar = ($rating - $filledStars) >= 0.5;
+                    @endphp
+
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $filledStars)
+                            <i class="icon_star voted"></i>
+                        @elseif ($halfStar && $i == $filledStars + 1)
+                            <i class="icon_star voted half"></i>
+                        @else
+                            <i class="icon_star"></i>
+                        @endif
+                    @endfor
+                    <span class="fw-bold">{{ $doctor->rating }}</span>
                     <i class="bi bi-star-fill text-success"></i>
                 </p>
-                <p class="reviews mb-0 fs-xs">56 Reviews
+                <p class="reviews mb-0 fs-xs">{{ $doctor->rating_count }} Reviews
                 </p>
             </div>
         </div>
     </div>
     <div class="d-flex mt-2">
         <div class="left-img">
-            <svg id="Component_79_1" data-name="Component 79 – 1" xmlns="http://www.w3.org/2000/svg" width="42"
-                height="42" viewBox="0 0 42 42">
-                <rect id="Rectangle" width="42" height="42" rx="12" fill="#14bfff" opacity="0.1"></rect>
-                <g id="appartment" transform="translate(15 11)">
-                    <g id="pin_1_" data-name="pin (1)">
-                        <path id="Shape"
-                            d="M7.488,19.968a.417.417,0,0,1-.285-.113C6.909,19.578,0,13.007,0,7.488a7.488,7.488,0,0,1,14.976,0c0,5.52-6.909,12.09-7.2,12.367A.414.414,0,0,1,7.488,19.968Zm0-16.64a4.16,4.16,0,1,0,4.16,4.16A4.165,4.165,0,0,0,7.488,3.328Z"
-                            fill="#14bfff"></path>
+            <a href="{{ $doctor->map_url }}">
+                <svg id="Component_79_1" data-name="Component 79 – 1" xmlns="http://www.w3.org/2000/svg" width="42"
+                    height="42" viewBox="0 0 42 42">
+                    <rect id="Rectangle" width="42" height="42" rx="12" fill="#14bfff" opacity="0.1"></rect>
+                    <g id="appartment" transform="translate(15 11)">
+                        <g id="pin_1_" data-name="pin (1)">
+                            <path id="Shape"
+                                d="M7.488,19.968a.417.417,0,0,1-.285-.113C6.909,19.578,0,13.007,0,7.488a7.488,7.488,0,0,1,14.976,0c0,5.52-6.909,12.09-7.2,12.367A.414.414,0,0,1,7.488,19.968Zm0-16.64a4.16,4.16,0,1,0,4.16,4.16A4.165,4.165,0,0,0,7.488,3.328Z"
+                                fill="#14bfff"></path>
+                        </g>
                     </g>
-                </g>
-            </svg>
+                </svg>
+            </a>
         </div>
 
         <div class="second-shift ms-3">
-            <address>Pocket 1, Gate Number 2, Sector 9, Landmark: Opposite shiksha bharti school, Delhi
+            <address>{{ $doctor->location }}, {{ $doctor->city }}, {{ $doctor->state }}, Landmark: {{ $doctor->locality }}, {{ $doctor->country }}
             </address>
         </div>
     </div>
@@ -85,23 +101,7 @@
             </svg>
         </div>
         <div class="content">
-            <h6 class="mb-0">Professional statement</h6>
-            <p class="fs-xs mb-2">Mussum ipsum cocilas vidis litro abdis</p>
-            <p class="fs-sm">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo,
-                eget
-                blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                Phasellus
-                hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id,
-                mattis
-                vel, nisi. Nullam mollis. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi
-                neque, aliquet vel, dapi.</p>
-            <h6 class="mt-3 mb-2">Specializations</h6>
-            <ul class="specialize">
-                <li>Abdominal Radiology</li>
-                <li>Addiction Psychiatry</li>
-                <li>Adolescent Medicine</li>
-                <li>Cardiothoracic Radiology</li>
-            </ul>
+            {{ $doctor->description }}
         </div>
     </div>
     <div class="d-flex gap-2 statement pb-3">
@@ -116,24 +116,17 @@
         </div>
         <div class="content">
             <h6 class="mb-0">Education</h6>
-            <p class="fs-xs mb-2">Mussum ipsum cocilas vidis litro abdis</p>
-            <p class="fs-sm">Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet
-                vel, dapibus id, mattis vel, nisi. Nullam mollis. Phasellus hendrerit. Pellentesque aliquet
-                nibh
-                nec urna. In nisi neque, aliquet vel, dapi.</p>
+            <p class="fs-xs mb-2">{{ $doctor->education }}</p>
             <h6 class="fs-sm mt-3 mb-2">Curriculum</h6>
             <ul>
                 <li>
                     <p><span class="fw-medium">New york medical college</span> - Doctor of Medicine</p>
                 </li>
                 <li>
-                    <p><span class="fw-medium">Montefiore Medical Center</span> - Residency in Internal
-                        Medicine
-                    </p>
+                    <p><span class="fw-medium">Montefiore Medical Center</span> - Residency in Internal Medicine</p>
                 </li>
                 <li>
-                    <p><span class="fw-medium">New york medical college</span> - Master Internal Medicine
-                    </p>
+                    <p><span class="fw-medium">New york medical college</span> - Master Internal Medicine</p>
                 </li>
             </ul>
         </div>

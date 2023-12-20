@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="top-bar mt-3 mb-4 py-2 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <a class="text-reset" href="/Main-landing.html">
+            <a class="text-reset" href="<?php echo env('APP_URL'); ?>">
                 <img  src="{{ asset('public/assets/mobileImages/arrow-back.svg') }}" alt="back-arrow">
             </a>
             <h3 class="mb-0 ps-3">Find Doctors</h3>
@@ -24,11 +24,11 @@
         @foreach ($services as $service)
         <div class="col-6">
             <div class="bg-white text-center rounded-2 specialized-item p-4 position-relative">
-                {{-- <div class="p-2 img-wrap d-flex align-items-center justify-content-center bg-primary rounded-pill mb-4 position-relative">
-                    <img class="object-fit-contain" src="{{ asset('public/assets/mobileImages/heartbeat.svg') }}" alt="heartbeat" width="42px">
-                </div> --}}
+                <div class="p-2 img-wrap d-flex align-items-center justify-content-center bg-primary rounded-pill mb-4 position-relative">
+                    <img class="object-fit-contain" src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}" width="42px">
+                </div>
                 <h6 class="mb-0">{{$service->service_name}}</h6>
-                <p class="text-info mb-0">340 specialist</p>
+                <p class="text-info mb-0">{{$service->total_count}} specialist</p>
                 <a href="<?php echo env('APP_URL'); ?>/search/doctors?results_type={{$service->service_name}}" class="stretched-link"></a>
             </div>
         </div>

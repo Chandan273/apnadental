@@ -46,7 +46,7 @@
                 <a href="<?php echo env('APP_URL'); ?>/clinics" class="stretched-link"></a>
             </div>
         </div>
-        {{-- <div class="col-6">
+        <!-- <div class="col-6">
             <div class="bg-primary rounded-4 p-3 position-relative">
                 <img src="{{ asset('public/assets/mobileImages/Pharmacy.svg') }}" class="mb-2" alt="Pharmacy vector"
                     width="30" height="30px">
@@ -63,7 +63,7 @@
                 <p class="text-white m-0 fs-xs">Get Tele consult with us</p>
                 <a href="/Search-by-tretment.html" class="stretched-link"></a>
             </div>
-        </div> --}}
+        </div> -->
     </div>
 
     <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
