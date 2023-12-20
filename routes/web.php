@@ -115,12 +115,14 @@ Route::get('/blog-details/{id}', [BlogController::class, 'blogDetail']);
 Route::view('/about-us', 'apnadental/about');
 Route::get('/service/{id}', [DentalController::class, 'showDoctorPage']);
 Route::get('/doctors', [DoctorController::class, 'index']);
+Route::get('/clinics', [DoctorController::class, 'clinics']);
 Route::view('/contact-us', 'apnadental/contact');
 Route::get('/search-location', [SearchController::class, 'searchLocation']);
 Route::post('/search-doctors', [SearchController::class, 'searchDoctors']);
 Route::get('/doctor-details/{id}', [DoctorController::class, 'showDoctorDetails']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/search/doctors', [DoctorController::class, 'doctorList']);
+Route::get('/search/clinics', [DoctorController::class, 'clinicList']);
 Route::get('autocomplete', [SearchController::class, 'autocomplete'])->name('autocomplete');
 Route::get('{city}/specialties/{specialty}', [SearchController::class, 'findDoctor']);
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.post');
@@ -133,8 +135,6 @@ Route::view('/doctor123', 'apnadental/doctor');
 
 // mobile routes 
 Route::view('/appointment', 'apnadental_mobile/appointment');
-Route::view('/blog', 'apnadental_mobile/blog');
-Route::view('/doctor-detail3', 'apnadental_mobile/doctor-detail3');
-Route::view('/doctor-details', 'apnadental_mobile/doctor-details');
-Route::view('/find-clinic', 'apnadental_mobile/find-clinic');
+//Route::view('/blog', 'apnadental_mobile/blog');
+// Route::view('/doctor-detail3', 'apnadental_mobile/doctor-detail3');
 Route::view('/login-splash-screen', 'apnadental_mobile/login-splash-screen');

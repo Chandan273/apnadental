@@ -108,7 +108,7 @@
 
                                     <small>({{ $doctor->rating_count }})</small>
                             </span>
-                            <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1">
+                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1">
                                 <img src="<?php echo env('APP_URL'); ?>/public/assets/apnadental/img/badges/badge_1.svg" width="15" height="15" alt="">
                             </a>
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-2">
