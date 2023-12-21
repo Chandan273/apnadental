@@ -3,14 +3,12 @@
     <div class="row align-items-center justify-content-between py-1 py-lg-3">
       <div class="col-3 col-lg-2">
         <a class="d-block brand-logo" href="{{ url('/') }}">
-          <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}"
-            alt="apna-dental-logo">
+          <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}" alt="apna-dental-logo">
         </a>
       </div>
       <div class="col-9">
-        <div class="ads">
-          <img class="w-100" src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg"
-            alt="google-ads">
+        <div class="ads text-end">
+          <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="google-ads">
         </div>
       </div>
     </div>
