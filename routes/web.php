@@ -95,7 +95,6 @@ Route::prefix('admin')->group(function () {
     Route::put('/dental-page/{id}', [DentalController::class, 'updatePage'])->name('dentalsPage.update');
     Route::delete('/dental-page/{id}', [DentalController::class, 'destroyPage'])->name('dentalsPage.destroy');
 
-
     Route::get('/import-csv', [CSVController::class, 'create'])->name('import.create');
     Route::get('/all-imports', [CSVController::class, 'index'])->name('import.index');
     Route::post('/import', [CSVController::class, 'store'])->name('import.store');
@@ -105,7 +104,7 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/', [SearchController::class, 'index']);
 Route::view('/404', 'apnadental/404');
-Route::view('/login', 'apnadental/login');
+//Route::view('/login', 'apnadental/login');
 Route::get('logout', [App\Http\Controllers\User\Auth\AuthController::class, 'logout'])->name('user.logout');
 Route::get('/register', [App\Http\Controllers\User\Auth\AuthController::class, 'index']);
 Route::post('/otp-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post'); 
@@ -133,8 +132,8 @@ Route::view('/cosmetics_dentistry', 'apnadental/cosmetics_dentistry');
 Route::view('/periodontics', 'apnadental/periodontics');
 Route::view('/doctor123', 'apnadental/doctor');
 
-// mobile routes 
-Route::view('/appointment', 'apnadental_mobile/appointment');
-Route::view('/service-section', 'apnadental_mobile/patient-details');
-// Route::view('/doctor-detail3', 'apnadental_mobile/doctor-detail3');
-Route::view('/login-splash-screen', 'apnadental_mobile/login-splash-screen');
+// Mobile Routes 
+Route::get('/book-appointment/{id}', [BookingController::class, 'showBookingPage']);
+Route::get('/confirm-booking/{id}', [BookingController::class, 'confirmBookingPage']);
+Route::view('/appointment', 'apnadental_mobile/patient-details');
+Route::view('/login', 'apnadental_mobile/login');

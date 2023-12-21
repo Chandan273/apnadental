@@ -66,14 +66,43 @@
         </div> -->
     </div>
 
-    <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
-        <p class="mb-0 text-info">introductory offer</p>
-        <h4 class="text-white">Video </br>Consultation</h4>
-        <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
-        <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}"
-            class="position-absolute object-fit-contain end-0 bottom-0" alt="book appointment for video consultation">
+    <div class="introductory-slider">
+        <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
+            <p class="mb-0 text-info">introductory offer1</p>
+            <h4 class="text-white">Video </br>Consultation</h4>
+            <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
+            <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}"
+                class="position-absolute object-fit-contain end-0 bottom-0" alt="book appointment for video consultation">
+        </div>
+        <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
+            <p class="mb-0 text-info">introductory offer2</p>
+            <h4 class="text-white">Video </br>Consultation</h4>
+            <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
+            <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}"
+                class="position-absolute object-fit-contain end-0 bottom-0" alt="book appointment for video consultation">
+        </div>
+        <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
+            <p class="mb-0 text-info">introductory offer3</p>
+            <h4 class="text-white">Video </br>Consultation</h4>
+            <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
+            <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}"
+                class="position-absolute object-fit-contain end-0 bottom-0" alt="book appointment for video consultation">
+        </div>
+        <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
+            <p class="mb-0 text-info">introductory offer4</p>
+            <h4 class="text-white">Video </br>Consultation</h4>
+            <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
+            <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}"
+                class="position-absolute object-fit-contain end-0 bottom-0" alt="book appointment for video consultation">
+        </div>
+        <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
+            <p class="mb-0 text-info">introductory offer5</p>
+            <h4 class="text-white">Video </br>Consultation</h4>
+            <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
+            <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}"
+                class="position-absolute object-fit-contain end-0 bottom-0" alt="book appointment for video consultation">
+        </div>
     </div>
-
 
     <div>
         <div class="main-head d-flex justify-content-between">
@@ -95,7 +124,7 @@
                                 <h5 class="mb-1">{{ $doctor->company_name }}</h5>
                                 <p class="mb-0 fs-sm">{{ $doctor->main_category }}</p>
                                 <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
-                                <h4 class="mt-1 fs-sm">₹{{ $doctor->experience }} Consultation Fees</h4>
+                                <h4 class="mt-1 fs-sm">₹{{ $doctor->fee }} Consultation Fees</h4>
                             </div>
                             @php
                                 $rating = $doctor->rating;
@@ -129,9 +158,15 @@
                         <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
                     </form>
                     <div>
-                        <a href="#" class="btn me-1 d-inline-flex btn-outline-success"><i
+                        <a href="tel://{{ $doctor->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
                                 class="bi bi-telephone-fill pe-2"></i> Call</a>
-                        <a href="#" class="btn button-pink-fill">Book appointment</a>
+                        @if (!Auth::check())
+                            <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                        @endif
+
+                        @if (Auth::check())
+                            <a href="<?php echo env('APP_URL'); ?>/book-appointment/{{ $doctor->id }}" class="btn button-pink-fill">Book appointment</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -174,7 +209,7 @@
                             <h5 class="mb-1">{{ $clinic->company_name }}</h5>
                             <p class="mb-0 fs-sm">{{ $clinic->main_category }}</p>
                             <p class="mb-0 fs-sm">{{ $clinic->experience }}, {{ $clinic->city }}</p>
-                            <h4 class="mt-1 fs-sm">₹{{ $clinic->experience }} Consultation Fees</h4>
+                            <h4 class="mt-1 fs-sm">₹{{ $clinic->fee }} Consultation Fees</h4>
                         </div>
                         @php
                             $rating = $clinic->rating;
@@ -208,9 +243,15 @@
                     <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
                 </form>
                 <div>
-                    <a href="#" class="btn me-1 d-inline-flex btn-outline-success"><i
+                    <a href="tel://{{ $clinic->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
                             class="bi bi-telephone-fill pe-2"></i> Call</a>
-                    <a href="#" class="btn button-pink-fill">Book appointment</a>
+                    @if (!Auth::check())
+                        <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                    @endif
+
+                    @if (Auth::check())
+                        <a href="<?php echo env('APP_URL'); ?>/book-appointment/{{ $clinic->id }}" class="btn button-pink-fill">Book appointment</a>
+                    @endif
                 </div>
             </div>
             
@@ -605,6 +646,30 @@
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0',
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
+    $('.introductory-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4500,
         arrows: false,
         centerMode: true,
         centerPadding: '0',

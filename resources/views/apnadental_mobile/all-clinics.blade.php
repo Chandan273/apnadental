@@ -82,9 +82,15 @@
                 <label class="form-check-label fs-sm" for="compareclinic1">Compare</label>
             </form>
             <div>
-                <a href="#" class="btn me-1 d-inline-flex btn-outline-success"><i class="bi bi-telephone-fill pe-2"></i>
+                <a href="tel://{{ $clinic->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i class="bi bi-telephone-fill pe-2"></i>
                     Call</a>
-                <a href="/appointment.html" class="btn button-pink-fill">Book appointment</a>
+                @if (!Auth::check())
+                    <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                @endif
+
+                @if (Auth::check())
+                    <a href="<?php echo env('APP_URL'); ?>/book-appointment/{{ $clinic->id }}" class="btn button-pink-fill">Book appointment</a>
+                @endif
             </div>
         </div>
     </div>

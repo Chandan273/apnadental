@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Doctor;
 use App\Models\Booking;
+use Jenssegers\Agent\Agent;
+use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
@@ -49,5 +51,27 @@ class BookingController extends Controller
         ]);
     
         return response()->json(['message' => 'Booking created successfully', 'booking' => $booking]);
-    }    
+    }
+
+    public function showBookingPage($id)
+    {
+        $agent = new Agent();
+
+        $doctor = Doctor::find($id);
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.book-appointment', compact('doctor'));
+        }
+    }
+
+    public function confirmBookingPage($id)
+    {
+        $agent = new Agent();
+
+        $doctor = Doctor::find($id);
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.confirm-booking', compact('doctor'));
+        }
+    }
 }
