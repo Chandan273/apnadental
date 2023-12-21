@@ -57,7 +57,7 @@
 .button-pink-fill:hover,
 .button-pink-fill:focus,
 .btn.button-pink-fill:active {
-    border-color: var(--green);
+    border: 1px solid var(--green);
     background-color: rgba(var(--green), 1);
     color: var(--white);
 }
@@ -72,7 +72,7 @@
 .button-pink-outline:hover,
 .button-pink-outline:focus,
 .btn.button-pink-outline:active {
-    border-color: var(--green);
+    border: 1px solid var(--green);
     background-color: rgba(var(--green), 1);
     color: var(--white);
 }

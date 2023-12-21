@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Service;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ServiceController extends Controller
 {
@@ -16,23 +16,26 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'servicename' => 'required|max:255',
-            'description' => 'required|string',
-        ], [
-            'servicename.required' => 'Service name is required.',
-            'servicename.max' => 'Service name should not exceed 255 characters.',
-            //'description.required' => 'Description is required.',
+        $request->validate([
+            'service_name' => 'required|string|max:255',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $service = Service::create([
-            'service_name' => $validatedData['servicename'],
-            'description' => $validatedData['description'],
-        ]);
+        $service = new Service();
+        $service->service_name = $request->input('service_name');
+        $service->description = $request->input('description');
 
-        // You can also associate locations and doctors here if needed
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/doctor-service'), $imageName);
+            $service->service_image = 'uploads/doctor-service/' . $imageName;
+        }
 
-        return redirect()->back()->with('success', 'Service created successfully.');
+        $service->save();
+
+        return redirect()->back()->with('success', 'Service added successfully!');
     }
 
     public function edit($id)
@@ -46,6 +49,42 @@ class ServiceController extends Controller
         return view('admin.edit_service', compact('service'));
     }
 
+    public function update(Request $request, string $id)
+    {
+        $service = Service::find($id);
+
+        if (!$service) {
+            return redirect()->back()->with('error', 'This Service is not found.');
+        }
+
+        $request->validate([
+            'service_name' => 'required|string|max:255',
+            'description' => 'required'
+        ]);
+
+        $service->service_name = $request->input('service_name');
+        $service->description = $request->input('description');
+
+        if ($request->hasFile('image')) {
+            if (!empty($service->service_image)) {
+                $imagePath = public_path($service->service_image);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Delete the old image file if it exists
+                }
+            }
+
+            // Upload and update the new image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/doctor-service'), $imageName);
+            $service->service_image = 'uploads/doctor-service/' . $imageName;
+        }
+
+        $service->save();
+
+        return redirect()->route('services.index')->with('success', 'Service updated successfully.');
+    }
+
     public function destroy($id)
     {
         $service = Service::find($id);
@@ -54,32 +93,17 @@ class ServiceController extends Controller
             return redirect()->back()->with('error', 'Service not found.');
         }
 
-        $service->delete();
+        // Delete the brand image file if it exists
+        if (!empty($service->service_image)) {
+            $imagePath = public_path($service->service_image);
 
-        return redirect()->back()->with('success', 'Service deleted successfully.');
-    }
-
-    public function update(Request $request, $id)
-    {
-        $service = Service::find($id);
-
-        if (!$service) {
-            return redirect()->back()->with('error', 'Service not found.');
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
         }
 
-        $validatedData = $request->validate([
-            'servicename' => 'required|max:255',
-            'description' => 'required|string',
-        ], [
-            'servicename.required' => 'Service name is required.',
-            'servicename.max' => 'Service name should not exceed 255 characters.',
-            //'description.required' => 'Description is required.',
-        ]);
+        $service->delete();
 
-        $service->service_name = $validatedData['servicename'];
-        $service->description = $validatedData['description'];
-        $service->save();
-
-        return redirect()->route('services.index')->with('success', 'Service updated successfully.');
+        return redirect()->back()->with('success', 'Service and it`s image deleted successfully.');
     }
 }

@@ -179,7 +179,7 @@
 			// 	});
 			// });
 
-			// $('#otp-login-form-mobile').submit(function (e) {
+			// $('#) {
 			// 	e.preventDefault();
 			// 	var formData = $(this).serialize();
 
