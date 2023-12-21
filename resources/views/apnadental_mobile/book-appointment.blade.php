@@ -14,23 +14,38 @@
         <div class="d-flex doctor-info appointment gap-3 my-4 py-3 pt-2 py-4">
             <div>
                 <div class="bg-primary position-relative overflow-hidden img-wrap rounded-pill">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="">
+                    <img src="{{$doctor->image}}" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
                 </div>
             </div>
             <div class="flex-grow-1">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h5 class="mb-1">Dr. Matthew Lina</h5>
-                        <p class="mb-0 fs-sm">Cardiologist</p>
-                        <p class="mb-0 fs-sm">14 yrs Experience, Janakpuri</p>
-                        <h4 class="mt-1 fs-sm">₹500 Consultation Fees</h4>
+                        <h5 class="mb-1">{{ $doctor->company_name }}</h5>
+                        <p class="mb-0 fs-sm">{{ $doctor->main_category }}</p>
+                        <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
+                        <h4 class="mt-1 fs-sm">₹{{ $doctor->fee }} Consultation Fees</h4>
                     </div>
+                    @php
+                        $rating = $doctor->rating;
+                        $filledStars = floor($rating);
+                        $halfStar = ($rating - $filledStars) >= 0.5;
+                    @endphp
+
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $filledStars)
+                            <i class="icon_star voted"></i>
+                        @elseif ($halfStar && $i == $filledStars + 1)
+                            <i class="icon_star voted half"></i>
+                        @else
+                            <i class="icon_star"></i>
+                        @endif
+                    @endfor
                     <div>
                         <p class="d-flex reviews mb-0 gap-1 justify-content-end fs-xs">
-                            <span>4.8</span>
+                            <span>{{ $doctor->rating }}</span>
                             <i class="bi bi-star-fill text-success"></i>
                         </p>
-                        <p class="reviews fs-xs">56 Reviews</span>
+                        <p class="reviews fs-xs">{{ $doctor->rating_count }} Reviews</span>
                     </div>
                 </div>
             </div>
@@ -41,7 +56,13 @@
             <div class="main-head d-flex justify-content-between align-items-center">
                 <h2 class="mb-0 fw-normal text-uppercase">Select date and time</h2>
             </div>
-            <div class="row g-2 row-cols-4 select-date my-3 radio-wrapper">
+            <div class="row g-2 select-date my-3 radio-wrapper">
+            <div class="col">
+                <label for="datepicker">Select Date:</label>
+                <input type="date" id="datepicker" class="form-control" required>
+            </div>
+            </div>
+            <!-- <div class="row g-2 row-cols-4 select-date my-3 radio-wrapper">
                 <div class="col">
                     <div class="position-relative">
                         <label class="stretched-link" for="day16"></label>
@@ -82,12 +103,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row g-2 py-3 mb-3 radio-wrapper">
                 <div class="col-6">
                     <div class="position-relative">
                         <label class="stretched-link" for="Am"></label>
-                        <input checked type="radio" id="Am" name="day-partial">
+                        <input checked type="radio" id="Am" name="day-partial" value="Morning">
                         <div class="radio-item text-center d-flex rounded-4 p-4 align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-cloud-sun-fill" viewBox="0 0 16 16">
@@ -103,7 +124,7 @@
                 <div class="col-6">
                     <div class="position-relative">
                         <label class="stretched-link" for="Pm"></label>
-                        <input type="radio" id="Pm" name="day-partial">
+                        <input type="radio" id="Pm" name="day-partial" value="Evening">
                         <div class="radio-item text-center d-flex rounded-4 p-4 align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-cloud-moon-fill" viewBox="0 0 16 16">
@@ -118,82 +139,33 @@
                 </div>
             </div>
             <div class="row g-2 row-cols-4 radio-wrapper my-3">
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="1am"></label>
-                        <input type="radio" id="1am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">09:00 AM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
+                @php
+                    // Start time and end time for 24-hour time slots
+                    $startTime = strtotime('00:00');
+                    $endTime = strtotime('23:30');
+                @endphp
 
-                    <div class="position-relative">
-                        <label class="stretched-link" for="2am"></label>
-                        <input type="radio" id="2am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">09:30 AM</p>
+                @for ($time = $startTime; $time <= $endTime; $time += 1800)
+                    @php
+                        $formattedTime = date('H:i', $time);
+                        $formattedTime12H = date('h:i A', $time);
+                        $inputId = 'time_' . str_replace(':', '_', $formattedTime);
+                    @endphp
+
+                    <div class="col">
+                        <div class="position-relative">
+                            <label class="stretched-link" for="{{ $inputId }}"></label>
+                            <input type="radio" id="{{ $inputId }}" name="select-time" value="{{ $formattedTime12H }}">
+                            <div class="radio-item text-center rounded-4 p-2 py-3">
+                                <p class="fs-xs mb-0">{{ $formattedTime12H }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="4am"></label>
-                        <input type="radio" id="4am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">10:00 AM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="5am"></label>
-                        <input type="radio" id="5am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">10:30 AM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="6am"></label>
-                        <input type="radio" id="6am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">11:00 AM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="7am"></label>
-                        <input type="radio" id="7am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">11:30 AM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="8am"></label>
-                        <input type="radio" id="8am" name="select-time">
-                        <div class="radio-item text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">12:00 pm</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="position-relative">
-                        <label class="stretched-link" for="9pm"></label>
-                        <input type="radio" id="9pm" name="select-time">
-                        <div class="radio-item  text-center rounded-4 p-2 py-3">
-                            <p class="fs-xs mb-0">12:30 PM</p>
-                        </div>
-                    </div>
-                </div>
+                @endfor
             </div>
+
             <div class="my-4 mb-0 mt-5 pt-5">
-                <a href="/Doctor-details.html" class="btn button-pink-fill w-100 py-3 rounded-4 text-white">Proceed to Book Appointment</a>
+                <a href="javascript:void(0)" onclick="bookNow('{{ $doctor->id }}', '{{ addslashes($doctor->company_name) }}', '{{ addslashes($doctor->secondary_category) }}', '{{ addslashes($doctor->work_timings) }}')" class="btn button-pink-fill w-100 py-3 rounded-4 text-white">Proceed to Book Appointment</a>
             </div>
         </div>
     </div>

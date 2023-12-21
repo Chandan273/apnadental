@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="top-bar my-3 py-2 d-flex justify-content-between align-items-center">
-        <a href="/doctor-details.html" type="button" aria-label="back button">
+        <a href="javascript:void(0)" class="text-reset" onclick="goBack()">
             <img src="{{ asset('public/assets/mobileImages/arrow-back.svg') }}" alt="arrow-back">
         </a>
         <button class="btn ms-auto">

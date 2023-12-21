@@ -76,15 +76,17 @@
 							<td>2023-08-24 07:43:08
 							</td>
 							<td>
-								<button type="button" class="btn btn-primary btn-sm">
-									<i class="fa fa-eye" aria-hidden="true"></i>
-								</button>
-								<button type="button" class="btn btn-success btn-sm mx-1">
-									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-								</button>
-								<button type="button" class="btn btn-danger btn-sm">
-									<i class="fa fa-trash" aria-hidden="true"></i>
-								</button>
+								<div class="d-flex gap-2 flex-nowrap">
+									<button type="button" class="btn btn-primary btn-sm">
+										<i class="fa fa-eye" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-success btn-sm mx-1">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-danger btn-sm">
+										<i class="fa fa-trash" aria-hidden="true"></i>
+									</button>
+								</div>
 
 							</td>
 						</tr>

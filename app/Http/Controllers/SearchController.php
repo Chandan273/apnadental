@@ -26,8 +26,21 @@ class SearchController extends Controller
         $blogs = Blog::with('category')->get();
         $services = Service::with('doctors')->get();
 
+        $random_doctors = Doctor::where('type', 'Doctor')->inRandomOrder()->take(6)->get();
+        $random_clinics = Doctor::where('type', 'Clinics')->inRandomOrder()->take(6)->get();;
+
+        $servicesData = Service::all();
+
+        foreach ($servicesData as $service) {
+            $count = Doctor::where('type', 'Doctor')
+                ->where('service_id', $service->id)
+                ->count();
+        
+            $service['total_count'] = $count;
+        }
+
         if ($agent->isMobile()) {
-            return view('apnadental_mobile.index');
+            return view('apnadental_mobile.index', compact('random_doctors','random_clinics', 'servicesData'));
         } else {
             return view('apnadental.index', compact('brands', 'services', 'doctors', 'clinics', 'sliders', 'blogs'));
         }

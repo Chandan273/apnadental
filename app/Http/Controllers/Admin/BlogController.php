@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\Blog;
+use Jenssegers\Agent\Agent;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Models\BlogCategory;
+use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
@@ -177,8 +178,15 @@ class BlogController extends Controller
 
     public function blogPage()
     {
+        $agent = new Agent();
+
         $blogs = Blog::with('category')->paginate(5);
-        return view('apnadental.blog', compact('blogs'));
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.blog', compact('blogs'));
+        }else{
+            return view('apnadental.blog', compact('blogs'));
+        }        
     }
 
     public function blogDetail($id)

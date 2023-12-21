@@ -1,7 +1,7 @@
 <header class="py-2">
     <div class="container-fluid">
         <div class="d-flex align-items-center gap-2">
-            <a href="/fin" class="flex-shrink-0">
+            <a href="{{ url('/') }}" class="flex-shrink-0">
                 <img src="{{ asset('public/assets/mobileImages/apna_dental_logo.svg') }}" alt="apna dental logo" width="90px">
             </a>
 
