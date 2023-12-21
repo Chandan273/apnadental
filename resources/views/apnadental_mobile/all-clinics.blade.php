@@ -90,8 +90,7 @@
 
                 @if (Auth::check())
                     <a href="<?php echo env('APP_URL'); ?>/book-appointment/{{ $clinic->id }}" class="btn button-pink-fill">Book appointment</a>
-                @endif    
-                <a href="/appointment.html" class="btn button-pink-fill">Book appointment</a>
+                @endif
             </div>
         </div>
     </div>
