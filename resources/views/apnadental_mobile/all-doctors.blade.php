@@ -50,7 +50,7 @@
                         <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
                         <h4 class="mt-1 fs-sm">{{ $doctor->description }}</h4>
                     </div>
-                    <div>
+                    <div class="flex-shrink-0">
                         <p class="d-flex reviews mb-0 gap-1 justify-content-end">
                             @php
                                 $rating = $doctor->rating;
