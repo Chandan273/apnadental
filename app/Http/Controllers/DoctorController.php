@@ -115,8 +115,8 @@ class DoctorController extends Controller
                 });
             }
         } else {
-            // If no results_type is provided, fetch all doctors
-            $doctorsQuery = Doctor::query();
+            // If no results_type is provided, fetch all clinics
+            $doctorsQuery = Doctor::query()->where('type', 'clinics');
         }
 
         // Paginate the results

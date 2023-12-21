@@ -43,7 +43,7 @@
                     width="30" height="30px">
                 <h6 class="text-white mb-1">Clinics</h6>
                 <p class="text-white m-0 fs-xs">Search Top Hospitals</p>
-                <a href="<?php echo env('APP_URL'); ?>/clinics" class="stretched-link"></a>
+                <a href="<?php echo env('APP_URL'); ?>/search/clinics" class="stretched-link"></a>
             </div>
         </div>
         <!-- <div class="col-6">
@@ -79,27 +79,124 @@
         <div class="main-head d-flex justify-content-between">
             <h2 class="mb-0">Recently visited Doctors</h2>
         </div>
+        
+        <div class="slider-doctors">
+            @foreach ($random_doctors as $doctor)
+            <div class="mb-4">
+                <div class="d-flex doctor-info gap-3 py-4">
+                    <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
+                        <img src="{{$doctor->image}}"
+                            class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="mb-1">{{ $doctor->company_name }}</h5>
+                                <p class="mb-0 fs-sm">{{ $doctor->main_category }}</p>
+                                <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
+                                <h4 class="mt-1 fs-sm">₹{{ $doctor->experience }} Consultation Fees</h4>
+                            </div>
+                            @php
+                                $rating = $doctor->rating;
+                                $filledStars = floor($rating);
+                                $halfStar = ($rating - $filledStars) >= 0.5;
+                            @endphp
+
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $filledStars)
+                                    <i class="icon_star voted"></i>
+                                @elseif ($halfStar && $i == $filledStars + 1)
+                                    <i class="icon_star voted half"></i>
+                                @else
+                                    <i class="icon_star"></i>
+                                @endif
+                            @endfor
+                            <div>
+                                <p class="d-flex reviews mb-0 gap-1 justify-content-end fs-xs">
+                                    <span>{{ $doctor->rating }}</span>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                </p>
+                                <p class="reviews fs-xs">{{ $doctor->rating_count }} Reviews</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <form class="form-check d-flex gap-2 align-items-center mb-0">
+                        <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9">
+                        <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
+                    </form>
+                    <div>
+                        <a href="#" class="btn me-1 d-inline-flex btn-outline-success"><i
+                                class="bi bi-telephone-fill pe-2"></i> Call</a>
+                        <a href="#" class="btn button-pink-fill">Book appointment</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="main-head d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Consult Specialized Doctors</h2>
+        <a href="<?php echo env('APP_URL'); ?>/doctors" class="text-info text-decoration-none">View All</a>
+    </div>
+    <div class="row py-4 g-3 slider-services">
+        @foreach ($servicesData as $service)
+        <div class="col-6">
+            <div class="bg-white text-center specialized-item p-4">
+                <div class="p-4 img-wrap bg-primary rounded-pill mb-4">
+                    <img src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}">
+                </div>
+                <h6 class="mb-0">{{$service->service_name}}</h6>
+                <p class="text-info mb-0">{{$service->total_count}} specialist</p>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    <div class="main-head d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Top rated clinics</h2>
+    </div>
+    <div class="slider-clinics">
+        @foreach ($random_clinics as $clinic)
         <div class="mb-4">
             <div class="d-flex doctor-info gap-3 py-4">
                 <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="doctor">
+                    <img src="{{$clinic->image}}"
+                        class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $clinic->company_name }}">
                 </div>
 
                 <div class="flex-grow-1">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <h5 class="mb-1">Dr. Matthew Lina</h5>
-                            <p class="mb-0 fs-sm">Cardiologist</p>
-                            <p class="mb-0 fs-sm">14 yrs Experience, Janakpuri</p>
-                            <h4 class="mt-1 fs-sm">1500 Consultation Fees</h4>
+                            <h5 class="mb-1">{{ $clinic->company_name }}</h5>
+                            <p class="mb-0 fs-sm">{{ $clinic->main_category }}</p>
+                            <p class="mb-0 fs-sm">{{ $clinic->experience }}, {{ $clinic->city }}</p>
+                            <h4 class="mt-1 fs-sm">₹{{ $clinic->experience }} Consultation Fees</h4>
                         </div>
+                        @php
+                            $rating = $clinic->rating;
+                            $filledStars = floor($rating);
+                            $halfStar = ($rating - $filledStars) >= 0.5;
+                        @endphp
+
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $filledStars)
+                                <i class="icon_star voted"></i>
+                            @elseif ($halfStar && $i == $filledStars + 1)
+                                <i class="icon_star voted half"></i>
+                            @else
+                                <i class="icon_star"></i>
+                            @endif
+                        @endfor
                         <div>
                             <p class="d-flex reviews mb-0 gap-1 justify-content-end fs-xs">
-                                <span>4.8</span>
+                                <span>{{ $clinic->rating }}</span>
                                 <i class="bi bi-star-fill text-success"></i>
                             </p>
-                            <p class="reviews fs-xs">56 Reviews</span>
+                            <p class="reviews fs-xs">{{ $clinic->rating_count }} Reviews</span>
                         </div>
                     </div>
 
@@ -116,74 +213,9 @@
                     <a href="#" class="btn button-pink-fill">Book appointment</a>
                 </div>
             </div>
+            
         </div>
-    </div>
-
-    <div class="main-head d-flex justify-content-between align-items-center">
-        <h2 class="mb-0">Consult Specialized Doctors</h2>
-        <a href="#" class="text-info text-decoration-none">View All</a>
-    </div>
-    <div class="row py-4 g-3">
-        <div class="col-6">
-            <div class="bg-white text-center specialized-item p-4">
-                <div class="p-4 img-wrap bg-primary rounded-pill mb-4">
-                    <img src="{{ asset('public/assets/mobileImages/heartbeat.svg') }}" alt="heartbeat">
-                </div>
-                <h6 class="mb-0">Cardiology</h6>
-                <p class="text-info mb-0">340 specialist</p>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="bg-white text-center specialized-item p-4">
-                <div class="p-4 img-wrap bg-primary rounded-pill mb-4">
-                    <img src="{{ asset('public/assets/mobileImages/pediatrician.svg') }}" alt="pediatrician">
-                </div>
-                <h6 class="mb-0">Pediatrician</h6>
-                <p class="text-info mb-0">450 Specialist</p>
-            </div>
-        </div>
-    </div>
-    <div class="main-head d-flex justify-content-between align-items-center">
-        <h2 class="mb-0">Top rated clinics</h2>
-    </div>
-    <div class="mb-4">
-        <div class="d-flex doctor-info gap-3 py-4">
-            <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="">
-            </div>
-
-            <div class="flex-grow-1">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h5 class="mb-1">Dr. Matthew Lina</h5>
-                        <p class="mb-0 fs-sm">Cardiologist</p>
-                        <p class="mb-0 fs-sm">14 yrs Experience, Janakpuri</p>
-                        <h4 class="mt-1 fs-sm">1500 Consultation Fees</h4>
-                    </div>
-                    <div>
-                        <p class="d-flex reviews mb-0 gap-1 justify-content-end fs-xs">
-                            <span>4.8</span>
-                            <i class="bi bi-star-fill text-success"></i>
-                        </p>
-                        <p class="reviews fs-xs">56 Reviews</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-            <form class="form-check d-flex gap-2 align-items-center mb-0">
-                <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9">
-                <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
-            </form>
-            <div>
-                <a href="#" class="btn me-1 d-inline-flex btn-outline-success"><i class="bi bi-telephone-fill pe-2"></i>
-                    Call</a>
-                <a href="#" class="btn button-pink-fill">Book appointment</a>
-            </div>
-        </div>
-
+        @endforeach
     </div>
 
     <div class="p-4 bg-warning-subtle lab-test rounded-4">
@@ -566,5 +598,56 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('.slider-doctors, .slider-clinics').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0',
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
+    $('.slider-services').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3500,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0',
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }
+        ]
+    });
+</script>
 
 @endsection

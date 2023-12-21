@@ -135,6 +135,6 @@ Route::view('/doctor123', 'apnadental/doctor');
 
 // mobile routes 
 Route::view('/appointment', 'apnadental_mobile/appointment');
-//Route::view('/blog', 'apnadental_mobile/blog');
+Route::view('/service-section', 'apnadental_mobile/patient-details');
 // Route::view('/doctor-detail3', 'apnadental_mobile/doctor-detail3');
 Route::view('/login-splash-screen', 'apnadental_mobile/login-splash-screen');
