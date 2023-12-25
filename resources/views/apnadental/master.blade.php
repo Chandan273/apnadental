@@ -26,7 +26,8 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
 
 	<!-- YOUR CUSTOM CSS -->
-	<link href="{{ asset('public/assets/apnadental/css/custom.css') }}" rel="stylesheet">
+	<!-- <link href="{{ asset('public/assets/apnadental/css/custom.css') }}" rel="stylesheet"> -->
+	<link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> --}}
 	<link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">

@@ -23,7 +23,7 @@
 
         @foreach ($services as $service)
         <div class="col-6">
-            <div class="bg-white text-center rounded-2 specialized-item p-4 position-relative">
+            <div class="h-100 bg-white text-center rounded-2 specialized-item p-4 position-relative">
                 <div class="p-2 img-wrap d-flex align-items-center justify-content-center bg-primary rounded-pill mb-4 position-relative">
                     <img class="object-fit-contain" src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}" width="42px">
                 </div>
