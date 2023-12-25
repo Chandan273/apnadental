@@ -78,11 +78,18 @@ class SearchController extends Controller
 
     public function findDoctor(Request $request)
     {
+        $agent = new Agent();
+
         $type = $request->input('type');
         $serviceId = $request->input('service_id');
 
         $doctor = Doctor::find($serviceId);
-        return view('apnadental.doctor_details', ['doctor' => $doctor]);
+
+        if ($agent->isMobile()) {
+            return view('apnadental_mobile.doctor_details', ['doctor' => $doctor]);
+        } else {
+            return view('apnadental.doctor_details', ['doctor' => $doctor]);
+        }
     }
 
     public function searchLocation(Request $request)

@@ -135,5 +135,5 @@ Route::view('/doctor123', 'apnadental/doctor');
 // Mobile Routes 
 Route::get('/book-appointment/{id}', [BookingController::class, 'showBookingPage']);
 Route::get('/confirm-booking/{id}', [BookingController::class, 'confirmBookingPage']);
-Route::view('/appointment', 'apnadental_mobile/patient-details');
+// Route::view('/appointment', 'apnadental_mobile/search-doctor-details');
 Route::view('/login', 'apnadental_mobile/login');
