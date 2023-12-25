@@ -192,7 +192,7 @@
     </script>
 
     <!-- Treatment section start -->
-    <section class="treatment bg-white">
+    <!-- <section class="treatment bg-white">
         <div class="container-fluid">
             <div class="row gx-0 align-items-center">
                 <div class="col-12 col-lg-12">
@@ -515,8 +515,87 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
 
+    <section class="py-4">
+        <div class="container">
+            <div class="services-category-tabs">
+                <nav class="d-flex bg-light">
+                    <div class="nav nav-tabs w-100" id="nav-tab" role="tablist">
+                        <button class="nav-link text-white bg-dark w-230 text-uppercase fw-bold">Treatments</button>
+                        <button class="nav-link active" id="nav-doctors-tab" data-bs-toggle="tab" data-bs-target="#nav-doctors"
+                            type="button" role="tab" aria-controls="nav-doctors" aria-selected="false">Doctors</button>
+                        <button class="nav-link" id="nav-clinics-tab" data-bs-toggle="tab" data-bs-target="#nav-clinics"
+                            type="button" role="tab" aria-controls="nav-clinics" aria-selected="false">clinics</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-doctors" role="tabpanel" aria-labelledby="nav-doctors-tab"
+                        tabindex="0">
+                        <div class="d-flex align-items-start">
+                            <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0"
+                                id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="list-group-item active" id="v-pills-dr-cat-1-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-dr-cat-1" type="button" role="tab" aria-controls="v-pills-dr-cat-1"
+                                    aria-selected="true">dr-cat-1</a>
+                                <a class="list-group-item" id="v-pills-dr-cat-2-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-dr-cat-2" type="button" role="tab" aria-controls="v-pills-dr-cat-2"
+                                    aria-selected="false">dr-cat-2</a>
+
+                                <a class="list-group-item" id="v-pills-dr-cat-3-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-dr-cat-3" type="button" role="tab" aria-controls="v-pills-dr-cat-3"
+                                    aria-selected="false">dr-cat-3</a>
+                                <a class="list-group-item" id="v-pills-dr-cat-4-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-dr-cat-4" type="button" role="tab" aria-controls="v-pills-dr-cat-4"
+                                    aria-selected="false">dr-cat-4</a>
+                            </div>
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-dr-cat-1" role="tabpanel"
+                                    aria-labelledby="v-pills-dr-cat-1-tab" tabindex="0">wdwqdqw</div>
+                                <div class="tab-pane fade" id="v-pills-dr-cat-2" role="tabpanel"
+                                    aria-labelledby="v-pills-dr-cat-2-tab" tabindex="0">.sdwdq.</div>
+                                <div class="tab-pane fade" id="v-pills-dr-cat-3" role="tabpanel"
+                                    aria-labelledby="v-pills-dr-cat-3-tab" tabindex="0">ds</div>
+                                <div class="tab-pane fade" id="v-pills-dr-cat-4" role="tabpanel"
+                                    aria-labelledby="v-pills-dr-cat-4-tab" tabindex="0">ds</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-clinics" role="tabpanel" aria-labelledby="nav-clinics-tab" tabindex="0">
+                        <div class="d-flex align-items-start">
+                            <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0"
+                                id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="list-group-item active" id="v-pills-clinic-cat-1-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-clinic-cat-1" type="button" role="tab"
+                                    aria-controls="v-pills-clinic-cat-1" aria-selected="true">clinic-cat-1</a>
+                                <a class="list-group-item" id="v-pills-clinic-cat-2-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-clinic-cat-2" type="button" role="tab"
+                                    aria-controls="v-pills-clinic-cat-2" aria-selected="false">clinic-cat-2</a>
+
+                                <a class="list-group-item" id="v-pills-clinic-cat-3-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-clinic-cat-3" type="button" role="tab"
+                                    aria-controls="v-pills-clinic-cat-3" aria-selected="false">clinic-cat-3</a>
+                                <a class="list-group-item" id="v-pills-clinic-cat-4-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-clinic-cat-4" type="button" role="tab"
+                                    aria-controls="v-pills-clinic-cat-4" aria-selected="false">clinic-cat-4</a>
+                            </div>
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-clinic-cat-1" role="tabpanel"
+                                    aria-labelledby="v-pills-clinic-cat-1-tab" tabindex="0">wdwqdqw</div>
+                                <div class="tab-pane fade" id="v-pills-clinic-cat-2" role="tabpanel"
+                                    aria-labelledby="v-pills-clinic-cat-2-tab" tabindex="0">.sdwdq.</div>
+                                <div class="tab-pane fade" id="v-pills-clinic-cat-3" role="tabpanel"
+                                    aria-labelledby="v-pills-clinic-cat-3-tab" tabindex="0">ds</div>
+                                <div class="tab-pane fade" id="v-pills-clinic-cat-4" role="tabpanel"
+                                    aria-labelledby="v-pills-clinic-cat-4-tab" tabindex="0">ds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Advertising Ads -->
     <div class="bg-white">
         <div class="container ads">
@@ -529,7 +608,7 @@
         </div>
     </div>
     <!-- SYMPTOMS & TREATMENTS Start-->
-    <section class="sympthoms py-5">
+    <!-- <section class="sympthoms py-5">
         <div class="container-fluid">
             <div class="row gy-3">
                 <h2 class="text-center mb-2 mb-sm-5">SYMPTOMS & TREATMENTS</h2>
@@ -659,7 +738,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="most-viewed-doctors bg_color_1">
         <div class="container py-5">
@@ -1180,12 +1259,12 @@
 
         <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header mt-2">
-                <h2 class="offcanvas-title text-uppercase" id="offcanvasRightLabel">Clinics</h2>
+            <div class="offcanvas-header justify-content-end mt-2">
+                <!-- <h2 class="offcanvas-title text-uppercase" id="offcanvasRightLabel">Treatments</h2> -->
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <div class="slider-clinic">
+                <!-- <div class="slider-clinic">
 
                     <div class="card border p-3 mx-2">
                         <div class="d-flex justify-content-between mb-3">
@@ -1430,8 +1509,68 @@
                         </div>
 
                     </div>
+                </div> -->
+                <div class="text-center w-50 mx-auto mb-4">
+                    <h2 class="fs-5">Finding the right dental treatment is now easy</h2>
+                    <h3>Tell us your oral health concern and we will help you with the required treatment</h3>
                 </div>
+                <div class="d-flex justify-content-center gap-3 radio-wrapper">                  
+                    <div class="card border rounded-3 position-relative pe-auto" style="width: 10rem;">                      
+                        <label class="stretched-link" for="smile">
+                            <input type="radio" id="smile" name="problems" value="smile" class="position-absolute start-0 top-0 mt-2 ms-2">
+                        
+                            <img src="{{ asset('public/assets/apnadental/img/slides/1.jpg') }}" class="card-img-top rounded-3 p-1" alt="not happy with my smile">
+                            <div class="card-body text-center py-2 px-1">
+                                <h6 class="card-text fw-bold">I am not happy with my smile</h6>
+                            </div>
+                        </label>
+                    </div>
+                   
+                    <div class="card border rounded-3 position-relative pe-auto" style="width: 10rem;">                      
+                        <label class="stretched-link" for="toothache">
+                            <input type="radio" id="toothache" name="problems" value="toothache" class="position-absolute start-0 top-0 mt-2 ms-2">
+                        
+                            <img src="{{ asset('public/assets/apnadental/img/slides/1.jpg') }}" class="card-img-top rounded-3 p-1" alt="not happy with my toothache">
+                            <div class="card-body text-center py-2 px-1">
+                                <h6 class="card-text fw-bold">I have a severe toothache</h6>
+                            </div>
+                        </label>
+                    </div>
 
+                    <div class="card border rounded-3 position-relative pe-auto" style="width: 10rem;">                      
+                        <label class="stretched-link" for="coldHot">
+                            <input type="radio" id="coldHot" name="problems" value="coldHot" class="position-absolute start-0 top-0 mt-2 ms-2">
+                        
+                            <img src="{{ asset('public/assets/apnadental/img/slides/1.jpg') }}" class="card-img-top rounded-3 p-1" alt="not happy with my coldHot">
+                            <div class="card-body text-center py-2 px-1">
+                                <h6 class="card-text fw-bold">It hurts to have cold or hot things</h6>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="card border rounded-3 position-relative pe-auto" style="width: 10rem;">                      
+                        <label class="stretched-link" for="chipped">
+                            <input type="radio" id="chipped" name="problems" value="chipped" class="position-absolute start-0 top-0 mt-2 ms-2">
+                        
+                            <img src="{{ asset('public/assets/apnadental/img/slides/1.jpg') }}" class="card-img-top rounded-3 p-1" alt="I have missing or chipped teeth">
+                            <div class="card-body text-center py-2 px-1">
+                                <h6 class="card-text fw-bold">I have missing or chipped teeth</h6>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="card border rounded-3 position-relative pe-auto" style="width: 10rem;">                      
+                        <label class="stretched-link" for="ScoreCard">
+                            <input type="radio" id="ScoreCard" name="problems" value="ScoreCard" class="position-absolute start-0 top-0 mt-2 ms-2">
+                        
+                            <img src="{{ asset('public/assets/apnadental/img/slides/1.jpg') }}" class="card-img-top rounded-3 p-1" alt="Dental Score Card">
+                            <div class="card-body text-center py-2 px-1">
+                                <h6 class="card-text fw-bold">Get Dental Score Card</h6>
+                            </div>
+                        </label>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

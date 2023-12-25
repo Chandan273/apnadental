@@ -121,7 +121,7 @@
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h5 class="mb-1">{{ $doctor->company_name }}</h5>
+                                <h5 class="mb-1 line-clamp">{{ $doctor->company_name }}</h5>
                                 <p class="mb-0 fs-sm">{{ $doctor->main_category }}</p>
                                 <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
                                 <h4 class="mt-1 fs-sm">₹{{ $doctor->fee }} Consultation Fees</h4>
@@ -152,12 +152,12 @@
 
                     </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <form class="form-check d-flex gap-2 align-items-center mb-0">
                         <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9">
                         <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
                     </form>
-                    <div>
+                    <div class="d-inline-flex">
                         <a href="tel://{{ $doctor->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
                                 class="bi bi-telephone-fill pe-2"></i> Call</a>
                         @if (!Auth::check())
@@ -178,9 +178,10 @@
         <h2 class="mb-0">Consult Specialized Doctors</h2>
         <a href="<?php echo env('APP_URL'); ?>/doctors" class="text-info text-decoration-none">View All</a>
     </div>
-    <div class="row py-4 g-3 slider-services">
+
+    <div class="py-4 slider-services">
         @foreach ($servicesData as $service)
-        <div class="col-6">
+       
             <div class="bg-white text-center specialized-item p-4">
                 <div class="p-4 img-wrap bg-primary rounded-pill mb-4">
                     <img src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}">
@@ -188,15 +189,17 @@
                 <h6 class="mb-0">{{$service->service_name}}</h6>
                 <p class="text-info mb-0">{{$service->total_count}} specialist</p>
             </div>
-        </div>
         @endforeach
     </div>
+
+
+
     <div class="main-head d-flex justify-content-between align-items-center">
         <h2 class="mb-0">Top rated clinics</h2>
     </div>
     <div class="slider-clinics">
         @foreach ($random_clinics as $clinic)
-        <div class="mb-4">
+        <div class="mb-4 px-2">
             <div class="d-flex doctor-info gap-3 py-4">
                 <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
                     <img src="{{$clinic->image}}"
@@ -206,7 +209,7 @@
                 <div class="flex-grow-1">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <h5 class="mb-1">{{ $clinic->company_name }}</h5>
+                            <h5 class="mb-1 line-clamp">{{ $clinic->company_name }}</h5>
                             <p class="mb-0 fs-sm">{{ $clinic->main_category }}</p>
                             <p class="mb-0 fs-sm">{{ $clinic->experience }}, {{ $clinic->city }}</p>
                             <h4 class="mt-1 fs-sm">₹{{ $clinic->fee }} Consultation Fees</h4>
@@ -237,12 +240,12 @@
 
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <form class="form-check d-flex gap-2 align-items-center mb-0">
                     <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9">
                     <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
                 </form>
-                <div>
+                <div class="d-inline-flex">
                     <a href="tel://{{ $clinic->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
                             class="bi bi-telephone-fill pe-2"></i> Call</a>
                     @if (!Auth::check())
@@ -690,7 +693,7 @@
         ]
     });
     $('.slider-services').slick({
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3500,
@@ -698,20 +701,6 @@
         centerMode: true,
         centerPadding: '0',
         focusOnSelect: true,
-        responsive: [
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2,
-                }
-            }
-        ]
     });
 </script>
 
