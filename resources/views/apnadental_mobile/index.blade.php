@@ -22,8 +22,8 @@
     <div class="mt-2 py-2 bg-white sticky-top">
         <div class="search-bar input-group bg-white border rounded-3">
             <span class="input-group-text border-0 bg-transparent"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control border-0 ps-1 py-2"
-                placeholder="Search Doctors, Medicines, Hospitals" aria-label="ddf">
+            <input type="text" class="form-control border-0 ps-1 py-2" id="keywordSearch"
+                placeholder="Search Doctors, Medicines, Hospitals" aria-label="search">
         </div>
     </div>
 
@@ -701,6 +701,35 @@
         centerMode: true,
         centerPadding: '0',
         focusOnSelect: true,
+    });
+
+    var path = "{{ route('autocomplete') }}";
+    var data = [];
+
+    $('#keywordSearch').typeahead({
+        source: function (query, process) {
+            return $.get(path, {
+                query: query
+            }, function (responseData) {
+                data = responseData;
+                return process(data.map(function (item) {
+                    return item.company_name;
+                }));
+            });
+        },
+        updater: function (item) {
+            const doctor_id = data.find(dataItem => dataItem.company_name === item).doctor_id;
+            const service_id = data.find(dataItem => dataItem.company_name === item).service_id;
+            const secondary_category = data.find(dataItem => dataItem.company_name === item).secondary_category;
+            const type = data.find(dataItem => dataItem.company_name === item).type;
+            const selectedCity = data.find(dataItem => dataItem.company_name === item).city;
+
+            let url = "<?php echo env('APP_URL'); ?>" + `/${selectedCity}/specialties/${secondary_category}?type=${type}&service_id=${doctor_id}`;
+
+            window.location.href = url;
+
+            return item;
+        }
     });
 </script>
 

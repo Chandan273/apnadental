@@ -282,7 +282,7 @@
         <button type="button" class="btn button-pink-fill rounded-3 btn-sm px-3">View More Reviews</a>
     </div>
 
-    <div class="">
+    {{-- <div class="">
         <div class="main-head d-flex justify-content-between align-items-center">
             <h2 class="mb-0">Schedule an Appointment</h2>
         </div>
@@ -439,7 +439,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="main-head d-flex justify-content-between align-items-center">
         <h2 class="mb-0">Similar Cardiology Doctors</h2>
     </div>
