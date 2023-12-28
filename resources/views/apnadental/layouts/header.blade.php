@@ -1,12 +1,13 @@
 <header class="sticky-top bg-white">
   <div class="container-fliud container-lg">
-    <div class="row align-items-center justify-content-between py-1 py-lg-3">
-      <div class="col-3 col-lg-2">
+    <div class="row align-items-center justify-content-between py-1 py-lg-2">
+      <div class="col-3 col-md-auto">
         <a class="d-block brand-logo" href="{{ url('/') }}">
-          <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}" alt="apna-dental-logo">
+          <!-- <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}" alt="apna-dental-logo"> -->
+          <img src="{{ asset('public/assets/mobileImages/apna_dental_logo2.svg') }}" alt="apna dental logo" width="190px">
         </a>
       </div>
-      <div class="col-9">
+      <div class="col-9 col-md-auto">
         <div class="ads text-end">
           <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="google-ads">
         </div>

@@ -70,7 +70,7 @@
         </div>
 
 
-        <div class="row gy-3 my-3 ">
+        <div class="row g-3 my-3 ">
             <div class="col-12">
                 <div class="health-item d-flex gap-4">
                     <div class="img-wrap">

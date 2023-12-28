@@ -182,7 +182,7 @@
     <div class="py-4 slider-services">
         @foreach ($servicesData as $service)
        
-            <div class="bg-white text-center specialized-item p-4">
+            <div class="bg-white text-center specialized-item p-1 mx-2 h-100">
                 <div class="p-4 img-wrap bg-primary rounded-pill mb-4">
                     <img src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}">
                 </div>
@@ -281,62 +281,79 @@
         </div>
         <a href="#" class="btn button-pink-fill px-4 py-2">View All Packages</a>
     </div>
-    <div class="main-head d-flex justify-content-between py-3 pb-4">
-        <h2 class="mb-0">Health Articles</h2>
-    </div>
-    <div class="row gy-3 pb-3">
-        <div class="col-12">
-            <div class="health-item d-flex gap-4">
-                <div class="img-wrap">
-                    <div class="bg-primary h-100 rounded-4">
-                        <img class="w-100 h-100 object-fit-cover"
-                            src="{{ asset('public/assets/mobileImages/doctors.svg') }}" alt="healty-heart">
-                    </div>
-                </div>
-                <div class="flex-grow-1">
-                    <h5 class="mb-2">Simple steps to maintain a healthy heart for all ages</h5>
-                    <p>12 Jun 2020</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="health-item d-flex gap-4">
-                <div class="img-wrap">
-                    <div class="bg-primary h-100 rounded-4">
-                        <img class="w-100 h-100 object-fit-cover"
-                            src="{{ asset('public/assets/mobileImages/doctors.svg') }}" alt="superfood">
-                    </div>
-                </div>
-                <div class="flex-grow-1">
-                    <h5 class="mb-2">Superfoods you must for all ages</h5>
-                    <p>12 Jun 2020</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    <!-- Articles Tabs  -->
+    <div class="Articles faqs py-4">
+        <div class="main-head d-flex justify-content-between mb-3">
+            <h2 class="mb-0">Articles</h2>
+        </div>
+        <div class="row g-3">
+            <div class="col-12">
+                <ul class="nav tabs-wrapper gap-2 flex-nowrap pb-2" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-health-article-tab" data-bs-toggle="pill" data-bs-target="#pills-health-article" type="button" role="tab" aria-controls="pills-health-article" aria-selected="true">Health</button>
+                    </li>
+                    <!-- <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-12">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-health-article" role="tabpanel" aria-labelledby="pills-health-article-tab" tabindex="0">
+                        <div class="health-item d-flex gap-3">
+                            <div class="img-wrap">
+                                <div class="bg-primary h-100 rounded-4">
+                                    <img class="w-100 h-100 object-fit-cover"
+                                        src="{{ asset('public/assets/mobileImages/doctors.svg') }}" alt="healty-heart">
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-2">Simple steps to maintain a healthy heart for all ages</h5>
+                                <p>12 Jun 2020</p>
+                            </div>
+                        </div>
+                    
+                        <div class="health-item d-flex gap-3">
+                            <div class="img-wrap">
+                                <div class="bg-primary h-100 rounded-4">
+                                    <img class="w-100 h-100 object-fit-cover"
+                                        src="{{ asset('public/assets/mobileImages/doctors.svg') }}" alt="superfood">
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-2">Superfoods you must for all ages</h5>
+                                <p>12 Jun 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<section class="faqs pb-5">
 
+<section class="faqs py-4">
     <div class="container-fluid">
-        <div class="main-head d-flex justify-content-between py-3 pb-4">
+        <div class="main-head d-flex justify-content-between mb-3">
             <h2 class="mb-0">FAQ</h2>
         </div>
-        <div class="row gy-4">
+        <div class="row g-3">
             <div class="col-12 col-sm-12 col-md-4 col-lg-3">
-                <div class="nav tabs-wrapper flex-md-column" id="v-pills-tab" role="tablist"
+                <div class="nav tabs-wrapper flex-md-column gap-2 flex-nowrap pb-2" id="v-pills-tab" role="tablist"
                     aria-orientation="vertical">
                     <a class="nav-link fs-6 active" id="v-pills-payment-tab" data-bs-toggle="pill"
-                        data-bs-target="#v-pills-payment" type="button" role="tab" aria-controls="v-pills-payment"
+                        data-bs-target="#v-pills-payment" type="button" aria-label="Payment" role="tab" aria-controls="v-pills-payment"
                         aria-selected="true">Payment</a>
                     <a class="nav-link fs-6" id="v-pills-delivery-tab" data-bs-toggle="pill"
-                        data-bs-target="#v-pills-delivery" type="button" role="tab" aria-controls="v-pills-delivery"
+                        data-bs-target="#v-pills-delivery" type="button" aria-label="Delivery" role="tab" aria-controls="v-pills-delivery"
                         aria-selected="false">Delivery</a>
                     <a class="nav-link fs-6" id="v-pills-orders-tab" data-bs-toggle="pill"
-                        data-bs-target="#v-pills-orders" type="button" role="tab" aria-controls="v-pills-orders"
+                        data-bs-target="#v-pills-orders" type="button" aria-label="Orders" role="tab" aria-controls="v-pills-orders"
                         aria-selected="false">Orders</a>
                     <a class="nav-link fs-6" id="v-pills-refund-tab" data-bs-toggle="pill"
-                        data-bs-target="#v-pills-refund" type="button" role="tab" aria-controls="v-pills-refund"
+                        data-bs-target="#v-pills-refund" type="button" aria-label="Refund" role="tab" aria-controls="v-pills-refund"
                         aria-selected="false">Refund</a>
                 </div>
             </div>
@@ -693,7 +710,7 @@
         ]
     });
     $('.slider-services').slick({
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3500,

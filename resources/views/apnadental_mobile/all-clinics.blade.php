@@ -43,8 +43,8 @@
             <div class="flex-grow-1">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h5 class="mb-1">
-                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}?type={{ $resultsType }}">{{ $clinic->company_name }}</a>
+                        <h5 class="mb-1 line-clamp">
+                            <a class="link-underline link-underline-opacity-0 text-dark" href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}?type={{ $resultsType }}">{{ $clinic->company_name }}</a>
                         </h5>
                         <p class="mb-0 fs-sm">{{ $resultsType }}</p>
                         <p class="mb-0 fs-sm">{{ $clinic->experience }}, {{ $clinic->city }}</p>
