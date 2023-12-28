@@ -1,12 +1,11 @@
 :root {
     --bs-primary-rgb: 63, 64, 121;
     --bs-info-rgb: 16, 192, 255;
-    --dark-blue: #3f4079;
     --font-size: 10px;
 
     /* YOUR CUSTOM CSS */
-    --primary: #74d1c6;
-    --secondary: #3f4079;
+    --primary-green: #74d1c6;
+    --dark-blue: #3f4079;
     --pink-rgb: 231, 78, 132;
     --pink: #e74e84;
     --green: 116, 209, 198;
@@ -28,7 +27,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #e74e84;
+    background: var(--pink);
     border-radius: 2px;
 }
 
@@ -94,7 +93,7 @@
 }
 
 .text-pink {
-    color: #e74e84;
+    color: var(--pink)
 }
 
 body {
@@ -123,7 +122,7 @@ a.btn {
     font-size: 16px;
 }
 
-.doctor-info .mob-card-img-wrap {
+.mob-card-img-wrap {
     height: 72px;
     width: 72px;
     flex-shrink: 0;
@@ -181,50 +180,45 @@ a.btn {
 }
 
 .radio-item {
-    background: white;
+    background: var(--white);
 }
 
 .radio-wrapper input[type='radio']:checked+.radio-item {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
 }
 
-.faqs .heading {
-    background-color: var(--secondary)
-}
-
-.faqs .heading h2,
-.faqs .heading h3 {
-    color: #fff;
-}
-
-.faqs .nav.tabs-wrapper {
-    background-color: var(--secondary)
+.faqs .nav.tabs-wrapper{
+    overflow-x: auto;
 }
 
 .faqs .nav .nav-link {
-    color: #fff;
-    font-weight: bold;
+    color: #000;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 4px 16px;
+    text-wrap: nowrap;
 }
 
 .faqs .nav .nav-link.active {
-    color: var(--primary);
+    border: 1px solid var(--pink);
+    background-color: var(--pink);
+    color: var(--white);
 }
 
 .faqs .tab-content .accordion .accordion-header .accordion-button {
-    color: var(--secondary);
+    color: var(--dark-blue);
     font-weight: 500;
 }
 
 .faqs .tab-content .accordion .accordion-header .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem var(--primary);
+    box-shadow: 0 0 0 0.25rem var(--primary-green);
 }
 
 .faqs .tab-content .accordion .accordion-header .accordion-button:not(.collapsed) {
     background-color: #74d1c638;
-
 }
-
 
 .offcanvas.otp-verific-offcanvas {
     height: max-content;
@@ -301,4 +295,28 @@ a.btn {
 
 .blogs-section .blog-wraper:hover img {
     transform: scale(1.03);
+}
+
+/* pagination  */
+ul.pagination{
+    flex-wrap: wrap;
+}
+
+ul.pagination .page-item .page-link{
+    color: var(--dark-blue);
+}
+
+ul.pagination .page-item.active>.page-link, .page-link.active{
+    background: var(--pink);
+    border-color: var(--pink);
+    color: var(--white);
+}
+
+/* search list  */
+.search-bar .typeahead.dropdown-menu li .dropdown-item{
+    white-space: wrap;
+    border-bottom: 1px solid #ddd;
+}
+.search-bar .typeahead.dropdown-menu li:last-child .dropdown-item{
+    border-bottom: none;
 }

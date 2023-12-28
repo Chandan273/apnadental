@@ -3,6 +3,7 @@
   --primary: #74d1c6;
   --secondary: #3f4079;
   --pink: #e74e84;
+  --white: #ffffff;
 }
 
 .modal-backdrop.show {
@@ -41,7 +42,7 @@
   color: var(--secondary);
 }
 
-.btn_outline_2:hover {
+.btn_outline_2:hover,.btn_outline_2:active,.btn_outline_2:focus {
   background-color: var(--secondary);
   border-color: var(--secondary);
   color: #fff;
@@ -53,7 +54,7 @@
   color: #fff;
 }
 
-.btn_2:hover {
+.btn_2:hover,.btn_2:active,.btn_2:focus {
   background-color: var(--secondary);
   border-color: var(--secondary);
   color: #fff;
@@ -65,7 +66,7 @@
   color: #fff;
 }
 
-.btn_pink:hover {
+.btn_pink:hover,.btn_pink:active,.btn_pink:focus {
   background-color: #dd2666;
   border-color: var(--pink);
   color: #ffffff;
@@ -89,10 +90,11 @@
   border-radius: 30px;
 }
 
-.btn_outline_pink:hover {
+.btn_outline_pink:hover,.btn_outline_pink:active,.btn_outline_pink:focus {
   background: #e74e84;
   color: #fff;
 }
+
 
 .navbar-cstm-bg {
   background-color: var(--secondary);
@@ -258,6 +260,12 @@ ul#services-dropdown {
   color: #fff;
   background: #74d1c6;
 }
+
+.btn.btn-cstm:active,.btn.btn-cstm:focus {
+  color: #fff;
+  background: #74d1c6;
+}
+
 
 .search-doctor-section {
   margin-top: -75px;
@@ -565,6 +573,47 @@ footer .input-group .btn {
   color: #ffffff;
 }
 
+.step-form-wraper ul li{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+
+.step-form-wraper ul li:not(:last-child):after,.step-form-wraper ul li:not(:last-child):before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: -1;
+}
+.step-form-wraper ul li::before {
+  left: -50%;
+}
+
+.step-form-wraper ul li.completed:not(:last-child):after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--secondary);
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: -1;
+}
+.step-form-wraper ul li .step-circle{
+  width: 50px;
+  height: 50px;
+  background-color: #ddd;
+  color: #000000;
+}
+.step-form-wraper ul li.completed .step-circle{
+  background-color: var(--secondary);
+  color: #ffffff;
+}
 
 @media screen and (max-width: 768px) {
   #scroll-triggered-cta {
@@ -613,13 +662,6 @@ footer .input-group .btn {
   .add-member .member-img-wraper {
     width: 100%;
   }
-
-.home-page-mobile-hidden{
-  display: none;
-}
-
-
-
 
 }
 

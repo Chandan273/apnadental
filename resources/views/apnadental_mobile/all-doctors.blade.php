@@ -43,8 +43,8 @@
             <div class="flex-grow-1">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h5 class="mb-1">
-                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}?type={{ $resultsType }}">{{ $doctor->company_name }}</a>
+                        <h5 class="mb-1 line-clamp">
+                            <a class="link-underline link-underline-opacity-0 text-dark" href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}?type={{ $resultsType }}">{{ $doctor->company_name }}</a>
                         </h5>
                         <p class="mb-0 fs-sm">{{ $resultsType }}</p>
                         <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
@@ -76,12 +76,12 @@
                 
             </div>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
             <form class="form-check d-flex gap-2 align-items-center mb-0">
                 <input type="checkbox" class="form-check-input mb-1" id="compareDoctor1">
                 <label class="form-check-label fs-sm" for="compareDoctor1">Compare</label>
             </form>
-            <div>
+            <div class="d-inline-flex">
                 <a href="tel://{{ $doctor->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i class="bi bi-telephone-fill pe-2"></i>
                     Call</a>
                 @if (!Auth::check())
