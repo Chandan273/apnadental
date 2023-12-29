@@ -131,6 +131,7 @@ Route::view('/my-account', 'apnadental/my_account');
 Route::view('/cosmetics_dentistry', 'apnadental/cosmetics_dentistry');
 Route::view('/periodontics', 'apnadental/periodontics');
 Route::view('/doctor123', 'apnadental/doctor');
+Route::view('/compare', 'apnadental/compare');
 
 // Mobile Routes 
 Route::get('/book-appointment/{id}', [BookingController::class, 'showBookingPage']);
