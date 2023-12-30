@@ -1,19 +1,15 @@
 <header class="sticky-top bg-white">
   <div class="container-fliud container-lg">
-    <div class="row align-items-center justify-content-between py-1 py-lg-2">
-      <div class="col-3 col-md-auto">
-        <a class="d-block brand-logo" href="{{ url('/') }}">
-          <!-- <img max-width="150px" width="100%" src="{{ asset('public/assets/img/apna-dental-logo1.svg') }}" alt="apna-dental-logo"> -->
-          <img src="{{ asset('public/assets/mobileImages/apna_dental_logo2.svg') }}" alt="apna dental logo" width="190px">
-        </a>
-      </div>
-      <div class="col-9 col-md-auto">
-        <div class="ads text-end">
-          <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="google-ads">
-        </div>
+    <div class="d-flex align-items-center justify-content-between py-1 py-lg-2 gap-3">
+      <a class="d-block brand-logo" href="{{ url('/') }}">
+        <img src="{{ asset('public/assets/mobileImages/apna_dental_logo2.svg') }}" alt="apna dental logo" width="150px">
+      </a>
+      <div class="ads text-end">
+        <img src="https://demo.tagdiv.com/newspaper_pro/wp-content/uploads/2019/08/newspaper-rec728.jpg" alt="google-ads" class="w-100">
       </div>
     </div>
   </div>
+
   <nav class="navbar navbar-expand-lg navbar-dark navbar-cstm-bg">
     <div class="container-fluid container-lg">
       <ul class="nav d-flex align-items-center flex-nowrap d-lg-none ms-auto gap-2">
