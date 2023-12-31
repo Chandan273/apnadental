@@ -373,9 +373,81 @@
 					}
 				});
 			});
+
+			$('.service-navbar-main').on('click', function() {
+				$(".service-tab").trigger("click");
+			});
+
+			$('#nav-clinics-tab').on('click', function() {
+				$(".clinic-treatments").trigger("click");
+			});
+
+			$(".doctor-treatments").first().trigger("click");
 			$(".page-cls").first().addClass("active");
 			$(".dental-nav-cls").first().addClass("active");
+			$(".service-tab").first().addClass("active");
+			$(".service-detail-cls").first().addClass("active");
+			$(".doctor-treatments").first().addClass("active");
+			$(".doctor-treatment-list").first().addClass("active");
+			$(".clinic-treatments").first().addClass("active");
+			$(".clinic-treatment-list").first().addClass("active");
 		});
+
+		function menuService(serviceName, serviceNav) {
+			$("#"+serviceNav+"_service").html('');
+			$('#spinner').removeClass('d-none');
+			$.ajax({
+				type: 'GET',
+				url: "{{ route('doctors.nav') }}",
+				data: {
+					results_type: serviceName
+				},
+				success: function (data) {
+					if(data!=''){
+						$('#spinner').addClass('d-none');
+
+						data.forEach(item => {
+							$("#"+serviceNav+"_service").append("<li class='col-md-6'><a href='<?php echo env("APP_URL"); ?>/doctor-details/"+item['id']+"'>"+item['company_name']+"</a></li>");
+						});
+					}
+				},
+				error: function (error) {	
+					console.error(error);
+				}
+			});
+		}
+
+		function treatments(type, secondary_category, CategoryName) {
+			if(type!='Clinics'){
+				$("#doctor_"+CategoryName).html('');
+			}else{
+				$("#clinics_"+CategoryName).html('');
+			}
+
+			$.ajax({
+				type: 'GET',
+				url: "{{ route('doctors.treatments') }}",
+				data: {
+					type: type,
+					secondary_category: secondary_category
+				},
+				success: function (data) {
+					if(data!=''){
+						data.forEach(item => {
+							if(type!='Clinics'){
+								$("#doctor_"+CategoryName).append("<li class='col-md-6'><a href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
+							}else{
+								$("#clinics_"+CategoryName).append("<li class='col-md-6'><a href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
+							}
+						});
+					}
+				},
+				error: function (error) {	
+					console.error(error);
+				}
+			});
+		}
+
 	</script>
 
 </body>

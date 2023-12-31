@@ -29,13 +29,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-  <style type="text/css">
-    .dropdown-toggle{
-        height: 40px;
-        width: 400px !important;
-    }
-  </style>
-
   <link href="{{ asset('public/assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- Plugin styles -->
   <!-- <link href="{{ asset('public/assets/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet"> -->
