@@ -125,6 +125,8 @@ Route::get('/search/clinics', [DoctorController::class, 'clinicList']);
 Route::get('autocomplete', [SearchController::class, 'autocomplete'])->name('autocomplete');
 Route::get('{city}/specialties/{specialty}', [SearchController::class, 'findDoctor']);
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.post');
+Route::get('/doctors-nav', [DoctorController::class, 'doctorsNav'])->name('doctors.nav');
+Route::get('/doctors-treatments', [DoctorController::class, 'doctorsTreatments'])->name('doctors.treatments');
 
 // new pages 
 Route::view('/my-account', 'apnadental/my_account');

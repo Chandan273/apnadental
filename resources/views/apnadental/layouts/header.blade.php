@@ -132,6 +132,58 @@
           </div>
         </li>
 
+        <li class="nav-item dropdown dropdown-mega">
+          <a class="nav-link dropdown-toggle service-navbar-main" href="#" data-bs-toggle="dropdown"
+            data-bs-auto-close="outside">Services</a>
+          <div class="dropdown-menu shadow">
+            <div class="mega-content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex align-items-start">
+                      <div class="nav flex-shrink-0 flex-column nav-pills me-3 text-start bg-light px-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                        @foreach($services_nav as $service_nav)
+
+                        @php
+                            $serviceName = str_contains($service_nav->service_name, ' ')
+                                ? str_replace(' ', '_', $service_nav->service_name)
+                                : $service_nav->service_name;
+                        @endphp
+
+                          <a class="nav-link service-tab" onclick="menuService('{{ $service_nav->service_name }}','{{ $serviceName }}')" id="v-pills-{{ $serviceName }}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{ $serviceName }}" role="tab" aria-controls="v-pills-{{ $serviceName }}" aria-selected="true">{{ $service_nav->service_name }}</a>
+                        @endforeach
+                      </div>
+
+                      <div class="tab-content w-100 pt-1" id="v-pills-tabContent">
+                        
+                        @foreach($services_nav as $service_nav)
+                          @php
+                              $serviceName = str_contains($service_nav->service_name, ' ')
+                                  ? str_replace(' ', '_', $service_nav->service_name)
+                                  : $service_nav->service_name;
+                          @endphp
+                          <div class="service-detail-cls tab-pane fade show" id="v-pills-{{ $serviceName }}" role="tabpanel"
+                            aria-labelledby="v-pills-{{ $serviceName }}-tab" tabindex="0">
+                            
+                            <div id="spinner" class="d-flex justify-content-center d-none">
+                              <div class="spinner-border" role="status">
+                                <span class="sr-only"></span>
+                              </div>
+                            </div>
+ 
+                            <ul class="row service-ui-cls" id="{{ $serviceName }}_service"></ul>
+                          </div>
+                        @endforeach
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

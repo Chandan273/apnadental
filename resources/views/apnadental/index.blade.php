@@ -524,9 +524,8 @@
                         <div class="nav nav-tabs w-100" id="nav-tab" role="tablist">
                             <button class="nav-link text-white bg-dark w-230 text-uppercase fw-bold">Treatments</button>
                             <button class="nav-link active" id="nav-doctors-tab" data-bs-toggle="tab" data-bs-target="#nav-doctors"
-                                type="button" role="tab" aria-controls="nav-doctors" aria-selected="false">Doctors</button>
-                            <button class="nav-link" id="nav-clinics-tab" data-bs-toggle="tab" data-bs-target="#nav-clinics"
-                                type="button" role="tab" aria-controls="nav-clinics" aria-selected="false">clinics</button>
+                                type="button" role="tab" aria-controls="nav-doctors" aria-selected="false">{{ "Doctors" }}</button>
+                            <button class="nav-link" id="nav-clinics-tab" data-bs-toggle="tab" data-bs-target="#nav-clinics" type="button" role="tab" aria-controls="nav-clinics" aria-selected="false">{{ "Clinics" }}</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -534,61 +533,79 @@
                         <div class="tab-pane fade show active" id="nav-doctors" role="tabpanel" aria-labelledby="nav-doctors-tab"
                             tabindex="0">
                             <div class="d-flex align-items-start">
-                                <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0"
-                                    id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="list-group-item active" id="v-pills-dr-cat-1-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-dr-cat-1" type="button" role="tab" aria-controls="v-pills-dr-cat-1"
-                                        aria-selected="true">dr-cat-1</a>
-                                    <a class="list-group-item" id="v-pills-dr-cat-2-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-dr-cat-2" type="button" role="tab" aria-controls="v-pills-dr-cat-2"
-                                        aria-selected="false">dr-cat-2</a>
+                                <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                                    <a class="list-group-item" id="v-pills-dr-cat-3-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-dr-cat-3" type="button" role="tab" aria-controls="v-pills-dr-cat-3"
-                                        aria-selected="false">dr-cat-3</a>
-                                    <a class="list-group-item" id="v-pills-dr-cat-4-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-dr-cat-4" type="button" role="tab" aria-controls="v-pills-dr-cat-4"
-                                        aria-selected="false">dr-cat-4</a>
+                                    @foreach($secondary_categories as $secondary_category)
+
+                                        @php
+                                        $secondaryCategory = $secondary_category->secondary_category;
+                                    
+                                        if (str_contains($secondaryCategory, ' ') || strpos ($secondaryCategory, '(') !== false) {
+                                                $secondaryCategory = str_replace(' ', '_', $secondaryCategory);
+                                                $secondaryCategory = preg_replace('/\s*\([^)]*\)\s*/', '_', $secondaryCategory);
+                                            }
+                                        @endphp
+                                
+                                        <a class="list-group-item doctor-treatments" onclick="treatments('Doctor','{{ $secondary_category->secondary_category}}','{{ $secondaryCategory }}')" id="v-pills-{{$secondaryCategory}}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{$secondaryCategory}}-1" type="button" role="tab" aria-controls="v-pills-{{$secondaryCategory}}-1" aria-selected="true">{{ $secondary_category->secondary_category}}</a>
+                                    @endforeach
+                                
                                 </div>
                                 <div class="tab-content" id="v-pills-tabContent">
-                                    <div class="tab-pane fade show active" id="v-pills-dr-cat-1" role="tabpanel"
-                                        aria-labelledby="v-pills-dr-cat-1-tab" tabindex="0">wdwqdqw</div>
-                                    <div class="tab-pane fade" id="v-pills-dr-cat-2" role="tabpanel"
-                                        aria-labelledby="v-pills-dr-cat-2-tab" tabindex="0">.sdwdq.</div>
-                                    <div class="tab-pane fade" id="v-pills-dr-cat-3" role="tabpanel"
-                                        aria-labelledby="v-pills-dr-cat-3-tab" tabindex="0">ds</div>
-                                    <div class="tab-pane fade" id="v-pills-dr-cat-4" role="tabpanel"
-                                        aria-labelledby="v-pills-dr-cat-4-tab" tabindex="0">ds</div>
+                                    @foreach($secondary_categories as $secondary_category)
+
+                                        @php
+                                            $secondaryCategory = $secondary_category->secondary_category;
+                                    
+                                            if (str_contains($secondaryCategory, ' ') || strpos($secondaryCategory, '(') !== false) {
+                                                $secondaryCategory = str_replace(' ', '_', $secondaryCategory);
+                                                $secondaryCategory = preg_replace('/\s*\([^)]*\)\s*/', '_', $secondaryCategory);
+                                            }
+                                        @endphp
+                                
+                                    <div class="doctor-treatment-list tab-pane fade show" id="v-pills-{{$secondaryCategory}}-1" role="tabpanel" aria-labelledby="v-pills-{{$secondaryCategory}}-1-tab" tabindex="0">
+                                        <ul class="row" id="doctor_{{$secondaryCategory}}"></ul>
+                                    </div>
+
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-clinics" role="tabpanel" aria-labelledby="nav-clinics-tab" tabindex="0">
                             <div class="d-flex align-items-start">
-                                <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0"
-                                    id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="list-group-item active" id="v-pills-clinic-cat-1-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-clinic-cat-1" type="button" role="tab"
-                                        aria-controls="v-pills-clinic-cat-1" aria-selected="true">clinic-cat-1</a>
-                                    <a class="list-group-item" id="v-pills-clinic-cat-2-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-clinic-cat-2" type="button" role="tab"
-                                        aria-controls="v-pills-clinic-cat-2" aria-selected="false">clinic-cat-2</a>
+                                <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                                    <a class="list-group-item" id="v-pills-clinic-cat-3-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-clinic-cat-3" type="button" role="tab"
-                                        aria-controls="v-pills-clinic-cat-3" aria-selected="false">clinic-cat-3</a>
-                                    <a class="list-group-item" id="v-pills-clinic-cat-4-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-clinic-cat-4" type="button" role="tab"
-                                        aria-controls="v-pills-clinic-cat-4" aria-selected="false">clinic-cat-4</a>
+                                    @foreach($secondary_categories as $secondary_clinic_category)
+
+                                        @php
+                                            $secondaryClinicCategory = $secondary_clinic_category->secondary_category;
+                                        
+                                            if (str_contains($secondaryClinicCategory, ' ') || strpos ($secondaryClinicCategory, '(') !== false) {
+                                                    $secondaryClinicCategory = str_replace(' ', '_', $secondaryClinicCategory);
+                                                    $secondaryClinicCategory = preg_replace('/\s*\([^)]*\)\s*/', '_', $secondaryClinicCategory);
+                                                }
+                                        @endphp
+                                        <a class="list-group-item clinic-treatments" onclick="treatments('Clinics','{{ $secondary_clinic_category->secondary_category}}','{{ $secondaryClinicCategory }}')"id="v-pills-clinic-{{$secondaryClinicCategory}}-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-clinic-{{$secondaryClinicCategory}}" type="button" role="tab"
+                                            aria-controls="v-pills-clinic-{{$secondaryClinicCategory}}" aria-selected="true">{{ $secondary_clinic_category->secondary_category }}</a>
+                                        @endforeach
+                                    
                                 </div>
                                 <div class="tab-content" id="v-pills-tabContent">
-                                    <div class="tab-pane fade show active" id="v-pills-clinic-cat-1" role="tabpanel"
-                                        aria-labelledby="v-pills-clinic-cat-1-tab" tabindex="0">wdwqdqw</div>
-                                    <div class="tab-pane fade" id="v-pills-clinic-cat-2" role="tabpanel"
-                                        aria-labelledby="v-pills-clinic-cat-2-tab" tabindex="0">.sdwdq.</div>
-                                    <div class="tab-pane fade" id="v-pills-clinic-cat-3" role="tabpanel"
-                                        aria-labelledby="v-pills-clinic-cat-3-tab" tabindex="0">ds</div>
-                                    <div class="tab-pane fade" id="v-pills-clinic-cat-4" role="tabpanel"
-                                        aria-labelledby="v-pills-clinic-cat-4-tab" tabindex="0">ds</div>
+                                    @foreach($secondary_categories as $secondary_clinic_category)
+
+                                        @php
+                                            $secondaryClinicCategory = $secondary_clinic_category->secondary_category;
+                                        
+                                            if (str_contains($secondaryClinicCategory, ' ') || strpos ($secondaryClinicCategory, '(') !== false) {
+                                                    $secondaryClinicCategory = str_replace(' ', '_', $secondaryClinicCategory);
+                                                    $secondaryClinicCategory = preg_replace('/\s*\([^)]*\)\s*/', '_', $secondaryClinicCategory);
+                                                }
+                                        @endphp
+                                        <div class="clinic-treatment-list tab-pane fade show" id="v-pills-clinic-{{ $secondaryClinicCategory }}" role="tabpanel" aria-labelledby="v-pills-clinic-{{ $secondaryClinicCategory }}-tab" tabindex="0">
+                                            <ul class="row" id="clinics_{{$secondaryClinicCategory}}"></ul>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

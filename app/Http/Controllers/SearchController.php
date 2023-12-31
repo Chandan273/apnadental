@@ -25,6 +25,7 @@ class SearchController extends Controller
         $clinics = Doctor::where('type', 'Clinics')->take(6)->get();
         $blogs = Blog::with('category')->get();
         $services = Service::with('doctors')->get();
+        $secondary_categories = Doctor::select('secondary_category')->distinct()->get();
 
         $random_doctors = Doctor::where('type', 'Doctor')->inRandomOrder()->take(6)->get();
         $random_clinics = Doctor::where('type', 'Clinics')->inRandomOrder()->take(6)->get();;
@@ -42,7 +43,7 @@ class SearchController extends Controller
         if ($agent->isMobile()) {
             return view('apnadental_mobile.index', compact('random_doctors','random_clinics', 'servicesData'));
         } else {
-            return view('apnadental.index', compact('brands', 'services', 'doctors', 'clinics', 'sliders', 'blogs'));
+            return view('apnadental.index', compact('brands', 'services', 'doctors', 'clinics', 'sliders', 'blogs', 'secondary_categories'));
         }
     }
 

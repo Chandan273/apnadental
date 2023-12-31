@@ -94,6 +94,36 @@ class DoctorController extends Controller
         }
     }
 
+    public function doctorsNav(Request $request)
+    {
+        $resultsType = $request->query('results_type');
+
+        if ($resultsType) {
+            $doctors = Doctor::select('id','company_name')
+                ->whereHas('service', function ($query) use ($resultsType) {
+                    $query->where('service_name', $resultsType);
+                })
+                ->get();
+
+            return $doctors;
+        }
+    }
+
+    public function doctorsTreatments(Request $request)
+    {
+        $type = $request->query('type');
+        $secondary_category = $request->query('secondary_category');
+
+        if ($type && $secondary_category) {
+            $doctors = Doctor::select('id','company_name')
+                ->where('type', $type)
+                ->where('secondary_category', $secondary_category)
+                ->get();
+
+            return $doctors;
+        }
+    }
+
     public function clinicList(Request $request)
     {
         $agent = new Agent();
