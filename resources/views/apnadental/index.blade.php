@@ -533,7 +533,7 @@
                         <div class="tab-pane fade show active" id="nav-doctors" role="tabpanel" aria-labelledby="nav-doctors-tab"
                             tabindex="0">
                             <div class="d-flex align-items-start">
-                                <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <div class="w-230 nav flex-shrink-0 flex-column me-3 list-group list-group-flush border border-top-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                                     @foreach($secondary_categories as $secondary_category)
 
@@ -573,7 +573,7 @@
                         </div>
                         <div class="tab-pane fade" id="nav-clinics" role="tabpanel" aria-labelledby="nav-clinics-tab" tabindex="0">
                             <div class="d-flex align-items-start">
-                                <div class="w-230 nav flex-column me-3 list-group list-group-flush border border-top-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <div class="w-230 nav flex-shrink-0 flex-column me-3 list-group list-group-flush border border-top-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                                     @foreach($secondary_categories as $secondary_clinic_category)
 
@@ -613,6 +613,95 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="doctor-card-small bg-white p-3 rounded shadow-sm">
+                            <div class="d-flex doctor-info gap-2 py-4">
+                                <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
+                                    <img src="https://apnadental.in/resources/images/clinic.jpg" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="All Smiles Dental" />
+                                </div>
+
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between gap-1">
+                                        <div>
+                                            <h5 class="mb-1 line-clamp">All Smiles Dental</h5>
+                                            <p class="mb-0 fs-sm">Dental clinic</p>
+                                            <p class="mb-0 fs-sm">5 Years, Noida</p>
+                                            <h4 class="mt-1 fs-sm">₹800 Consultation Fees</h4>
+                                        </div>                          
+                                        <div>
+                                            <p class="d-flex reviews mb-0 gap-1 justify-content-end fs-xs">
+                                                <span>5</span>
+                                                <i class="icon_star voted text-success"></i>
+                                            </p>
+                                            <p class="reviews fs-xs text-nowrap">4 Reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                <form class="form-check d-flex gap-2 align-items-center mb-0">
+                                    <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9" tabindex="-1" />
+                                    <label class="form-check-label fs-sm mb-0" for="compareDoctor9">Compare</label>
+                                </form>
+                                <div class="d-inline-flex">
+                                    <a href="tel://9582004589" class="btn me-2 d-inline-flex btn-outline-success" tabindex="-1">Call</a>
+                                    <a href="http://localhost/projects/apnadental/login" class="btn btn_pink" tabindex="-1">Book appointment</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="clinic-card-small bg-white p-3 rounded shadow-sm">
+                            <div class="d-flex clinic-info gap-3 py-4">
+                                <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
+                                    <a href="http://localhost/projects/apnadental/doctor-details/1?type=">
+                                        <img src="https://apnadental.in/resources/images/male.jpg" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="Green Park Dental Clinic" />
+                                    </a>
+                                </div>
+
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h5 class="mb-1 line-clamp">
+                                                <a class="link-underline link-underline-opacity-0 text-dark" href="http://localhost/projects/apnadental/doctor-details/1?type=">Green Park Dental Clinic</a>
+                                            </h5>
+                                            <p class="mb-0 fs-sm"></p>
+                                            <p class="mb-0 fs-sm">5 Years, New Delhi</p>
+                                            <h4 class="mt-1 fs-sm">BDS, MDS - Orthodontics and Dentofacial Orthopaedics</h4>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <p class="d-flex reviews mb-0 gap-1 justify-content-end">
+                                                <span>4.8</span>
+                                                <i class="icon_star voted half text-success"></i>
+                                            </p>
+                                            <p class="reviews">654 Reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <form class="form-check d-flex gap-2 align-items-center mb-0">
+                                    <input type="checkbox" class="form-check-input mb-1" id="compareclinic1" />
+                                    <label class="form-check-label fs-sm mb-0" for="compareclinic1">Compare</label>
+                                </form>
+                                <div>
+                                    <a href="tel://1141627777" class="btn me-2 d-inline-flex btn-outline-success">Call</a>
+                                    <a href="http://localhost/projects/apnadental/login" class="btn btn_pink">Book appointment</a>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
         <!-- Advertising Ads -->
         <div class="bg-white">
             <div class="container ads">

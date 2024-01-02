@@ -435,9 +435,9 @@
 					if(data!=''){
 						data.forEach(item => {
 							if(type!='Clinics'){
-								$("#doctor_"+CategoryName).append("<li class='col-md-6'><a href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
+								$("#doctor_"+CategoryName).append("<li class='col-md-6'><a class='d-block py-1' href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
 							}else{
-								$("#clinics_"+CategoryName).append("<li class='col-md-6'><a href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
+								$("#clinics_"+CategoryName).append("<li class='col-md-6'><a class='d-block py-1' href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
 							}
 						});
 					}

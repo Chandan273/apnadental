@@ -320,3 +320,83 @@ ul.pagination .page-item.active>.page-link, .page-link.active{
 .search-bar .typeahead.dropdown-menu li:last-child .dropdown-item{
     border-bottom: none;
 }
+
+/* compare form  */
+.offcanvas.offcanvas-bottom.compare-offcanvas {
+    /* height: 70vh; */
+    height: min-content;
+  }
+  .offcanvas-header .offcanvas-header-badge{
+    position: absolute;
+    left: 10%;
+    background-color: var(--dark-blue);
+    padding: 10px 65px;
+    bottom: 100%;
+    clip-path: polygon(0% 100%, 10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    display: flex;
+    align-items: center;
+  }
+  
+  .offcanvas-header .offcanvas-header-badge .offcanvas-title{
+    color: #ffffff;
+  }
+  
+  .compare-card-wraper ul {
+    border: 1px solid var(--dark-blue);
+    border-radius: 5px;
+    width: max-content;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .compare-card-wraper .compare-card {
+    width: 100px;
+    height: 100px;
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .compare-card-wraper .compare-card img.img-thumbnail {
+    width: 80px;
+    margin-bottom: 5px;
+  }
+  
+  .compare-card-wraper .compare-card img.img-thumbnail.plus {
+    width: 30px;
+    margin-bottom: 5px;
+  }
+  
+  .compare-card-wraper .compare-card label {
+    text-align: center;
+  }
+  
+  .compare-card-wraper .seprator-vs {
+    position: relative;
+    width: 1px;
+    min-height: 100%;
+    background-color: var(--dark-blue);
+  }
+  
+  .compare-card-wraper .seprator-vs::before {
+    content: "VS";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 50%;
+    z-index: 2;
+    background: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
