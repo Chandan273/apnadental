@@ -28,6 +28,10 @@
   }
 }
 
+.fs-sm {
+  font-size: 14px;
+}
+
 .txt-primary {
   color: var(--primary);
 }
@@ -458,6 +462,11 @@ form .error-message {
   z-index: 2;
 }
 
+.nav-item.dropdown-mega .mega-menu-left.nav-pills{
+  height: 75vh;
+  overflow-y: auto;
+}
+
 .nav-item.dropdown-mega .nav-pills .nav-link {
   cursor: pointer;
   color: var(--secondary);
@@ -471,12 +480,24 @@ form .error-message {
 }
 
 .nav-item.dropdown-mega ul li {
-  padding: 4px 6px;
+  padding: 4px 18px;
+  position: relative;
+}
+
+.nav-item.dropdown-mega ul li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: rgb(0, 0, 0);
+  clip-path: polygon(0 0, 0% 100%, 62% 50%);
+  left: 0;
+  top: 10px;
+  position: absolute;
 }
 
 .nav-item.dropdown-mega ul {
-  padding-left: 30px;
-  list-style-type: disclosure-closed;
+  padding-left: 5px;
+  list-style-type: none;
 }
 
 .nav-item.dropdown-mega ul li a {
@@ -694,8 +715,21 @@ footer .input-group .btn {
 }
 
 .service-ui-cls{
-  height: 600px;
+  height: 75vh;
   overflow-y: auto;
+}
+.mob-card-img-wrap {
+  height: 72px;
+  width: 72px;
+  flex-shrink: 0;
+}
+
+.doctor-info .reviews {
+  font-size: 12px;
+}
+
+.doctor-info h4 {
+  font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {

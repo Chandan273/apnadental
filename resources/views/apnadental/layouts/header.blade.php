@@ -140,8 +140,8 @@
               <div class="container-fluid">
                 <div class="row">
                   <div class="col">
-                    <div class="d-flex align-items-start">
-                      <div class="nav flex-shrink-0 flex-column nav-pills me-3 text-start bg-light px-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class="d-flex align-items-start h-100">
+                      <div class="nav mega-menu-left flex-shrink-0 flex-column nav-pills me-3 text-start bg-light px-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                         @foreach($services_nav as $service_nav)
 

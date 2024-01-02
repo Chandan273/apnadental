@@ -20,9 +20,9 @@
     <p class="text-info mb-0">Welcome back!</p>
     <h1>What are you looking for?</h1>
     <div class="mt-2 py-2 bg-white sticky-top">
-        <div class="search-bar input-group bg-white border rounded-3">
-            <span class="input-group-text border-0 bg-transparent"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control border-0 ps-1 py-2" id="keywordSearch"
+        <div class="search-bar input-group1 bg-white border rounded-3 position-relative">
+            <i class="bi bi-search position-absolute start-0 top-50 ms-3 translate-middle-y"></i>
+            <input type="text" class="form-control border-0 ps-5 py-2" id="keywordSearch"
                 placeholder="Search Doctors, Medicines, Hospitals" aria-label="search">
         </div>
     </div>
@@ -112,14 +112,14 @@
         <div class="slider-doctors">
             @foreach ($random_doctors as $doctor)
             <div class="mb-4">
-                <div class="d-flex doctor-info gap-3 py-4">
+                <div class="d-flex doctor-info gap-2 py-4">
                     <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
                         <img src="{{$doctor->image}}"
                             class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
                     </div>
 
                     <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between gap-1">
                             <div>
                                 <h5 class="mb-1 line-clamp">{{ $doctor->company_name }}</h5>
                                 <p class="mb-0 fs-sm">{{ $doctor->main_category }}</p>
@@ -146,7 +146,7 @@
                                     <span>{{ $doctor->rating }}</span>
                                     <i class="bi bi-star-fill text-success"></i>
                                 </p>
-                                <p class="reviews fs-xs">{{ $doctor->rating_count }} Reviews</span>
+                                <p class="reviews fs-xs text-nowrap">{{ $doctor->rating_count }} Reviews</span>
                             </div>
                         </div>
 
@@ -155,7 +155,7 @@
                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <form class="form-check d-flex gap-2 align-items-center mb-0">
                         <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9">
-                        <label class="form-check-label fs-sm" for="compareDoctor9">Compare</label>
+                        <label class="form-check-label fs-sm" for="compareDoctor9" data-bs-toggle="offcanvas" data-bs-target="#compareOff">Compare</label>
                     </form>
                     <div class="d-inline-flex">
                         <a href="tel://{{ $doctor->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
@@ -200,14 +200,14 @@
     <div class="slider-clinics">
         @foreach ($random_clinics as $clinic)
         <div class="mb-4 px-2">
-            <div class="d-flex doctor-info gap-3 py-4">
+            <div class="d-flex doctor-info gap-2 py-4">
                 <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
                     <img src="{{$clinic->image}}"
                         class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $clinic->company_name }}">
                 </div>
 
                 <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between gap-1">
                         <div>
                             <h5 class="mb-1 line-clamp">{{ $clinic->company_name }}</h5>
                             <p class="mb-0 fs-sm">{{ $clinic->main_category }}</p>
@@ -234,7 +234,7 @@
                                 <span>{{ $clinic->rating }}</span>
                                 <i class="bi bi-star-fill text-success"></i>
                             </p>
-                            <p class="reviews fs-xs">{{ $clinic->rating_count }} Reviews</span>
+                            <p class="reviews fs-xs text-nowrap">{{ $clinic->rating_count }} Reviews</span>
                         </div>
                     </div>
 
@@ -659,6 +659,180 @@
         </div>
     </div>
 </div>
+
+<!-- my account left bar modal -->
+<div>
+    <button class="btn button-pink-fill position-fixed top-50 start-0 px-1 py-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <i class="bi bi-arrow-right-circle-fill fs-3"></i>
+    </button>
+
+    <div class="my-account-offcanvas-mob offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header bg-primary justify-content-start align-items-center gap-2">
+            <div class="profile-72x72 bg-primary position-relative overflow-hidden rounded-circle">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="doctor">
+            </div>
+            <div class="text-white">
+                <h5 class="offcanvas-title fw-normal" id="offcanvasWithBothOptionsLabel">Bernarr Dominik</h5>
+                <p class="mb-0">9876543210</p>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+            </div>
+        </div>
+        <div class="offcanvas-body d-inline-flex">
+            <nav class="w-100">
+                <ul class="navbar-nav flex-column">
+
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/business-and-finance.svg') }}"
+                                alt="Manage family Members-icon">Manage family Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/business-and-finance.svg') }}"
+                                alt="Appointments-icon">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/order-icon.svg') }}"
+                                alt="My-Orders-icon">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/microscope.svg') }}"
+                                alt="Test-Bookings-icon">Test Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/telephone.svg') }}"
+                                alt="eConsultation-icon">eConsultation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/policy.svg') }}"
+                                alt="Buy-Subscription-icon">Buy
+                            Subscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/reminder.svg') }}"
+                                alt="Reminders-icon">Reminders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/wallet-icon.svg') }}"
+                                alt="Wallet-icon">Wallet <span class="ms-auto">5100</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-end link-text-danger-hover gap-3" aria-current="page"
+                            href="#">
+                            <img width="25px" src="{{ asset('public/assets/mobileImages/doctor-nav-icon.svg') }}"
+                                alt="My Doctors-icon">My Doctors</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+    <!-- compare offcanvas  -->
+<div class="offcanvas compare-offcanvas offcanvas-bottom" tabindex="-1" id="compareOff"
+    aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header position-relative">
+        <div class="offcanvas-header-badge">
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Compare Doctors</h5>
+            <button type="button" class="bg-transparent border-0 p-0 ms-3 text-white stretched-link" data-bs-dismiss="offcanvas" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+            </button>
+        </div>               
+        
+    </div>
+    <div class="compare-card-wraper offcanvas-body small">
+        <form action="#">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-auto">
+                        <ul class="d-flex aligin-items-center justify-content-center">
+                            <li class="compare-card position-relative flex-column gap-2">
+                                <label for="compare-dr">
+                                    <img class="img-thumbnail p-0 border-0"
+                                        src="http://localhost/projects/apnadental/public/assets/img/avatar2.jpg">
+
+                                    <div class="text-center">
+                                        <h5 class="h6 mb-0">Doctor</h5>
+                                    </div>
+
+
+                                    <input class="uploadProfileInput d-none" type="file" name="compare-dr"
+                                        id="compare-dr" accept="image/*">
+                                </label>
+                                <button class="position-absolute end-0 top-0 border-0 bg-transparent">
+                                    <img src="http://localhost/projects/apnadental/public/assets/img/delete.svg"
+                                        width="15px">
+                                </button>
+                            </li>
+
+                            <li class="seprator-vs"></li>
+
+                            <li class="compare-card position-relative flex-column gap-2">
+                                <label for="compare-dr" class=" pe-auto">
+                                    <img class="img-thumbnail p-0 border-0"
+                                        src="http://localhost/projects/apnadental/public/assets/img/avatar2.jpg">
+
+                                    <div class="text-center">
+                                        <h5 class="h6 mb-0">Doctor</h5>
+                                    </div>
+
+
+                                    <input class="uploadProfileInput d-none" type="file" name="compare-dr"
+                                        id="compare-dr" accept="image/*">
+                                </label>
+                                <button class="position-absolute end-0 top-0 border-0 bg-transparent">
+                                    <img src="http://localhost/projects/apnadental/public/assets/img/delete.svg"
+                                        width="15px">
+                                </button>
+                            </li>
+
+                            <li class="seprator-vs"></li>
+
+                            <li class="compare-card position-relative flex-column gap-2">
+                                <label for="compare-dr">
+                                    <img class="img-thumbnail plus p-0 border-0"
+                                        src="http://localhost/projects/apnadental/public/assets/img/plus.svg">
+
+                                    <div class="text-center">
+                                        <h5 class="h6 mb-0">Select</h5>
+                                    </div>
+
+
+                                    <input class="uploadProfileInput d-none" type="file" name="compare-dr"
+                                        id="compare-dr" accept="image/*">
+                                </label>
+
+                            </li>                                
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <a href="{{ url('/compare') }}" type="butoon" class="btn button-pink-fill mb-5">Compare</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <script>
     $('.slider-doctors, .slider-clinics').slick({
