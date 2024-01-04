@@ -35,7 +35,7 @@
     display: -webkit-box;
     display: -moz-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
@@ -115,7 +115,7 @@ img {
 
 .container,
 .container-fluid {
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 a.btn {
@@ -188,7 +188,7 @@ a.btn {
     color: var(--white);
 }
 
-.faqs .nav.tabs-wrapper{
+.faqs .nav.tabs-wrapper {
     overflow-x: auto;
 }
 
@@ -298,26 +298,28 @@ a.btn {
 }
 
 /* pagination  */
-ul.pagination{
+ul.pagination {
     flex-wrap: wrap;
 }
 
-ul.pagination .page-item .page-link{
+ul.pagination .page-item .page-link {
     color: var(--dark-blue);
 }
 
-ul.pagination .page-item.active>.page-link, .page-link.active{
+ul.pagination .page-item.active>.page-link,
+.page-link.active {
     background: var(--pink);
     border-color: var(--pink);
     color: var(--white);
 }
 
 /* search list  */
-.search-bar .typeahead.dropdown-menu li .dropdown-item{
+.search-bar .typeahead.dropdown-menu li .dropdown-item {
     white-space: wrap;
     border-bottom: 1px solid #ddd;
 }
-.search-bar .typeahead.dropdown-menu li:last-child .dropdown-item{
+
+.search-bar .typeahead.dropdown-menu li:last-child .dropdown-item {
     border-bottom: none;
 }
 
@@ -325,8 +327,9 @@ ul.pagination .page-item.active>.page-link, .page-link.active{
 .offcanvas.offcanvas-bottom.compare-offcanvas {
     /* height: 70vh; */
     height: min-content;
-  }
-  .offcanvas-header .offcanvas-header-badge{
+}
+
+.offcanvas-header .offcanvas-header-badge {
     position: absolute;
     left: 10%;
     background-color: var(--dark-blue);
@@ -335,51 +338,51 @@ ul.pagination .page-item.active>.page-link, .page-link.active{
     clip-path: polygon(0% 100%, 10% 0%, 90% 0%, 100% 100%, 0% 100%);
     display: flex;
     align-items: center;
-  }
-  
-  .offcanvas-header .offcanvas-header-badge .offcanvas-title{
+}
+
+.offcanvas-header .offcanvas-header-badge .offcanvas-title {
     color: #ffffff;
-  }
-  
-  .compare-card-wraper ul {
+}
+
+.compare-card-wraper ul {
     border: 1px solid var(--dark-blue);
     border-radius: 5px;
     width: max-content;
     padding: 0;
     list-style-type: none;
-  }
-  
-  .compare-card-wraper .compare-card {
+}
+
+.compare-card-wraper .compare-card {
     width: 100px;
-    height: 100px;
+    min-height: 100px;
     margin: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .compare-card-wraper .compare-card img.img-thumbnail {
+}
+
+.compare-card-wraper .compare-card img.img-thumbnail {
     width: 80px;
     margin-bottom: 5px;
-  }
-  
-  .compare-card-wraper .compare-card img.img-thumbnail.plus {
+}
+
+.compare-card-wraper .compare-card img.img-thumbnail.plus {
     width: 30px;
     margin-bottom: 5px;
-  }
-  
-  .compare-card-wraper .compare-card label {
+}
+
+.compare-card-wraper .compare-card label {
     text-align: center;
-  }
-  
-  .compare-card-wraper .seprator-vs {
+}
+
+.compare-card-wraper .seprator-vs {
     position: relative;
     width: 1px;
     min-height: 100%;
     background-color: var(--dark-blue);
-  }
-  
-  .compare-card-wraper .seprator-vs::before {
+}
+
+.compare-card-wraper .seprator-vs::before {
     content: "VS";
     position: absolute;
     width: 35px;
@@ -398,5 +401,43 @@ ul.pagination .page-item.active>.page-link, .page-link.active{
     color: var(--white);
     font-size: 14px;
     font-weight: 600;
-  }
-  
+}
+
+.slider-doctors .slick-dots,
+.slider-clinics .slick-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    list-style-type: none;
+}
+
+.slider-doctors .slick-dots li,
+.slider-clinics .slick-dots li {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 50%;
+    background-color: var(--white);
+}
+
+.slider-doctors .slick-dots li.slick-active,
+.slider-clinics .slick-dots li.slick-active {
+    position: relative;
+}
+.slider-doctors .slick-dots li.slick-active::before,
+.slider-clinics .slick-dots li.slick-active::before {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--pink);    
+}
+
+.slider-doctors .slick-dots li button,
+.slider-clinics .slick-dots li button {
+    display: none;
+}

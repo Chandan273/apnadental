@@ -640,17 +640,18 @@
                                             <p class="reviews fs-xs text-nowrap">4 Reviews</p>
                                         </div>
                                     </div>
+                                    <a href="tel://9582004589" class="btn_listing" tabindex="-1">Get a Free Call now</a>
                                 </div>
                             </div>
+
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                                 <form class="form-check d-flex gap-2 align-items-center mb-0">
                                     <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9" tabindex="-1" />
                                     <label class="form-check-label fs-sm mb-0" for="compareDoctor9">Compare</label>
-                                </form>
-                                <div class="d-inline-flex">
-                                    <a href="tel://9582004589" class="btn me-2 d-inline-flex btn-outline-success" tabindex="-1">Call</a>
-                                    <a href="http://localhost/projects/apnadental/login" class="btn btn_pink" tabindex="-1">Book appointment</a>
-                                </div>
+                                </form>                              
+                               
+                                <a href="http://localhost/projects/apnadental/login" class="btn btn_pink" tabindex="-1">Book appointment</a>
+                           
                             </div>
                         </div>
                     </div>
@@ -681,17 +682,15 @@
                                             <p class="reviews">654 Reviews</p>
                                         </div>
                                     </div>
+                                    <a href="tel://9582004589" class="btn_listing" tabindex="-1">Get a Free Call now</a>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <form class="form-check d-flex gap-2 align-items-center mb-0">
                                     <input type="checkbox" class="form-check-input mb-1" id="compareclinic1" />
                                     <label class="form-check-label fs-sm mb-0" for="compareclinic1">Compare</label>
-                                </form>
-                                <div>
-                                    <a href="tel://1141627777" class="btn me-2 d-inline-flex btn-outline-success">Call</a>
-                                    <a href="http://localhost/projects/apnadental/login" class="btn btn_pink">Book appointment</a>
-                                </div>
+                                </form>                              
+                                <a href="http://localhost/projects/apnadental/login" class="btn btn_pink">Book appointment</a>                          
                             </div>
                         </div>
                 

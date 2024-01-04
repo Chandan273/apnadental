@@ -163,10 +163,10 @@
                                   ? str_replace(' ', '_', $service_nav->service_name)
                                   : $service_nav->service_name;
                           @endphp
-                          <div class="service-detail-cls tab-pane fade show" id="v-pills-{{ $serviceName }}" role="tabpanel"
+                          <div class="service-detail-cls tab-pane fade show position-relative" id="v-pills-{{ $serviceName }}" role="tabpanel"
                             aria-labelledby="v-pills-{{ $serviceName }}-tab" tabindex="0">
                             
-                            <div id="spinner" class="d-flex justify-content-center d-none">
+                            <div id="spinner" class="d-flex justify-content-center d-none position-fixed top-50 start-50 translate-middle">
                               <div class="spinner-border" role="status">
                                 <span class="sr-only"></span>
                               </div>

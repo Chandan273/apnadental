@@ -1,9 +1,15 @@
 @extends('apnadental_mobile.master')
 @section("content")
-<main class="pt-5">
 
-    <div class="container">
-        <!-- <h1 class="mb-3">Compare Doctor</h1> -->
+    <div class="container-fluid">
+        <div class="top-bar mb-1 py-2 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <a class="text-reset" href="<?php echo env('APP_URL'); ?>">
+                    <img src="{{ asset('public/assets/mobileImages/arrow-back.svg') }}" alt="back-arrow">
+                </a>
+                <h3 class="mb-0 ps-3">Home</h3>
+            </div>
+        </div>
         <div class="compare-card-wraper">
             <div class="row justify-content-start gy-3">
                 <div class="col-12">
@@ -21,7 +27,7 @@
                                     src="http://localhost/projects/apnadental/public/assets/img/avatar2.jpg">
 
                                 <div class="text-center">
-                                    <h5 class="h6 mb-0">Doctor</h5>
+                                    <h5 class="fs-sm text-wrap text-truncate mb-0">Doctor</h5>
                                 </div>
 
 
@@ -42,7 +48,7 @@
                                     src="http://localhost/projects/apnadental/public/assets/img/avatar2.jpg">
 
                                 <div class="text-center">
-                                    <h5 class="h6 mb-0">Doctor</h5>
+                                    <h5 class="fs-sm text-wrap text-truncate mb-0">Doctor</h5>
                                 </div>
 
 
@@ -63,7 +69,7 @@
                                     src="http://localhost/projects/apnadental/public/assets/img/plus.svg">
 
                                 <div class="text-center">
-                                    <h5 class="h6 mb-0">Select</h5>
+                                    <h5 class="fs-sm text-wrap text-truncate mb-0">Select</h5>
                                 </div>
                                 <input class="uploadProfileInput d-none" type="file" name="compare-dr" id="compare-dr"
                                     accept="image/*">
@@ -210,6 +216,4 @@
         </div>
     </div>
 
-</main>
-<!-- /main -->
 @endsection
