@@ -662,7 +662,7 @@
 
 <!-- my account left bar modal -->
 <div>
-    <button class="btn button-pink-fill position-fixed top-50 start-0 px-1 py-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+    <button class="btn button-pink-fill position-fixed top-50 start-0 px-1 py-0 z-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
         <i class="bi bi-arrow-right-circle-fill fs-3"></i>
     </button>
 
@@ -838,9 +838,10 @@
     $('.slider-doctors, .slider-clinics').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3000,
         arrows: false,
+        dots: true,
         centerMode: true,
         centerPadding: '0',
         focusOnSelect: true,
