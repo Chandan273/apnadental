@@ -25,16 +25,17 @@
 	<link href="{{ asset('public/assets/apnadental/css/icon_fonts/css/all_icons_min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
 
-	<!-- YOUR CUSTOM CSS -->
-	<!-- <link href="{{ asset('public/assets/apnadental/css/custom.css') }}" rel="stylesheet"> -->
+	<!-- CUSTOM CSS -->
 	<link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> --}}
 	<link href="{{ asset('public/assets/css/custom.css') }}" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 </head>
 <body>
 	<div class="layer"></div>
@@ -48,6 +49,7 @@
 	@include('apnadental.layouts.header')
 	@yield('content')
 	@include('apnadental.layouts.modal')
+	@include('apnadental.layouts.compare_items')
 	@include('apnadental.layouts.footer')
 
 	<div id="toTop"></div>
@@ -434,11 +436,11 @@
 				success: function (data) {
 					if(data!=''){
 						data.forEach(item => {
-							if(type!='Clinics'){
-								$("#doctor_"+CategoryName).append("<li class='col-md-6'><a class='d-block py-1' href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
-							}else{
-								$("#clinics_"+CategoryName).append("<li class='col-md-6'><a class='d-block py-1' href='<?php echo env("APP_URL"); ?>/doctor-details/"+item.id+"'>"+item.company_name+"</a></li>");
-							}
+
+							let categoryName = (type!='Clinics') ? $("#doctor_"+CategoryName) : $("#clinics_"+CategoryName);
+
+							categoryName.append(`<div class='col-4 mt-3'><div class='doctor-card-small bg-white p-3 rounded shadow-sm'><div class='d-flex doctor-info gap-2 py-4'><div class='mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill'><a href="<?php echo env('APP_URL') ?>/doctor-details/${item.id}"><img src='${item.image}' class='position-absolute w-100 h-100 object-fit-cover start-0 top-0' alt='${item.company_name}'></a></div><div class='flex-grow-1'><div class='d-flex justify-content-between gap-1'><div><h5 class='mb-1 line-clamp'><a href="<?php echo env('APP_URL') ?>/doctor-details/${item.id}">${item.company_name.substring(0,12)}...</a></h5><p class='mb-0 fs-sm'>${item.secondary_category}</p><p class='mb-0 fs-sm'>${item.experience} Years, ${item.city}</p><h5 class='mt-1 fs-sm'>₹${item.fee} Consultation Fees</h5></div><div><p class='d-flex reviews mb-0 gap-1 justify-content-end fs-xs'><span>${item.rating}</span><i class='icon_star voted text-success'></i></p><p class='reviews fs-xs text-nowrap'>${item.rating_count} Reviews</p></div></div></div></div><div class='d-flex justify-content-between align-items-center flex-wrap gap-2'><form class='form-check d-flex gap-2 align-items-center mb-0'><input type='checkbox' class='form-check-input mb-1' id='compareDoctor9' tabindex='-1'><label class='form-check-label fs-sm mb-0' for='compareDoctor'>Compare</label></form><div class='d-inline-flex'><a href='tel://${item.phone}' class='btn me-2 d-inline-flex btn-outline-success' tabindex='-1'>Call</a><a href='javascript:void(0)' onclick='bookNow("${item.id}", "${item.company_name}", "${item.secondary_category}", "${item.work_timings}")' class='btn btn_pink' tabindex='-1'>Book appointment</a></div></div></div></div>`);
+
 						});
 					}
 				},

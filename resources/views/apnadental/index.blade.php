@@ -563,7 +563,7 @@
                                         @endphp
                                 
                                     <div class="doctor-treatment-list tab-pane fade show" id="v-pills-{{$secondaryCategory}}-1" role="tabpanel" aria-labelledby="v-pills-{{$secondaryCategory}}-1-tab" tabindex="0">
-                                        <ul class="row" id="doctor_{{$secondaryCategory}}"></ul>
+                                        <div class="row" id="doctor_{{$secondaryCategory}}"></div>
                                     </div>
 
                                     @endforeach
@@ -593,7 +593,6 @@
                                 </div>
                                 <div class="tab-content" id="v-pills-tabContent">
                                     @foreach($secondary_categories as $secondary_clinic_category)
-
                                         @php
                                             $secondaryClinicCategory = $secondary_clinic_category->secondary_category;
                                         
@@ -603,7 +602,7 @@
                                                 }
                                         @endphp
                                         <div class="clinic-treatment-list tab-pane fade show" id="v-pills-clinic-{{ $secondaryClinicCategory }}" role="tabpanel" aria-labelledby="v-pills-clinic-{{ $secondaryClinicCategory }}-tab" tabindex="0">
-                                            <ul class="row" id="clinics_{{$secondaryClinicCategory}}"></ul>
+                                            <div class="row" id="clinics_{{$secondaryClinicCategory}}"></div>
                                         </div>
                                     @endforeach
                                 </div>
@@ -614,93 +613,6 @@
             </div>
         </section>
 
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="doctor-card-small bg-white p-3 rounded shadow-sm">
-                            <div class="d-flex doctor-info gap-2 py-4">
-                                <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                                    <img src="https://apnadental.in/resources/images/clinic.jpg" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="All Smiles Dental" />
-                                </div>
-
-                                <div class="flex-grow-1">
-                                    <div class="d-flex justify-content-between gap-1">
-                                        <div>
-                                            <h5 class="mb-1 line-clamp">All Smiles Dental</h5>
-                                            <p class="mb-0 fs-sm">Dental clinic</p>
-                                            <p class="mb-0 fs-sm">5 Years, Noida</p>
-                                            <h4 class="mt-1 fs-sm">₹800 Consultation Fees</h4>
-                                        </div>                          
-                                        <div>
-                                            <p class="d-flex reviews mb-0 gap-1 justify-content-end fs-xs">
-                                                <span>5</span>
-                                                <i class="icon_star voted text-success"></i>
-                                            </p>
-                                            <p class="reviews fs-xs text-nowrap">4 Reviews</p>
-                                        </div>
-                                    </div>
-                                    <a href="tel://9582004589" class="btn_listing" tabindex="-1">Get a Free Call now</a>
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                                <form class="form-check d-flex gap-2 align-items-center mb-0">
-                                    <input type="checkbox" class="form-check-input mb-1" id="compareDoctor9" tabindex="-1" />
-                                    <label class="form-check-label fs-sm mb-0" for="compareDoctor9">Compare</label>
-                                </form>                              
-                               
-                                <a href="http://localhost/projects/apnadental/login" class="btn btn_pink" tabindex="-1">Book appointment</a>
-                           
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="clinic-card-small bg-white p-3 rounded shadow-sm">
-                            <div class="d-flex clinic-info gap-3 py-4">
-                                <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                                    <a href="http://localhost/projects/apnadental/doctor-details/1?type=">
-                                        <img src="https://apnadental.in/resources/images/male.jpg" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="Green Park Dental Clinic" />
-                                    </a>
-                                </div>
-
-                                <div class="flex-grow-1">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h5 class="mb-1 line-clamp">
-                                                <a class="link-underline link-underline-opacity-0 text-dark" href="http://localhost/projects/apnadental/doctor-details/1?type=">Green Park Dental Clinic</a>
-                                            </h5>
-                                            <p class="mb-0 fs-sm"></p>
-                                            <p class="mb-0 fs-sm">5 Years, New Delhi</p>
-                                            <h4 class="mt-1 fs-sm">BDS, MDS - Orthodontics and Dentofacial Orthopaedics</h4>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <p class="d-flex reviews mb-0 gap-1 justify-content-end">
-                                                <span>4.8</span>
-                                                <i class="icon_star voted half text-success"></i>
-                                            </p>
-                                            <p class="reviews">654 Reviews</p>
-                                        </div>
-                                    </div>
-                                    <a href="tel://9582004589" class="btn_listing" tabindex="-1">Get a Free Call now</a>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <form class="form-check d-flex gap-2 align-items-center mb-0">
-                                    <input type="checkbox" class="form-check-input mb-1" id="compareclinic1" />
-                                    <label class="form-check-label fs-sm mb-0" for="compareclinic1">Compare</label>
-                                </form>                              
-                                <a href="http://localhost/projects/apnadental/login" class="btn btn_pink">Book appointment</a>                          
-                            </div>
-                        </div>
-                
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        
         <!-- Advertising Ads -->
         <div class="bg-white">
             <div class="container ads">
@@ -1746,93 +1658,7 @@
             </div>
         </div>
 
-        <!-- compare offcanvas  -->
-        <div class="offcanvas compare-offcanvas offcanvas-bottom" tabindex="-1" id="compareOff"
-            aria-labelledby="offcanvasBottomLabel">
-            <div class="offcanvas-header position-relative">
-                <div class="offcanvas-header-badge">
-                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Compare Doctors</h5>
-                    <button type="button" class="bg-transparent border-0 p-0 ms-3 text-white stretched-link" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                        </svg>
-                    </button>
-                </div>               
-                
-            </div>
-            <div class="compare-card-wraper offcanvas-body small">
-                <form action="#">
-                    <div class="container-fluid">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-auto">
-                                <ul class="d-flex aligin-items-center justify-content-center">
-                                    <li class="compare-card position-relative flex-column gap-2">
-                                        <label for="compare-dr">
-                                            <img class="img-thumbnail p-0 border-0"
-                                                src="http://localhost/projects/apnadental/public/assets/img/avatar2.jpg">
-
-                                            <div class="text-center">
-                                                <h5 class="h6 mb-0">Doctor</h5>
-                                            </div>
-
-
-                                            <input class="uploadProfileInput d-none" type="file" name="compare-dr"
-                                                id="compare-dr" accept="image/*">
-                                        </label>
-                                        <button class="position-absolute end-0 top-0 border-0 bg-transparent">
-                                            <img src="http://localhost/projects/apnadental/public/assets/img/delete.svg"
-                                                width="15px">
-                                        </button>
-                                    </li>
-
-                                    <li class="seprator-vs"></li>
-
-                                    <li class="compare-card position-relative flex-column gap-2">
-                                        <label for="compare-dr" class=" pe-auto">
-                                            <img class="img-thumbnail p-0 border-0"
-                                                src="http://localhost/projects/apnadental/public/assets/img/avatar2.jpg">
-
-                                            <div class="text-center">
-                                                <h5 class="h6 mb-0">Doctor</h5>
-                                            </div>
-
-
-                                            <input class="uploadProfileInput d-none" type="file" name="compare-dr"
-                                                id="compare-dr" accept="image/*">
-                                        </label>
-                                        <button class="position-absolute end-0 top-0 border-0 bg-transparent">
-                                            <img src="http://localhost/projects/apnadental/public/assets/img/delete.svg"
-                                                width="15px">
-                                        </button>
-                                    </li>
-
-                                    <li class="seprator-vs"></li>
-
-                                    <li class="compare-card position-relative flex-column gap-2">
-                                        <label for="compare-dr">
-                                            <img class="img-thumbnail plus p-0 border-0"
-                                                src="http://localhost/projects/apnadental/public/assets/img/plus.svg">
-
-                                            <div class="text-center">
-                                                <h5 class="h6 mb-0">Select</h5>
-                                            </div>
-
-
-                                            <input class="uploadProfileInput d-none" type="file" name="compare-dr"
-                                                id="compare-dr" accept="image/*">
-                                        </label>
-
-                                    </li>                                
-                                </ul>
-                            </div>
-                            <div class="col-auto">
-                                <a href="{{ url('/compare') }}" type="butoon" class="btn btn-lg btn_pink mb-5">Compare</a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        
     </div>
 </main>
 <!-- /main content -->

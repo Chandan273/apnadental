@@ -127,6 +127,7 @@ Route::get('{city}/specialties/{specialty}', [SearchController::class, 'findDoct
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.post');
 Route::get('/doctors-nav', [DoctorController::class, 'doctorsNav'])->name('doctors.nav');
 Route::get('/doctors-treatments', [DoctorController::class, 'doctorsTreatments'])->name('doctors.treatments');
+Route::get('/wordpress-api', [BlogController::class, 'wordPressAPI']);
 
 // new pages 
 Route::view('/my-account', 'apnadental/my_account');

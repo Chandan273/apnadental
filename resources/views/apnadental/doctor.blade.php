@@ -80,6 +80,10 @@
         <div class="row g-4">
             <div class="col-12 col-lg-8 col-xl-9">
                 <div>
+                    @if($doctors->isEmpty())
+                        <p class="text-center">No data found!</p>
+                    @else
+
                     @foreach ($doctors as $doctor)
                         <div class="strip_list wow fadeIn">
                             <a href="#0" class="wish_bt"></a>
@@ -137,6 +141,7 @@
                         </div>
                     @endforeach
 
+                    @endif
                     <!-- Advertising Ads -->
                     <div class="bg-white mb-4 shadow-sm rounded-1">
                         <div class="container ads">

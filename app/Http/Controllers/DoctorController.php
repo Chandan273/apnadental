@@ -62,14 +62,12 @@ class DoctorController extends Controller
     public function doctorList(Request $request)
     {
         $agent = new Agent();
-        // Get the results_type parameter from the URL
         $resultsType = $request->query('results_type');
+        $secondaryCategory = $request->query('category');
 
-        // Set the number of doctors to display per page
-        $perPage = 10; // You can adjust this as needed
+        $perPage = 10;
 
-        if ($resultsType) {
-            // Use the `whereHas` method to filter doctors by service_name
+        if ($resultsType && $secondaryCategory == "" && $secondaryCategory == null) {
             if ($agent->isMobile()) {
                 $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
                     $query->where('service_name', $resultsType);
@@ -79,6 +77,10 @@ class DoctorController extends Controller
                     $query->where('service_name', $resultsType)->where('type', 'Doctor');
                 });
             }
+        }else if($resultsType && $secondaryCategory) {
+            $doctorsQuery = Doctor::whereHas('service', function ($query) use ($resultsType) {
+                $query->where('service_name', $resultsType)->where('secondary_category', isset($secondaryCategory));
+            });
         } else {
             // If no results_type is provided, fetch all doctors
             $doctorsQuery = Doctor::query();
@@ -115,8 +117,7 @@ class DoctorController extends Controller
         $secondary_category = $request->query('secondary_category');
 
         if ($type && $secondary_category) {
-            $doctors = Doctor::select('id','company_name')
-                ->where('type', $type)
+            $doctors = Doctor::select('id','company_name','secondary_category','image','rating','rating_count','phone','education','experience','location','locality','city','state','zip_code','map_url','fee','work_timings')->where('type', $type)
                 ->where('secondary_category', $secondary_category)
                 ->get();
 

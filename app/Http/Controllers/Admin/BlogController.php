@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\BlogCategory;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class BlogController extends Controller
 {
@@ -200,4 +201,26 @@ class BlogController extends Controller
 
         return view('apnadental.blog_details', compact('blog','categories'));
     }
+
+    public function wordPressAPI()
+    {
+        $response = Http::get('https://sabkadentist.com/wp-json/wp/v2/posts?per_page=20&page=1');
+
+        if ($response->successful()) {
+            $posts = $response->json();
+
+            foreach ($posts as $post) {
+
+                return $post['id'];
+                
+            }
+
+            // Optionally, you can return a success message or perform additional actions
+            return 'Posts fetched and saved successfully.';
+        }
+
+        // Handle error cases here
+        return 'Failed to fetch posts from the WordPress API.';
+    }
+
 }

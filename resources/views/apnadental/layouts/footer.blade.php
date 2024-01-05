@@ -95,93 +95,69 @@
     </div>
     <hr class="my-3">
     <div class="other-links">
-      <div class="row mb-4 mb-lg-2">
-        <div class="col-12">
-          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
-            <h3 class="fs-6 mb-0 text-nowrap align-self-baseline">HOT SEARCHED KEYWORDS:</h3>
-            <ul class="nav gap-2 justify-content-center justify-content-sm-start">
-              <li class="mb-0"><a href="">Xeaomi Mi3</a></li>
-              <li class="mb-0"><a href="">Digiflip Pro XT 712 Tablet</a></li>
-              <li class="mb-0"><a href="">
-                  Mi 3 Phones</a></li>
-              <li class="mb-0"><a href="">Aphone 6 Plus</a></li>
-              <li class="mb-0"><a href="">Women’s Messenger Bags</a></li>
-              <li class="mb-0"><a href="">Wallets</a></li>
-              <li class="mb-0"><a href="">Women’s Clutches</a></li>
-              <li class="mb-0"><a href="">
-                  Backpacks Totes</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="row mb-4 mb-lg-2">
-        <div class="col-12">
-          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
-            <h3 class="fs-6 mb-0 align-self-baseline">TVS:</h3>
-            <ul class="nav gap-2 justify-content-center justify-content-sm-start">
-              <li class="mb-0"><a href="">Sany TV</a></li>
-              <li class="mb-0"><a href="">Samsang TV</a></li>
-              <li class="mb-0"><a href="">LIG TV</a></li>
-              <li class="mb-0"><a href="">Penasonic TV</a></li>
-              <li class="mb-0"><a href="">Oneda TV</a></li>
-              <li class="mb-0"><a href="">Tosheba TV</a></li>
-              <li class="mb-0"><a href="">Phileps TV</a></li>
-              <li class="mb-0"><a href="">Mecromax TV</a></li>
-              <li class="mb-0"><a href="">LAD TV</a></li>
-              <li class="mb-0"><a href="">NCD TV</a></li>
-              <li class="mb-0"><a href="">Plasma TV</a></li>
-              <li class="mb-0"><a href="">3D TV</a></li>
-              <li class="mb-0"><a href="">Smart TV</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="row mb-4 mb-lg-2">
-        <div class="col-12">
-          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
-            <h3 class="fs-6 mb-0 align-self-baseline">MOBILES:</h3>
-            <ul class="nav gap-2 justify-content-center justify-content-sm-start">
-              <li class="mb-0"><a href="">Moto E</a></li>
-              <li class="mb-0"><a href="">Samsung Mobile</a></li>
-              <li class="mb-0"><a href="">Micromax Mobile</a></li>
-              <li class="mb-0"><a href="">Nokia Mobile</a></li>
-              <li class="mb-0"><a href="">HTC Mobile</a></li>
-              <li class="mb-0"><a href="">Sony Mobile</a></li>
-              <li class="mb-0"><a href="">Apple Mobile</a></li>
-              <li class="mb-0"><a href="">LG Mobile</a></li>
-              <li class="mb-0"><a href="">Karbonn Mobile</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
 
       <div class="row">
         <div class="col-12">
           <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
-            <h3 class="fs-6 mb-0 align-self-baseline">FOOTWEAR:</h3>
+            <h3 class="fs-6 mb-0 align-self-baseline">{{"SERVICES:"}}</h3>
             <ul class="nav gap-2 justify-content-center justify-content-sm-start">
-              <li class="mb-0"><a href="">Shoes</a></li>
-              <li class="mb-0"><a href="">Casual Shoes</a></li>
-              <li class="mb-0"><a href="">Sports Shoes</a></li>
-              <li class="mb-0"><a href="">Formal Shoes</a></li>
-              <li class="mb-0"><a href="">Adedas Shoes</a></li>
-              <li class="mb-0"><a href="">Gas Shoes</a></li>
-              <li class="mb-0"><a href="">Pume Shoes</a></li>
-              <li class="mb-0"><a href="">Reebok Shoes</a></li>
-              <li class="mb-0"><a href="">Woodlend Shoes</a></li>
-              <li class="mb-0"><a href="">Red tape Shoes</a></li>
-              <li class="mb-0"><a href="">Neke Shoes</a></li>
+              @foreach($services_nav as $service)
+                <li class="mb-0"><a href="<?php echo env('APP_URL'); ?>/search/doctors?results_type={{$service->service_name}}">{{$service->service_name}}</a></li>
+              @endforeach
             </ul>
           </div>
 
         </div>
       </div>
+
+      <div class="row mb-4 mb-lg-2">
+        <div class="col-12">
+          <div class="d-flex align-items-center gap-3  flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
+            <h3 class="fs-6 mb-0 text-nowrap align-self-baseline">{{ "DOCTORS:" }}</h3>
+            <ul class="nav gap-2 justify-content-center justify-content-sm-start">
+              @foreach($doctors_type as $doctor_type)
+                <li class="mb-0"><a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor_type->id }}">{{ $doctor_type->company_name }}</a></li>
+              @endforeach
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mb-4 mb-lg-2">
+        <div class="col-12">
+          <div class="d-flex align-items-center gap-3 flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
+            <h3 class="fs-6 mb-0 align-self-baseline">{{ "CLINICS:" }}</h3>
+            <ul class="nav gap-2 justify-content-center justify-content-sm-start">
+              @foreach($doctor_clinics as $doctor_clinic)
+                <li class="mb-0"><a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor_clinic->id }}">{{ $doctor_clinic->company_name }}</a></li>
+              @endforeach
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mb-4 mb-lg-2">
+        <div class="col-12">
+          <div class="d-flex align-items-center gap-3 flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start">
+            <h3 class="fs-6 mb-0 align-self-baseline">{{ "SPECIALITY:" }}</h3>
+            <ul class="nav gap-2 justify-content-center justify-content-sm-start">
+              @foreach($dentalNavs as $dental_nav_footer)
+                  @if(isset($dental_nav_footer->pages[0]))
+                      <li class="mb-0">
+                          <a href="{{ env('APP_URL') }}/service/{{ $dental_nav_footer->pages[0]->page_title }}?service={{ $dental_nav_footer->service_name }}">
+                              {{ $dental_nav_footer->service_name }}
+                          </a>
+                      </li>
+                  @endif
+              @endforeach
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
     <hr class="my-4">
