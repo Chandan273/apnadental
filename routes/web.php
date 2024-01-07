@@ -107,7 +107,12 @@ Route::view('/404', 'apnadental/404');
 //Route::view('/login', 'apnadental/login');
 Route::get('logout', [App\Http\Controllers\User\Auth\AuthController::class, 'logout'])->name('user.logout');
 Route::get('/register', [App\Http\Controllers\User\Auth\AuthController::class, 'index']);
-Route::post('/otp-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post'); 
+Route::post('/otpless-login', [App\Http\Controllers\User\Auth\AuthController::class, 'verifyOTP'])->name('otplogin.post');
+
+Route::post('/resend-otp', [App\Http\Controllers\User\Auth\AuthController::class, 'resendOtp'])->name('resendOtp.post');
+
+Route::post('/otpless-send-otp', [App\Http\Controllers\User\Auth\AuthController::class, 'otpLessSendOtp'])->name('otplessSendOtp.post');
+
 Route::post('/post-registration', [App\Http\Controllers\User\Auth\AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::get('/blog', [BlogController::class, 'blogPage']);
 Route::get('/blog-details/{id}', [BlogController::class, 'blogDetail']);
@@ -127,7 +132,8 @@ Route::get('{city}/specialties/{specialty}', [SearchController::class, 'findDoct
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.post');
 Route::get('/doctors-nav', [DoctorController::class, 'doctorsNav'])->name('doctors.nav');
 Route::get('/doctors-treatments', [DoctorController::class, 'doctorsTreatments'])->name('doctors.treatments');
-Route::get('/wordpress-api', [BlogController::class, 'wordPressAPI']);
+Route::get('/wordpress-category-api', [BlogController::class, 'wordPressAPI']);
+Route::get('/wordpress-blog-api', [BlogController::class, 'wordPressBlogAPI']);
 
 // new pages 
 Route::view('/my-account', 'apnadental/my_account');

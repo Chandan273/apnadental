@@ -19,7 +19,7 @@
             <i class="pe-7s-user h4 text-white mb-0"></i>
           </a>
           <ul class="dropdown-menu login-menu-cls bg-white border-0 rounded shadow p-3">
-            <form class="row g-3 userLogincard" id="otp-login-form-mobile">
+            {{-- <form class="row g-3 userLogincard" id="otp-login-form-mobile">
               @csrf
               <div class="col-12">
                 <h2 class="h4">Login</h2>
@@ -33,23 +33,15 @@
               <div class="col-12">
                 <span class="input-group-text"><i class="icon-lock-open"></i></span>                 
                 <input type="password" class="form-control" placeholder="Enter OTP" name="otp" />
-                {{-- <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
-                  <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
-                  <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
-                  <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
-                  <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
-                  <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
-                  <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
-                </div>  --}}
               </div>
-              {{-- <div class="col-12">
+              <div class="col-12">
                 <a href="#0" class="forgot"><small>Forgot password?</small></a>
-              </div> --}}
+              </div>
               <div class="text-danger error-message"></div>
               <div class="col-12">
                 <input class="btn_1 w-100" type="submit" value="Login">
               </div>
-            </form>
+            </form> --}}
             <div class="userPopupcard">
               <div class="mt-3"></div>
               <li class="border-bottom py-2 mb-2" id="mobile_logged_name"></li>
@@ -565,39 +557,38 @@
               <i class="pe-7s-user h4 text-white mb-0"></i>
             </a>
             <ul class="dropdown-menu login-menu-cls bg-white border-0 rounded shadow p-3">
-                <form class="row g-3 userLogincard" id="otp-login-form">
+                <form class="row g-2 userLogincard" id="otp-login-form">
                   @csrf
                   <div class="col-12">
-                    <h2 class="h4">Login</h2>
+                    <h2 class="h5">{{"Login"}}</h2>
                   </div>
                   <div class="col-12">
                     <div class="input-group">                    
-                      <span class="input-group-text" id="inputGroup"><i class="icon-email"></i></span>                    
-                      <input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+                      <span class="input-group-text"><i class="icon-phone"></i></span>                    
+                      <input type="text" name="phone_no" id="otpless_phone_no" class="form-control" placeholder="Enter Phone Number">
                     </div>
                   </div>
-                  <div class="col-12">  
-                    <div class="input-group">  
-                      <span class="input-group-text" id="inputGroup"><i class="icon-lock-open"></i></span>                               
-                    <input type="password" class="form-control" placeholder="Enter OTP" name="otp" />
-                    </div>
-                    {{-- <div id="otp" class="inputs d-flex justify-content-between mb-3"> 
-                      <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
-                      <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
-                      <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
-                      <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
-                      <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
-                      <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
-                    </div>  --}}
+                  <div class="col-12 loginOtpBtn d-none">
+                    <div id="otp" class="otp-inputs d-flex justify-content-between mb-1">
+                        <input class="m-0 text-center form-control rounded" type="text" id="first" maxlength="1" />
+                        <input class="m-0 text-center form-control rounded" type="text" id="second" maxlength="1" />
+                        <input class="m-0 text-center form-control rounded" type="text" id="third" maxlength="1" />
+                        <input class="m-0 text-center form-control rounded" type="text" id="fourth" maxlength="1" />
+                        <input class="m-0 text-center form-control rounded" type="text" id="fifth" maxlength="1" />
+                        <input class="m-0 text-center form-control rounded" type="text" id="sixth" maxlength="1" />
+                      </div>
                   </div>
-                  {{-- <div class="col-12">
-                    <a href="#0" class="forgot"><small>Forgot password?</small></a>
-                  </div> --}}
+
                   <div class="text-danger error-message"></div>
                   <div class="col-12">
-                    <input class="btn_1 w-100" type="submit" value="Login">
+                    <input class="btn_1 w-100 sendOtpBtn" type="button" value="Send OTP">
+                    <input class="btn_1 w-100 loginOtpBtn d-none" type="button" value="Login">
                   </div>
                 </form>
+                <div class="offcanvas-footer resend-otp-footer d-none">
+                  <small class="text-muted">Didn’t receive the code?</small><br>
+                  <input class="resendOtpBtn text-decoration-none text-pink" type="button" value="Resend OTP">
+                </div>
                 <div class="userPopupcard">
                   <div class="mt-3"></div>
                   <li class="border-bottom py-2 mb-2" id="logged_name"></li>

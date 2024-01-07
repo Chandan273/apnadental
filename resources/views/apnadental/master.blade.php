@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Find easily a doctor and book online an appointment">
 	<meta name="author" content="Ansonika">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>APNA DENTAL - Find easily a doctor and book online an appointment</title>
 
 	<!-- Favicons-->
@@ -44,6 +45,11 @@
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>
+	<div id="overlay" class="d-none">
+		<div class="spinner-border text-success" role="status">
+		  <span class="visually-hidden">Loading...</span>
+		</div>
+	</div>  
 	<!-- End Preload -->
 
 	@include('apnadental.layouts.header')
@@ -158,96 +164,245 @@
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 		$(document).ready(function () {
-			// $('#otp-login-form').submit(function (e) {
-			// 	e.preventDefault();
-			// 	var formData = $(this).serialize();
 
-			// 	$('.error-message').text("");
+			// Function to handle manual input in OTP fields
+			$('.otp-inputs input').on('input', function (e) {
+				var inputValue = $(this).val();
 
-			// 	$.ajax({
-			// 		type: "POST",
-			// 		url: "{{ route('otplogin.post') }}",
-			// 		data: formData,
-			// 		success: function (response) {
-			// 			if (response.success) {
-			// 				localStorage.setItem("logged", true);
-			// 				window.location.href = "<?php echo env('APP_URL'); ?>/";
-			// 			} else {
-			// 				$('.error-message').text(response.message);
-			// 			}
-			// 		},
-			// 		error: function (xhr, status, error) {
-			// 			console.log(xhr.responseText);
-			// 		}
-			// 	});
-			// });
+				// Check if the input value is not empty and contains non-numeric characters
+				if (inputValue.length > 0 && /[^0-9]/.test(inputValue)) {
+					// Show validation message for non-numeric input
+					$(this).val('');
 
-			// $('#) {
-			// 	e.preventDefault();
-			// 	var formData = $(this).serialize();
+					Swal.fire({
+						icon: 'error',
+						text: 'Please enter numbers only for OTP.',
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000
+					});
 
-			// 	$('.error-message').text("");
+					return;
+				}
 
-			// 	$.ajax({
-			// 		type: "POST",
-			// 		url: "{{ route('otplogin.post') }}",
-			// 		data: formData,
-			// 		success: function (response) {
-			// 			if (response.success) {
-			// 				localStorage.setItem("logged", 1);
-			// 				window.location.href = "<?php echo env('APP_URL'); ?>/";
-			// 			} else {
-			// 				$('.error-message').text(response.message);
-			// 			}
-			// 		},
-			// 		error: function (xhr, status, error) {
-			// 			console.log(xhr.responseText);
-			// 		}
-			// 	});
-			// });
+				if (inputValue.length > 0) {
+					$(this).next('input').focus();
+				}
+			});
 
-			// Login with otp and set info to local storage
-			$('#otpDoctorLogin, #otp-login-form, otp-login-form-mobile').submit(function(e) {
+			// Function to handle backspace key in OTP fields
+			$('.otp-inputs input').on('keydown', function (e) {
+				var key = e.which || e.keyCode;
+				if (key === 8 || key === 46) {
+					var prevInput = $(this).prev('input');
+					if ($(this).val().length === 0 && prevInput.length > 0) {
+						prevInput.focus();
+					}
+				}
+			});
+
+			// Handle focus when user clicks inside the OTP fields
+			$('.otp-inputs input').on('click', function () {
+				$(this).select();
+			});
+			
+			// Send OTP Function
+			$('.sendOtpBtn').on('click', function(e) {
 				e.preventDefault();
-				var formData = $(this).serialize();
+				
+				let phoneNumber = $('#otpless_phone_no').val();
+				let orderId = Math.floor(100000 + Math.random() * 900000);
+				let csrfToken = $('meta[name="csrf-token"]').attr('content');
+				let phoneRegex = /^\d{10}$/;
 
-				$('.error-message').text("");
+				if (!phoneRegex.test(phoneNumber)) {
+					Swal.fire({
+						icon: 'error',
+						text: 'Please enter a valid 10-digit phone number.',
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000
+					});
+					return;
+				}
+
+				let formData = {
+					_token: csrfToken,
+					phoneNumber: phoneNumber,
+					orderId: orderId
+				};
+
+				$('#overlay').removeClass('d-none');
 
 				$.ajax({
 					type: "POST",
-					url: "{{ route('otplogin.post') }}",
+					url: "{{ route('otplessSendOtp.post') }}",
 					data: formData,
+					success: function(response) {
+						if (response.success) {
+							$('#overlay').addClass('d-none');
+							Swal.fire({
+								icon: 'success',
+								text: response.message,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 2000
+							});
+
+							localStorage.setItem("orderId", orderId);
+
+							$(".sendOtpBtn").addClass('d-none');
+							$(".loginOtpBtn").removeClass('d-none');
+							$(".resend-otp-footer").removeClass('d-none');
+						
+						} else {
+							$('#overlay').addClass('d-none');
+							Swal.fire({
+								icon: 'error',
+								text: response.message,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 3000
+							});
+						}
+					},
+					error: function(xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+
+			//Login With OTP
+			$(".loginOtpBtn").click(function(e){
+				event.preventDefault();
+
+				let phoneNumber = $('#otpless_phone_no').val();
+				let csrfToken = $('meta[name="csrf-token"]').attr('content');
+				let phoneRegex = /^\d{10}$/;
+
+				if (!phoneRegex.test(phoneNumber)) {
+					Swal.fire({
+						icon: 'error',
+						text: 'Please enter a valid 10-digit phone number.',
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000
+					});
+					return;
+				}
+
+				var otp = '';
+
+				$('.otp-inputs input').each(function () {
+					otp += $(this).val();
+				});
+
+				if (otp.length === 6) {
+					let loginData = {
+						_token: csrfToken,
+						phone_no: phoneNumber,
+						otp: otp,
+						orderId: localStorage.getItem("orderId")
+					}
+
+					$('#overlay').removeClass('d-none');
+
+					$.ajax({
+						type: "POST",
+						url: "{{ route('otplogin.post') }}",
+						data: loginData,
+						success: function (response) {
+							if (response.success && response.userData) {
+
+								$('#overlay').addClass('d-none');
+
+								Swal.fire({
+									icon: 'success',
+									text: response.message,
+									toast: true,
+									position: 'top-end',
+									showConfirmButton: false,
+									timer: 2000
+								})
+
+								$('.userLogincard').hide();
+								$('.userPopupcard').show();
+								$('.register-card-cls').hide();
+								$('.resend-otp-footer').addClass('d-none');
+								$("#modalHeading").text("Booking Time Slot");
+								$('#logged_name').text(response.userData.name);
+								$('#logged_email').text(response.userData.email);
+								$('#logged_phone').text(response.userData.phone_no);
+								$('#mobile_logged_name').text(response.userData.name);
+								$('#mobile_logged_email').text(response.userData.email);
+								$('#mobile_logged_phone').text(response.userData.phone_no);
+
+								localStorage.setItem("logged", 1);
+								localStorage.setItem("user_name", response.userData.name);
+								localStorage.setItem("user_email", response.userData.email);
+								localStorage.setItem("user_phone_no", response.userData.phone_no);
+								localStorage.setItem("orderId", "");
+
+								$(".login_card").hide();
+								$('#Timeslot').fadeIn(1000);
+							} else {
+								$('#overlay').addClass('d-none');
+								Swal.fire({
+									icon: 'error',
+									text: response.message,
+									toast: true,
+									position: 'top-end',
+									showConfirmButton: false,
+									timer: 3000
+								});
+							}
+						},
+						error: function (xhr, status, error) {
+							console.log(xhr.responseText);
+						}
+					});
+				}
+			});
+
+			// Resend OTP
+			$(".resendOtpBtn").on('click', function(e) {
+				event.preventDefault();
+				
+				$('#overlay').addClass('d-none');
+				let csrfToken = $('meta[name="csrf-token"]').attr('content');
+				
+				let orderData = {
+					_token: csrfToken,
+					orderId: localStorage.getItem("orderId")
+				};
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('resendOtp.post') }}",
+					data: orderData,
 					success: function (response) {
-						if (response.success && response.userData) {
+						if (response.success && response.message) {
+
+							$('#overlay').addClass('d-none');
 
 							Swal.fire({
 								icon: 'success',
-								text: `Login Succesfully!`,
+								text: response.message,
 								toast: true,
 								position: 'top-end',
 								showConfirmButton: false,
 								timer: 2000
 							})
 
-							$('.userLogincard').hide();
-							$('.userPopupcard').show();
-							$('.register-card-cls').hide();
-							$("#modalHeading").text("Booking Time Slot");
-							$('#logged_name').text(response.userData.name);
-							$('#logged_email').text(response.userData.email);
-							$('#logged_phone').text(response.userData.phone_no);
-							$('#mobile_logged_name').text(response.userData.name);
-							$('#mobile_logged_email').text(response.userData.email);
-							$('#mobile_logged_phone').text(response.userData.phone_no);
-
-							localStorage.setItem("logged", 1);
-							localStorage.setItem("user_name", response.userData.name);
-							localStorage.setItem("user_email", response.userData.email);
-							localStorage.setItem("user_phone_no", response.userData.phone_no);
-
-							$(".login_card").hide();
-							$('#Timeslot').fadeIn(1000);
 						} else {
+
+							$('#overlay').addClass('d-none');
+
 							Swal.fire({
 								icon: 'error',
 								text: response.message,
