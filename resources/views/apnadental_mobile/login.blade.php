@@ -34,8 +34,7 @@
                 </form>
             </div>
             <div class="mt-auto text-center mb-3">
-                <a href="#" class="link-underline link-underline-opacity-0 text-dark fs-5 fw-bold text-white">I will Sign up Later</a>
-                <p class="fs-sm text-center text-white mt-2">By Continuing, you agree to our <a href="#" class="text-pink"> Terms & Conditions</a></p>
+                <p class="fs-sm text-center text-white mt-2">By Continuing, you agree to our <a href="#" class="text-pink">Terms & Conditions</a></p>
             </div>
         </div>
     </div>

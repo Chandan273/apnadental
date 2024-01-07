@@ -97,7 +97,7 @@
 
 							Swal.fire({
 								icon: 'success',
-								text: `Login Succesfully!`,
+								text: `Welcome Back!`,
 								toast: true,
 								position: 'top-end',
 								showConfirmButton: false,
