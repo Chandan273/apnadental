@@ -32,13 +32,7 @@ class AuthController extends Controller
         $phoneNo = $request->input('phoneNumber');
         $orderId = $request->input('orderId');
 
-        $user = User::where('phone_no', $phoneNo)->first();
-
-        if(empty($user)){
-            return response()->json(['success' => false, 'message' => 'Please enter registered phone number.']);
-        }
-        
-        if ($user) {
+        if ($phoneNo) {
 
             $curl = curl_init();
 
@@ -56,7 +50,7 @@ class AuthController extends Controller
                     "orderId":' . $orderId . ',
                     "hash":"",
                     "otpLength": 6,
-                    "channel":"WHATSAPP",
+                    "channel":"SMS,WHATSAPP",
                     "expiry": 60
                 }',
                 CURLOPT_HTTPHEADER => array(
@@ -87,8 +81,14 @@ class AuthController extends Controller
         $orderId = $request->input('orderId');
         $user = User::where('phone_no', $phoneNo)->first();
 
-        if(empty($phoneNo)){
-            return response()->json(['success' => false, 'message' => 'Please enter registered phone number.']);
+        if(empty($user)){
+            $user = new User();
+            $user->name = $request->input('phone_no');
+            $user->email  = $request->input('phone_no').'@apnadental.com';
+            $user->phone_no = $request->input('phone_no');
+            $user->	otp = 123456;
+            $user->	password = Hash::make($request->input('phone_no'));
+            $user->save();
         }
 
         if($user){
@@ -122,6 +122,8 @@ class AuthController extends Controller
             $response = json_decode($response, true);
 
             if(isset($response['isOTPVerified']) && $response['isOTPVerified']){
+                Auth::login($user);
+
                 return response()->json(['success' => true, 'response'=>$response, 'message' => 'Login Succesfully!', 'userData' => $user]);
             }else{
                 return response()->json(['success' => false, 'response'=>$response, 'message' => $response['reason']]);

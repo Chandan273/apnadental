@@ -45,7 +45,7 @@
             <div class="main-head mt-2">
                 <h2 class="offcanvas-title mb-2" id="offcanvasBottomLabel">Verify OTPs</h2>
                 <p class="mb-0 text-secondary mb-1">We have sent an OTP to your mobile number</p>
-                <p class="text-secondary"><span id="show_phoneno"></span> <a href="#" class="text-decoration-none text-pink">Change</a>
+                <p class="text-secondary"><span id="show_phoneno"></span> <!--a href="#" class="text-decoration-none text-pink">Change</a-->
                 </p>
             </div>
 
@@ -66,7 +66,7 @@
             </form>
             <div class="offcanvas-footer pt-5">
                 <p class="mb-1 text-secondary">Didn’t receive the code?</p>
-                <a href="#" type="button" class="text-decoration-none text-pink">Resend code</a>
+                <a href="javascript:void(0)" type="button" class="resendOtpBtn text-decoration-none text-pink">Resend code</a>
             </div>
         </div>
     </div>
@@ -76,7 +76,9 @@
 <script>
     $(document).ready(function(){
         $("#validate_phone_no").click(function(){
+
             var phoneNumber = $("#phone").val().trim();
+            
             if(phoneNumber === ""){
                 Swal.fire({
                     icon: 'error',
@@ -101,11 +103,57 @@
                     return false;
                 }
             }
+            let orderId = Math.floor(100000 + Math.random() * 900000);
+			let csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-            $("#show_phoneno").text(phoneNumber);
-            $("#show_otp_modal").trigger("click");
-            $("#phone_no").val(phoneNumber);
+            let formData = {
+                _token: csrfToken,
+                phoneNumber: phoneNumber,
+                orderId: orderId
+            };
 
+            $.ajax({
+                type: "POST",
+                url: "{{ route('otplessSendOtp.post') }}",
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        
+                        $("#show_phoneno").text(phoneNumber);
+                        $("#show_otp_modal").trigger("click");
+                        $("#phone_no").val(phoneNumber);
+                        
+                        Swal.fire({
+                            icon: 'success',
+                            text: response.message,
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+
+                        localStorage.setItem("orderId", orderId);
+
+                        $(".sendOtpBtn").addClass('d-none');
+                        $(".loginOtpBtn").removeClass('d-none');
+                        $(".resend-otp-footer").removeClass('d-none');
+                    
+                    } else {
+                        $('#overlay').addClass('d-none');
+                        Swal.fire({
+                            icon: 'error',
+                            text: response.message,
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
         });
     });
 
@@ -127,10 +175,38 @@
         }
 
         // Trigger updateOTP function on OTP input field change
-        $('.otp-inputs input').on('input', function () {
-            if ($(this).val().length > 0) {
+        // $('.otp-inputs input').on('input', function () {
+        //     if ($(this).val().length > 0) {
+        //         $(this).next('input').focus();
+        //     }
+        //     updateOTP();
+        // });
+
+        // Function to handle manual input in OTP fields
+        $('.otp-inputs input').on('input', function (e) {
+            var inputValue = $(this).val();
+
+            // Check if the input value is not empty and contains non-numeric characters
+            if (inputValue.length > 0 && /[^0-9]/.test(inputValue)) {
+                // Show validation message for non-numeric input
+                $(this).val('');
+
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Please enter valid OTP.',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            if (inputValue.length > 0) {
                 $(this).next('input').focus();
             }
+
             updateOTP();
         });
 

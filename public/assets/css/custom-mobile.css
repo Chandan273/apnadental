@@ -441,3 +441,16 @@ ul.pagination .page-item.active>.page-link,
 .slider-clinics .slick-dots li button {
     display: none;
 }
+
+a.doctor-service-link {
+    text-decoration: none;
+    color: #212529;
+}
+
+a.proceed-btn-cls.btn.button-pink-fill.w-100.py-3.rounded-4.text-white {
+    position: fixed;
+    bottom: 65px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}

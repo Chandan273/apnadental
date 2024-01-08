@@ -107,6 +107,7 @@
     <div>
         <div class="main-head d-flex justify-content-between">
             <h2 class="mb-0">Recently visited Doctors</h2>
+            <a href="<?php echo env('APP_URL'); ?>/doctors" class="text-info text-decoration-none">View All</a>
         </div>
         
         <div class="slider-doctors">
@@ -114,14 +115,17 @@
             <div class="mb-4">
                 <div class="d-flex doctor-info gap-2 py-4">
                     <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                        <img src="{{$doctor->image}}"
-                            class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
+                        <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" class="doctor-service-link">
+                            <img src="{{$doctor->image}}" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $doctor->company_name }}">
+                        </a>
                     </div>
 
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between gap-1">
                             <div>
-                                <h5 class="mb-1 line-clamp">{{ $doctor->company_name }}</h5>
+                                <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $doctor->id }}" class="doctor-service-link">
+                                    <h5 class="mb-1 line-clamp">{{ $doctor->company_name }}</h5>
+                                </a>
                                 <p class="mb-0 fs-sm">{{ $doctor->main_category }}</p>
                                 <p class="mb-0 fs-sm">{{ $doctor->experience }}, {{ $doctor->city }}</p>
                                 <h4 class="mt-1 fs-sm">₹{{ $doctor->fee }} Consultation Fees</h4>
@@ -161,7 +165,7 @@
                         <a href="tel://{{ $doctor->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
                                 class="bi bi-telephone-fill pe-2"></i> Call</a>
                         @if (!Auth::check())
-                            <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                        <a href="javascript:void(0)" onclick="bookAppointmentBtn('/book-appointment/{{ $doctor->id }}')" class="btn button-pink-fill">Book appointment</a>
                         @endif
 
                         @if (Auth::check())
@@ -184,32 +188,36 @@
        
             <div class="bg-white text-center specialized-item p-1 mx-2 h-100">
                 <div class="p-4 img-wrap bg-primary rounded-pill mb-4">
-                    <img src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}">
+                    <a href="<?php echo env('APP_URL'); ?>/search/doctors?results_type={{$service->service_name}}" class="doctor-service-link">
+                        <img src="{{ asset('public/'.$service->service_image) }}" alt="{{$service->service_name}}">
+                    </a>
                 </div>
-                <h6 class="mb-0">{{$service->service_name}}</h6>
+                <a href="<?php echo env('APP_URL'); ?>/search/doctors?results_type={{$service->service_name}}" class="doctor-service-link">
+                    <h6 class="mb-0">{{$service->service_name}}</h6>
+                </a>
                 <p class="text-info mb-0">{{$service->total_count}} specialist</p>
             </div>
         @endforeach
     </div>
 
-
-
     <div class="main-head d-flex justify-content-between align-items-center">
         <h2 class="mb-0">Top rated clinics</h2>
+        <a href="<?php echo env('APP_URL'); ?>/search/clinics" class="text-info text-decoration-none">View All</a>
     </div>
     <div class="slider-clinics">
         @foreach ($random_clinics as $clinic)
         <div class="mb-4 px-2">
             <div class="d-flex doctor-info gap-2 py-4">
                 <div class="mob-card-img-wrap bg-primary position-relative overflow-hidden rounded-pill">
-                    <img src="{{$clinic->image}}"
-                        class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $clinic->company_name }}">
+                    <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}">
+                        <img src="{{$clinic->image}}" class="position-absolute w-100 h-100 object-fit-cover start-0 top-0" alt="{{ $clinic->company_name }}">
+                    </a>
                 </div>
 
                 <div class="flex-grow-1">
                     <div class="d-flex justify-content-between gap-1">
                         <div>
-                            <h5 class="mb-1 line-clamp">{{ $clinic->company_name }}</h5>
+                            <a href="<?php echo env('APP_URL'); ?>/doctor-details/{{ $clinic->id }}" class="doctor-service-link"><h5 class="mb-1 line-clamp">{{ $clinic->company_name }}</h5></a>
                             <p class="mb-0 fs-sm">{{ $clinic->main_category }}</p>
                             <p class="mb-0 fs-sm">{{ $clinic->experience }}, {{ $clinic->city }}</p>
                             <h4 class="mt-1 fs-sm">₹{{ $clinic->fee }} Consultation Fees</h4>
@@ -249,7 +257,7 @@
                     <a href="tel://{{ $clinic->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i
                             class="bi bi-telephone-fill pe-2"></i> Call</a>
                     @if (!Auth::check())
-                        <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                        <a href="javascript:void(0)" onclick="bookAppointmentBtn('/book-appointment/{{ $clinic->id }}')" class="btn button-pink-fill">Book appointment</a>
                     @endif
 
                     @if (Auth::check())

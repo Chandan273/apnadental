@@ -85,7 +85,7 @@
                 <a href="tel://{{ $clinic->phone }}" class="btn me-1 d-inline-flex btn-outline-success"><i class="bi bi-telephone-fill pe-2"></i>
                     Call</a>
                 @if (!Auth::check())
-                    <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                    <a href="javascript:void(0)" onclick="bookAppointmentBtn('/book-appointment/{{ $clinic->id }}')" class="btn button-pink-fill">Book appointment</a>
                 @endif
 
                 @if (Auth::check())

@@ -5,7 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Find easily a doctor and book online an appointment">
-	<meta name="author" content="Ansonika">
+	<meta name="author" content="Chandan rajan snuriya">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>APNA DENTAL - Find easily a doctor and book online an appointment</title>
 
 	<!-- Favicons-->
@@ -82,16 +83,29 @@
 			window.history.back();
 		}
 
+		function bookAppointmentBtn(link){
+			localStorage.setItem("forward_link", link);
+			window.location.replace('<?php echo env('APP_URL'); ?>/login');
+		}
+
 		$('#otp_login').submit(function(e) {
 				e.preventDefault();
-				var formData = $(this).serialize();
+
+				let csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+				let loginData = {
+					_token: csrfToken,
+					phone_no: $("#phone_no").val(),
+					otp: $("#otp_number").val(),
+					orderId: localStorage.getItem("orderId")
+				}
 
 				$('.error-message').text("");
 
 				$.ajax({
 					type: "POST",
 					url: "{{ route('otplogin.post') }}",
-					data: formData,
+					data: loginData,
 					success: function (response) {
 						if (response.success && response.userData) {
 
@@ -123,17 +137,55 @@
 							$(".login_card").hide();
 							$('#Timeslot').fadeIn(1000);
 
-							var currentPageSlug = window.location.pathname.split('/').pop();
-							if (currentPageSlug === 'login') {
-								setTimeout(function() {
-									window.location.href = "<?php echo env('APP_URL'); ?>";
-								}, 3000);
-							} else {
-								// Redirect to the previous page after 3 seconds
-								setTimeout(function() {
-									window.history.back();
-								}, 3000);
-							}
+							var forward_link = localStorage.getItem("forward_link");
+
+							setTimeout(function() {
+								var appUrl = "<?php echo env('APP_URL'); ?>";
+								var authUrl = appUrl + forward_link;
+								window.location.href = authUrl;
+							}, 3000);
+							
+
+						} else {
+							Swal.fire({
+								icon: 'error',
+								text: response.message,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 3000
+							});
+						}
+					},
+					error: function (xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+
+			// Resend OTP
+			$(".resendOtpBtn").on('click', function() {
+				let csrfToken = $('meta[name="csrf-token"]').attr('content');
+			
+				let orderData = {
+					_token: csrfToken,
+					orderId: localStorage.getItem("orderId")
+				};
+
+				$.ajax({
+					type: "POST",
+					url: "{{ route('resendOtp.post') }}",
+					data: orderData,
+					success: function (response) {
+						if (response.success && response.message) {
+							Swal.fire({
+								icon: 'success',
+								text: response.message,
+								toast: true,
+								position: 'top-end',
+								showConfirmButton: false,
+								timer: 2000
+							})
 
 						} else {
 							Swal.fire({
