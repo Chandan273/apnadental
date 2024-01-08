@@ -141,8 +141,8 @@
             <div class="row g-2 row-cols-4 radio-wrapper my-3">
                 @php
                     // Start time and end time for 24-hour time slots
-                    $startTime = strtotime('00:00');
-                    $endTime = strtotime('23:30');
+                    $startTime = strtotime('08:00');
+                    $endTime = strtotime('22:00');
                 @endphp
 
                 @for ($time = $startTime; $time <= $endTime; $time += 1800)
@@ -165,7 +165,7 @@
             </div>
 
             <div class="my-4 mb-0 mt-5 pt-5">
-                <a href="javascript:void(0)" onclick="bookNow('{{ $doctor->id }}', '{{ addslashes($doctor->company_name) }}', '{{ addslashes($doctor->secondary_category) }}', '{{ addslashes($doctor->work_timings) }}')" class="btn button-pink-fill w-100 py-3 rounded-4 text-white">Proceed to Book Appointment</a>
+                <a href="javascript:void(0)" onclick="bookNow('{{ $doctor->id }}', '{{ addslashes($doctor->company_name) }}', '{{ addslashes($doctor->secondary_category) }}', '{{ addslashes($doctor->work_timings) }}')" class="proceed-btn-cls btn button-pink-fill w-100 py-3 rounded-4 text-white">Proceed to Book Appointment</a>
             </div>
         </div>
     </div>

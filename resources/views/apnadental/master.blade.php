@@ -176,7 +176,7 @@
 
 					Swal.fire({
 						icon: 'error',
-						text: 'Please enter numbers only for OTP.',
+						text: 'Please enter valid OTP.',
 						toast: true,
 						position: 'top-end',
 						showConfirmButton: false,

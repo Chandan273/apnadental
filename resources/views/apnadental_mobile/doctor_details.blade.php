@@ -87,7 +87,14 @@
     <div class="bg-primary rounded-4 my-3 p-3 mb-4 position-relative overflow-hidden">
         <p class="mb-0 text-info">introductory offer</p>
         <h4 class="text-white">Video <br>Consultation</h4>
-        <a href="#" class="btn mt-2 button-pink-fill"> Book appointment </a>
+        @if (!Auth::check())
+            <a href="javascript:void(0)" onclick="bookAppointmentBtn('/book-appointment/{{ $doctor->id }}')" class="btn mt-2 button-pink-fill"> Book appointment </a>
+        @endif
+
+        @if (Auth::check())
+            <a href="<?php echo env('APP_URL'); ?>/book-appointment/{{ $doctor->id }}" class="btn mt-2 button-pink-fill"> Book appointment</a>
+        @endif
+
         <img src="{{ asset('public/assets/mobileImages/video-consultation.svg') }}" class="position-absolute object-fit-contain end-0 bottom-0"
             alt="book appointment for video consultation">
     </div>
@@ -132,7 +139,7 @@
         </div>
     </div>
 
-    <div class="main-head d-flex justify-content-between align-items-center">
+    {{-- <div class="main-head d-flex justify-content-between align-items-center">
         <h2 class="mb-0">User Reviews</h2>
     </div>
     <div class="d-flex reviews gap-3 justify-content-between py-4">
@@ -191,9 +198,9 @@
             <h6 class="text-center mb-1 fs-sm">Based on</h6>
             <p class="text-info fs-sm fw-medium">537 Reviews</p>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="mb-4 d-flex gap-2 flex-wrap">
+    {{-- <div class="mb-4 d-flex gap-2 flex-wrap">
         <button class="btn btn-outline-secondary btn-sm rounded-4 px-3" type="button" href="#">Most
             Helpful</button>
         <button class="btn btn-outline-secondary btn-sm rounded-4 px-3" type="button" href="#">Recent</button>
@@ -280,7 +287,7 @@
 
     <div class="text-center mb-4">
         <button type="button" class="btn button-pink-fill rounded-3 btn-sm px-3">View More Reviews</a>
-    </div>
+    </div> --}}
 
     {{-- <div class="">
         <div class="main-head d-flex justify-content-between align-items-center">
@@ -543,7 +550,7 @@
                 class="bi bi-telephone-fill pe-2"></i>
             Call</a>
             @if (!Auth::check())
-                <a href="<?php echo env('APP_URL'); ?>/login" class="btn button-pink-fill">Book appointment</a>
+                <a href="javascript:void(0)" onclick="bookAppointmentBtn('/book-appointment/{{ $doctor->id }}')" class="btn button-pink-fill">Book appointment</a>
             @endif
 
             @if (Auth::check())

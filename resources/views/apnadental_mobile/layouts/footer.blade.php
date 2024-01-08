@@ -41,7 +41,7 @@
                 </svg>
                 @if (!Auth::check())
                     <h6 class="fs-xs mb-0 mt-2 fw-normal text-uppercase">Login</h6>
-                    <a href="<?php echo env('APP_URL'); ?>/login" class="stretched-link"></a>
+                    <a href="javascript:void(0)" onclick="bookAppointmentBtn('')" class="stretched-link"></a>
                 @endif
                 @if (Auth::check())
                     <h6 class="fs-xs mb-0 mt-2 fw-normal text-uppercase">Logout</h6>
